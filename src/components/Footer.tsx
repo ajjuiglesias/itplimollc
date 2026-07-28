@@ -134,30 +134,35 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
             </span>
             <div className="space-y-3.5 text-xs text-white/70 font-normal">
               <a
-                href="tel:9199999999"
+                href="tel:17818640618"
                 className="flex items-center gap-2.5 hover:text-white transition-colors group"
               >
                 <div className="p-2 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="block font-medium text-white">+1 (919) 999-9999</span>
-                  <span className="text-[10px] text-white/50">24/7 Phone Concierge</span>
+                  <span className="block font-medium text-white">+1 (781) 864-0618</span>
+                  <span className="text-[10px] text-white/50">24/7 Dispatch Desk</span>
                 </div>
               </a>
 
               <a
-                href="mailto:concierge@itpluxury.com"
+                href="mailto:itplimo.raleigh@gmail.com"
                 className="flex items-center gap-2.5 hover:text-white transition-colors group"
               >
                 <div className="p-2 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="block font-medium text-white">concierge@itpluxury.com</span>
-                  <span className="text-[10px] text-white/50">Direct Email Response</span>
+                  <span className="block font-medium text-white">itplimo.raleigh@gmail.com</span>
+                  <span className="text-[10px] text-white/50">Direct Email Concierge</span>
                 </div>
               </a>
+
+              <div className="flex items-start gap-2.5 pt-1 text-white/70">
+                <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <span>2613 Silver Gate Ct, Wake Forest, NC 27587</span>
+              </div>
             </div>
           </div>
         </div>

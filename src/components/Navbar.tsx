@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation, darkMode, onT
           <div className="hidden md:flex items-center gap-5">
             {/* Direct Phone / Support */}
             <a
-              href="tel:9195552662"
+              href="tel:17818640618"
               className={`text-xs uppercase tracking-[0.18em] font-medium transition-colors flex items-center gap-1.5 ${
                 scrolled || mobileMenuOpen
                   ? 'text-[#66625C] dark:text-[#B8B8B8] hover:text-[#171717] dark:hover:text-white'
@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation, darkMode, onT
               }`}
             >
               <Phone className="w-3.5 h-3.5 text-[#171717] dark:text-[#F8F6F2]" />
-              <span>SUPPORT</span>
+              <span>+1 (781) 864-0618</span>
             </a>
 
             {/* Theme Toggle */}
