@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { LocationsSection } from './components/LocationsSection';
@@ -10,6 +13,8 @@ import { TrustSection } from './components/TrustSection';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { ReservationModal } from './components/ReservationModal';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const App: React.FC = () => {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
@@ -36,6 +41,33 @@ export const App: React.FC = () => {
   const handleToggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  // Initialize GSAP & Lenis Smooth Inertial Scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 2.0,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const updateTicker = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateTicker);
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove(updateTicker);
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
