@@ -31,7 +31,7 @@ export const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section id="experience" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -81,7 +81,7 @@ export const ExperienceSection: React.FC = () => {
         </motion.div>
 
         {/* 3 Clean Horizontal Editorial Columns (No Cards!) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 divide-y md:divide-y-0 md:divide-x divide-black/10 dark:divide-white/10 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-4">
           {sanctuaryPillars.map((pillar, idx) => {
             const Icon = pillar.icon;
 
@@ -92,13 +92,12 @@ export const ExperienceSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className={`${idx > 0 ? 'md:pl-12 pt-8 md:pt-0' : 'pr-0'}`}
+                className="pr-0"
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-between gap-3 mb-4">
                   <span className="text-xs font-mono font-bold text-[#888888]">
                     {pillar.number}
                   </span>
-                  <div className="h-px bg-black/15 dark:bg-white/20 flex-1" />
                   <Icon className="w-4 h-4 text-[#171717] dark:text-white" />
                 </div>
 

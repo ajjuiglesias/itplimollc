@@ -29,7 +29,7 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReserv
   ];
 
   return (
-    <section className="bg-white dark:bg-[#0F0F0F] py-28 sm:py-36 transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section className="bg-white dark:bg-[#0F0F0F] py-28 sm:py-36 transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Headline */}
         <motion.div
@@ -51,7 +51,7 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReserv
         </motion.div>
 
         {/* Clean Editorial Split Grid (No Cards!) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 divide-y lg:divide-y-0 lg:divide-x divide-black/10 dark:divide-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {locations.map((loc, idx) => (
             <motion.div
               key={loc.city}
