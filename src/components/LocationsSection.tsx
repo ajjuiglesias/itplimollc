@@ -50,8 +50,8 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReserv
           </p>
         </motion.div>
 
-        {/* Clean Editorial Split Grid (No Cards!) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        {/* Clean Editorial Split Grid - 50% Each */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {locations.map((loc, idx) => (
             <motion.div
               key={loc.city}
@@ -59,7 +59,7 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReserv
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className={`flex flex-col justify-between ${idx === 1 ? 'lg:pl-24 pt-12 lg:pt-0' : 'pr-0'}`}
+              className="flex flex-col justify-between w-full"
             >
               <div>
                 {/* Header Badge */}
