@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* PP Fragment Font Family Registration */
+@font-face {
+  font-family: 'PP Fragment Glare';
+  src: url('/font/pp-fragment/PPFragment-GlareLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Fragment Glare';
+  src: url('/font/pp-fragment/PPFragment-GlareRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Fragment Glare';
+  src: url('/font/pp-fragment/PPFragment-GlareExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Fragment Serif';
+  src: url('/font/pp-fragment/PPFragment-SerifLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Fragment Serif';
+  src: url('/font/pp-fragment/PPFragment-SerifRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Fragment Serif';
+  src: url('/font/pp-fragment/PPFragment-SerifExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Fragment Sans';
+  src: url('/font/pp-fragment/PPFragment-SansLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Fragment Sans';
+  src: url('/font/pp-fragment/PPFragment-SansRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Fragment Sans';
+  src: url('/font/pp-fragment/PPFragment-SansExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Fragment Text';
+  src: url('/font/pp-fragment/PPFragment-TextRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #FAF8F5;
+    --bg-secondary: #F2EFE9;
+    --bg-elevated: #FFFFFF;
+    --accent: #171717;
+    --accent-hover: #333333;
+    --accent-glow: rgba(0, 0, 0, 0.08);
+    --text-primary: #171717;
+    --text-muted: #66625C;
+    --border-subtle: rgba(23, 23, 23, 0.1);
+    --border-gold: rgba(23, 23, 23, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-gold-bg: rgba(255, 255, 255, 0.95);
+    --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark {
+    --bg-primary: #0F0F0F;
+    --bg-secondary: #1A1A1A;
+    --bg-elevated: #242424;
+    --accent: #FFFFFF;
+    --accent-hover: #E5E5EA;
+    --accent-glow: rgba(255, 255, 255, 0.1);
+    --text-primary: #F8F6F2;
+    --text-muted: #B8B8B8;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-gold: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(26, 26, 26, 0.75);
+    --glass-gold-bg: rgba(26, 26, 26, 0.85);
+    --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 400ms ease, color 400ms ease;
+  }
+
+  h1, h2, h3, .font-serif-luxury, .font-serif {
+    font-family: 'PP Fragment Glare', Georgia, serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #D4CEBF;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #171717;
+}
+
+/* Luxury Utilities — Matte Black, Gray, White aesthetic */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--card-shadow);
+}
+
+.glass-panel-gold {
+  background: var(--glass-gold-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--card-shadow);
+}
+
+.text-gold-gradient {
+  color: #171717;
+}
+
+.dark .text-gold-gradient {
+  color: #F8F6F2;
+}
+
+.gold-gradient-bg {
+  background: #171717;
+}
+
+.dark .gold-gradient-bg {
+  background: #FFFFFF;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+}
+
+/* High-Intensity Liquidmorphism Utilities */
+.liquid-glass-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.3) 100%);
+  backdrop-filter: blur(40px) saturate(220%);
+  -webkit-backdrop-filter: blur(40px) saturate(220%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.35),
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .liquid-glass-container {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.4) 50%, rgba(25, 25, 25, 0.55) 100%);
+  backdrop-filter: blur(40px) saturate(220%);
+  -webkit-backdrop-filter: blur(40px) saturate(220%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.8),
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 2px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.liquid-glass-input {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.35) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(255, 255, 255, 0.5);
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .liquid-glass-input {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.liquid-glass-input:focus-within {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.65) 100%);
+  border-color: #FFFFFF;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.06),
+    0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+.dark .liquid-glass-input:focus-within {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.12) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Liquid Blob Animation */
+@keyframes liquidFlow {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-liquid-blob {
+  animation: liquidFlow 12s infinite ease-in-out;
+}
+
+/* Smooth Page Transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
