@@ -81,7 +81,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenReservat
   ];
 
   return (
-    <section id="services" className="py-28 sm:py-36 bg-white dark:bg-[#0F0F0F] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section id="services" className="py-28 sm:py-36 bg-white dark:bg-[#141414] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div

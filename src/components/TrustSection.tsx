@@ -70,7 +70,7 @@ export const TrustSection: React.FC = () => {
   };
 
   return (
-    <section id="trust" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section id="trust" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#070707] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header with Carousel Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-8">

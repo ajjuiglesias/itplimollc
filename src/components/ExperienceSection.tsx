@@ -31,7 +31,7 @@ export const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500 overflow-hidden">
+    <section id="experience" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#070707] transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div

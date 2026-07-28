@@ -66,7 +66,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicle }) =
   const currentVehicle = fleet[activeVehicle];
 
   return (
-    <section id="fleet" className="py-28 sm:py-36 bg-[#0F0F0F] text-white transition-colors duration-500 overflow-hidden border-t border-white/10">
+    <section id="fleet" className="py-28 sm:py-36 bg-[#070707] dark:bg-[#070707] text-white transition-colors duration-500 overflow-hidden border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div

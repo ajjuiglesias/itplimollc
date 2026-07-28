@@ -34,7 +34,7 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-28 sm:py-36 bg-white dark:bg-[#0F0F0F] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section id="faq" className="py-28 sm:py-36 bg-white dark:bg-[#141414] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div

@@ -29,7 +29,7 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReserv
   ];
 
   return (
-    <section className="bg-white dark:bg-[#0F0F0F] py-28 sm:py-36 transition-colors duration-500 overflow-hidden">
+    <section className="bg-white dark:bg-[#141414] py-28 sm:py-36 transition-colors duration-500 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Headline */}
         <motion.div
