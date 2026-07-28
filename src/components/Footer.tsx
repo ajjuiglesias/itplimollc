@@ -35,12 +35,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16 pb-20 border-b border-white/10">
           {/* Brand & Statement */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center gap-3">
-              <img
-                src="/images/itp_logo.png"
-                alt="ITP LIMO Executive Transportation"
-                className="h-12 sm:h-14 w-auto object-contain brightness-200 contrast-200"
-              />
+            <div className="flex items-center gap-2">
+              <span className="font-serif text-3xl font-bold tracking-tight text-white">ITP</span>
+              <span className="text-xs uppercase tracking-[0.3em] font-extrabold text-white/70">LIMO</span>
             </div>
 
             <p className="text-sm text-white/70 font-normal leading-relaxed max-w-sm">

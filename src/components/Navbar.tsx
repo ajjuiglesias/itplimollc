@@ -42,16 +42,17 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
       >
         <div className="w-full max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between">
           {/* Logo (Left) */}
-          <a href="#" className="group flex items-center gap-3 flex-shrink-0">
-            <img
-              src="/images/itp_logo.png"
-              alt="ITP LIMO Executive Transportation"
-              className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 ${
-                scrolled || mobileMenuOpen
-                  ? 'dark:brightness-200 dark:contrast-200'
-                  : 'brightness-200 contrast-200 filter drop-shadow-md'
-              }`}
-            />
+          <a href="#" className="group flex items-center gap-2 flex-shrink-0">
+            <span className={`font-serif text-2xl sm:text-[1.7rem] font-bold tracking-tight leading-none transition-colors duration-300 ${
+              scrolled || mobileMenuOpen
+                ? 'text-[#171717] dark:text-white'
+                : 'text-white drop-shadow-md'
+            }`}>ITP</span>
+            <span className={`text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-extrabold leading-none transition-colors duration-300 ${
+              scrolled || mobileMenuOpen
+                ? 'text-[#66625C] dark:text-[#A0A0A0]'
+                : 'text-white/80 drop-shadow-md'
+            }`}>LIMO</span>
           </a>
 
           {/* Nav Items (Center) */}
