@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plane, Building2, Clock, ShieldCheck, ArrowRight, Check, Plus, Minus } from 'lucide-react';
 
-interface ServicesSectionProps {
-  onOpenReservation: () => void;
-}
-
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenReservation }) => {
+export const ServicesSection: React.FC = () => {
   const [openId, setOpenId] = useState<string>('airport');
 
   const services = [

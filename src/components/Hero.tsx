@@ -2,11 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ReservationWidget } from './ReservationWidget';
 
-interface HeroProps {
-  onOpenReservation: (data?: any) => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onOpenReservation }) => {
+export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-16 overflow-hidden bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500">
       {/* Background Video Layer — YouTube Embed (MY6KbNWHE2k) */}
@@ -62,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenReservation }) => {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="w-full mt-2"
         >
-          <ReservationWidget onSelectBooking={onOpenReservation} />
+          <ReservationWidget />
         </motion.div>
       </div>
     </section>

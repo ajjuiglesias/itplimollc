@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Users, Plane, Baby, ArrowRight, CheckCircle2 } from 'lucide-react';
 
-interface ReservationWidgetProps {
-  onSelectBooking: (data: any) => void;
-}
-
-export const ReservationWidget: React.FC<ReservationWidgetProps> = ({ onSelectBooking }) => {
+export const ReservationWidget: React.FC = () => {
   const [serviceType, setServiceType] = useState<'one-way' | 'hourly' | 'airport'>('airport');
   const [pickup, setPickup] = useState('RDU International Airport (RDU)');
   const [dropoff, setDropoff] = useState('Downtown Raleigh / North Hills');
@@ -17,21 +13,6 @@ export const ReservationWidget: React.FC<ReservationWidgetProps> = ({ onSelectBo
   const [childSeatType, setChildSeatType] = useState<'none' | 'infant' | 'convertible' | 'booster'>('none');
   const [hours, setHours] = useState(4);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSelectBooking({
-      serviceType: serviceType === 'hourly' ? 'hourly' : 'airport',
-      pickupLocation: pickup,
-      dropoffLocation: serviceType === 'hourly' ? `${hours} Hours As-Directed` : dropoff,
-      date,
-      time,
-      passengers,
-      flightNumber: flightNum,
-      childSeatRequired: childSeat,
-      childSeatType,
-      hourlyDuration: hours,
-    });
-  };
 
   const tabStyle = (active: boolean) =>
     `px-5 py-2 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 cursor-pointer ${
@@ -76,7 +57,7 @@ export const ReservationWidget: React.FC<ReservationWidgetProps> = ({ onSelectBo
       </div>
 
       {/* Main Form Fields — Dedicated 6-Column Grid Layout */}
-      <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+      <form className="space-y-4 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1.3fr_1.3fr_0.8fr_0.8fr_0.8fr_auto] gap-3.5 items-stretch">
           {/* 1. Pickup Field */}
           <div className={inputWrapStyle}>

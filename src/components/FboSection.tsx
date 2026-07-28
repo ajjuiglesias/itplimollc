@@ -2,11 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Plane, ShieldCheck, FileText, ArrowRight, CheckCircle2 } from 'lucide-react';
 
-interface FboSectionProps {
-  onOpenReservation: () => void;
-}
-
-export const FboSection: React.FC<FboSectionProps> = ({ onOpenReservation }) => {
+export const FboSection: React.FC = () => {
   const fboFeatures = [
     {
       title: 'Tarmac Direct Pickup',
@@ -97,10 +93,10 @@ export const FboSection: React.FC<FboSectionProps> = ({ onOpenReservation }) => 
 
             <div>
               <button
-                onClick={onOpenReservation}
-                className="w-full py-4 rounded-full bg-[#171717] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold hover:bg-[#333333] dark:hover:bg-[#E5E5EA] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg cursor-pointer"
+                disabled
+                className="w-full py-4 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-lg"
               >
-                <span>Book FBO Private Transfer</span>
+                <span>Coming Soon</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

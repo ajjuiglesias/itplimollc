@@ -2,11 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin, Navigation } from 'lucide-react';
 
-interface LocationsSectionProps {
-  onOpenReservation: (data?: any) => void;
-}
-
-export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReservation }) => {
+export const LocationsSection: React.FC = () => {
   const locations = [
     {
       city: 'Boston',

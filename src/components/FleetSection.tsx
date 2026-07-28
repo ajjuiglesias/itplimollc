@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Briefcase, Wifi, Shield, ArrowRight, Check } from 'lucide-react';
 
-interface FleetSectionProps {
-  onSelectVehicle?: (vehicleName: string) => void;
-}
-
-export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicle }) => {
+export const FleetSection: React.FC = () => {
   const [activeVehicle, setActiveVehicle] = useState(0);
 
   const fleet = [

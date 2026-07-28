@@ -3,12 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X, Sun, Moon, ChevronDown, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenReservation: () => void;
   darkMode: boolean;
   onToggleDarkMode: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation, darkMode, onToggleDarkMode }) => {
+export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

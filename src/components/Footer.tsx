@@ -1,11 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ArrowUpRight, Shield, Lock } from 'lucide-react';
 
-interface FooterProps {
-  onOpenReservation: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#080808] text-white pt-24 pb-16 border-t border-white/10 relative overflow-hidden">
       {/* Subtle Background Glow */}
