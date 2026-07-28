@@ -38,20 +38,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenReservation }) => {
           {/* Main Headline — PP Fragment Glare */}
           <h1 className="font-serif font-medium text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white mb-4 drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
             Leading Private Chauffeur <br className="hidden sm:inline" />
-            <span className="text-white font-light drop-shadow-md">Tracking &amp; Safety</span>
+            <span className="text-white font-light drop-shadow-md">Tracking & Safety</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg text-white/90 max-w-2xl font-light leading-relaxed mb-7 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-            Dedicated RDU Airport Concierge, Real-Time FAA Flight Radar Synchronization, &amp; Bespoke Executive Mobility.
+            Dedicated RDU Airport Concierge, Real-Time FAA Flight Radar Synchronization, & Bespoke Executive Mobility.
           </p>
 
           {/* Centered Pill Button CTA */}
           <button
-            onClick={() => onOpenReservation()}
-            className="px-9 py-3.5 rounded-full bg-[#171717] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.25em] font-bold hover:bg-[#333333] dark:hover:bg-[#E5E5EA] transition-all shadow-2xl cursor-pointer hover:scale-105"
+            disabled
+            className="px-9 py-3.5 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.25em] font-bold shadow-2xl cursor-not-allowed opacity-70"
           >
-            GET STARTED TODAY
+            COMING SOON
           </button>
         </motion.div>
 

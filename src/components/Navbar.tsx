@@ -86,7 +86,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation, darkMode, onT
                   : 'text-white/90 hover:text-white'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#171717] dark:text-[#F8F6F2]" />
+              <Phone className={`w-3.5 h-3.5 ${
+                scrolled || mobileMenuOpen
+                  ? 'text-[#171717] dark:text-[#F8F6F2]'
+                  : 'text-white'
+              }`} />
               <span>+1 (781) 864-0618</span>
             </a>
 
@@ -105,10 +109,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation, darkMode, onT
 
             {/* Primary Accent Pill CTA Button: Matte Black / Crisp White */}
             <button
-              onClick={onOpenReservation}
-              className="px-6 py-2.5 rounded-full bg-[#171717] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-bold hover:bg-[#333333] dark:hover:bg-[#E5E5EA] transition-all shadow-md cursor-pointer"
+              disabled
+              className="px-6 py-2.5 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-bold shadow-md cursor-not-allowed opacity-70"
             >
-              <span>BOOK NOW</span>
+              <span>COMING SOON</span>
             </button>
           </div>
 
@@ -155,13 +159,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation, darkMode, onT
               ))}
 
               <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenReservation();
-                }}
-                className="w-full mt-2 py-4 rounded-full bg-[#171717] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-widest font-bold shadow-lg cursor-pointer flex items-center justify-center gap-2"
+                disabled
+                className="w-full mt-2 py-4 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-widest font-bold shadow-lg cursor-not-allowed opacity-70 flex items-center justify-center gap-2"
               >
-                <span>BOOK NOW</span>
+                <span>COMING SOON</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

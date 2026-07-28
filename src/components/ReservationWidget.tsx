@@ -9,7 +9,7 @@ export const ReservationWidget: React.FC<ReservationWidgetProps> = ({ onSelectBo
   const [serviceType, setServiceType] = useState<'one-way' | 'hourly' | 'airport'>('airport');
   const [pickup, setPickup] = useState('RDU International Airport (RDU)');
   const [dropoff, setDropoff] = useState('Downtown Raleigh / North Hills');
-  const [date, setDate] = useState('2026-07-28');
+  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [time, setTime] = useState('14:30');
   const [passengers, setPassengers] = useState(2);
   const [flightNum, setFlightNum] = useState('DL 1842');
@@ -176,11 +176,12 @@ export const ReservationWidget: React.FC<ReservationWidgetProps> = ({ onSelectBo
 
           {/* 6. Liquid Glass High-Contrast CTA Button */}
           <button
-            type="submit"
-            className="h-full min-h-[52px] px-7 py-3.5 rounded-2xl bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer group hover:scale-[1.03] active:scale-[0.97] shadow-[0_12px_35px_rgba(0,0,0,0.4),inset_0_1.5px_1.5px_rgba(255,255,255,0.4)] dark:shadow-[0_12px_35px_rgba(255,255,255,0.25),inset_0_1.5px_1.5px_rgba(255,255,255,0.9)] border border-white/40 dark:border-white/80"
+            type="button"
+            disabled
+            className="h-full min-h-[52px] px-7 py-3.5 rounded-2xl bg-[#0F0F0F]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold flex items-center justify-center gap-2 whitespace-nowrap cursor-not-allowed opacity-70 border border-white/20 dark:border-white/40"
           >
-            <span>View options</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>Coming soon</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 

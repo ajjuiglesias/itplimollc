@@ -189,10 +189,10 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ onSelectVehicle }) =
                 {/* CTA Button */}
                 <div className="pt-4">
                   <button
-                    onClick={() => onSelectVehicle?.(currentVehicle.name)}
-                    className="w-full py-4 rounded-full bg-white text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold hover:bg-[#E5E5EA] transition-all duration-300 flex items-center justify-center gap-3 shadow-xl cursor-pointer"
+                    disabled
+                    className="w-full py-4 rounded-full bg-white/60 text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-xl"
                   >
-                    <span>Reserve {currentVehicle.name}</span>
+                    <span>Coming Soon</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>

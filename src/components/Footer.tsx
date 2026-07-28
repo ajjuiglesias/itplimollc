@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ArrowUpRight, Shield, Compass, Lock } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUpRight, Shield, Lock } from 'lucide-react';
 
 interface FooterProps {
   onOpenReservation: () => void;
@@ -27,10 +27,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
           </div>
 
           <button
-            onClick={onOpenReservation}
-            className="px-9 py-4 rounded-full bg-white text-[#080808] text-xs uppercase tracking-[0.2em] font-extrabold hover:bg-[#E5E5EA] transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl shrink-0 cursor-pointer hover:scale-105"
+            disabled
+            className="px-9 py-4 rounded-full bg-white/60 text-[#080808]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-2xl shrink-0"
           >
-            <span>Reserve a Chauffeur</span>
+            <span>Coming Soon</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>

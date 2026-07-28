@@ -121,11 +121,11 @@ export const LocationsSection: React.FC<LocationsSectionProps> = ({ onOpenReserv
               {/* Action Button */}
               <div>
                 <button
-                  onClick={() => onOpenReservation({ pickupLocation: loc.pickupDefault })}
-                  className="w-full py-4 rounded-full bg-[#171717] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold hover:bg-[#333333] dark:hover:bg-[#E5E5EA] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg cursor-pointer group"
+                  disabled
+                  className="w-full py-4 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-lg"
                 >
-                  <span>Reserve in {loc.city}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span>Coming Soon</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </motion.div>
