@@ -14,7 +14,7 @@ import { ReservationModal } from './components/ReservationModal';
 export const App: React.FC = () => {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
   const [initialBookingData, setInitialBookingData] = useState<any>(null);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleOpenReservation = (data?: any) => {
     if (data) {
