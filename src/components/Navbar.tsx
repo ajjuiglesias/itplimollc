@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from './providers/ThemeProvider';
 
 /** Past this offset the bar condenses into the floating island. */
@@ -13,11 +15,12 @@ const HIDE_AFTER = 160;
 const DIRECTION_THRESHOLD = 6;
 
 const navLinks = [
-  { name: 'Services', href: '#services', hasDropdown: true },
-  { name: 'Sanctuary', href: '#experience', hasDropdown: true },
-  { name: 'Fleet', href: '#fleet', hasDropdown: false },
-  { name: 'Flight Radar', href: '#flight-tracking', hasDropdown: false },
-  { name: 'About ITP', href: '#why-us', hasDropdown: true },
+  { name: 'Services', href: '/services' },
+  { name: 'Fleet', href: '/fleet' },
+  { name: 'Private Aviation', href: '/private-aviation' },
+  { name: 'Flight Radar', href: '/flight-tracking' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -26,31 +29,17 @@ export const Navbar: React.FC = () => {
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
 
-  // Scroll spy: highlight whichever section is currently occupying the viewport.
+  // A nav item is active on its own page and on anything nested beneath it,
+  // so /fleet stays lit while viewing /fleet/cadillac-escalade-esv.
+  const isActiveRoute = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+  // Close the drawer whenever navigation completes.
   useEffect(() => {
-    const sections = navLinks
-      .map((link) => document.querySelector(link.href))
-      .filter((el): el is Element => el !== null);
-
-    if (!sections.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible) setActiveSection(`#${visible.target.id}`);
-      },
-      { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     let frame = 0;
@@ -114,7 +103,7 @@ export const Navbar: React.FC = () => {
           }`}
         >
           {/* Logo (Left) — baseline-locked wordmark */}
-          <a href="#" className="group flex items-baseline gap-1.5 flex-shrink-0 leading-none">
+          <Link href="/" className="group flex items-baseline gap-1.5 flex-shrink-0 leading-none">
             <span
               className={`font-serif text-2xl sm:text-[1.7rem] font-bold tracking-tight leading-none transition-colors duration-300 ${
                 condensed ? 'text-[#171717] dark:text-white' : 'text-white drop-shadow-md'
@@ -131,7 +120,7 @@ export const Navbar: React.FC = () => {
             >
               LIMO
             </span>
-          </a>
+          </Link>
 
           {/* Nav Items (Center) */}
           <nav
@@ -139,14 +128,14 @@ export const Navbar: React.FC = () => {
             onMouseLeave={() => setHoveredLink(null)}
           >
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href;
+              const isActive = isActiveRoute(link.href);
 
               return (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onMouseEnter={() => setHoveredLink(link.name)}
-                  className={`relative px-3.5 py-2 rounded-xl text-xs uppercase tracking-[0.16em] font-medium transition-colors flex items-center gap-1 group ${
+                  className={`relative px-3 py-2 rounded-xl text-xs uppercase tracking-[0.14em] font-medium transition-colors flex items-center gap-1 group ${
                     condensed
                       ? isActive
                         ? 'text-[#171717] dark:text-white'
@@ -169,15 +158,7 @@ export const Navbar: React.FC = () => {
 
                   <span className="relative">{link.name}</span>
 
-                  {link.hasDropdown && (
-                    <ChevronDown
-                      className={`relative w-3 h-3 opacity-50 group-hover:translate-y-0.5 transition-transform ${
-                        condensed ? 'text-[#171717] dark:text-[#F8F6F2]' : 'text-white'
-                      }`}
-                    />
-                  )}
-
-                  {/* Active-section marker */}
+                  {/* Current-route marker */}
                   {isActive && (
                     <motion.span
                       layoutId="nav-active-dot"
@@ -185,7 +166,7 @@ export const Navbar: React.FC = () => {
                       transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                     />
                   )}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -269,14 +250,18 @@ export const Navbar: React.FC = () => {
             >
               <div className="flex flex-col gap-5">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-sm uppercase tracking-widest font-semibold text-[#171717] dark:text-[#F8F6F2] py-2 border-b border-black/5 dark:border-white/5"
+                    className={`text-sm uppercase tracking-widest font-semibold py-2 border-b border-black/5 dark:border-white/5 ${
+                      isActiveRoute(link.href)
+                        ? 'text-[#171717] dark:text-[#F8F6F2]'
+                        : 'text-[#171717]/70 dark:text-[#F8F6F2]/70'
+                    }`}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
 
                 {/* Direct dispatch line — the primary contact route while booking is disabled */}

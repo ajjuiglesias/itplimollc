@@ -7,10 +7,23 @@ import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 
+/*
+ * Canonical URLs resolve against this. Set NEXT_PUBLIC_SITE_URL to the real
+ * domain once it is known — until then canonicals resolve against the Vercel
+ * deployment URL, which is not what should be indexed long term.
+ */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'http://localhost:3000');
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'ITP Concierge | Private Chauffeur & Executive Transportation Raleigh RDU',
   description:
     "ITP is Raleigh's premier private chauffeur and executive concierge service. Airport transfers, flight tracking, corporate fleets, and bespoke luxury travel.",
+  alternates: { canonical: '/' },
 };
 
 export default function RootLayout({

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Phone, Mail, MapPin, Shield, Lock } from 'lucide-react';
 import {
   CallDispatchButton,
@@ -64,36 +65,20 @@ export const Footer: React.FC = () => {
               Navigation
             </span>
             <ul className="space-y-3 text-xs font-normal text-white/70">
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Bespoke Services
-                </a>
-              </li>
-              <li>
-                <a href="#experience" className="hover:text-white transition-colors">
-                  Sanctuary Experience
-                </a>
-              </li>
-              <li>
-                <a href="#fleet" className="hover:text-white transition-colors">
-                  Flagship Fleet
-                </a>
-              </li>
-              <li>
-                <a href="#fbo" className="hover:text-white transition-colors">
-                  FBO Private Aviation
-                </a>
-              </li>
-              <li>
-                <a href="#trust" className="hover:text-white transition-colors">
-                  Client Reviews
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  Concierge FAQ
-                </a>
-              </li>
+              {[
+                { label: 'Bespoke Services', href: '/services' },
+                { label: 'Flagship Fleet', href: '/fleet' },
+                { label: 'FBO Private Aviation', href: '/private-aviation' },
+                { label: 'Live Flight Tracking', href: '/flight-tracking' },
+                { label: 'About ITP', href: '/about' },
+                { label: 'Contact Dispatch', href: '/contact' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-white transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -175,15 +160,12 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} ITP Luxury Mobility Corp. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">
+            <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Protocol
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
               Terms of Chauffeur Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Non-Disclosure Agreement
-            </a>
+            </Link>
           </div>
         </div>
       </div>
