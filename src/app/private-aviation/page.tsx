@@ -116,16 +116,9 @@ export default function PrivateAviationPage() {
                   {location.city}
                 </h3>
 
-                <ul className="mt-5 space-y-3">
-                  {location.detail.fbos.map((fbo) => (
-                    <li
-                      key={fbo}
-                      className="text-sm font-light text-[#524E48] dark:text-[#CCCCCC]"
-                    >
-                      {fbo}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-4 text-sm font-light text-[#524E48] dark:text-[#CCCCCC]">
+                  {location.airport} ({location.airportCode})
+                </p>
 
                 <Link
                   href={`/locations/${location.slug}`}

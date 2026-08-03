@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { MapPin, Navigation, Plane } from 'lucide-react';
+import { Briefcase, Check, MapPin, Users } from 'lucide-react';
 import { locations, getLocation } from '@/content/locations';
-import { services } from '@/content/services';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
@@ -23,8 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!location) return {};
 
   return {
-    title: `${location.city} Private Chauffeur & ${location.airportCode} Airport Car Service | ITP Limo`,
-    description: location.desc,
+    title: location.metaTitle,
+    description: location.metaDescription,
     alternates: { canonical: `/locations/${location.slug}` },
   };
 }
@@ -40,132 +39,243 @@ export default async function LocationPage({ params }: PageProps) {
   return (
     <>
       <PageHero
-        eyebrow={`${location.state} · Hub`}
-        title={`${location.city} chauffeur service.`}
-        subtitle={location.desc}
+        eyebrow={`${location.city}, ${location.stateAbbr}`}
+        title={location.hero.title}
+        subtitle={location.hero.intro}
         crumbs={[
           { label: 'Home', href: '/' },
           { label: 'Locations' },
           { label: location.city },
         ]}
         image={location.image}
-        ctaLabel={`Arrange ${location.city} Transfer`}
+        ctaLabel={`Book a ${location.city} Ride`}
       />
 
+      {/* Serving — split image / key locations */}
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <p className="text-base font-light leading-relaxed text-[#524E48] sm:text-lg dark:text-[#CCCCCC]">
-                {location.detail.intro}
-              </p>
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-6">
+              <div className="relative h-[340px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[460px] dark:border-white/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={location.image}
+                  alt={`ITP Limo chauffeur service in ${location.city}`}
+                  className="h-full w-full object-cover brightness-[0.8] contrast-[1.05]"
+                />
+              </div>
+            </div>
 
-              <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight text-[#171717] sm:text-4xl dark:text-[#F8F6F2]">
-                Areas we cover
+            <div className="lg:col-span-6">
+              <h2 className="font-serif text-4xl font-medium leading-[1.1] tracking-tight text-[#171717] sm:text-5xl dark:text-[#F8F6F2]">
+                {location.serving.title}
               </h2>
 
-              <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {location.detail.neighbourhoods.map((area) => (
+              <p className="mt-5 text-base font-light leading-relaxed text-[#524E48] dark:text-[#CCCCCC]">
+                {location.serving.intro}
+              </p>
+
+              <ul className="mt-8 space-y-0">
+                {location.serving.keyLocations.map((place) => (
                   <li
-                    key={area}
-                    className="flex items-center gap-2.5 border-b border-black/10 py-3 text-sm text-[#524E48] dark:border-white/10 dark:text-[#CCCCCC]"
+                    key={place}
+                    className="flex items-center gap-3 border-b border-black/10 py-3.5 text-sm text-[#171717] dark:border-white/10 dark:text-[#F8F6F2]"
                   >
-                    <MapPin className="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    {area}
+                    <MapPin className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    {place}
                   </li>
                 ))}
               </ul>
 
-              <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight text-[#171717] sm:text-4xl dark:text-[#F8F6F2]">
-                Featured corridors
-              </h2>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {location.routes.map((route) => (
-                  <span
-                    key={route}
-                    className="rounded-full bg-black/5 px-4 py-2 text-xs font-medium text-[#171717] dark:bg-white/10 dark:text-[#F8F6F2]"
-                  >
-                    {route}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-6 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                {location.serving.closing}
+              </p>
             </div>
-
-            <aside className="lg:col-span-5">
-              <div className="rounded-[28px] border border-black/10 bg-[#FAF8F5] p-8 dark:border-white/10 dark:bg-[#1A1A1A]">
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#66625C] dark:text-[#A0A0A0]">
-                  Primary airport
-                </span>
-                <p className="mt-3 flex items-center gap-2.5 text-sm font-semibold text-[#171717] dark:text-[#F8F6F2]">
-                  <Navigation className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  {location.airport}
-                </p>
-
-                <span className="mt-8 block text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#66625C] dark:text-[#A0A0A0]">
-                  FBO & private aviation
-                </span>
-                <ul className="mt-4 space-y-3">
-                  {location.detail.fbos.map((fbo) => (
-                    <li
-                      key={fbo}
-                      className="flex items-center gap-2.5 text-sm font-light text-[#524E48] dark:text-[#CCCCCC]"
-                    >
-                      <Plane className="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                      {fbo}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 flex flex-col items-center gap-3">
-                  <CallDispatchButton label="Call 24/7 Dispatch" fullWidth />
-                  <BookingSoonNote />
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
 
-      {/* Service cross-links keep each location page connected to the rest of the site */}
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 dark:border-white/5 dark:bg-[#070707]">
+      {/* Services */}
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            eyebrow={`Serving ${location.city}`}
-            title="Available in this market."
-            align="left"
-            className="mb-12"
+            eyebrow="What We Offer"
+            title={`Our ${location.city} limo services.`}
+            className="mb-16"
           />
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group rounded-2xl border border-black/10 p-6 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:hover:bg-white/[0.04]"
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {location.services.map((service) => (
+              <article
+                key={service.title}
+                className="group overflow-hidden rounded-[24px] border border-black/10 bg-white transition-shadow duration-500 hover:shadow-xl dark:border-white/10 dark:bg-[#141414]"
               >
-                <service.icon className="h-5 w-5 text-[#171717] dark:text-[#F8F6F2]" />
-                <span className="mt-4 block font-serif text-xl font-medium text-[#171717] dark:text-[#F8F6F2]">
-                  {service.category}
-                </span>
-                <span className="mt-2 block text-xs font-light text-[#66625C] dark:text-[#B8B8B8]">
-                  {service.tagline}
-                </span>
-              </Link>
+                <div className="relative h-48 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover brightness-[0.75] transition-transform duration-[1200ms] group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-7">
+                  <h3 className="font-serif text-2xl font-medium tracking-tight text-[#171717] dark:text-[#F8F6F2]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                    {service.desc}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          {other && (
+      {/* Fleet */}
+      <section className="bg-[#070707] py-24 text-white sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader
+            eyebrow="The Fleet"
+            title="Choose your vehicle."
+            subtitle="Every vehicle is modern, spotless, and driven by a licensed professional chauffeur."
+            onDark
+            className="mb-16"
+          />
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {location.vehicles.map((vehicle) => (
+              <div
+                key={vehicle.name}
+                className="flex flex-col items-center gap-8 rounded-[28px] border border-white/12 bg-white/[0.03] p-8 sm:flex-row"
+              >
+                <div className="h-32 w-full shrink-0 overflow-hidden rounded-2xl sm:w-48">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="font-serif text-3xl font-medium uppercase tracking-tight text-white">
+                    {vehicle.name}
+                  </h3>
+
+                  <div className="mt-4 flex items-center justify-center gap-6 text-sm text-white/85 sm:justify-start">
+                    <span className="flex items-center gap-2">
+                      <Users className="h-4 w-4 text-emerald-400" />
+                      {vehicle.passengers} passengers
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Briefcase className="h-4 w-4 text-emerald-400" />
+                      {vehicle.luggage} bags
+                    </span>
+                  </div>
+
+                  <div className="mt-6 flex justify-center sm:justify-start">
+                    <CallDispatchButton label="Book Your Ride" variant="onDark" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why choose */}
+      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <h2 className="font-serif text-4xl font-medium leading-[1.1] tracking-tight text-[#171717] sm:text-5xl dark:text-[#F8F6F2]">
+                Why choose ITP Limo in {location.city}?
+              </h2>
+
+              <ul className="mt-8 space-y-0">
+                {location.whyChoose.map((reason) => (
+                  <li
+                    key={reason}
+                    className="flex items-start gap-3 border-b border-black/10 py-4 text-sm text-[#524E48] dark:border-white/10 dark:text-[#CCCCCC]"
+                  >
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    {reason}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-10 flex flex-col items-start gap-3">
+                <CallDispatchButton label="Request a Quote" />
+                <BookingSoonNote />
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="relative h-[340px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[440px] dark:border-white/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/escalade.png"
+                  alt={`ITP Limo fleet serving ${location.city}`}
+                  className="h-full w-full object-cover brightness-[0.85]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Areas served — the original ran this as one paragraph of commas; a grid
+          is far easier to scan and each town reads as its own term. */}
+      {location.areasServed.areas.length > 0 && (
+        <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+            <SectionHeader
+              eyebrow="Coverage"
+              title={`Areas we serve around ${location.city}.`}
+              subtitle={location.areasServed.intro}
+              align="left"
+              className="mb-12"
+            />
+
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-0 sm:grid-cols-3 lg:grid-cols-4">
+              {location.areasServed.areas.map((area) => (
+                <li
+                  key={area}
+                  className="flex items-center gap-2.5 border-b border-black/10 py-3.5 text-sm text-[#171717] dark:border-white/10 dark:text-[#F8F6F2]"
+                >
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  {area}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 max-w-3xl text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+              {location.areasServed.closing}
+            </p>
+
+            <div className="mt-10 flex flex-col items-start gap-3">
+              <CallDispatchButton label="Request a Quote" />
+              <BookingSoonNote />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {other && (
+        <section className="bg-white py-16 dark:bg-[#141414]">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <Link
               href={`/locations/${other.slug}`}
-              className="mt-12 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
+              className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
             >
               <MapPin className="h-4 w-4" />
               Also serving {other.city}, {other.stateAbbr}
             </Link>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
     </>
   );
 }

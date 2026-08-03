@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright & Legal Links */}
         <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 font-normal gap-4">
           <div>
-            © {new Date().getFullYear()} ITP Luxury Mobility Corp. All rights reserved.
+            © {new Date().getFullYear()} ITP LIMO LLC. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">
