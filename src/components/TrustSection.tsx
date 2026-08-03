@@ -36,7 +36,7 @@ export const TrustSection: React.FC = () => {
     },
     {
       quote:
-        'Having a Maybach waiting steps from our private charter at Signature Aviation RDU makes regional executive travel completely effortless.',
+        'Having a car waiting steps from our private charter at RDU makes regional executive travel completely effortless.',
       author: 'Dr. Elena Rostova',
       role: 'Chief Executive Officer, Biotech',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',

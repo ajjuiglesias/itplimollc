@@ -10,7 +10,7 @@ export const Testimonials: React.FC = () => {
   const reviews = [
     {
       quote:
-        'ITP is not a limo company — they are our personal travel concierge. When flying into RDU on our Gulfstream, their chauffeur is staged at TAC Air before our jet engines even power down. Phenomenal discretion and service.',
+        'ITP is not a limo company — they are our personal travel concierge. When flying into RDU on our Gulfstream, their chauffeur is staged at the terminal before our jet engines even power down. Phenomenal discretion and service.',
       author: 'Marcus V. Sterling',
       title: 'Managing Director, Private Equity Firm',
       location: 'Raleigh & New York',

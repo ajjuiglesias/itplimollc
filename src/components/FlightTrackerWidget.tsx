@@ -82,7 +82,7 @@ export const FlightTrackerWidget: React.FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-[#171717] dark:text-white" />
-                <span className="text-xs text-[#171717] dark:text-[#F8F6F2] font-light">Private Jet FBO Tarmac Greets (TAC Air / Signature)</span>
+                <span className="text-xs text-[#171717] dark:text-[#F8F6F2] font-light">Private Jet FBO Tarmac Greets</span>
               </div>
             </div>
           </div>

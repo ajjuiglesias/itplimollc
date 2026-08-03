@@ -23,7 +23,7 @@ export const ServicesSection: React.FC = () => {
         'Live Flight Delay Radar Synchronization',
         'Baggage Claim Meet & Greet with Name Sign',
         'Complimentary 60-Minute Airport Wait Time',
-        'Direct FBO Tarmac Access (TAC Air / Signature)',
+        'Direct FBO tarmac access on request',
       ],
     },
     {

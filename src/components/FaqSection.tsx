@@ -19,9 +19,9 @@ export const FaqSection: React.FC = () => {
         'Commercial airline arrivals include 60 minutes of complimentary wait time from the moment the aircraft wheels touch down. Private aviation FBO tarmac arrivals include complimentary wait time until you disembark.',
     },
     {
-      question: 'Can I request tarmac pickup at Signature Aviation or TAC Air?',
+      question: 'Can I request tarmac pickup at a private aviation terminal?',
       answer:
-        'Yes. We maintain active tarmac permits and security clearance at Signature Aviation, TAC Air, and regional FBO terminals in Boston and Raleigh. Your vehicle will be positioned directly by your aircraft stairs upon landing.',
+        'Tarmac access depends on the individual terminal’s permit and security requirements. Contact our dispatch desk with your arrival details and we will confirm what is possible at your specific FBO.',
     },
     {
       question: 'What is your cancellation and reservation modification policy?',

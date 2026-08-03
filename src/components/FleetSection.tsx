@@ -55,7 +55,7 @@ export const FleetSection: React.FC = () => {
         'Custom jet-converted executive cabin for financial roadshows, corporate teams, and private airport groups. Full stand-up headroom, conference seating, onboard Wi-Fi, and 110V AC power.',
       specs: [
         'Custom 14-passenger luxury executive seating',
-        'Direct FBO Tarmac Access (Signature Aviation & TAC Air)',
+        'Direct FBO tarmac access on request',
         'Complimentary 5G Wi-Fi & multi-device AC power outlets',
         'Quiet-Ride soundproofing for undisturbed conference calls',
       ],
