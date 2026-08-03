@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Sparkles, Phone, ArrowRight, ShieldCheck } from 'lucide-react';
 

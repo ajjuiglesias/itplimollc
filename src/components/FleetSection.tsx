@@ -1,6 +1,9 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Briefcase, Wifi, Shield, ArrowRight, Check } from 'lucide-react';
+import { Users, Briefcase, Check } from 'lucide-react';
+import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
 
 export const FleetSection: React.FC = () => {
   const [activeVehicle, setActiveVehicle] = useState(0);
@@ -183,14 +186,13 @@ export const FleetSection: React.FC = () => {
                 </div>
 
                 {/* CTA Button */}
-                <div className="pt-4">
-                  <button
-                    disabled
-                    className="w-full py-4 rounded-full bg-white/60 text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-xl"
-                  >
-                    <span>Coming Soon</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                <div className="pt-4 flex flex-col items-center gap-3">
+                  <CallDispatchButton
+                    label="Reserve This Vehicle"
+                    variant="onDark"
+                    fullWidth
+                  />
+                  <BookingSoonNote onDark />
                 </div>
               </motion.div>
             </AnimatePresence>

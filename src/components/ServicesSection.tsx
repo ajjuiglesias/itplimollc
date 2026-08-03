@@ -1,6 +1,9 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plane, Building2, Clock, ShieldCheck, ArrowRight, Check, Plus, Minus } from 'lucide-react';
+import { Plane, Building2, Clock, ShieldCheck, Check, Plus, Minus } from 'lucide-react';
+import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
 
 export const ServicesSection: React.FC = () => {
   const [openId, setOpenId] = useState<string>('airport');
@@ -159,14 +162,9 @@ export const ServicesSection: React.FC = () => {
                             ))}
                           </div>
 
-                          <div className="pt-4">
-                            <button
-                              disabled
-                              className="px-8 py-3.5 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center gap-2 shadow-md"
-                            >
-                              <span>Coming Soon</span>
-                              <ArrowRight className="w-4 h-4" />
-                            </button>
+                          <div className="pt-4 flex flex-wrap items-center gap-5">
+                            <CallDispatchButton label="Enquire Now" />
+                            <BookingSoonNote />
                           </div>
                         </div>
 

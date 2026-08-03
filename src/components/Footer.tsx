@@ -1,5 +1,10 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ArrowUpRight, Shield, Lock } from 'lucide-react';
+import { Phone, Mail, MapPin, Shield, Lock } from 'lucide-react';
+import {
+  CallDispatchButton,
+  BookingSoonNote,
+  DISPATCH_PHONE,
+} from './ui/CallDispatchButton';
 
 export const Footer: React.FC = () => {
   return (
@@ -22,13 +27,10 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <button
-            disabled
-            className="px-9 py-4 rounded-full bg-white/60 text-[#080808]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-2xl shrink-0"
-          >
-            <span>Coming Soon</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
+          <div className="flex flex-col items-center gap-3 shrink-0">
+            <CallDispatchButton label={DISPATCH_PHONE} variant="onDark" />
+            <BookingSoonNote onDark />
+          </div>
         </div>
 
         {/* Main Footer Columns Grid */}

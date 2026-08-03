@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Plane, Radio, CheckCircle2, RefreshCw, ChevronRight } from 'lucide-react';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
@@ -111,7 +113,7 @@ export const TrustSection: React.FC = () => {
         </div>
 
         {/* Multi-Card Testimonial Carousel Track */}
-        <div className="overflow-hidden pb-8 -mb-8 mb-20">
+        <div className="overflow-hidden pb-8 mb-20">
           <motion.div
             className="flex gap-8 items-stretch pb-4"
             animate={{ x: `-${currentIndex * (100 / maxVisible)}%` }}

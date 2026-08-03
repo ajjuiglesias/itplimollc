@@ -2,10 +2,18 @@
 node_modules
 .pnpm-store
 
+# Next.js
+.next
+out
+next-env.d.ts
+
 # Production build
 dist
 dist-ssr
 *.local
+
+# TypeScript
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
@@ -26,3 +34,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+
+# Env
+.env
+.env*.local

@@ -1,13 +1,12 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X, Sun, Moon, ChevronDown, ArrowRight } from 'lucide-react';
+import { useTheme } from './providers/ThemeProvider';
 
-interface NavbarProps {
-  darkMode: boolean;
-  onToggleDarkMode: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) => {
+export const Navbar: React.FC = () => {
+  const { darkMode, toggleDarkMode } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -56,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
           </a>
 
           {/* Nav Items (Center) */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden xl:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -76,11 +75,11 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
           </nav>
 
           {/* Right Action Links & CTA */}
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden xl:flex items-center gap-5">
             {/* Direct Phone / Support */}
             <a
               href="tel:17818640618"
-              className={`text-xs uppercase tracking-[0.18em] font-medium transition-colors flex items-center gap-1.5 ${
+              className={`text-xs uppercase tracking-[0.18em] font-medium transition-colors flex items-center gap-1.5 whitespace-nowrap ${
                 scrolled || mobileMenuOpen
                   ? 'text-[#66625C] dark:text-[#B8B8B8] hover:text-[#171717] dark:hover:text-white'
                   : 'text-white/90 hover:text-white'
@@ -96,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
 
             {/* Theme Toggle */}
             <button
-              onClick={onToggleDarkMode}
+              onClick={toggleDarkMode}
               className={`p-2 rounded-full border transition-all cursor-pointer flex items-center justify-center ${
                 scrolled || mobileMenuOpen
                   ? 'border-black/10 dark:border-white/15 text-[#171717] dark:text-[#F8F6F2]'
@@ -104,32 +103,48 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
               }`}
               title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
-              {darkMode ? <Sun className="w-4 h-4 text-white" /> : <Moon className="w-4 h-4 text-[#171717]" />}
+              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
 
-            {/* Primary Accent Pill CTA Button: Matte Black / Crisp White */}
-            <button
-              disabled
-              className="px-6 py-2.5 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-bold shadow-md cursor-not-allowed opacity-70"
+            {/* Booking status chip — reads as deliberate rather than a broken button */}
+            <span
+              className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border text-[10px] uppercase tracking-[0.2em] font-bold transition-all ${
+                scrolled || mobileMenuOpen
+                  ? 'border-black/15 text-[#66625C] dark:border-white/20 dark:text-[#B8B8B8]'
+                  : 'border-white/25 bg-black/30 text-white/80'
+              }`}
             >
-              <span>COMING SOON</span>
-            </button>
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              Booking Soon
+            </span>
           </div>
 
           {/* Mobile Hamburger Button */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex xl:hidden items-center gap-3">
             <button
-              onClick={onToggleDarkMode}
-              className="p-2 rounded-full border border-black/10 dark:border-white/15 text-[#171717] dark:text-[#F8F6F2]"
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-full border transition-all cursor-pointer ${
+                scrolled || mobileMenuOpen
+                  ? 'border-black/10 dark:border-white/15 text-[#171717] dark:text-[#F8F6F2]'
+                  : 'border-white/20 bg-black/40 text-white hover:bg-black/60'
+              }`}
               aria-label="Toggle Theme"
             >
-              {darkMode ? <Sun className="w-4 h-4 text-white" /> : <Moon className="w-4 h-4 text-[#171717]" />}
+              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-[#171717] dark:text-[#F8F6F2]"
+              className={`p-2 rounded-xl transition-colors cursor-pointer ${
+                scrolled || mobileMenuOpen
+                  ? 'text-[#171717] dark:text-[#F8F6F2]'
+                  : 'text-white drop-shadow-md'
+              }`}
               aria-label="Toggle Mobile Menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -144,7 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-[70px] z-40 bg-[#FAF8F5] dark:bg-[#0F0F0F] border-b border-black/10 dark:border-white/10 p-6 md:hidden shadow-2xl"
+            className="fixed inset-x-0 top-[70px] z-40 bg-[#FAF8F5] dark:bg-[#0F0F0F] border-b border-black/10 dark:border-white/10 p-6 xl:hidden shadow-2xl"
           >
             <div className="flex flex-col gap-5">
               {navLinks.map((link) => (
@@ -158,13 +173,30 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleDarkMode }) =>
                 </a>
               ))}
 
-              <button
-                disabled
-                className="w-full mt-2 py-4 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-widest font-bold shadow-lg cursor-not-allowed opacity-70 flex items-center justify-center gap-2"
+              {/* Direct dispatch line — the primary contact route while booking is disabled */}
+              <a
+                href="tel:17818640618"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 mt-1 py-3 text-[#171717] dark:text-[#F8F6F2]"
               >
-                <span>COMING SOON</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                <span className="p-2 rounded-full bg-black/5 dark:bg-white/10">
+                  <Phone className="w-4 h-4" />
+                </span>
+                <span>
+                  <span className="block text-sm font-bold tracking-wide">+1 (781) 864-0618</span>
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-[#66625C] dark:text-[#A0A0A0]">
+                    24/7 Dispatch Desk
+                  </span>
+                </span>
+              </a>
+
+              <span className="w-full mt-1 py-3 flex items-center justify-center gap-2.5 text-[10px] uppercase tracking-[0.22em] font-bold text-[#66625C] dark:text-[#A0A0A0]">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                </span>
+                Online reservations opening soon
+              </span>
             </div>
           </motion.div>
         )}

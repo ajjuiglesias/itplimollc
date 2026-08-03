@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Navigation } from 'lucide-react';
+import { MapPin, Navigation } from 'lucide-react';
+import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
 
 export const LocationsSection: React.FC = () => {
   const locations = [
@@ -115,14 +118,12 @@ export const LocationsSection: React.FC = () => {
               </div>
 
               {/* Action Button */}
-              <div>
-                <button
-                  disabled
-                  className="w-full py-4 rounded-full bg-[#171717]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold cursor-not-allowed opacity-70 flex items-center justify-center gap-3 shadow-lg"
-                >
-                  <span>Coming Soon</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+              <div className="flex flex-col items-center gap-3">
+                <CallDispatchButton
+                  label={`Arrange ${loc.city} Transfer`}
+                  fullWidth
+                />
+                <BookingSoonNote />
               </div>
             </motion.div>
           ))}

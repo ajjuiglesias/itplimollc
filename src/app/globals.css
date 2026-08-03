@@ -1,82 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
-@import 'lenis/dist/lenis.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* PP Fragment Font Family Registration */
-@font-face {
-  font-family: 'PP Fragment Glare';
-  src: url('/font/pp-fragment/PPFragment-GlareLight.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PP Fragment Glare';
-  src: url('/font/pp-fragment/PPFragment-GlareRegular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PP Fragment Glare';
-  src: url('/font/pp-fragment/PPFragment-GlareExtraBold.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PP Fragment Serif';
-  src: url('/font/pp-fragment/PPFragment-SerifLight.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PP Fragment Serif';
-  src: url('/font/pp-fragment/PPFragment-SerifRegular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PP Fragment Serif';
-  src: url('/font/pp-fragment/PPFragment-SerifExtraBold.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PP Fragment Sans';
-  src: url('/font/pp-fragment/PPFragment-SansLight.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PP Fragment Sans';
-  src: url('/font/pp-fragment/PPFragment-SansRegular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'PP Fragment Sans';
-  src: url('/font/pp-fragment/PPFragment-SansExtraBold.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PP Fragment Text';
-  src: url('/font/pp-fragment/PPFragment-TextRegular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/*
+ * Map Tailwind's font tokens onto the brand faces.
+ *
+ * This has to happen at the theme level, not in @layer base: `font-sans` and
+ * `font-serif` are utilities, and the utilities layer beats base, so a base-layer
+ * font-family rule for `.font-serif` is silently overridden. Redefining the
+ * tokens makes the utilities themselves resolve to the brand fonts.
+ */
+@theme {
+  --font-sans: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: var(--font-fragment-glare), Georgia, Cambria, 'Times New Roman', serif;
 }
 
 @layer base {
@@ -115,7 +51,7 @@
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -123,7 +59,7 @@
   }
 
   h1, h2, h3, .font-serif-luxury, .font-serif {
-    font-family: 'PP Fragment Glare', Georgia, serif;
+    font-family: var(--font-fragment-glare), Georgia, serif;
   }
 }
 
