@@ -4,6 +4,8 @@ import { Car, Globe, Plane, ShieldCheck } from 'lucide-react';
 import { locations } from '@/content/locations';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { PillarColumns } from '@/components/ui/PillarColumns';
+import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
@@ -60,22 +62,15 @@ export default function AboutPage() {
             className="mb-20"
           />
 
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-16">
-            {pillars.map((pillar) => (
-              <div key={pillar.title}>
-                <pillar.icon className="h-5 w-5 text-[#171717] dark:text-[#F8F6F2]" />
-                <span className="mt-4 block text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                  {pillar.subtitle}
-                </span>
-                <h3 className="mt-1 font-serif text-2xl font-medium tracking-tight text-[#171717] sm:text-3xl dark:text-[#F8F6F2]">
-                  {pillar.title}
-                </h3>
-                <p className="mt-3 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                  {pillar.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          <PillarColumns
+            columns={2}
+            pillars={pillars.map((pillar) => ({
+              eyebrow: pillar.subtitle,
+              title: pillar.title,
+              body: pillar.desc,
+              icon: <pillar.icon className="h-4 w-4" />,
+            }))}
+          />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { EditorialList } from '@/components/ui/EditorialList';
 import { FlightTrackerWidget } from '@/components/FlightTrackerWidget';
 import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
 
@@ -68,19 +69,9 @@ export default function FlightTrackingPage() {
             className="mb-14"
           />
 
-          <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
-            {guarantees.map((item) => (
-              <div key={item.number}>
-                <span className="font-mono text-xs font-bold text-[#888888]">{item.number}</span>
-                <h3 className="mt-2 font-serif text-2xl font-medium tracking-tight text-[#171717] dark:text-[#F8F6F2]">
-                  {item.title}
-                </h3>
-                <p className="mt-2.5 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
+          <EditorialList
+            items={guarantees.map((item) => ({ title: item.title, body: item.body }))}
+          />
 
           <div className="mt-16 flex flex-col items-center gap-4">
             <CallDispatchButton label="Arrange an Airport Pickup" />

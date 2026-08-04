@@ -67,24 +67,32 @@ export default function PrivateAviationPage() {
               </div>
             </div>
 
-            <div className="space-y-8 lg:col-span-5">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="space-y-2 border-b border-black/10 pb-6 dark:border-white/10"
-                >
-                  <h3 className="flex items-center gap-2.5 font-serif text-xl font-medium text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    {feature.title}
-                  </h3>
-                  <p className="pl-6 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                    {feature.desc}
-                  </p>
-                </div>
-              ))}
+            <div className="lg:col-span-5">
+              <ul>
+                {features.map((feature, idx) => (
+                  <li
+                    key={feature.title}
+                    className="border-b border-black/10 py-6 dark:border-white/10"
+                  >
+                    <div className="flex items-baseline gap-5">
+                      <span className="font-mono text-xs font-bold text-[#888888]">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <h3 className="font-serif text-2xl font-medium tracking-tight text-[#171717] sm:text-3xl dark:text-[#F8F6F2]">
+                          {feature.title}
+                        </h3>
+                        <p className="mt-2 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
 
-              <div className="flex flex-col items-center gap-3">
-                <CallDispatchButton label="Arrange FBO Pickup" fullWidth />
+              <div className="mt-10 flex flex-col items-start gap-3">
+                <CallDispatchButton label="Arrange FBO Pickup" />
                 <BookingSoonNote />
               </div>
             </div>
