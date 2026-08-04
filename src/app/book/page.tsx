@@ -21,7 +21,8 @@ export default function BookPage() {
         title="Book your ride."
         subtitle="Enter your pickup, destination and time below. For anything complex — multi-vehicle, roadshows or same-day changes — our dispatch desk is faster."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Book' }]}
-        ctaLabel="Prefer to Call?"
+        ctaLabel="Call 24/7 Dispatch"
+        cta="call"
       />
 
       <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">

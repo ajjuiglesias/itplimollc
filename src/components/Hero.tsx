@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { ReservationWidget } from './ReservationWidget';
+import { HeroBookingBar } from './HeroBookingBar';
 
 export const Hero: React.FC = () => {
   return (
@@ -46,16 +44,11 @@ export const Hero: React.FC = () => {
             Dedicated RDU Airport Concierge, Real-Time FAA Flight Radar Synchronization, & Bespoke Executive Mobility.
           </p>
 
-          {/* Primary CTA routes to /book rather than embedding the reservation
-              system here — the Moovs bundle is ~4.5MB and would wreck hero LCP. */}
-          <div className="flex flex-col items-center gap-4">
-            <Link
-              href="/book"
-              className="group inline-flex items-center gap-3 px-9 py-4 rounded-full bg-white text-[#0F0F0F] text-xs uppercase tracking-[0.25em] font-extrabold shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:bg-[#F2EFE9] hover:scale-[1.02] active:scale-100 transition-all duration-300"
-            >
-              <span>Book Your Ride</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+          {/* Single-field entry rather than a full form: the trip is collected by
+              the Moovs embed on /book, and the embed itself stays off this page
+              because its bundle is ~4.5MB and would wreck hero LCP. */}
+          <div className="flex w-full flex-col items-center gap-5">
+            <HeroBookingBar />
 
             <a
               href="tel:17818640618"
@@ -68,16 +61,6 @@ export const Hero: React.FC = () => {
               Or call 24/7 dispatch — +1 (781) 864-0618
             </a>
           </div>
-        </motion.div>
-
-        {/* Booking Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="w-full mt-2"
-        >
-          <ReservationWidget />
         </motion.div>
       </div>
     </section>

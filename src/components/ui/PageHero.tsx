@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { BookNowButton, OrCallNote } from './CallDispatchButton';
+import { BookNowButton, OrCallNote, CallDispatchButton } from './CallDispatchButton';
 
 export interface Crumb {
   label: string;
@@ -16,6 +16,11 @@ interface PageHeroProps {
   /** Background image. Falls back to a flat dark panel when omitted. */
   image?: string;
   ctaLabel?: string;
+  /**
+   * Which action the hero leads with. Use 'call' on /book itself, where a
+   * booking button would link the page to itself.
+   */
+  cta?: 'book' | 'call' | 'none';
 }
 
 /**
@@ -29,7 +34,8 @@ export const PageHero: React.FC<PageHeroProps> = ({
   subtitle,
   crumbs = [],
   image,
-  ctaLabel = 'Call 24/7 Dispatch',
+  ctaLabel = 'Book Your Ride',
+  cta = 'book',
 }) => (
   <section className="relative isolate overflow-hidden bg-[#070707] pt-36 pb-20 sm:pt-44 sm:pb-28">
     {image && (
@@ -79,10 +85,18 @@ export const PageHero: React.FC<PageHeroProps> = ({
         </p>
       )}
 
-      <div className="mt-10 flex flex-wrap items-center gap-5">
-        <BookNowButton label={ctaLabel} variant="onDark" />
-        <OrCallNote onDark />
-      </div>
+      {cta !== 'none' && (
+        <div className="mt-10 flex flex-wrap items-center gap-5">
+          {cta === 'book' ? (
+            <>
+              <BookNowButton label={ctaLabel} variant="onDark" />
+              <OrCallNote onDark />
+            </>
+          ) : (
+            <CallDispatchButton label={ctaLabel} variant="onDark" />
+          )}
+        </div>
+      )}
     </div>
   </section>
 );
