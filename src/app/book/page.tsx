@@ -3,6 +3,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { PillarColumns } from '@/components/ui/PillarColumns';
 import { MoovsBooking } from '@/components/MoovsBooking';
+import { BookingSummary } from '@/components/BookingSummary';
 import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function BookPage() {
 
       <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-5xl px-6 sm:px-8">
+          <BookingSummary />
           <MoovsBooking />
 
           <p className="mt-6 text-center text-xs font-light text-[#66625C] dark:text-[#B8B8B8]">

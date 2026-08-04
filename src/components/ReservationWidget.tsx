@@ -1,20 +1,63 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Calendar, Clock, MapPin, Users, Plane, Baby, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { buildBookingHref } from '@/lib/booking';
+
+const SERVICE_LABELS: Record<string, string> = {
+  airport: 'Airport Transfer',
+  'one-way': 'Point to Point',
+  hourly: 'By the Hour',
+};
+
+const CHILD_SEAT_LABELS: Record<string, string> = {
+  infant: 'Infant rear-facing',
+  convertible: 'Convertible forward-facing',
+  booster: 'Luxury booster',
+};
 
 export const ReservationWidget: React.FC = () => {
+  const router = useRouter();
   const [serviceType, setServiceType] = useState<'one-way' | 'hourly' | 'airport'>('airport');
-  const [pickup, setPickup] = useState('RDU International Airport (RDU)');
-  const [dropoff, setDropoff] = useState('Downtown Raleigh / North Hills');
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
-  const [time, setTime] = useState('14:30');
+  // Fields start empty — pre-filled sample values would otherwise be submitted
+  // as though the visitor had entered them.
+  const [pickup, setPickup] = useState('');
+  const [dropoff, setDropoff] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const [passengers, setPassengers] = useState(2);
-  const [flightNum, setFlightNum] = useState('DL 1842');
+  const [flightNum, setFlightNum] = useState('');
   const [childSeat, setChildSeat] = useState(false);
   const [childSeatType, setChildSeatType] = useState<'none' | 'infant' | 'convertible' | 'booster'>('none');
   const [hours, setHours] = useState(4);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!pickup.trim()) {
+      setError('Enter a pickup location to continue.');
+      return;
+    }
+
+    setError(null);
+
+    // These values are carried through /book into the Moovs embed's prefill.
+    router.push(
+      buildBookingHref({
+        pickup,
+        dropoff: serviceType === 'hourly' ? '' : dropoff,
+        date,
+        time,
+        passengers,
+        flightNumber: serviceType === 'airport' ? flightNum : '',
+        childSeat: childSeat ? CHILD_SEAT_LABELS[childSeatType] : '',
+        serviceType: SERVICE_LABELS[serviceType],
+        hours: serviceType === 'hourly' ? hours : undefined,
+      }),
+    );
+  };
 
 
   const tabStyle = (active: boolean) =>
@@ -60,7 +103,7 @@ export const ReservationWidget: React.FC = () => {
       </div>
 
       {/* Main Form Fields — Dedicated 6-Column Grid Layout */}
-      <form className="space-y-4 relative z-10">
+      <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1.3fr_1.3fr_0.8fr_0.8fr_0.8fr_auto] gap-3.5 items-stretch">
           {/* 1. Pickup Field */}
           <div className={inputWrapStyle}>
@@ -158,15 +201,14 @@ export const ReservationWidget: React.FC = () => {
             </select>
           </div>
 
-          {/* These fields are illustrative only — the real reservation flow lives
-              at /book, so the CTA hands off rather than pretending to submit. */}
-          <Link
-            href="/book"
-            className="group h-full min-h-[52px] px-7 py-3.5 rounded-2xl bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold flex items-center justify-center gap-2 whitespace-nowrap border border-white/20 dark:border-white/40 transition-all hover:scale-[1.02] active:scale-100"
+          {/* Carries these fields into the Moovs embed's prefill via /book */}
+          <button
+            type="submit"
+            className="group h-full min-h-[52px] px-7 py-3.5 rounded-2xl bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold flex items-center justify-center gap-2 whitespace-nowrap border border-white/20 dark:border-white/40 transition-all hover:scale-[1.02] active:scale-100 cursor-pointer"
           >
             <span>Continue</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+          </button>
         </div>
 
         {/* Footer Sub-details (Flight # & Child Seat) */}
@@ -218,6 +260,18 @@ export const ReservationWidget: React.FC = () => {
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>FAA Flight Delay Monitoring Included</span>
           </div>
+        </div>
+
+        {error && (
+          <div
+            role="alert"
+            className="pt-1 text-[11px] font-bold uppercase tracking-[0.15em] text-red-600 dark:text-red-400"
+          >
+            {error}
+          </div>
+        )}
+
+        <div className="hidden">
         </div>
       </form>
     </div>
