@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, MapPin } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 import { locations } from '@/content/locations';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -109,32 +109,33 @@ export default function PrivateAviationPage() {
             className="mb-12"
           />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {locations.map((location) => (
-              <div
+          <div className="border-t border-black/10 dark:border-white/10">
+            {locations.map((location, idx) => (
+              <Link
                 key={location.slug}
-                className="rounded-[28px] border border-black/10 p-8 dark:border-white/10"
+                href={`/locations/${location.slug}`}
+                className="group grid grid-cols-1 items-center gap-4 border-b border-black/10 py-8 sm:grid-cols-12 dark:border-white/10"
               >
-                <span className="flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                  <MapPin className="h-3.5 w-3.5" />
-                  {location.state}
+                <span className="font-mono text-xs font-bold text-[#888888] sm:col-span-1">
+                  {String(idx + 1).padStart(2, '0')}
                 </span>
 
-                <h3 className="mt-2 font-serif text-3xl font-medium text-[#171717] dark:text-[#F8F6F2]">
-                  {location.city}
-                </h3>
+                <span className="sm:col-span-5">
+                  <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                    <MapPin className="h-3 w-3" />
+                    {location.state}
+                  </span>
+                  <span className="font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl dark:text-[#F8F6F2]">
+                    {location.city}
+                  </span>
+                </span>
 
-                <p className="mt-4 text-sm font-light text-[#524E48] dark:text-[#CCCCCC]">
+                <span className="hidden text-sm font-light text-[#66625C] sm:col-span-5 sm:block dark:text-[#B8B8B8]">
                   {location.airport} ({location.airportCode})
-                </p>
+                </span>
 
-                <Link
-                  href={`/locations/${location.slug}`}
-                  className="mt-6 inline-block text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
-                >
-                  {location.city} chauffeur service →
-                </Link>
-              </div>
+                <ArrowUpRight className="hidden h-5 w-5 justify-self-end text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:col-span-1 sm:block dark:text-[#F8F6F2]" />
+              </Link>
             ))}
           </div>
         </div>

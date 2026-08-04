@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowUpRight, Briefcase, Check, Users } from 'lucide-react';
+import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
 import { fleet } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -77,24 +77,37 @@ export default function FleetPage() {
                     {vehicle.description}
                   </p>
 
-                  <div className="my-6 flex items-center gap-6 border-y border-black/10 py-4 text-xs dark:border-white/10">
-                    <span className="flex items-center gap-2 text-[#171717] dark:text-[#F8F6F2]">
-                      <Users className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                      {vehicle.passengers}
-                    </span>
-                    <span className="flex items-center gap-2 text-[#171717] dark:text-[#F8F6F2]">
-                      <Briefcase className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                      {vehicle.luggage}
-                    </span>
+                  {/* Capacity as display numerals rather than small icon pairs */}
+                  <div className="my-8 flex items-stretch gap-10 border-y border-black/10 py-6 dark:border-white/10">
+                    <div>
+                      <span className="font-serif text-4xl font-normal leading-none text-[#171717] sm:text-5xl dark:text-[#F8F6F2]">
+                        {vehicle.passengers.replace(/[^0-9]/g, '') || '—'}
+                      </span>
+                      <span className="mt-2 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                        <Users className="h-3 w-3" />
+                        Passengers
+                      </span>
+                    </div>
+
+                    <div className="w-px bg-black/10 dark:bg-white/10" />
+
+                    <div>
+                      <span className="font-serif text-4xl font-normal leading-none text-[#171717] sm:text-5xl dark:text-[#F8F6F2]">
+                        {vehicle.luggage.replace(/[^0-9]/g, '') || '—'}
+                      </span>
+                      <span className="mt-2 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                        <Briefcase className="h-3 w-3" />
+                        Luggage
+                      </span>
+                    </div>
                   </div>
 
-                  <ul className="space-y-3">
+                  <ul>
                     {vehicle.specs.map((spec) => (
                       <li
                         key={spec}
-                        className="flex items-center gap-3 text-xs font-light text-[#524E48] sm:text-sm dark:text-[#CCCCCC]"
+                        className="border-b border-black/10 py-3 text-sm text-[#524E48] dark:border-white/10 dark:text-[#CCCCCC]"
                       >
-                        <Check className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
                         {spec}
                       </li>
                     ))}

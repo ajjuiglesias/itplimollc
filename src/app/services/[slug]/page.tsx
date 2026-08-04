@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { services, getService } from '@/content/services';
 import { PageHero } from '@/components/ui/PageHero';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { EditorialBanner } from '@/components/ui/EditorialBanner';
+import { EditorialList } from '@/components/ui/EditorialList';
 import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
 
 interface PageProps {
@@ -52,85 +55,114 @@ export default async function ServicePage({ params }: PageProps) {
 
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <p className="text-base font-light leading-relaxed text-[#524E48] sm:text-lg dark:text-[#CCCCCC]">
-                {service.detail.intro}
-              </p>
-
-              <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight text-[#171717] sm:text-4xl dark:text-[#F8F6F2]">
-                How it works
-              </h2>
-
-              <ol className="mt-8 space-y-8">
-                {service.detail.howItWorks.map((item, idx) => (
-                  <li key={item.step} className="flex gap-6 border-b border-black/10 pb-8 dark:border-white/10">
-                    <span className="font-mono text-sm font-bold text-[#888888]">
-                      0{idx + 1}
-                    </span>
-                    <div>
-                      <h3 className="font-serif text-xl font-medium text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
-                        {item.step}
-                      </h3>
-                      <p className="mt-2 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                        {item.body}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
+          {/* Lead paragraph at display scale, as the homepage does */}
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.35em] text-[#66625C] dark:text-[#A0A0A0]">
+                The Brief
+              </span>
             </div>
 
-            <aside className="lg:col-span-5">
-              <div className="rounded-[28px] border border-black/10 bg-[#FAF8F5] p-8 dark:border-white/10 dark:bg-[#1A1A1A]">
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#66625C] dark:text-[#A0A0A0]">
-                  Included as standard
-                </span>
+            <p className="text-xl font-light leading-[1.5] text-[#171717] sm:text-2xl lg:col-span-8 dark:text-[#F8F6F2]">
+              {service.detail.intro}
+            </p>
+          </div>
 
-                <ul className="mt-5 space-y-3.5">
-                  {service.amenities.map((amenity) => (
-                    <li
-                      key={amenity}
-                      className="flex items-start gap-3 text-sm font-light text-[#524E48] dark:text-[#CCCCCC]"
-                    >
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                      {amenity}
-                    </li>
-                  ))}
-                </ul>
+          <EditorialBanner
+            image={service.image}
+            alt={service.title}
+            eyebrow={service.category}
+            title={service.title}
+            body={service.description}
+            size="tall"
+            className="my-20"
+          />
 
-                <div className="mt-8 flex flex-col items-center gap-3">
-                  <CallDispatchButton label="Arrange This Service" fullWidth />
-                  <BookingSoonNote />
-                </div>
+          <SectionHeader
+            eyebrow="The Process"
+            title="How it works."
+            align="left"
+            className="mb-12"
+          />
+
+          <EditorialList
+            items={service.detail.howItWorks.map((item) => ({
+              title: item.step,
+              body: item.body,
+            }))}
+          />
+        </div>
+      </section>
+
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <SectionHeader
+                eyebrow="Included as standard"
+                title="What comes with it."
+                align="left"
+              />
+
+              <div className="mt-10 flex flex-col items-start gap-3">
+                <CallDispatchButton label="Arrange This Service" />
+                <BookingSoonNote />
               </div>
-            </aside>
+            </div>
+
+            <ul className="lg:col-span-6 lg:col-start-7">
+              {service.amenities.map((amenity, idx) => (
+                <li
+                  key={amenity}
+                  className="flex items-baseline gap-6 border-b border-black/10 py-5 first:border-t dark:border-white/10"
+                >
+                  <span className="font-mono text-xs font-bold text-[#888888]">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span className="font-serif text-xl text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
+                    {amenity}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-20 dark:border-white/5 dark:bg-[#070707]">
+      <section className="bg-white py-24 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <h2 className="text-[11px] font-extrabold uppercase tracking-[0.35em] text-[#66625C] dark:text-[#A0A0A0]">
-            Other services
-          </h2>
+          <SectionHeader
+            eyebrow="Other services"
+            title="Explore the rest."
+            align="left"
+            className="mb-12"
+          />
 
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="border-t border-black/10 dark:border-white/10">
             {others.map((item) => (
               <Link
                 key={item.slug}
                 href={`/services/${item.slug}`}
-                className="group flex items-start justify-between gap-4 rounded-2xl border border-black/10 p-6 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:hover:bg-white/[0.04]"
+                className="group grid grid-cols-1 items-center gap-4 border-b border-black/10 py-8 sm:grid-cols-12 dark:border-white/10"
               >
-                <span>
-                  <span className="block text-[10px] font-bold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                <span className="font-mono text-xs font-bold text-[#888888] sm:col-span-1">
+                  {item.number}
+                </span>
+
+                <span className="sm:col-span-5">
+                  <span className="mb-1 block text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
                     {item.category}
                   </span>
-                  <span className="mt-1 block font-serif text-xl font-medium text-[#171717] dark:text-[#F8F6F2]">
+                  <span className="font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl dark:text-[#F8F6F2]">
                     {item.title}
                   </span>
                 </span>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 dark:text-[#F8F6F2]" />
+
+                <span className="hidden text-sm font-light text-[#66625C] sm:col-span-5 sm:block dark:text-[#B8B8B8]">
+                  {item.tagline}
+                </span>
+
+                <ArrowUpRight className="hidden h-5 w-5 justify-self-end text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:col-span-1 sm:block dark:text-[#F8F6F2]" />
               </Link>
             ))}
           </div>

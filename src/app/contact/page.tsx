@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import { Clock, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import { locations } from '@/content/locations';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { PillarColumns } from '@/components/ui/PillarColumns';
 import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
@@ -25,101 +27,135 @@ export default function ContactPage() {
         ctaLabel="Call 24/7 Dispatch"
       />
 
+      {/* Contact details as oversized editorial rows rather than bordered tiles */}
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <SectionHeader
-                eyebrow="Direct Desk"
-                title="How to reach us."
-                align="left"
-                className="mb-10"
-              />
-
-              <div className="space-y-6">
-                <a
-                  href={DISPATCH_PHONE_HREF}
-                  className="group flex items-center gap-4 rounded-2xl border border-black/10 p-6 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:hover:bg-white/[0.04]"
-                >
-                  <span className="rounded-full bg-black/5 p-3 text-[#171717] dark:bg-white/10 dark:text-[#F8F6F2]">
-                    <Phone className="h-5 w-5" />
+          <div className="border-y border-black/10 dark:border-white/10">
+            <a
+              href={DISPATCH_PHONE_HREF}
+              className="group grid grid-cols-1 gap-4 border-b border-black/10 py-10 lg:grid-cols-12 lg:gap-10 dark:border-white/10"
+            >
+              <div className="flex items-start gap-6 lg:col-span-5 sm:gap-10">
+                <span className="pt-2 font-mono text-xs font-bold text-[#888888]">01</span>
+                <div>
+                  <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                    <Phone className="h-3 w-3" />
+                    Dispatch Desk
                   </span>
-                  <span>
-                    <span className="block font-serif text-2xl font-medium text-[#171717] dark:text-[#F8F6F2]">
-                      {DISPATCH_PHONE}
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.2em] text-[#66625C] dark:text-[#A0A0A0]">
-                      24/7 Dispatch Desk
-                    </span>
-                  </span>
-                </a>
-
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="group flex items-center gap-4 rounded-2xl border border-black/10 p-6 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:hover:bg-white/[0.04]"
-                >
-                  <span className="rounded-full bg-black/5 p-3 text-[#171717] dark:bg-white/10 dark:text-[#F8F6F2]">
-                    <Mail className="h-5 w-5" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block break-all font-serif text-xl font-medium text-[#171717] dark:text-[#F8F6F2]">
-                      {EMAIL}
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.2em] text-[#66625C] dark:text-[#A0A0A0]">
-                      Corporate Accounts & Roadshows
-                    </span>
-                  </span>
-                </a>
-
-                <div className="flex items-center gap-4 rounded-2xl border border-black/10 p-6 dark:border-white/10">
-                  <span className="rounded-full bg-black/5 p-3 text-[#171717] dark:bg-white/10 dark:text-[#F8F6F2]">
-                    <MapPin className="h-5 w-5" />
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold text-[#171717] dark:text-[#F8F6F2]">
-                      2613 Silver Gate Ct, Wake Forest, NC 27587
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.2em] text-[#66625C] dark:text-[#A0A0A0]">
-                      Registered Office
-                    </span>
+                  <span className="block font-serif text-4xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-5xl dark:text-[#F8F6F2]">
+                    {DISPATCH_PHONE}
                   </span>
                 </div>
               </div>
-            </div>
 
-            <aside className="lg:col-span-5">
-              <div className="rounded-[28px] border border-black/10 bg-[#FAF8F5] p-8 dark:border-white/10 dark:bg-[#1A1A1A]">
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#66625C] dark:text-[#A0A0A0]">
-                  Good to know
-                </span>
+              <div className="flex items-center justify-between pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
+                <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                  Answered 24 hours a day, including holidays. The fastest route to a
+                  confirmed booking.
+                </p>
+                <ArrowUpRight className="ml-6 hidden h-5 w-5 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:block dark:text-[#F8F6F2]" />
+              </div>
+            </a>
 
-                <ul className="mt-5 space-y-5">
-                  <li className="flex items-start gap-3">
-                    <Clock className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-sm font-light text-[#524E48] dark:text-[#CCCCCC]">
-                      The dispatch line is answered 24 hours a day, including holidays.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-sm font-light text-[#524E48] dark:text-[#CCCCCC]">
-                      All enquiries are handled under non-disclosure protocol.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-sm font-light text-[#524E48] dark:text-[#CCCCCC]">
-                      Serving {locations.map((l) => l.city).join(' and ')}, plus regional corridors.
-                    </span>
-                  </li>
-                </ul>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="group grid grid-cols-1 gap-4 border-b border-black/10 py-10 lg:grid-cols-12 lg:gap-10 dark:border-white/10"
+            >
+              <div className="flex items-start gap-6 lg:col-span-5 sm:gap-10">
+                <span className="pt-2 font-mono text-xs font-bold text-[#888888]">02</span>
+                <div className="min-w-0">
+                  <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                    <Mail className="h-3 w-3" />
+                    Email Concierge
+                  </span>
+                  <span className="block break-all font-serif text-2xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-3xl dark:text-[#F8F6F2]">
+                    {EMAIL}
+                  </span>
+                </div>
+              </div>
 
-                <p className="mt-8 border-t border-black/10 pt-6 text-xs font-light leading-relaxed text-[#66625C] dark:border-white/10 dark:text-[#B8B8B8]">
-                  Online reservations are not live yet. Until they are, every booking is arranged
-                  directly through the dispatch desk.
+              <div className="flex items-center justify-between pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
+                <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                  Best for corporate accounts, roadshow pricing and anything needing a
+                  written record.
+                </p>
+                <ArrowUpRight className="ml-6 hidden h-5 w-5 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:block dark:text-[#F8F6F2]" />
+              </div>
+            </a>
+
+            <div className="grid grid-cols-1 gap-4 py-10 lg:grid-cols-12 lg:gap-10">
+              <div className="flex items-start gap-6 lg:col-span-5 sm:gap-10">
+                <span className="pt-2 font-mono text-xs font-bold text-[#888888]">03</span>
+                <div>
+                  <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                    <MapPin className="h-3 w-3" />
+                    Registered Office
+                  </span>
+                  <span className="block font-serif text-2xl font-medium tracking-tight text-[#171717] sm:text-3xl dark:text-[#F8F6F2]">
+                    Wake Forest, NC
+                  </span>
+                </div>
+              </div>
+
+              <div className="pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
+                <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                  2613 Silver Gate Ct, Wake Forest, NC 27587. Correspondence only — vehicles
+                  are dispatched from within each market.
                 </p>
               </div>
-            </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader
+            eyebrow="Before You Call"
+            title="Good to know."
+            align="left"
+            className="mb-14"
+          />
+
+          <PillarColumns
+            columns={3}
+            pillars={[
+              {
+                eyebrow: 'Availability',
+                title: 'Answered around the clock',
+                body: 'The dispatch line is staffed 24 hours a day, every day of the year, including holidays.',
+              },
+              {
+                eyebrow: 'Discretion',
+                title: 'Handled confidentially',
+                body: 'Enquiries, passenger details and destinations are treated under non-disclosure protocol.',
+              },
+              {
+                eyebrow: 'Booking',
+                title: 'Arranged by phone',
+                body: 'Online reservations are not live yet. Until they are, every booking is confirmed directly by the desk.',
+              },
+            ]}
+          />
+
+          <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2">
+            {locations.map((location) => (
+              <Link
+                key={location.slug}
+                href={`/locations/${location.slug}`}
+                className="group flex items-baseline justify-between gap-6 border-b border-black/10 py-6 dark:border-white/10"
+              >
+                <span>
+                  <span className="mb-1 block text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
+                    {location.state} · {location.airportCode}
+                  </span>
+                  <span className="font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl dark:text-[#F8F6F2]">
+                    {location.city}
+                  </span>
+                </span>
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 dark:text-[#F8F6F2]" />
+              </Link>
+            ))}
           </div>
         </div>
       </section>
