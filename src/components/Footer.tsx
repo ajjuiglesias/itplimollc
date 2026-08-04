@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Shield, Lock } from 'lucide-react';
 import {
-  CallDispatchButton,
-  BookingSoonNote,
+  BookNowButton,
+  OrCallNote,
   DISPATCH_PHONE,
 } from './ui/CallDispatchButton';
 
@@ -29,8 +29,8 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center gap-3 shrink-0">
-            <CallDispatchButton label={DISPATCH_PHONE} variant="onDark" />
-            <BookingSoonNote onDark />
+            <BookNowButton label={DISPATCH_PHONE} variant="onDark" />
+            <OrCallNote onDark />
           </div>
         </div>
 

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Menu, X, Sun, Moon } from 'lucide-react';
+import { ArrowRight, Phone, Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from './providers/ThemeProvider';
 
 /** Past this offset the bar condenses into the floating island. */
@@ -203,20 +203,18 @@ export const Navbar: React.FC = () => {
               {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
 
-            {/* Booking status chip — reads as deliberate rather than a broken button */}
-            <span
-              className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border text-[10px] uppercase tracking-[0.2em] font-bold transition-all whitespace-nowrap ${
+            {/* Primary booking CTA */}
+            <Link
+              href="/book"
+              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-extrabold transition-all hover:scale-[1.02] active:scale-100 whitespace-nowrap ${
                 condensed
-                  ? 'border-black/15 text-[#66625C] dark:border-white/20 dark:text-[#B8B8B8]'
-                  : 'border-white/25 bg-black/30 text-white/80'
+                  ? 'bg-[#171717] text-white hover:bg-[#333333] dark:bg-white dark:text-[#0F0F0F] dark:hover:bg-[#E5E5EA]'
+                  : 'bg-white text-[#0F0F0F] hover:bg-[#F2EFE9] shadow-lg'
               }`}
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              </span>
-              Booking Soon
-            </span>
+              Book Now
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -286,7 +284,7 @@ export const Navbar: React.FC = () => {
                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   </span>
-                  Online reservations opening soon
+                  Dispatch answered 24/7
                 </span>
               </div>
             </motion.div>

@@ -4,7 +4,7 @@ import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
 import { fleet } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
+import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
   title: 'Our Fleet | Maybach, Escalade & Sprinter Chauffeur Vehicles | ITP Limo',
@@ -136,8 +136,8 @@ export default function FleetPage() {
             className="mb-10"
           />
           <div className="flex flex-col items-center gap-4">
-            <CallDispatchButton label="Speak to Dispatch" />
-            <BookingSoonNote />
+            <BookNowButton label="Book Your Ride" />
+            <OrCallNote />
           </div>
         </div>
       </section>

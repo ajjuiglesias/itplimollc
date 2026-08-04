@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Briefcase, Check } from 'lucide-react';
-import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
+import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
 export const FleetSection: React.FC = () => {
   const [activeVehicle, setActiveVehicle] = useState(0);
@@ -187,12 +187,12 @@ export const FleetSection: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="pt-4 flex flex-col items-center gap-3">
-                  <CallDispatchButton
+                  <BookNowButton
                     label="Reserve This Vehicle"
                     variant="onDark"
                     fullWidth
                   />
-                  <BookingSoonNote onDark />
+                  <OrCallNote onDark />
                 </div>
               </motion.div>
             </AnimatePresence>

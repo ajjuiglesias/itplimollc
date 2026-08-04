@@ -4,7 +4,7 @@ import { ArrowUpRight, MapPin } from 'lucide-react';
 import { locations } from '@/content/locations';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
+import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
   title: 'FBO & Private Aviation Transfers | Tarmac Pickup | ITP Limo',
@@ -92,8 +92,8 @@ export default function PrivateAviationPage() {
               </ul>
 
               <div className="mt-10 flex flex-col items-start gap-3">
-                <CallDispatchButton label="Arrange FBO Pickup" />
-                <BookingSoonNote />
+                <BookNowButton label="Arrange FBO Pickup" />
+                <OrCallNote />
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialList } from '@/components/ui/EditorialList';
 import { FlightTrackerWidget } from '@/components/FlightTrackerWidget';
-import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
+import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
   title: 'Live Flight Tracking | Delay-Proof Airport Pickups | ITP Limo',
@@ -74,8 +74,8 @@ export default function FlightTrackingPage() {
           />
 
           <div className="mt-16 flex flex-col items-center gap-4">
-            <CallDispatchButton label="Arrange an Airport Pickup" />
-            <BookingSoonNote />
+            <BookNowButton label="Arrange an Airport Pickup" />
+            <OrCallNote />
           </div>
         </div>
       </section>

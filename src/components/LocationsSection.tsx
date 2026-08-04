@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Navigation } from 'lucide-react';
-import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
+import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
 export const LocationsSection: React.FC = () => {
   const locations = [
@@ -119,11 +119,11 @@ export const LocationsSection: React.FC = () => {
 
               {/* Action Button */}
               <div className="flex flex-col items-center gap-3">
-                <CallDispatchButton
+                <BookNowButton
                   label={`Arrange ${loc.city} Transfer`}
                   fullWidth
                 />
-                <BookingSoonNote />
+                <OrCallNote />
               </div>
             </motion.div>
           ))}

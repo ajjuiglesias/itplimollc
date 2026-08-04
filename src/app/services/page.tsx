@@ -6,7 +6,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { PillarColumns } from '@/components/ui/PillarColumns';
-import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
+import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
   title: 'Chauffeur Services | Airport, Hourly & Corporate Travel | ITP Limo',
@@ -138,8 +138,8 @@ export default function ServicesPage() {
             className="mb-10"
           />
           <div className="flex flex-col items-center gap-4">
-            <CallDispatchButton label="Speak to Dispatch" />
-            <BookingSoonNote />
+            <BookNowButton label="Book Your Ride" />
+            <OrCallNote />
           </div>
         </div>
       </section>

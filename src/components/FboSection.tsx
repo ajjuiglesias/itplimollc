@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
-import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
+import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
 export const FboSection: React.FC = () => {
   const fboFeatures = [
@@ -95,8 +95,8 @@ export const FboSection: React.FC = () => {
             </div>
 
             <div className="flex flex-col items-center gap-3">
-              <CallDispatchButton label="Arrange FBO Pickup" fullWidth />
-              <BookingSoonNote />
+              <BookNowButton label="Arrange FBO Pickup" fullWidth />
+              <OrCallNote />
             </div>
           </div>
         </div>

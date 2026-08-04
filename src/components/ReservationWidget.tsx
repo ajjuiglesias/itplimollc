@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Calendar, Clock, MapPin, Users, Plane, Baby, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const ReservationWidget: React.FC = () => {
@@ -157,15 +158,15 @@ export const ReservationWidget: React.FC = () => {
             </select>
           </div>
 
-          {/* 6. Liquid Glass High-Contrast CTA Button */}
-          <button
-            type="button"
-            disabled
-            className="h-full min-h-[52px] px-7 py-3.5 rounded-2xl bg-[#0F0F0F]/60 dark:bg-white/60 text-white/80 dark:text-[#0F0F0F]/80 text-xs uppercase tracking-[0.2em] font-extrabold flex items-center justify-center gap-2 whitespace-nowrap cursor-not-allowed opacity-70 border border-white/20 dark:border-white/40"
+          {/* These fields are illustrative only — the real reservation flow lives
+              at /book, so the CTA hands off rather than pretending to submit. */}
+          <Link
+            href="/book"
+            className="group h-full min-h-[52px] px-7 py-3.5 rounded-2xl bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold flex items-center justify-center gap-2 whitespace-nowrap border border-white/20 dark:border-white/40 transition-all hover:scale-[1.02] active:scale-100"
           >
-            <span>Coming soon</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            <span>Continue</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
 
         {/* Footer Sub-details (Flight # & Child Seat) */}

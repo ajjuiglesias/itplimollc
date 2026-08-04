@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { CallDispatchButton, BookingSoonNote } from './CallDispatchButton';
+import { BookNowButton, OrCallNote } from './CallDispatchButton';
 
 export interface Crumb {
   label: string;
@@ -80,8 +80,8 @@ export const PageHero: React.FC<PageHeroProps> = ({
       )}
 
       <div className="mt-10 flex flex-wrap items-center gap-5">
-        <CallDispatchButton label={ctaLabel} variant="onDark" />
-        <BookingSoonNote onDark />
+        <BookNowButton label={ctaLabel} variant="onDark" />
+        <OrCallNote onDark />
       </div>
     </div>
   </section>

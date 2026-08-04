@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { ReservationWidget } from './ReservationWidget';
 
 export const Hero: React.FC = () => {
@@ -45,23 +46,27 @@ export const Hero: React.FC = () => {
             Dedicated RDU Airport Concierge, Real-Time FAA Flight Radar Synchronization, & Bespoke Executive Mobility.
           </p>
 
-          {/* Primary CTA — the dispatch line is live while online booking is not */}
+          {/* Primary CTA routes to /book rather than embedding the reservation
+              system here — the Moovs bundle is ~4.5MB and would wreck hero LCP. */}
           <div className="flex flex-col items-center gap-4">
-            <a
-              href="tel:17818640618"
+            <Link
+              href="/book"
               className="group inline-flex items-center gap-3 px-9 py-4 rounded-full bg-white text-[#0F0F0F] text-xs uppercase tracking-[0.25em] font-extrabold shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:bg-[#F2EFE9] hover:scale-[1.02] active:scale-100 transition-all duration-300"
             >
-              <Phone className="w-4 h-4" />
-              <span>Call 24/7 Dispatch</span>
-            </a>
+              <span>Book Your Ride</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
 
-            <span className="flex items-center gap-2.5 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-semibold text-white/70">
+            <a
+              href="tel:17818640618"
+              className="flex items-center gap-2.5 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-semibold text-white/70 transition-opacity hover:opacity-100"
+            >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
               </span>
-              Online reservations opening soon
-            </span>
+              Or call 24/7 dispatch — +1 (781) 864-0618
+            </a>
           </div>
         </motion.div>
 

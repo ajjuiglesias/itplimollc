@@ -6,7 +6,7 @@ import { fleet, getVehicle } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
-import { CallDispatchButton, BookingSoonNote } from '@/components/ui/CallDispatchButton';
+import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -103,8 +103,8 @@ export default async function VehiclePage({ params }: PageProps) {
               </p>
 
               <div className="mt-10 flex flex-col items-start gap-3">
-                <CallDispatchButton label="Reserve This Vehicle" />
-                <BookingSoonNote />
+                <BookNowButton label="Reserve This Vehicle" />
+                <OrCallNote />
               </div>
             </div>
 

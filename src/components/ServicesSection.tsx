@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plane, Building2, Clock, ShieldCheck, Check, Plus, Minus } from 'lucide-react';
-import { CallDispatchButton, BookingSoonNote } from './ui/CallDispatchButton';
+import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
 export const ServicesSection: React.FC = () => {
   const [openId, setOpenId] = useState<string>('airport');
@@ -163,8 +163,8 @@ export const ServicesSection: React.FC = () => {
                           </div>
 
                           <div className="pt-4 flex flex-wrap items-center gap-5">
-                            <CallDispatchButton label="Enquire Now" />
-                            <BookingSoonNote />
+                            <BookNowButton label="Book Your Ride" />
+                            <OrCallNote />
                           </div>
                         </div>
 
