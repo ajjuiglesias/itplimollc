@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HeroBookingBar } from './HeroBookingBar';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -44,11 +45,18 @@ export const Hero: React.FC = () => {
             Dedicated RDU Airport Concierge, Real-Time FAA Flight Radar Synchronization, & Bespoke Executive Mobility.
           </p>
 
-          {/* Single-field entry rather than a full form: the trip is collected by
-              the Moovs embed on /book, and the embed itself stays off this page
-              because its bundle is ~4.5MB and would wreck hero LCP. */}
+          {/* No booking fields here by design. The Moovs embed on /book collects
+              the whole trip, so any field repeated in the hero is a field the
+              visitor fills twice. The embed itself stays off this page because
+              its bundle is ~4.5MB and would wreck hero LCP. */}
           <div className="flex w-full flex-col items-center gap-5">
-            <HeroBookingBar />
+            <Link
+              href="/book"
+              className="group inline-flex items-center gap-3 px-9 py-4 rounded-full bg-white text-[#0F0F0F] text-xs uppercase tracking-[0.25em] font-extrabold shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:bg-[#F2EFE9] hover:scale-[1.02] active:scale-100 transition-all duration-300"
+            >
+              <span>Book Your Ride</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
 
             <a
               href="tel:17818640618"
