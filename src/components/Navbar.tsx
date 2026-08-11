@@ -246,13 +246,13 @@ export const Navbar: React.FC = () => {
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 mx-auto mt-2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-2xl bg-[#FAF8F5]/95 dark:bg-[#0F0F0F]/95 backdrop-blur-2xl border border-black/10 dark:border-white/15 p-6 xl:hidden shadow-[0_24px_60px_-12px_rgba(0,0,0,0.45)]"
             >
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`text-sm uppercase tracking-widest font-semibold py-2 border-b border-black/5 dark:border-white/5 ${
+                    className={`flex min-h-[48px] items-center text-sm uppercase tracking-widest font-semibold border-b border-black/5 dark:border-white/5 ${
                       isActiveRoute(link.href)
                         ? 'text-[#171717] dark:text-[#F8F6F2]'
                         : 'text-[#171717]/70 dark:text-[#F8F6F2]/70'

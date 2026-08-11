@@ -54,12 +54,15 @@ export const PageHero: React.FC<PageHeroProps> = ({
     <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
       {crumbs.length > 0 && (
         <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] font-semibold text-white/50">
+          <ol className="flex flex-wrap items-center gap-x-1.5 text-[11px] uppercase tracking-[0.2em] font-semibold text-white/50">
             {crumbs.map((crumb, i) => (
               <li key={crumb.label} className="flex items-center gap-1.5">
                 {i > 0 && <ChevronRight className="h-3 w-3 text-white/30" />}
                 {crumb.href ? (
-                  <Link href={crumb.href} className="transition-colors hover:text-white">
+                  <Link
+                    href={crumb.href}
+                    className="inline-flex min-h-[44px] items-center transition-colors hover:text-white"
+                  >
                     {crumb.label}
                   </Link>
                 ) : (

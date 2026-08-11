@@ -260,7 +260,7 @@ export default async function LocationPage({ params }: PageProps) {
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <Link
               href={`/locations/${other.slug}`}
-              className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
+              className="inline-flex min-h-[44px] items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
             >
               <MapPin className="h-4 w-4" />
               Also serving {other.city}, {other.stateAbbr}
