@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-16 overflow-hidden bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500">
+    <section className="relative min-h-[88svh] sm:min-h-screen flex flex-col justify-center pt-28 sm:pt-32 pb-20 sm:pb-16 overflow-hidden bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500">
       {/* Background Video Layer — YouTube Embed (MY6KbNWHE2k) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="relative w-full h-full">
@@ -60,13 +60,13 @@ export const Hero: React.FC = () => {
 
             <a
               href="tel:17818640618"
-              className="flex items-center gap-2.5 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-semibold text-white/70 transition-opacity hover:opacity-100"
+              className="inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold text-white/70 transition-opacity hover:opacity-100"
             >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
               </span>
-              Or call 24/7 dispatch — +1 (781) 864-0618
+              Or call 24/7 dispatch<span className="hidden sm:inline"> — +1 (781) 864-0618</span>
             </a>
           </div>
         </motion.div>

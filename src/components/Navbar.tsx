@@ -74,7 +74,7 @@ export const Navbar: React.FC = () => {
   // Expanded = full-width transparent bar over the hero video.
   const condensed = scrolled || mobileMenuOpen;
 
-  const iconButton = `p-2 rounded-full border transition-all cursor-pointer flex items-center justify-center ${
+  const iconButton = `h-11 w-11 shrink-0 rounded-full border transition-all cursor-pointer flex items-center justify-center ${
     condensed
       ? 'border-black/10 dark:border-white/15 text-[#171717] dark:text-[#F8F6F2] hover:bg-black/5 dark:hover:bg-white/10'
       : 'border-white/20 bg-black/40 text-white hover:bg-black/60'
@@ -103,7 +103,7 @@ export const Navbar: React.FC = () => {
           }`}
         >
           {/* Logo (Left) — baseline-locked wordmark */}
-          <Link href="/" className="group flex items-baseline gap-1.5 flex-shrink-0 leading-none">
+          <Link href="/" className="group flex min-h-[44px] items-center gap-1.5 flex-shrink-0 leading-none">
             <span
               className={`font-serif text-2xl sm:text-[1.7rem] font-bold tracking-tight leading-none transition-colors duration-300 ${
                 condensed ? 'text-[#171717] dark:text-white' : 'text-white drop-shadow-md'
@@ -225,7 +225,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-xl transition-colors cursor-pointer ${
+              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors cursor-pointer ${
                 condensed ? 'text-[#171717] dark:text-[#F8F6F2]' : 'text-white drop-shadow-md'
               }`}
               aria-label="Toggle Mobile Menu"

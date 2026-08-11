@@ -41,7 +41,7 @@ export const FleetSection: React.FC = () => {
               <button
                 key={item.slug}
                 onClick={() => setActiveVehicle(index)}
-                className={`px-6 py-3 rounded-full text-xs uppercase tracking-widest font-extrabold transition-all duration-300 cursor-pointer border ${
+                className={`min-h-[44px] px-6 py-3 rounded-full text-xs uppercase tracking-widest font-extrabold transition-all duration-300 cursor-pointer border ${
                   isActive
                     ? 'bg-white text-[#0F0F0F] border-white shadow-xl scale-105'
                     : 'bg-white/5 text-[#A0A0A0] border-white/10 hover:bg-white/10 hover:text-white'

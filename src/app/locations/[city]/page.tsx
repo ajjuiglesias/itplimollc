@@ -80,12 +80,12 @@ export default async function LocationPage({ params }: PageProps) {
               {location.serving.keyLocations.map((place, idx) => (
                 <li
                   key={place}
-                  className="flex items-baseline gap-6 border-b border-black/10 py-5 dark:border-white/10 sm:gap-10"
+                  className="flex items-baseline gap-4 border-b border-black/10 py-4 dark:border-white/10 sm:gap-10 sm:py-5"
                 >
                   <span className="font-mono text-xs font-bold text-[#888888]">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
-                  <span className="font-serif text-xl text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
+                  <span className="font-serif text-lg text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
                     {place}
                   </span>
                 </li>
@@ -146,13 +146,13 @@ export default async function LocationPage({ params }: PageProps) {
                   </span>
                 </div>
 
-                <h3 className="mt-4 font-serif text-4xl font-medium uppercase tracking-tight text-white sm:text-5xl">
+                <h3 className="mt-4 font-serif text-3xl font-medium uppercase tracking-tight text-white sm:text-5xl">
                   {vehicle.name}
                 </h3>
 
                 <div className="mt-6 flex items-stretch gap-10">
                   <div>
-                    <span className="font-serif text-5xl font-normal text-white sm:text-6xl">
+                    <span className="font-serif text-4xl font-normal text-white sm:text-6xl">
                       {vehicle.passengers}
                     </span>
                     <span className="mt-1 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A0A0A0]">
@@ -164,7 +164,7 @@ export default async function LocationPage({ params }: PageProps) {
                   <div className="w-px bg-white/15" />
 
                   <div>
-                    <span className="font-serif text-5xl font-normal text-white sm:text-6xl">
+                    <span className="font-serif text-4xl font-normal text-white sm:text-6xl">
                       {vehicle.luggage}
                     </span>
                     <span className="mt-1 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A0A0A0]">
@@ -232,11 +232,11 @@ export default async function LocationPage({ params }: PageProps) {
               className="mb-14"
             />
 
-            <ul className="grid grid-cols-2 gap-x-10 sm:grid-cols-3 lg:grid-cols-4">
+            <ul className="grid grid-cols-1 gap-x-10 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
               {location.areasServed.areas.map((area) => (
                 <li
                   key={area}
-                  className="border-b border-black/10 py-4 font-serif text-xl text-[#171717] dark:border-white/10 sm:text-2xl dark:text-[#F8F6F2]"
+                  className="border-b border-black/10 py-3.5 font-serif text-lg text-[#171717] dark:border-white/10 sm:py-4 sm:text-2xl dark:text-[#F8F6F2]"
                 >
                   {area}
                 </li>

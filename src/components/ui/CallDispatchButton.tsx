@@ -79,11 +79,13 @@ export const OrCallNote: React.FC<{ onDark?: boolean; className?: string }> = ({
 }) => (
   <a
     href={DISPATCH_PHONE_HREF}
-    className={`flex items-center gap-2.5 text-[10px] uppercase tracking-[0.22em] font-semibold transition-opacity hover:opacity-70 ${
+    /* py-3 keeps the tap target at the 44px comfort minimum; the text itself is
+       only ~15px tall, which is well below it on touch devices. */
+    className={`inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] uppercase tracking-[0.22em] font-semibold transition-opacity hover:opacity-70 ${
       onDark ? 'text-white/60' : 'text-[#66625C] dark:text-[#A0A0A0]'
     } ${className}`}
   >
-    <span className="relative flex h-1.5 w-1.5">
+    <span className="relative flex h-1.5 w-1.5 shrink-0">
       <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
       <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
     </span>

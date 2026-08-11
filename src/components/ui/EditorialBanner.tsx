@@ -34,8 +34,8 @@ export const EditorialBanner: React.FC<EditorialBannerProps> = ({
     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
     className={`relative overflow-hidden rounded-[36px] border border-black/10 shadow-2xl dark:border-white/10 ${
       size === 'tall'
-        ? 'h-[420px] sm:h-[500px] lg:h-[560px]'
-        : 'h-[340px] sm:h-[420px]'
+        ? 'h-[360px] sm:h-[500px] lg:h-[560px]'
+        : 'h-[280px] sm:h-[420px]'
     } ${className}`}
   >
     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -45,14 +45,14 @@ export const EditorialBanner: React.FC<EditorialBannerProps> = ({
       className="h-full w-full object-cover brightness-[0.8] contrast-[1.05] dark:brightness-[0.7]"
     />
 
-    <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/35 to-transparent p-8 text-white sm:p-14">
+    <div className="absolute inset-0 flex flex-col justify-end overflow-hidden bg-gradient-to-t from-black/90 via-black/35 to-transparent p-6 text-white sm:p-14">
       <div className="max-w-xl">
         <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.3em] text-white/80">
           {eyebrow}
         </span>
-        <h3 className="font-serif text-3xl font-medium tracking-tight sm:text-5xl">{title}</h3>
+        <h3 className="font-serif text-2xl font-medium tracking-tight sm:text-4xl md:text-5xl">{title}</h3>
         {body && (
-          <p className="mt-3 text-sm font-light leading-relaxed text-white/85 sm:text-base">
+          <p className="mt-2.5 line-clamp-3 text-xs font-light leading-relaxed text-white/85 sm:mt-3 sm:line-clamp-none sm:text-base">
             {body}
           </p>
         )}

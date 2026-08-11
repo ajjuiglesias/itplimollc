@@ -25,6 +25,7 @@ export default function ContactPage() {
         subtitle="Our dispatch desk is staffed around the clock. Call for immediate arrangements, or email for corporate accounts and roadshow pricing."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
         ctaLabel="Call 24/7 Dispatch"
+        cta="call"
       />
 
       {/* Contact details as oversized editorial rows rather than bordered tiles */}
@@ -35,14 +36,14 @@ export default function ContactPage() {
               href={DISPATCH_PHONE_HREF}
               className="group grid grid-cols-1 gap-4 border-b border-black/10 py-10 lg:grid-cols-12 lg:gap-10 dark:border-white/10"
             >
-              <div className="flex items-start gap-6 lg:col-span-5 sm:gap-10">
+              <div className="flex items-start gap-4 sm:gap-10 lg:col-span-5">
                 <span className="pt-2 font-mono text-xs font-bold text-[#888888]">01</span>
                 <div>
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
                     <Phone className="h-3 w-3" />
                     Dispatch Desk
                   </span>
-                  <span className="block font-serif text-4xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-5xl dark:text-[#F8F6F2]">
+                  <span className="block font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl md:text-5xl dark:text-[#F8F6F2]">
                     {DISPATCH_PHONE}
                   </span>
                 </div>
@@ -61,14 +62,14 @@ export default function ContactPage() {
               href={`mailto:${EMAIL}`}
               className="group grid grid-cols-1 gap-4 border-b border-black/10 py-10 lg:grid-cols-12 lg:gap-10 dark:border-white/10"
             >
-              <div className="flex items-start gap-6 lg:col-span-5 sm:gap-10">
+              <div className="flex items-start gap-4 sm:gap-10 lg:col-span-5">
                 <span className="pt-2 font-mono text-xs font-bold text-[#888888]">02</span>
                 <div className="min-w-0">
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
                     <Mail className="h-3 w-3" />
                     Email Concierge
                   </span>
-                  <span className="block break-all font-serif text-2xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-3xl dark:text-[#F8F6F2]">
+                  <span className="block break-all font-serif text-xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-2xl md:text-3xl dark:text-[#F8F6F2]">
                     {EMAIL}
                   </span>
                 </div>
@@ -84,14 +85,14 @@ export default function ContactPage() {
             </a>
 
             <div className="grid grid-cols-1 gap-4 py-10 lg:grid-cols-12 lg:gap-10">
-              <div className="flex items-start gap-6 lg:col-span-5 sm:gap-10">
+              <div className="flex items-start gap-4 sm:gap-10 lg:col-span-5">
                 <span className="pt-2 font-mono text-xs font-bold text-[#888888]">03</span>
                 <div>
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
                     <MapPin className="h-3 w-3" />
                     Registered Office
                   </span>
-                  <span className="block font-serif text-2xl font-medium tracking-tight text-[#171717] sm:text-3xl dark:text-[#F8F6F2]">
+                  <span className="block font-serif text-xl font-medium tracking-tight text-[#171717] sm:text-2xl md:text-3xl dark:text-[#F8F6F2]">
                     Wake Forest, NC
                   </span>
                 </div>
@@ -132,8 +133,8 @@ export default function ContactPage() {
               },
               {
                 eyebrow: 'Booking',
-                title: 'Arranged by phone',
-                body: 'Online reservations are not live yet. Until they are, every booking is confirmed directly by the desk.',
+                title: 'Online or by phone',
+                body: 'Reserve online in a few steps, or call the desk for multi-vehicle, roadshow and same-day arrangements.',
               },
             ]}
           />

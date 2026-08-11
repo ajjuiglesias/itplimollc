@@ -75,12 +75,12 @@ export const PageHero: React.FC<PageHeroProps> = ({
         {eyebrow}
       </span>
 
-      <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal tracking-tight leading-[1.05] text-[#F8F6F2] mt-3 max-w-4xl">
+      <h1 className="font-serif text-[2.1rem] sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[1.08] sm:leading-[1.05] text-[#F8F6F2] mt-3 max-w-4xl">
         {title}
       </h1>
 
       {subtitle && (
-        <p className="mt-5 max-w-2xl text-lg sm:text-xl font-light leading-relaxed text-white/75">
+        <p className="mt-5 max-w-2xl text-base sm:text-lg lg:text-xl font-light leading-relaxed text-white/75">
           {subtitle}
         </p>
       )}

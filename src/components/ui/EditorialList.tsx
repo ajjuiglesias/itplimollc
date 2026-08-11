@@ -41,9 +41,9 @@ export const EditorialList: React.FC<EditorialListProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: Math.min(idx * 0.08, 0.4), ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-1 gap-4 py-8 sm:py-10 lg:grid-cols-12 lg:gap-10"
+        className="grid grid-cols-1 gap-3 py-7 sm:gap-4 sm:py-10 lg:grid-cols-12 lg:gap-10"
       >
-        <div className="flex items-start gap-6 lg:col-span-6 sm:gap-10">
+        <div className="flex items-start gap-4 sm:gap-10 lg:col-span-6">
           <span className="pt-1 font-mono text-sm font-bold text-[#888888]">
             {String(idx + 1).padStart(2, '0')}
           </span>
@@ -59,7 +59,7 @@ export const EditorialList: React.FC<EditorialListProps> = ({
               </span>
             )}
             <h3
-              className={`font-serif text-3xl font-medium tracking-tight sm:text-4xl ${
+              className={`font-serif text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl ${
                 onDark ? 'text-[#F8F6F2]' : 'text-[#171717] dark:text-[#F8F6F2]'
               }`}
             >
@@ -68,7 +68,7 @@ export const EditorialList: React.FC<EditorialListProps> = ({
           </div>
         </div>
 
-        <div className="lg:col-span-5 lg:col-start-7 pl-12 sm:pl-16 lg:pl-0">
+        <div className="pl-8 sm:pl-16 lg:col-span-5 lg:col-start-7 lg:pl-0">
           <p
             className={`text-sm font-light leading-relaxed sm:text-base ${
               onDark ? 'text-[#B8B8B8]' : 'text-[#66625C] dark:text-[#B8B8B8]'

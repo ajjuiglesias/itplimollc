@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
             <span className="text-xs uppercase tracking-[0.25em] font-extrabold text-white/90 block">
               Navigation
             </span>
-            <ul className="space-y-3 text-xs font-normal text-white/70">
+            <ul className="text-xs font-normal text-white/70">
               {[
                 { label: 'Bespoke Services', href: '/services' },
                 { label: 'Flagship Fleet', href: '/fleet' },
@@ -77,7 +77,10 @@ export const Footer: React.FC = () => {
                 { label: 'Contact Dispatch', href: '/contact' },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-white transition-colors">
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-[44px] items-center hover:text-white transition-colors"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -118,7 +121,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-3.5 text-xs text-white/70 font-normal">
               <a
                 href="tel:17818640618"
-                className="flex items-center gap-2.5 hover:text-white transition-colors group"
+                className="flex min-h-[44px] items-center gap-2.5 hover:text-white transition-colors group"
               >
                 <div className="p-2 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
                   <Phone className="w-3.5 h-3.5" />
@@ -131,7 +134,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href="mailto:itplimo.raleigh@gmail.com"
-                className="flex items-center gap-2.5 hover:text-white transition-colors group"
+                className="flex min-h-[44px] items-center gap-2.5 hover:text-white transition-colors group"
               >
                 <div className="p-2 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
                   <Mail className="w-3.5 h-3.5" />
@@ -163,10 +166,10 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} ITP LIMO LLC. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">
+            <Link href="/privacy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">
               Privacy Protocol
             </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
+            <Link href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">
               Terms of Chauffeur Service
             </Link>
           </div>
