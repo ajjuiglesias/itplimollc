@@ -26,7 +26,7 @@ const pillars = [
     icon: Car,
     title: 'A maintained fleet',
     subtitle: 'Recent models only',
-    desc: 'Mercedes-Maybach S-Class, Cadillac Escalade ESV and custom executive Sprinters, detailed and sanitised before every dispatch.',
+    desc: 'A Mercedes-Benz executive Sprinter, SUVs and sedans, cleaned and checked before every dispatch.',
   },
   {
     icon: Plane,

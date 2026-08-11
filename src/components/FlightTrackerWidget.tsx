@@ -17,8 +17,8 @@ export const FlightTrackerWidget: React.FC = () => {
       eta: '14:24 EST',
       gate: 'Terminal 2 • Gate C12',
       chauffeurStatus: 'Staged at Limousine Zone B',
-      chauffeurName: 'Marcus Vance',
-      vehicle: 'Mercedes-Maybach S 580',
+      chauffeurName: 'Chauffeur assigned',
+      vehicle: 'Executive Sedan',
     },
     AA2204: {
       number: 'AA 2204',
@@ -30,8 +30,8 @@ export const FlightTrackerWidget: React.FC = () => {
       eta: '15:10 EST',
       gate: 'Terminal 2 • Gate C8',
       chauffeurStatus: 'En Route to RDU FBO',
-      chauffeurName: 'David Sterling',
-      vehicle: 'Cadillac Escalade ESV',
+      chauffeurName: 'Chauffeur assigned',
+      vehicle: 'Executive SUV',
     },
     UA1190: {
       number: 'UA 1190',
@@ -43,7 +43,7 @@ export const FlightTrackerWidget: React.FC = () => {
       eta: '16:05 EST',
       gate: 'Terminal 2 • Gate D4',
       chauffeurStatus: 'Dispatch Adjusted • Pickup Synchronized',
-      chauffeurName: 'Anthony Brooks',
+      chauffeurName: 'Chauffeur assigned',
       vehicle: 'Mercedes Sprinter Jet Van',
     },
   };

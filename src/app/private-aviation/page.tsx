@@ -9,14 +9,14 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 export const metadata: Metadata = {
   title: 'FBO & Private Aviation Transfers | Tarmac Pickup | ITP Limo',
   description:
-    'Direct tarmac chauffeur transfers at private aviation terminals serving Boston (BOS) and Raleigh-Durham (RDU), with live tail-number tracking.',
+    'Chauffeur transfers at private aviation terminals including Signature Aviation, serving Boston (BOS) and Raleigh-Durham (RDU), with live tail-number tracking.',
   alternates: { canonical: '/private-aviation' },
 };
 
 const features = [
   {
     title: 'Tarmac Direct Pickup',
-    desc: 'Chauffeur and vehicle positioned steps from your aircraft ladder at the FBO terminal.',
+    desc: 'Chauffeur and vehicle staged at the FBO terminal, ready as you step off the aircraft.',
   },
   {
     title: 'Tail Number Tracking',
@@ -28,7 +28,7 @@ const features = [
   },
   {
     title: 'Group & Crew Movement',
-    desc: 'Jet-converted Sprinter vans for full passenger manifests, crew transfers and multi-aircraft arrivals.',
+    desc: 'Our executive Sprinter for full passenger manifests, crew transfers and group arrivals.',
   },
 ];
 
@@ -61,7 +61,7 @@ export default function PrivateAviationPage() {
                     FBO Terminal Integration
                   </span>
                   <h2 className="font-serif text-2xl font-medium sm:text-3xl">
-                    Private Aviation Terminals
+                    Signature Aviation
                   </h2>
                 </div>
               </div>

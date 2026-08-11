@@ -4,7 +4,6 @@ import { ExperienceSection } from '@/components/ExperienceSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { FleetSection } from '@/components/FleetSection';
 import { FboSection } from '@/components/FboSection';
-import { TrustSection } from '@/components/TrustSection';
 import { FaqSection } from '@/components/FaqSection';
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
       <ServicesSection />
       <FleetSection />
       <FboSection />
-      <TrustSection />
       <FaqSection />
     </>
   );

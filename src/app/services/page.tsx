@@ -23,7 +23,7 @@ export default function ServicesPage() {
         title="Every journey, covered."
         subtitle="Airport transfers, hourly hire, city-to-city executive travel and managed corporate accounts — each with the same chauffeur standard."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
-        image="/images/hero.png"
+        image="/images/signature_sprinter.jpg"
         ctaLabel="Discuss Your Journey"
       />
 

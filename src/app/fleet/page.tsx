@@ -4,12 +4,14 @@ import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
 import { fleet } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { CapacityStat } from '@/components/ui/CapacityStat';
+import { VehicleImage } from '@/components/ui/VehicleImage';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
-  title: 'Our Fleet | Maybach, Escalade & Sprinter Chauffeur Vehicles | ITP Limo',
+  title: 'Our Fleet | Sprinter, SUV & Sedan Chauffeur Vehicles | ITP Limo',
   description:
-    'Mercedes-Maybach S-Class, Cadillac Escalade ESV and jet-converted Mercedes Sprinter executive vans, chauffeured in Boston and Raleigh-Durham.',
+    'A Mercedes-Benz executive Sprinter, executive SUVs and sedans, chauffeured across Boston and Raleigh-Durham.',
   alternates: { canonical: '/fleet' },
 };
 
@@ -19,7 +21,7 @@ export default function FleetPage() {
       <PageHero
         eyebrow="The Flagship Collection"
         title="Crafted for absolute comfort."
-        subtitle="Every vehicle is meticulously maintained, sanitized, and spec'd with private luxury amenities — from single-executive sedans to 14-passenger jet vans."
+        subtitle="Modern, spotless vehicles driven by professional licensed chauffeurs — from a single-executive sedan to our group Sprinter."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Fleet' }]}
         image="/images/signature_sprinter.jpg"
         ctaLabel="Reserve a Vehicle"
@@ -44,23 +46,21 @@ export default function FleetPage() {
                 <div
                   className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}
                 >
-                  <Link
-                    href={`/fleet/${vehicle.slug}`}
-                    className="group relative block h-[320px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[440px] dark:border-white/10"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                  <Link href={`/fleet/${vehicle.slug}`} className="group block">
+                    <VehicleImage
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="h-full w-full object-cover brightness-[0.8] contrast-[1.05] transition-transform duration-[1200ms] group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
-                    <div className="absolute bottom-7 left-7 right-7 text-white">
-                      <span className="block text-[10px] font-bold uppercase tracking-widest text-white/70">
-                        {vehicle.category}
-                      </span>
-                      <h3 className="font-serif text-2xl font-medium sm:text-3xl">{vehicle.name}</h3>
-                    </div>
+                      className="h-[320px] sm:h-[440px]"
+                    >
+                      <div className="absolute bottom-7 left-7 right-7 text-white">
+                        <span className="block text-[10px] font-bold uppercase tracking-widest text-white/70">
+                          {vehicle.category}
+                        </span>
+                        <h3 className="font-serif text-2xl font-medium sm:text-3xl">
+                          {vehicle.name}
+                        </h3>
+                      </div>
+                    </VehicleImage>
                   </Link>
                 </div>
 
@@ -79,27 +79,19 @@ export default function FleetPage() {
 
                   {/* Capacity as display numerals rather than small icon pairs */}
                   <div className="my-8 flex items-stretch gap-10 border-y border-black/10 py-6 dark:border-white/10">
-                    <div>
-                      <span className="font-serif text-4xl font-normal leading-none text-[#171717] sm:text-5xl dark:text-[#F8F6F2]">
-                        {vehicle.passengers.replace(/[^0-9]/g, '') || '—'}
-                      </span>
-                      <span className="mt-2 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                        <Users className="h-3 w-3" />
-                        Passengers
-                      </span>
-                    </div>
+                    <CapacityStat
+                      value={vehicle.passengers}
+                      label="Passengers"
+                      icon={<Users className="h-3 w-3" />}
+                    />
 
                     <div className="w-px bg-black/10 dark:bg-white/10" />
 
-                    <div>
-                      <span className="font-serif text-4xl font-normal leading-none text-[#171717] sm:text-5xl dark:text-[#F8F6F2]">
-                        {vehicle.luggage.replace(/[^0-9]/g, '') || '—'}
-                      </span>
-                      <span className="mt-2 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                        <Briefcase className="h-3 w-3" />
-                        Luggage
-                      </span>
-                    </div>
+                    <CapacityStat
+                      value={vehicle.luggage}
+                      label="Luggage"
+                      icon={<Briefcase className="h-3 w-3" />}
+                    />
                   </div>
 
                   <ul>

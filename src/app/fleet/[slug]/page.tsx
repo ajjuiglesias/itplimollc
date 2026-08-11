@@ -6,6 +6,8 @@ import { fleet, getVehicle } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
+import { CapacityStat } from '@/components/ui/CapacityStat';
+import { VehicleImage } from '@/components/ui/VehicleImage';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 interface PageProps {
@@ -55,37 +57,38 @@ export default async function VehiclePage({ params }: PageProps) {
 
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <EditorialBanner
-            image={vehicle.image}
-            alt={vehicle.name}
-            eyebrow={vehicle.category}
-            title={vehicle.name}
-            body={vehicle.tagline}
-            size="tall"
-            className="mb-20"
-          />
+          {vehicle.image ? (
+            <EditorialBanner
+              image={vehicle.image}
+              alt={vehicle.name}
+              eyebrow={vehicle.category}
+              title={vehicle.name}
+              body={vehicle.tagline}
+              size="tall"
+              className="mb-20"
+            />
+          ) : (
+            <VehicleImage
+              src={undefined}
+              alt={vehicle.name}
+              className="mb-20 h-[340px] sm:h-[440px]"
+            />
+          )}
 
           {/* Capacity as oversized numerals on a rule */}
           <div className="grid grid-cols-2 gap-10 border-y border-black/10 py-10 sm:gap-20 dark:border-white/10">
-            <div>
-              <span className="font-serif text-6xl font-normal leading-none text-[#171717] sm:text-7xl dark:text-[#F8F6F2]">
-                {vehicle.passengers.replace(/[^0-9]/g, '') || '—'}
-              </span>
-              <span className="mt-3 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                <Users className="h-3 w-3" />
-                {vehicle.passengers}
-              </span>
-            </div>
-
-            <div>
-              <span className="font-serif text-6xl font-normal leading-none text-[#171717] sm:text-7xl dark:text-[#F8F6F2]">
-                {vehicle.luggage.replace(/[^0-9]/g, '') || '—'}
-              </span>
-              <span className="mt-3 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                <Briefcase className="h-3 w-3" />
-                {vehicle.luggage}
-              </span>
-            </div>
+            <CapacityStat
+              value={vehicle.passengers}
+              label={vehicle.passengers ?? 'Capacity on request'}
+              icon={<Users className="h-3 w-3" />}
+              size="large"
+            />
+            <CapacityStat
+              value={vehicle.luggage}
+              label={vehicle.luggage ?? 'Capacity on request'}
+              icon={<Briefcase className="h-3 w-3" />}
+              size="large"
+            />
           </div>
 
           <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">

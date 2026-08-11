@@ -2,65 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Briefcase, Check } from 'lucide-react';
+import { Users, Briefcase, Check, Car } from 'lucide-react';
+import { fleet } from '@/content/fleet';
 import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
 export const FleetSection: React.FC = () => {
   const [activeVehicle, setActiveVehicle] = useState(0);
-
-  const fleet = [
-    {
-      id: 'maybach',
-      name: 'Mercedes-Maybach S-Class',
-      category: 'First-Class Executive Sedan',
-      tagline: 'The Pinnacle of Private Chauffeur Mobility',
-      passengers: '3 Passengers',
-      luggage: '3 Executive Cases',
-      image: '/images/maybach.png',
-      description:
-        'Designed for discreet C-suite executives and VIP transfers. Features extended legroom, reclining executive lounge seating, rear massagers, and acoustic soundproof privacy glass.',
-      specs: [
-        'Acoustically insulated quiet cabin',
-        'Hot-stone massage reclining rear seats',
-        'Dedicated 5G Wi-Fi & device charging',
-        'Private non-disclosure protocol chauffeur',
-      ],
-    },
-    {
-      id: 'escalade',
-      name: 'Cadillac Escalade ESV',
-      category: 'Luxury Executive SUV',
-      tagline: 'Commanding Presence & Generous Capacity',
-      passengers: '6 Passengers',
-      luggage: '6 Large Luggage Cases',
-      image: '/images/escalade.png',
-      description:
-        'The preferred choice for corporate delegations, family airport transfers, and luggage-heavy trips. Offers spacious leather captain chairs and rear climate control.',
-      specs: [
-        'Extended wheelbase ESV luggage capacity',
-        'Individual heated leather captain chairs',
-        'Tri-zone automatic climate control',
-        'High-speed multi-device USB-C power',
-      ],
-    },
-    {
-      id: 'sprinter',
-      name: 'Mercedes-Benz Sprinter Executive',
-      category: 'Private Jet Van (14 Passengers)',
-      tagline: 'Mobile Office & Group Sanctuary',
-      passengers: 'Up to 14 Passengers',
-      luggage: '14 Large Luggage Cases',
-      image: '/images/signature_sprinter.jpg',
-      description:
-        'Custom jet-converted executive cabin for financial roadshows, corporate teams, and private airport groups. Full stand-up headroom, conference seating, onboard Wi-Fi, and 110V AC power.',
-      specs: [
-        'Custom 14-passenger luxury executive seating',
-        'Direct FBO tarmac access on request',
-        'Complimentary 5G Wi-Fi & multi-device AC power outlets',
-        'Quiet-Ride soundproofing for undisturbed conference calls',
-      ],
-    },
-  ];
 
   const currentVehicle = fleet[activeVehicle];
 
@@ -82,7 +29,7 @@ export const FleetSection: React.FC = () => {
             Crafted for absolute comfort.
           </h2>
           <p className="text-lg sm:text-xl text-[#B8B8B8] font-light mt-4 max-w-2xl mx-auto">
-            Every vehicle in our fleet is meticulously maintained, sanitized, and spec’d with private luxury amenities.
+            Modern, spotless vehicles, each driven by a professional licensed chauffeur.
           </p>
         </motion.div>
 
@@ -92,7 +39,7 @@ export const FleetSection: React.FC = () => {
             const isActive = activeVehicle === index;
             return (
               <button
-                key={item.id}
+                key={item.slug}
                 onClick={() => setActiveVehicle(index)}
                 className={`px-6 py-3 rounded-full text-xs uppercase tracking-widest font-extrabold transition-all duration-300 cursor-pointer border ${
                   isActive
@@ -112,18 +59,28 @@ export const FleetSection: React.FC = () => {
           <div className="lg:col-span-7 relative h-[380px] sm:h-[480px] lg:h-[520px] rounded-[36px] overflow-hidden border border-white/15 shadow-2xl bg-black">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentVehicle.id}
+                key={currentVehicle.slug}
                 initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="absolute inset-0"
               >
-                <img
-                  src={currentVehicle.image}
-                  alt={currentVehicle.name}
-                  className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08]"
-                />
+                {currentVehicle.image ? (
+                  <img
+                    src={currentVehicle.image}
+                    alt={currentVehicle.name}
+                    className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08]"
+                  />
+                ) : (
+                  /* No stand-in imagery: only the Sprinter has genuine photography. */
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-[#1A1A1A] to-[#0B0B0B]">
+                    <Car className="h-8 w-8 text-white/25" />
+                    <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-white/35">
+                      Photography to follow
+                    </span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
 
                 <div className="absolute bottom-8 left-8 right-8 flex items-center justify-between text-white">
@@ -144,7 +101,7 @@ export const FleetSection: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentVehicle.id}
+                key={currentVehicle.slug}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -164,16 +121,22 @@ export const FleetSection: React.FC = () => {
                 </div>
 
                 {/* Capacity Badges */}
-                <div className="flex items-center gap-6 py-4 border-y border-white/10 text-xs">
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-emerald-400" />
-                    <span>{currentVehicle.passengers}</span>
+                {(currentVehicle.passengers || currentVehicle.luggage) && (
+                  <div className="flex items-center gap-6 py-4 border-y border-white/10 text-xs">
+                    {currentVehicle.passengers && (
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4 text-emerald-400" />
+                        <span>{currentVehicle.passengers}</span>
+                      </div>
+                    )}
+                    {currentVehicle.luggage && (
+                      <div className="flex items-center gap-2">
+                        <Briefcase className="w-4 h-4 text-emerald-400" />
+                        <span>{currentVehicle.luggage}</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Briefcase className="w-4 h-4 text-emerald-400" />
-                    <span>{currentVehicle.luggage}</span>
-                  </div>
-                </div>
+                )}
 
                 {/* Spec List */}
                 <div className="space-y-3">

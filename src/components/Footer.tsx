@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center gap-3 shrink-0">
-            <BookNowButton label={DISPATCH_PHONE} variant="onDark" />
+            <BookNowButton label="Book Your Ride" variant="onDark" />
             <OrCallNote onDark />
           </div>
         </div>
@@ -42,6 +42,9 @@ export const Footer: React.FC = () => {
               <span className="font-serif text-3xl font-bold tracking-tight text-white">ITP</span>
               <span className="text-xs uppercase tracking-[0.3em] font-extrabold text-white/70">LIMO</span>
             </div>
+            <span className="block text-[10px] uppercase tracking-[0.3em] font-semibold text-white/40 -mt-4">
+              Executive Transportation
+            </span>
 
             <p className="text-sm text-white/70 font-normal leading-relaxed max-w-sm">
               First-class private mobility serving Boston, Raleigh-Durham, and regional airport corridors. Crafted for C-suite executives, private aviation FBOs, and bespoke corporate travel.
@@ -98,7 +101,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Private Aviation Terminals</span>
+                <span>Signature Aviation & FBO Terminals</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -150,7 +153,7 @@ export const Footer: React.FC = () => {
         {/* Large Watermark Brand Statement */}
         <div className="pt-16 pb-12 border-b border-white/10 text-center">
           <span className="font-serif text-4xl sm:text-7xl lg:text-8xl tracking-tight text-white/10 uppercase select-none font-normal">
-            ITP LUXURY MOBILITY
+            EXECUTIVE TRANSPORTATION
           </span>
         </div>
 

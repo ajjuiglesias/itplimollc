@@ -79,22 +79,22 @@ export const locations: Location[] = [
       {
         title: 'Airport Transfer',
         desc: 'Timely pickups and drop-offs at Logan Airport with flight tracking, meet & greet service, and luggage assistance.',
-        image: '/images/hero.png',
+        image: '/images/signature_sprinter.jpg',
       },
       {
         title: 'Wedding Transportation',
         desc: 'Arrive in style on your special day with our luxury wedding transportation packages in Boston.',
-        image: '/images/maybach.png',
+        image: '/images/gulfstream_sprinter.jpg',
       },
       {
         title: 'Meet & Greet',
         desc: 'Perfect for guests or clients arriving at the airport — we welcome them with courtesy and care.',
-        image: '/images/fbo.png',
+        image: '/images/gulfstream_sprinter.jpg',
       },
       {
         title: 'Corporate Transfer',
         desc: 'Professional black car service for meetings, conferences, roadshows, and executive travel.',
-        image: '/images/escalade.png',
+        image: '/images/cockpit_tarmac.jpg',
       },
       {
         title: 'Chauffeur Services',
@@ -104,12 +104,12 @@ export const locations: Location[] = [
       {
         title: 'Special Events',
         desc: 'Book us for proms, parties, concerts, sports events, and more — make every occasion memorable.',
-        image: '/images/sprinter.png',
+        image: '/images/signature_sprinter.jpg',
       },
     ],
     vehicles: [
-      { name: 'SUV', passengers: 7, luggage: 6, image: '/images/escalade.png' },
-      { name: 'Sedan', passengers: 3, luggage: 3, image: '/images/maybach.png' },
+      { name: 'SUV', passengers: 7, luggage: 6, image: '/images/cockpit_tarmac.jpg' },
+      { name: 'Sedan', passengers: 3, luggage: 3, image: '/images/gulfstream_sprinter.jpg' },
     ],
     whyChoose: [
       'Always On Time — Guaranteed punctual pickups',
@@ -172,22 +172,22 @@ export const locations: Location[] = [
       {
         title: 'Airport Transfer',
         desc: 'Timely pickups and drop-offs at RDU Airport with flight tracking, meet & greet service, and luggage assistance.',
-        image: '/images/hero.png',
+        image: '/images/signature_sprinter.jpg',
       },
       {
         title: 'Wedding Transportation',
         desc: 'Arrive in style on your special day with our luxury wedding transportation packages.',
-        image: '/images/maybach.png',
+        image: '/images/gulfstream_sprinter.jpg',
       },
       {
         title: 'Meet & Greet',
         desc: 'Perfect for guests or clients arriving at the airport — we welcome them with courtesy and care.',
-        image: '/images/fbo.png',
+        image: '/images/gulfstream_sprinter.jpg',
       },
       {
         title: 'Corporate Transfer',
         desc: 'Professional black car service for meetings, conferences, roadshows, and executive travel.',
-        image: '/images/escalade.png',
+        image: '/images/cockpit_tarmac.jpg',
       },
       {
         title: 'Chauffeur Services',
@@ -197,12 +197,12 @@ export const locations: Location[] = [
       {
         title: 'Special Events',
         desc: 'Book us for proms, parties, concerts, sports events, and more — make every occasion memorable.',
-        image: '/images/sprinter.png',
+        image: '/images/signature_sprinter.jpg',
       },
     ],
     vehicles: [
-      { name: 'SUV', passengers: 7, luggage: 6, image: '/images/escalade.png' },
-      { name: 'Sedan', passengers: 3, luggage: 3, image: '/images/maybach.png' },
+      { name: 'SUV', passengers: 7, luggage: 6, image: '/images/cockpit_tarmac.jpg' },
+      { name: 'Sedan', passengers: 3, luggage: 3, image: '/images/gulfstream_sprinter.jpg' },
     ],
     whyChoose: [
       'Always On Time — Guaranteed punctual pickups',

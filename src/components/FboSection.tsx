@@ -9,7 +9,7 @@ export const FboSection: React.FC = () => {
   const fboFeatures = [
     {
       title: 'Tarmac Direct Pickup',
-      desc: 'Chauffeur and vehicle positioned steps from your aircraft ladder at the FBO terminal.',
+      desc: 'Chauffeur and vehicle staged at the FBO terminal, ready as you step off the aircraft.',
     },
     {
       title: 'Tail Number Tracking',
@@ -64,7 +64,7 @@ export const FboSection: React.FC = () => {
                 FBO Terminal Integration
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-medium">
-                Private Aviation Terminals
+                Signature Aviation
               </h3>
             </div>
           </motion.div>

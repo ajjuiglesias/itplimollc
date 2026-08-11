@@ -28,7 +28,7 @@ export const services: Service[] = [
     tagline: 'Live delay radar & 60-min airport wait time',
     description:
       'Delayed flight? Chauffeurs track arrivals automatically in real time and adjust pickup schedules so you are never stranded.',
-    image: '/images/hero.png',
+    image: '/images/signature_sprinter.jpg',
     amenities: [
       'Live Flight Delay Radar Synchronization',
       'Baggage Claim Meet & Greet with Name Sign',
@@ -63,7 +63,7 @@ export const services: Service[] = [
     tagline: 'Dedicated vehicle on standby',
     description:
       'Reserve a dedicated chauffeur from 2 to 24 hours. Your vehicle remains on standby outside every venue for as long as you need.',
-    image: '/images/escalade.png',
+    image: '/images/cockpit_tarmac.jpg',
     amenities: [
       'Unlimited Stops & Instant Itinerary Adjustments',
       'Chauffeur On Standby Outside Every Venue',
@@ -98,7 +98,7 @@ export const services: Service[] = [
     tagline: 'Private door-to-door regional travel',
     description:
       'Turn long-distance journeys into calm, productive time. Direct private travel between Raleigh, Charlotte, Richmond, and Washington D.C.',
-    image: '/images/maybach.png',
+    image: '/images/gulfstream_sprinter.jpg',
     amenities: [
       'Direct Door-to-Door Regional Highway Travel',
       'High-Speed Onboard 5G Wi-Fi & Device Charging',
@@ -133,7 +133,7 @@ export const services: Service[] = [
     tagline: 'Dedicated concierge & roadshows',
     description:
       'One dedicated concierge platform for companies and executive assistants to book, track, and account for every journey.',
-    image: '/images/sprinter.png',
+    image: '/images/signature_sprinter.jpg',
     amenities: [
       'Centralized Monthly Billing & Expense Invoicing',
       'Multi-Stop Financial Roadshow Coordination',

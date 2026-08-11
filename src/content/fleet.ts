@@ -1,16 +1,37 @@
+/*
+ * Fleet content.
+ *
+ * Every entry here must be traceable to something the client actually
+ * published or photographed:
+ *   - SUV and Sedan, with their capacities, are taken verbatim from the
+ *     client's own Limo Boston page.
+ *   - The Mercedes-Benz Sprinter is named because their own photography shows
+ *     it in ITP livery with the model badge visible.
+ *
+ * The previous contents of this file advertised a Mercedes-Maybach S-Class and
+ * a Cadillac Escalade ESV illustrated with AI-generated images — including a
+ * fictional hotel, "The Azure Grande Resort". ITP does not operate those
+ * vehicles. Do not reintroduce a vehicle without a source.
+ *
+ * `image` is optional on purpose: it is better to ship a vehicle with no
+ * photograph than with a photograph of a car the client does not own. Only the
+ * Sprinter currently has genuine imagery.
+ */
+
 export interface Vehicle {
   slug: string;
   name: string;
-  /** Shorter label for tabs and breadcrumbs. */
+  /** Shorter label for breadcrumbs and cross-links. */
   shortName: string;
   category: string;
   tagline: string;
-  passengers: string;
-  luggage: string;
-  image: string;
+  /** Omitted where the client has not published a figure. */
+  passengers?: string;
+  luggage?: string;
+  /** Genuine ITP photography only. */
+  image?: string;
   description: string;
   specs: string[];
-  /** Longer copy shown only on the vehicle detail page. */
   detail: {
     intro: string;
     bestFor: string[];
@@ -19,86 +40,82 @@ export interface Vehicle {
 
 export const fleet: Vehicle[] = [
   {
-    slug: 'mercedes-maybach-s-class',
-    name: 'Mercedes-Maybach S-Class',
-    shortName: 'Maybach S-Class',
-    category: 'First-Class Executive Sedan',
-    tagline: 'The Pinnacle of Private Chauffeur Mobility',
-    passengers: '3 Passengers',
-    luggage: '3 Executive Cases',
-    image: '/images/maybach.png',
-    description:
-      'Designed for discreet C-suite executives and VIP transfers. Features extended legroom, reclining executive lounge seating, rear massagers, and acoustic soundproof privacy glass.',
-    specs: [
-      'Acoustically insulated quiet cabin',
-      'Hot-stone massage reclining rear seats',
-      'Dedicated 5G Wi-Fi & device charging',
-      'Private non-disclosure protocol chauffeur',
-    ],
-    detail: {
-      intro:
-        'The Maybach S-Class is the quietest cabin in our fleet. Acoustic laminated glass, an extended wheelbase and individually reclining rear lounge seats make it the default choice when the journey has to double as private working time.',
-      bestFor: [
-        'C-suite airport transfers at BOS and RDU',
-        'Confidential client meetings in transit',
-        'Evening and black-tie arrivals',
-        'Single-executive city-to-city travel',
-      ],
-    },
-  },
-  {
-    slug: 'cadillac-escalade-esv',
-    name: 'Cadillac Escalade ESV',
-    shortName: 'Escalade ESV',
-    category: 'Luxury Executive SUV',
-    tagline: 'Commanding Presence & Generous Capacity',
-    passengers: '6 Passengers',
-    luggage: '6 Large Luggage Cases',
-    image: '/images/escalade.png',
-    description:
-      'The preferred choice for corporate delegations, family airport transfers, and luggage-heavy trips. Offers spacious leather captain chairs and rear climate control.',
-    specs: [
-      'Extended wheelbase ESV luggage capacity',
-      'Individual heated leather captain chairs',
-      'Tri-zone automatic climate control',
-      'High-speed multi-device USB-C power',
-    ],
-    detail: {
-      intro:
-        'The extended-wheelbase ESV carries a full complement of passengers without sacrificing luggage space, which makes it the practical answer for arrivals where both the party and the baggage are substantial.',
-      bestFor: [
-        'Family airport transfers with full luggage',
-        'Small corporate delegations',
-        'Golf and Pinehurst trips',
-        'Winter and adverse-weather travel',
-      ],
-    },
-  },
-  {
-    slug: 'mercedes-sprinter-executive',
-    name: 'Mercedes-Benz Sprinter Executive',
-    shortName: 'Sprinter Executive',
-    category: 'Private Jet Van (14 Passengers)',
-    tagline: 'Mobile Office & Group Sanctuary',
-    passengers: 'Up to 14 Passengers',
-    luggage: '14 Large Luggage Cases',
+    slug: 'sprinter',
+    name: 'Mercedes-Benz Sprinter',
+    shortName: 'Sprinter',
+    category: 'Executive Group Van',
+    tagline: 'Our flagship vehicle for groups and private aviation',
     image: '/images/signature_sprinter.jpg',
     description:
-      'Custom jet-converted executive cabin for financial roadshows, corporate teams, and private airport groups. Full stand-up headroom, conference seating, onboard Wi-Fi, and 110V AC power.',
+      'A high-roof executive Sprinter with full stand-up headroom, used for group transfers, corporate movements and private aviation pickups.',
     specs: [
-      'Custom 14-passenger luxury executive seating',
-      'Direct FBO tarmac access on request',
-      'Complimentary 5G Wi-Fi & multi-device AC power outlets',
-      'Quiet-Ride soundproofing for undisturbed conference calls',
+      'Full stand-up interior headroom',
+      'Generous luggage capacity for group travel',
+      'Used for FBO and private aviation transfers',
+      'Professional licensed chauffeur',
     ],
     detail: {
       intro:
-        'Our Sprinter is a jet-converted executive cabin with full stand-up headroom and conference seating. It is the vehicle most often requested for financial roadshows, because the team can keep working between stops rather than losing the time.',
+        'The Sprinter is the vehicle you will most often see arriving for group work. Its height and luggage space make it the practical answer when a party and its bags will not fit comfortably into an SUV, and it is the vehicle we take to private aviation terminals.',
       bestFor: [
-        'Multi-stop financial roadshows',
-        'Private aviation group transfers from the tarmac',
-        'Corporate offsites and team movement',
-        'Wedding parties and large-group events',
+        'Group airport transfers',
+        'Private aviation and FBO pickups',
+        'Corporate team movements',
+        'Weddings and larger parties',
+      ],
+    },
+  },
+  {
+    slug: 'suv',
+    name: 'SUV',
+    shortName: 'SUV',
+    category: 'Executive SUV',
+    tagline: 'Room for the party and the luggage',
+    passengers: '7 Passengers',
+    luggage: '6 Bags',
+    description:
+      'A modern black executive SUV for airport runs, corporate travel and family transfers where luggage space matters.',
+    specs: [
+      'Seats up to 7 passengers',
+      'Room for 6 pieces of luggage',
+      'Spotless, recent-model vehicle',
+      'Professional licensed chauffeur',
+    ],
+    detail: {
+      intro:
+        'The SUV is the workhorse of the fleet. Seven seats and six bags covers the majority of airport transfers without moving up to the Sprinter.',
+      bestFor: [
+        'Airport transfers with full luggage',
+        'Corporate and executive travel',
+        'Family and small-group journeys',
+        'Evening and event transport',
+      ],
+    },
+  },
+  {
+    slug: 'sedan',
+    name: 'Sedan',
+    shortName: 'Sedan',
+    category: 'Executive Sedan',
+    tagline: 'Discreet travel for one to three',
+    passengers: '3 Passengers',
+    luggage: '3 Bags',
+    description:
+      'A black executive sedan for individual and small-party travel, meetings and point-to-point city journeys.',
+    specs: [
+      'Seats up to 3 passengers',
+      'Room for 3 pieces of luggage',
+      'Quiet cabin suited to calls in transit',
+      'Professional licensed chauffeur',
+    ],
+    detail: {
+      intro:
+        'For a single executive or a pair of travellers, the sedan is the quietest and most discreet way to move between meetings, hotels and the airport.',
+      bestFor: [
+        'Single-executive airport transfers',
+        'Meetings and point-to-point city travel',
+        'Evening and black-tie arrivals',
+        'Working quietly in transit',
       ],
     },
   },
