@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-[44px] items-center hover:text-white transition-colors"
+                    className="inline-flex min-h-[44px] items-center hover:text-white transition-colors lg:min-h-0 lg:py-1.5"
                   >
                     {item.label}
                   </Link>
@@ -170,10 +170,10 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} ITP LIMO LLC. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">
+            <Link href="/privacy" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors lg:min-h-0 lg:py-1.5">
               Privacy Protocol
             </Link>
-            <Link href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors">
+            <Link href="/terms" className="inline-flex min-h-[44px] items-center hover:text-white transition-colors lg:min-h-0 lg:py-1.5">
               Terms of Chauffeur Service
             </Link>
           </div>
