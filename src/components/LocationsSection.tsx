@@ -89,8 +89,8 @@ export const LocationsSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Route List — hidden until a market has enough entries to justify it */}
-                <div className={`mb-8 ${loc.routes.length > 1 ? '' : 'hidden'}`}>
+                {/* Route List */}
+                <div className="mb-8">
                   <span className="text-[10px] uppercase tracking-widest font-bold text-[#66625C] dark:text-[#A0A0A0] block mb-3">
                     Featured Service Corridors
                   </span>
