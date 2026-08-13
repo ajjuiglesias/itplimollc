@@ -6,10 +6,10 @@
  *   2026 Lincoln Aviator    — 3 passengers
  *   2026 Mercedes Sprinter  — 14 passengers
  *
- * Luggage figures for the Suburban and Aviator carry over from the capacities
- * published on the client's own site (6 and 3). The Sprinter's is omitted
- * because no figure has been given — CapacityStat renders an em dash rather
- * than inventing one.
+ * Luggage figures are the client's: 6, 3 and 20 respectively.
+ *
+ * Note the company runs five vehicles across these three models — they have
+ * more than one Suburban — so copy should say five vehicles, not three.
  *
  * Photographs are the client's own. Do not add a vehicle, a capacity or an
  * image without a source; the original scaffold advertised a Maybach and an
@@ -96,14 +96,16 @@ export const fleet: Vehicle[] = [
     name: '2026 Mercedes-Benz Sprinter',
     shortName: 'Sprinter',
     category: 'Executive Group Van',
-    tagline: 'Fourteen passengers, one vehicle',
+    tagline: 'Fourteen passengers, twenty bags',
     passengers: '14 Passengers',
+    luggage: '20 Bags',
     image: '/images/mercedes-sprinter.png',
     description:
       'A 2026 Mercedes-Benz Sprinter in black with full stand-up headroom, seating fourteen — used for group transfers, corporate movements and private aviation pickups.',
     specs: [
       '2026 model year',
       'Seats up to 14 passengers',
+      'Room for 20 pieces of luggage',
       'Full stand-up interior headroom',
       'Used for FBO and private aviation transfers',
     ],

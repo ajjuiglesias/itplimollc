@@ -29,7 +29,7 @@ export const FleetSection: React.FC = () => {
             Every vehicle is a 2026.
           </h2>
           <p className="text-lg sm:text-xl text-[#B8B8B8] font-light mt-4 max-w-2xl mx-auto">
-            A 2026 Suburban, Aviator and Sprinter — each driven by a professional licensed chauffeur.
+            A fleet of five 2026 vehicles — Suburban, Aviator and Sprinter — seating three, seven or fourteen.
           </p>
         </motion.div>
 

@@ -115,7 +115,7 @@ export const locations: Location[] = [
       {
         name: '2026 Mercedes Sprinter',
         passengers: 14,
-        luggage: 0,
+        luggage: 20,
         image: '/images/mercedes-sprinter.png',
       },
     ],
@@ -214,7 +214,7 @@ export const locations: Location[] = [
       {
         name: '2026 Mercedes Sprinter',
         passengers: 14,
-        luggage: 0,
+        luggage: 20,
         image: '/images/mercedes-sprinter.png',
       },
     ],

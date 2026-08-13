@@ -31,8 +31,8 @@ export default function FleetPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Choose Your Vehicle"
-            title="Three vehicles, every occasion."
-            subtitle="Select a vehicle for full specifications, capacity and the journeys it suits best."
+            title="The right vehicle for every occasion."
+            subtitle="A fleet of five, across three models — seating three, seven or fourteen."
             className="mb-20"
           />
 
