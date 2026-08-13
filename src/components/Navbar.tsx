@@ -14,11 +14,20 @@ const HIDE_AFTER = 160;
 /** Ignore sub-pixel scroll jitter when deciding direction. */
 const DIRECTION_THRESHOLD = 6;
 
+/*
+ * Mirrors the client's own navigation: their markets lead, then services,
+ * fleet, about and contact. Home is covered by the logo.
+ *
+ * Private aviation and flight tracking are deliberately not here. Neither
+ * appears in the client's navigation, and both are facets of the airport
+ * service rather than separate lines of business; they stay reachable from the
+ * services page and the footer.
+ */
 const navLinks = [
+  { name: 'Raleigh', href: '/locations/raleigh' },
+  { name: 'Boston', href: '/locations/boston' },
   { name: 'Services', href: '/services' },
   { name: 'Fleet', href: '/fleet' },
-  { name: 'Private Aviation', href: '/private-aviation' },
-  { name: 'Flight Radar', href: '/flight-tracking' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];

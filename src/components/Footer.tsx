@@ -71,12 +71,14 @@ export const Footer: React.FC = () => {
             </span>
             <ul className="text-xs font-normal text-white/70">
               {[
-                { label: 'Bespoke Services', href: '/services' },
-                { label: 'Flagship Fleet', href: '/fleet' },
-                { label: 'FBO Private Aviation', href: '/private-aviation' },
-                { label: 'Live Flight Tracking', href: '/flight-tracking' },
-                { label: 'About ITP', href: '/about' },
-                { label: 'Contact Dispatch', href: '/contact' },
+                { label: 'Limo Raleigh', href: '/locations/raleigh' },
+                { label: 'Limo Boston', href: '/locations/boston' },
+                { label: 'Services', href: '/services' },
+                { label: 'Our Fleet', href: '/fleet' },
+                { label: 'Private Aviation', href: '/private-aviation' },
+                { label: 'Flight Tracking', href: '/flight-tracking' },
+                { label: 'About', href: '/about' },
+                { label: 'Contact', href: '/contact' },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
