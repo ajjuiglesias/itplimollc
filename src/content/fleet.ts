@@ -1,21 +1,19 @@
 /*
  * Fleet content.
  *
- * Every entry here must be traceable to something the client actually
- * published or photographed:
- *   - SUV and Sedan, with their capacities, are taken verbatim from the
- *     client's own Limo Boston page.
- *   - The Mercedes-Benz Sprinter is named because their own photography shows
- *     it in ITP livery with the model badge visible.
+ * Vehicles, model years and passenger counts are exactly as the client stated:
+ *   2026 Chevrolet Suburban — 7 passengers
+ *   2026 Lincoln Aviator    — 3 passengers
+ *   2026 Mercedes Sprinter  — 14 passengers
  *
- * The previous contents of this file advertised a Mercedes-Maybach S-Class and
- * a Cadillac Escalade ESV illustrated with AI-generated images — including a
- * fictional hotel, "The Azure Grande Resort". ITP does not operate those
- * vehicles. Do not reintroduce a vehicle without a source.
+ * Luggage figures for the Suburban and Aviator carry over from the capacities
+ * published on the client's own site (6 and 3). The Sprinter's is omitted
+ * because no figure has been given — CapacityStat renders an em dash rather
+ * than inventing one.
  *
- * `image` is optional on purpose: it is better to ship a vehicle with no
- * photograph than with a photograph of a car the client does not own. Only the
- * Sprinter currently has genuine imagery.
+ * Photographs are the client's own. Do not add a vehicle, a capacity or an
+ * image without a source; the original scaffold advertised a Maybach and an
+ * Escalade the company does not operate, illustrated with AI-generated images.
  */
 
 export interface Vehicle {
@@ -25,10 +23,8 @@ export interface Vehicle {
   shortName: string;
   category: string;
   tagline: string;
-  /** Omitted where the client has not published a figure. */
   passengers?: string;
   luggage?: string;
-  /** Genuine ITP photography only. */
   image?: string;
   description: string;
   specs: string[];
@@ -40,50 +36,25 @@ export interface Vehicle {
 
 export const fleet: Vehicle[] = [
   {
-    slug: 'sprinter',
-    name: 'Mercedes-Benz Sprinter',
-    shortName: 'Sprinter',
-    category: 'Executive Group Van',
-    tagline: 'Our flagship vehicle for groups and private aviation',
-    image: '/images/signature_sprinter.jpg',
-    description:
-      'A high-roof executive Sprinter with full stand-up headroom, used for group transfers, corporate movements and private aviation pickups.',
-    specs: [
-      'Full stand-up interior headroom',
-      'Generous luggage capacity for group travel',
-      'Used for FBO and private aviation transfers',
-      'Professional licensed chauffeur',
-    ],
-    detail: {
-      intro:
-        'The Sprinter is the vehicle you will most often see arriving for group work. Its height and luggage space make it the practical answer when a party and its bags will not fit comfortably into an SUV, and it is the vehicle we take to private aviation terminals.',
-      bestFor: [
-        'Group airport transfers',
-        'Private aviation and FBO pickups',
-        'Corporate team movements',
-        'Weddings and larger parties',
-      ],
-    },
-  },
-  {
-    slug: 'suv',
-    name: 'SUV',
-    shortName: 'SUV',
-    category: 'Executive SUV',
+    slug: 'chevrolet-suburban',
+    name: '2026 Chevrolet Suburban',
+    shortName: 'Suburban',
+    category: 'Full-Size Executive SUV',
     tagline: 'Room for the party and the luggage',
     passengers: '7 Passengers',
     luggage: '6 Bags',
+    image: '/images/chevrolet-suburban.png',
     description:
-      'A modern black executive SUV for airport runs, corporate travel and family transfers where luggage space matters.',
+      'A 2026 Chevrolet Suburban in black, seating seven with room for six bags — the default choice for airport runs where both the party and the luggage are full size.',
     specs: [
+      '2026 model year',
       'Seats up to 7 passengers',
       'Room for 6 pieces of luggage',
-      'Spotless, recent-model vehicle',
       'Professional licensed chauffeur',
     ],
     detail: {
       intro:
-        'The SUV is the workhorse of the fleet. Seven seats and six bags covers the majority of airport transfers without moving up to the Sprinter.',
+        'The Suburban is the workhorse of the fleet. Seven seats and six bags covers the majority of airport transfers without moving up to the Sprinter, and the full-size body means nobody travels with a case on their lap.',
       bestFor: [
         'Airport transfers with full luggage',
         'Corporate and executive travel',
@@ -93,29 +64,57 @@ export const fleet: Vehicle[] = [
     },
   },
   {
-    slug: 'sedan',
-    name: 'Sedan',
-    shortName: 'Sedan',
-    category: 'Executive Sedan',
+    slug: 'lincoln-aviator',
+    name: '2026 Lincoln Aviator',
+    shortName: 'Aviator',
+    category: 'Luxury Executive SUV',
     tagline: 'Discreet travel for one to three',
     passengers: '3 Passengers',
     luggage: '3 Bags',
+    image: '/images/lincoln-aviator.png',
     description:
-      'A black executive sedan for individual and small-party travel, meetings and point-to-point city journeys.',
+      'A 2026 Lincoln Aviator in black, configured for up to three passengers — the quietest way to move between meetings, hotels and the airport.',
     specs: [
+      '2026 model year',
       'Seats up to 3 passengers',
       'Room for 3 pieces of luggage',
-      'Quiet cabin suited to calls in transit',
       'Professional licensed chauffeur',
     ],
     detail: {
       intro:
-        'For a single executive or a pair of travellers, the sedan is the quietest and most discreet way to move between meetings, hotels and the airport.',
+        'For a single executive or a pair of travellers, the Aviator is the most discreet vehicle in the fleet. Configured for three, it keeps the cabin quiet enough to work or take a call the whole way.',
       bestFor: [
         'Single-executive airport transfers',
         'Meetings and point-to-point city travel',
         'Evening and black-tie arrivals',
         'Working quietly in transit',
+      ],
+    },
+  },
+  {
+    slug: 'mercedes-sprinter',
+    name: '2026 Mercedes-Benz Sprinter',
+    shortName: 'Sprinter',
+    category: 'Executive Group Van',
+    tagline: 'Fourteen passengers, one vehicle',
+    passengers: '14 Passengers',
+    image: '/images/mercedes-sprinter.png',
+    description:
+      'A 2026 Mercedes-Benz Sprinter in black with full stand-up headroom, seating fourteen — used for group transfers, corporate movements and private aviation pickups.',
+    specs: [
+      '2026 model year',
+      'Seats up to 14 passengers',
+      'Full stand-up interior headroom',
+      'Used for FBO and private aviation transfers',
+    ],
+    detail: {
+      intro:
+        'The Sprinter is the vehicle you will most often see arriving for group work. Fourteen seats and stand-up height make it the practical answer when a party and its bags will not fit into an SUV, and it is the vehicle we take to private aviation terminals.',
+      bestFor: [
+        'Group airport transfers',
+        'Private aviation and FBO pickups',
+        'Corporate team movements',
+        'Weddings and larger parties',
       ],
     },
   },

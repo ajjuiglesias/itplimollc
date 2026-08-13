@@ -23,13 +23,13 @@ export const FleetSection: React.FC = () => {
           className="text-center mb-16 sm:mb-20"
         >
           <span className="text-[11px] uppercase tracking-[0.35em] font-extrabold text-[#A0A0A0]">
-            The Flagship Collection
+            The Newest Fleet in the Triangle
           </span>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl text-[#F8F6F2] font-normal tracking-tight leading-[1.08] mt-2">
-            Crafted for absolute comfort.
+            Every vehicle is a 2026.
           </h2>
           <p className="text-lg sm:text-xl text-[#B8B8B8] font-light mt-4 max-w-2xl mx-auto">
-            Modern, spotless vehicles, each driven by a professional licensed chauffeur.
+            A 2026 Suburban, Aviator and Sprinter — each driven by a professional licensed chauffeur.
           </p>
         </motion.div>
 
@@ -70,7 +70,7 @@ export const FleetSection: React.FC = () => {
                   <img
                     src={currentVehicle.image}
                     alt={currentVehicle.name}
-                    className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08]"
+                    className="w-full h-full object-contain p-8 sm:p-12"
                   />
                 ) : (
                   /* No stand-in imagery: only the Sprinter has genuine photography. */
@@ -81,7 +81,7 @@ export const FleetSection: React.FC = () => {
                     </span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 to-transparent" />
 
                 <div className="absolute bottom-8 left-8 right-8 flex items-center justify-between text-white">
                   <div>

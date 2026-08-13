@@ -5,7 +5,6 @@ import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
 import { fleet, getVehicle } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { CapacityStat } from '@/components/ui/CapacityStat';
 import { VehicleImage } from '@/components/ui/VehicleImage';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
@@ -57,23 +56,11 @@ export default async function VehiclePage({ params }: PageProps) {
 
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          {vehicle.image ? (
-            <EditorialBanner
-              image={vehicle.image}
-              alt={vehicle.name}
-              eyebrow={vehicle.category}
-              title={vehicle.name}
-              body={vehicle.tagline}
-              size="tall"
-              className="mb-20"
-            />
-          ) : (
-            <VehicleImage
-              src={undefined}
-              alt={vehicle.name}
-              className="mb-20 h-[340px] sm:h-[440px]"
-            />
-          )}
+          <VehicleImage
+            src={vehicle.image}
+            alt={vehicle.name}
+            className="mb-20 h-[320px] sm:h-[480px]"
+          />
 
           {/* Capacity as oversized numerals on a rule */}
           <div className="grid grid-cols-2 gap-10 border-y border-black/10 py-10 sm:gap-20 dark:border-white/10">

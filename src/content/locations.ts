@@ -100,8 +100,24 @@ export const locations: Location[] = [
       },
     ],
     vehicles: [
-      { name: 'SUV', passengers: 7, luggage: 6, image: '/images/cockpit_tarmac.jpg' },
-      { name: 'Sedan', passengers: 3, luggage: 3, image: '/images/gulfstream_sprinter.jpg' },
+      {
+        name: '2026 Chevrolet Suburban',
+        passengers: 7,
+        luggage: 6,
+        image: '/images/chevrolet-suburban.png',
+      },
+      {
+        name: '2026 Lincoln Aviator',
+        passengers: 3,
+        luggage: 3,
+        image: '/images/lincoln-aviator.png',
+      },
+      {
+        name: '2026 Mercedes Sprinter',
+        passengers: 14,
+        luggage: 0,
+        image: '/images/mercedes-sprinter.png',
+      },
     ],
     whyChoose: [
       'Always On Time — Guaranteed punctual pickups',
@@ -183,8 +199,24 @@ export const locations: Location[] = [
       },
     ],
     vehicles: [
-      { name: 'SUV', passengers: 7, luggage: 6, image: '/images/cockpit_tarmac.jpg' },
-      { name: 'Sedan', passengers: 3, luggage: 3, image: '/images/gulfstream_sprinter.jpg' },
+      {
+        name: '2026 Chevrolet Suburban',
+        passengers: 7,
+        luggage: 6,
+        image: '/images/chevrolet-suburban.png',
+      },
+      {
+        name: '2026 Lincoln Aviator',
+        passengers: 3,
+        luggage: 3,
+        image: '/images/lincoln-aviator.png',
+      },
+      {
+        name: '2026 Mercedes Sprinter',
+        passengers: 14,
+        luggage: 0,
+        image: '/images/mercedes-sprinter.png',
+      },
     ],
     whyChoose: [
       'Always On Time — Guaranteed punctual pickups',

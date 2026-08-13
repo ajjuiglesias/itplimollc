@@ -120,20 +120,20 @@ export default async function LocationPage({ params }: PageProps) {
           <SectionHeader
             eyebrow="The Fleet"
             title="Choose your vehicle."
-            subtitle="Every vehicle is modern, spotless, and driven by a licensed professional chauffeur."
+            subtitle="Every vehicle is a 2026 model, driven by a licensed professional chauffeur."
             onDark
             className="mb-20"
           />
 
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:gap-20">
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {location.vehicles.map((vehicle, idx) => (
               <div key={vehicle.name}>
-                <div className="relative mb-8 h-64 overflow-hidden rounded-[28px] sm:h-80">
+                <div className="relative mb-8 h-56 overflow-hidden rounded-[28px] bg-gradient-to-b from-[#1E1E1E] to-[#0C0C0C] sm:h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={vehicle.image}
                     alt={vehicle.name}
-                    className="h-full w-full object-cover brightness-[0.85]"
+                    className="h-full w-full object-contain p-6"
                   />
                 </div>
 
@@ -161,17 +161,21 @@ export default async function LocationPage({ params }: PageProps) {
                     </span>
                   </div>
 
-                  <div className="w-px bg-white/15" />
+                  {vehicle.luggage > 0 && (
+                    <>
+                      <div className="w-px bg-white/15" />
 
-                  <div>
-                    <span className="font-serif text-4xl font-normal text-white sm:text-6xl">
-                      {vehicle.luggage}
-                    </span>
-                    <span className="mt-1 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A0A0A0]">
-                      <Briefcase className="h-3 w-3" />
-                      Bags
-                    </span>
-                  </div>
+                      <div>
+                        <span className="font-serif text-4xl font-normal text-white sm:text-6xl">
+                          {vehicle.luggage}
+                        </span>
+                        <span className="mt-1 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A0A0A0]">
+                          <Briefcase className="h-3 w-3" />
+                          Bags
+                        </span>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 <div className="mt-8">

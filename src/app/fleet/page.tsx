@@ -9,9 +9,9 @@ import { VehicleImage } from '@/components/ui/VehicleImage';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
-  title: 'Our Fleet | Sprinter, SUV & Sedan Chauffeur Vehicles | ITP Limo',
+  title: 'Our Fleet | 2026 Suburban, Aviator & Sprinter | ITP Limo',
   description:
-    'A Mercedes-Benz executive Sprinter, executive SUVs and sedans, chauffeured across Raleigh-Durham and Boston.',
+    'A 2026 Chevrolet Suburban, Lincoln Aviator and Mercedes Sprinter — one of the newest chauffeur fleets in the Triangle, serving Raleigh-Durham and Boston.',
   alternates: { canonical: '/fleet' },
 };
 
@@ -19,9 +19,9 @@ export default function FleetPage() {
   return (
     <>
       <PageHero
-        eyebrow="The Flagship Collection"
-        title="Crafted for absolute comfort."
-        subtitle="Modern, spotless vehicles driven by professional licensed chauffeurs — from a single-executive sedan to our group Sprinter."
+        eyebrow="The Newest Fleet in the Triangle"
+        title="Every vehicle is a 2026."
+        subtitle="A Chevrolet Suburban, a Lincoln Aviator and a Mercedes Sprinter — seating three, seven or fourteen, each driven by a professional licensed chauffeur."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Fleet' }]}
         image="/images/signature_sprinter.jpg"
         ctaLabel="Reserve a Vehicle"
@@ -50,17 +50,8 @@ export default function FleetPage() {
                     <VehicleImage
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="h-[320px] sm:h-[440px]"
-                    >
-                      <div className="absolute bottom-7 left-7 right-7 text-white">
-                        <span className="block text-[10px] font-bold uppercase tracking-widest text-white/70">
-                          {vehicle.category}
-                        </span>
-                        <h3 className="font-serif text-2xl font-medium sm:text-3xl">
-                          {vehicle.name}
-                        </h3>
-                      </div>
-                    </VehicleImage>
+                      className="h-[280px] sm:h-[400px]"
+                    />
                   </Link>
                 </div>
 
