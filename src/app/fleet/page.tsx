@@ -50,8 +50,17 @@ export default function FleetPage() {
                     <VehicleImage
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="h-[280px] sm:h-[400px]"
-                    />
+                      className="h-[300px] sm:h-[420px]"
+                    >
+                      <div className="absolute bottom-7 left-7 right-7 text-white">
+                        <span className="block text-[10px] font-bold uppercase tracking-widest text-white/70">
+                          {vehicle.category}
+                        </span>
+                        <h3 className="font-serif text-2xl font-medium sm:text-3xl">
+                          {vehicle.name}
+                        </h3>
+                      </div>
+                    </VehicleImage>
                   </Link>
                 </div>
 

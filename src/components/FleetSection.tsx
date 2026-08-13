@@ -70,7 +70,7 @@ export const FleetSection: React.FC = () => {
                   <img
                     src={currentVehicle.image}
                     alt={currentVehicle.name}
-                    className="w-full h-full object-contain p-8 sm:p-12"
+                    className="w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
                   />
                 ) : (
                   /* No stand-in imagery: only the Sprinter has genuine photography. */
@@ -81,7 +81,7 @@ export const FleetSection: React.FC = () => {
                     </span>
                   </div>
                 )}
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
 
                 <div className="absolute bottom-8 left-8 right-8 flex items-center justify-between text-white">
                   <div>

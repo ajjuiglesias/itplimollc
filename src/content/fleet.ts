@@ -11,7 +11,9 @@
  * Note the company runs five vehicles across these three models — they have
  * more than one Suburban — so copy should say five vehicles, not three.
  *
- * Photographs are the client's own. Do not add a vehicle, a capacity or an
+ * Photography: the Sprinter is the client's own shot at Signature Aviation;
+ * the Suburban and Aviator are manufacturer photography they supplied.
+ * Do not add a vehicle, a capacity or an
  * image without a source; the original scaffold advertised a Maybach and an
  * Escalade the company does not operate, illustrated with AI-generated images.
  */
@@ -43,7 +45,7 @@ export const fleet: Vehicle[] = [
     tagline: 'Room for the party and the luggage',
     passengers: '7 Passengers',
     luggage: '6 Bags',
-    image: '/images/chevrolet-suburban.png',
+    image: '/images/chevrolet-suburban.jpg',
     description:
       'A 2026 Chevrolet Suburban in black, seating seven with room for six bags — the default choice for airport runs where both the party and the luggage are full size.',
     specs: [
@@ -71,7 +73,7 @@ export const fleet: Vehicle[] = [
     tagline: 'Discreet travel for one to three',
     passengers: '3 Passengers',
     luggage: '3 Bags',
-    image: '/images/lincoln-aviator.png',
+    image: '/images/lincoln-aviator.jpg',
     description:
       'A 2026 Lincoln Aviator in black, configured for up to three passengers — the quietest way to move between meetings, hotels and the airport.',
     specs: [
@@ -99,7 +101,7 @@ export const fleet: Vehicle[] = [
     tagline: 'Fourteen passengers, twenty bags',
     passengers: '14 Passengers',
     luggage: '20 Bags',
-    image: '/images/mercedes-sprinter.png',
+    image: '/images/signature_sprinter.jpg',
     description:
       'A 2026 Mercedes-Benz Sprinter in black with full stand-up headroom, seating fourteen — used for group transfers, corporate movements and private aviation pickups.',
     specs: [

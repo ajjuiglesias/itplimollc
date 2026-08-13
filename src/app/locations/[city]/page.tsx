@@ -128,12 +128,12 @@ export default async function LocationPage({ params }: PageProps) {
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {location.vehicles.map((vehicle, idx) => (
               <div key={vehicle.name}>
-                <div className="relative mb-8 h-56 overflow-hidden rounded-[28px] bg-gradient-to-b from-[#1E1E1E] to-[#0C0C0C] sm:h-72">
+                <div className="relative mb-8 h-56 overflow-hidden rounded-[28px] sm:h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={vehicle.image}
                     alt={vehicle.name}
-                    className="h-full w-full object-contain p-6"
+                    className="h-full w-full object-cover brightness-[0.88]"
                   />
                 </div>
 
