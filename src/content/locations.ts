@@ -54,8 +54,7 @@ export const locations: Location[] = [
     metaTitle: 'Raleigh Limo Service | Premium Chauffeur & Black Car | ITP Limo LLC',
     metaDescription:
       'Professional, on-time limo and black car service across Raleigh and the Triangle, including RDU Airport transfers, corporate travel and special events.',
-    image:
-      'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1600&q=80',
+    image: '/images/signature_sprinter.jpg',
     hero: {
       title: 'Premium Chauffeur & Black Car Services in Raleigh',
       intro:
@@ -130,8 +129,7 @@ export const locations: Location[] = [
     metaTitle: 'Boston Limo Service | Premium Chauffeur & Black Car | ITP Limo LLC',
     metaDescription:
       'Professional, on-time limo and black car service across Boston. Logan Airport transfers with flight tracking, corporate travel, weddings and special events.',
-    image:
-      'https://images.unsplash.com/photo-1501979376754-2ff867a4f659?auto=format&fit=crop&w=1600&q=80',
+    image: '/images/gulfstream_sprinter.jpg',
     hero: {
       title: 'Premium Chauffeur & Black Car Services in Boston',
       intro:
