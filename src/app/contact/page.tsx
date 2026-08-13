@@ -90,7 +90,7 @@ export default function ContactPage() {
                 <div>
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
                     <MapPin className="h-3 w-3" />
-                    Registered Office
+                    Based In
                   </span>
                   <span className="block font-serif text-xl font-medium tracking-tight text-[#171717] sm:text-2xl md:text-3xl dark:text-[#F8F6F2]">
                     Wake Forest, NC
@@ -100,8 +100,8 @@ export default function ContactPage() {
 
               <div className="pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
                 <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                  2613 Silver Gate Ct, Wake Forest, NC 27587. Correspondence only — vehicles
-                  are dispatched from within each market.
+                  Vehicles are dispatched from within each market. Call or email the
+                  dispatch desk to arrange a journey — there is no walk-in office.
                 </p>
               </div>
             </div>
