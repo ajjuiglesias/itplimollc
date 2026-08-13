@@ -9,9 +9,9 @@ import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
-  title: 'About ITP Limo | Executive Chauffeur Company, Boston & Raleigh',
+  title: 'About ITP Limo | Executive Chauffeur Company, Raleigh & Boston',
   description:
-    'ITP Limo provides private chauffeur and executive concierge transportation across Boston and Raleigh-Durham, built around discretion, flight-aware dispatch and a maintained luxury fleet.',
+    'ITP Limo provides private chauffeur and executive concierge transportation across Raleigh-Durham and Boston, built around discretion, flight-aware dispatch and a maintained luxury fleet.',
   alternates: { canonical: '/about' },
 };
 
@@ -19,8 +19,8 @@ const pillars = [
   {
     icon: Globe,
     title: 'Two markets, one standard',
-    subtitle: 'Boston and the Triangle',
-    desc: 'Dedicated chauffeurs serving Greater Boston and Logan, plus Raleigh, Durham, Chapel Hill, RTP and RDU — run to identical protocol in both.',
+    subtitle: 'The Triangle and Boston',
+    desc: 'Dedicated chauffeurs serving Raleigh, Durham, Chapel Hill, RTP and RDU, plus Greater Boston and Logan — run to identical protocol in both.',
   },
   {
     icon: Car,
@@ -48,7 +48,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About ITP"
         title="Quietly, precisely, every time."
-        subtitle="ITP Limo is a private chauffeur and executive concierge company serving Boston and Raleigh-Durham, built for travellers whose time and privacy are the point."
+        subtitle="ITP Limo is a private chauffeur and executive concierge company serving Raleigh-Durham and Boston, built for travellers whose time and privacy are the point."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         image="/images/cockpit_tarmac.jpg"
         ctaLabel="Speak to Dispatch"

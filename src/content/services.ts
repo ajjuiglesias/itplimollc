@@ -111,7 +111,7 @@ export const services: Service[] = [
       howItWorks: [
         {
           step: 'Set your route',
-          body: 'Boston to New York, Raleigh to Charlotte, or any regional corridor between our markets.',
+          body: 'Raleigh to Charlotte, Boston to New York, or any regional corridor between our markets.',
         },
         {
           step: 'Work or rest in transit',

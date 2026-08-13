@@ -102,24 +102,26 @@ export const Navbar: React.FC = () => {
               : 'mt-0 w-full max-w-[1700px] rounded-none py-4 px-6 sm:px-10 lg:px-16 bg-transparent border border-transparent'
           }`}
         >
-          {/* Logo (Left) — baseline-locked wordmark */}
-          <Link href="/" className="group flex min-h-[44px] items-center gap-1.5 flex-shrink-0 leading-none">
-            <span
-              className={`font-serif text-2xl sm:text-[1.7rem] font-bold tracking-tight leading-none transition-colors duration-300 ${
-                condensed ? 'text-[#171717] dark:text-white' : 'text-white drop-shadow-md'
+          {/* Logo (Left) — the client's own horizontal lockup, not a text substitute */}
+          <Link
+            href="/"
+            className="group flex min-h-[44px] flex-shrink-0 items-center"
+            aria-label="ITP Limo — Executive Transportation, home"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/itp-logo-horizontal.png"
+              alt="ITP Limo — Executive Transportation"
+              width={623}
+              height={99}
+              /* The mark is silver, so it needs a shadow to hold up over the hero
+                 video and a slight lift in dark mode to stay legible. */
+              className={`h-6 w-auto sm:h-7 transition-all duration-300 ${
+                condensed
+                  ? 'dark:brightness-125'
+                  : 'brightness-[1.6] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]'
               }`}
-            >
-              ITP
-            </span>
-            <span
-              /* -mr trims the trailing letter-space that tracking adds after the final O,
-                 so the lockup reads optically centred rather than shifted left. */
-              className={`text-[10px] sm:text-[11px] uppercase tracking-[0.3em] -mr-[0.3em] font-extrabold leading-none transition-colors duration-300 ${
-                condensed ? 'text-[#66625C] dark:text-[#A0A0A0]' : 'text-white/80 drop-shadow-md'
-              }`}
-            >
-              LIMO
-            </span>
+            />
           </Link>
 
           {/* Nav Items (Center) */}

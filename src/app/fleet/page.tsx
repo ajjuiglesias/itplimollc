@@ -11,7 +11,7 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 export const metadata: Metadata = {
   title: 'Our Fleet | Sprinter, SUV & Sedan Chauffeur Vehicles | ITP Limo',
   description:
-    'A Mercedes-Benz executive Sprinter, executive SUVs and sedans, chauffeured across Boston and Raleigh-Durham.',
+    'A Mercedes-Benz executive Sprinter, executive SUVs and sedans, chauffeured across Raleigh-Durham and Boston.',
   alternates: { canonical: '/fleet' },
 };
 

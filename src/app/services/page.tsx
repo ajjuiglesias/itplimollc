@@ -11,7 +11,7 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 export const metadata: Metadata = {
   title: 'Chauffeur Services | Airport, Hourly & Corporate Travel | ITP Limo',
   description:
-    'Airport transfers with live flight tracking, hourly and full-day chauffeur hire, city-to-city executive travel and corporate accounts across Boston and Raleigh-Durham.',
+    'Airport transfers with live flight tracking, hourly and full-day chauffeur hire, city-to-city executive travel and corporate accounts across Raleigh-Durham and Boston.',
   alternates: { canonical: '/services' },
 };
 

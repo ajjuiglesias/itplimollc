@@ -3,29 +3,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Navigation } from 'lucide-react';
+import { locations as markets } from '@/content/locations';
 import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
 export const LocationsSection: React.FC = () => {
-  const locations = [
-    {
-      city: 'Boston',
-      state: 'Massachusetts',
-      airport: 'Boston Logan International (BOS)',
-      desc: 'First-class private chauffeur service serving Greater Boston, Back Bay, Financial District, and Logan Airport.',
-      image: 'https://images.unsplash.com/photo-1501979376754-2ff867a4f659?auto=format&fit=crop&w=1200&q=80',
-      pickupDefault: 'Boston Logan International Airport (BOS)',
-      routes: ['Back Bay Concierge', 'Financial District', 'Cambridge & Harvard', 'Cape Cod & Islands'],
-    },
-    {
-      city: 'Raleigh',
-      state: 'North Carolina',
-      airport: 'Raleigh-Durham International (RDU)',
-      desc: 'Bespoke executive transportation covering Raleigh, Durham, Chapel Hill, Research Triangle Park, and RDU Airport.',
-      image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=80',
-      pickupDefault: 'RDU International Airport (RDU)',
-      routes: ['Research Triangle Park (RTP)', 'Duke & Chapel Hill', 'North Hills Executive', 'Pinehurst Mobility'],
-    },
-  ];
+  const locations = markets.map((m) => ({
+    city: m.city,
+    state: m.state,
+    airport: `${m.airport} (${m.airportCode})`,
+    desc: m.hero.intro,
+    image: m.image,
+    routes: m.serving.keyLocations.slice(0, 4),
+    slug: m.slug,
+  }));
 
   return (
     <section className="bg-white dark:bg-[#141414] py-28 sm:py-36 transition-colors duration-500 overflow-hidden">
@@ -105,7 +95,7 @@ export const LocationsSection: React.FC = () => {
                     Featured Service Corridors
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {loc.routes.map((route, i) => (
+                    {loc.routes.map((route: string, i: number) => (
                       <span
                         key={i}
                         className="text-xs px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-[#F8F6F2] font-medium"

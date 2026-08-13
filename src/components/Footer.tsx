@@ -38,16 +38,18 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16 pb-20 border-b border-white/10">
           {/* Brand & Statement */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-3xl font-bold tracking-tight text-white">ITP</span>
-              <span className="text-xs uppercase tracking-[0.3em] font-extrabold text-white/70">LIMO</span>
-            </div>
-            <span className="block text-[10px] uppercase tracking-[0.3em] font-semibold text-white/40 -mt-4">
-              Executive Transportation
-            </span>
+            {/* The client's stacked lockup, brightened to hold up on the dark footer */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/itp-logo-stacked.png"
+              alt="ITP Limo — Executive Transportation"
+              width={525}
+              height={215}
+              className="h-20 w-auto brightness-125 sm:h-24"
+            />
 
             <p className="text-sm text-white/70 font-normal leading-relaxed max-w-sm">
-              First-class private mobility serving Boston, Raleigh-Durham, and regional airport corridors. Crafted for C-suite executives, private aviation FBOs, and bespoke corporate travel.
+              First-class private mobility serving Raleigh-Durham, Boston, and regional airport corridors. Crafted for C-suite executives, private aviation FBOs, and bespoke corporate travel.
             </p>
 
             <div className="flex items-center gap-3 pt-2 text-xs text-white/90 font-medium">
@@ -96,11 +98,11 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-xs font-normal text-white/70">
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Boston Logan (BOS) & Back Bay</span>
+                <span>Raleigh-Durham (RDU) & RTP</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Raleigh-Durham (RDU) & RTP</span>
+                <span>Boston Logan (BOS) & Back Bay</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />

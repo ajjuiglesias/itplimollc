@@ -39,7 +39,7 @@ export const FboSection: React.FC = () => {
             Direct to the tarmac.
           </h2>
           <p className="text-lg sm:text-xl text-[#66625C] dark:text-[#B8B8B8] font-light mt-4 max-w-2xl mx-auto">
-            Seamless private jet transfers at Boston Logan (BOS), Raleigh-Durham (RDU), and regional FBO terminals.
+            Seamless private jet transfers at Raleigh-Durham (RDU), Boston Logan (BOS), and regional FBO terminals.
           </p>
         </motion.div>
 
