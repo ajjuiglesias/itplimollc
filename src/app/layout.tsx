@@ -20,9 +20,9 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'ITP Concierge | Private Chauffeur & Executive Transportation Raleigh RDU',
+  title: 'ITP Limo | Executive Transportation, Raleigh-Durham & Boston',
   description:
-    "ITP is Raleigh's premier private chauffeur and executive concierge service. Airport transfers, flight tracking, corporate fleets, and bespoke luxury travel.",
+    "ITP Limo provides professional, on-time chauffeur and black car service across Raleigh-Durham and Boston — airport transfers with flight tracking, corporate travel, weddings and special events.",
   alternates: { canonical: '/' },
 };
 
