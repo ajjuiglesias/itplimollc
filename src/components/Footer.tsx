@@ -159,7 +159,7 @@ export const Footer: React.FC = () => {
 
         {/* Large Watermark Brand Statement */}
         <div className="pt-16 pb-12 border-b border-white/10 text-center">
-          <span className="font-serif text-4xl sm:text-7xl lg:text-8xl tracking-tight text-white/10 uppercase select-none font-normal">
+          <span className="font-serif text-3xl sm:text-5xl md:text-6xl xl:text-7xl tracking-tight text-white/10 uppercase select-none font-normal">
             EXECUTIVE TRANSPORTATION
           </span>
         </div>

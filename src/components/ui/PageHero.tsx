@@ -37,7 +37,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   ctaLabel = 'Book Your Ride',
   cta = 'book',
 }) => (
-  <section className="relative isolate overflow-hidden bg-[#070707] pt-36 pb-20 sm:pt-44 sm:pb-28">
+  <section className="relative isolate overflow-hidden bg-[#070707] pt-32 pb-16 sm:pt-40 sm:pb-24 2xl:pt-44 2xl:pb-28">
     {image && (
       <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -78,7 +78,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
         {eyebrow}
       </span>
 
-      <h1 className="font-serif text-[2.1rem] sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[1.08] sm:leading-[1.05] text-[#F8F6F2] mt-3 max-w-4xl">
+      <h1 className="font-serif text-[2.1rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-normal tracking-tight leading-[1.08] sm:leading-[1.05] text-[#F8F6F2] mt-3 max-w-4xl">
         {title}
       </h1>
 

@@ -146,13 +146,13 @@ export default async function LocationPage({ params }: PageProps) {
                   </span>
                 </div>
 
-                <h3 className="mt-4 font-serif text-3xl font-medium uppercase tracking-tight text-white sm:text-5xl">
+                <h3 className="mt-4 font-serif text-2xl font-medium uppercase tracking-tight text-white sm:text-3xl xl:text-4xl">
                   {vehicle.name}
                 </h3>
 
                 <div className="mt-6 flex items-stretch gap-10">
                   <div>
-                    <span className="font-serif text-4xl font-normal text-white sm:text-6xl">
+                    <span className="font-serif text-4xl font-normal text-white sm:text-5xl">
                       {vehicle.passengers}
                     </span>
                     <span className="mt-1 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A0A0A0]">
@@ -166,7 +166,7 @@ export default async function LocationPage({ params }: PageProps) {
                       <div className="w-px bg-white/15" />
 
                       <div>
-                        <span className="font-serif text-4xl font-normal text-white sm:text-6xl">
+                        <span className="font-serif text-4xl font-normal text-white sm:text-5xl">
                           {vehicle.luggage}
                         </span>
                         <span className="mt-1 flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A0A0A0]">
