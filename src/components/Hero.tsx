@@ -4,21 +4,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { AmbientVideo } from './ui/AmbientVideo';
 
 export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-[88svh] sm:min-h-screen flex flex-col justify-center pt-28 sm:pt-32 pb-20 sm:pb-16 overflow-hidden bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500">
-      {/* Background Video Layer — YouTube Embed (MY6KbNWHE2k) */}
+      {/*
+        Background media. The client's footage is 9:16, so it is used where the
+        viewport is portrait and nothing has to be cropped or upscaled — on
+        narrow screens the chauffeur clip fills the frame natively. Wide screens
+        get a landscape still lifted from the same shoot (see
+        scripts/encode-video.mjs) rather than a 1.8x upscale of a vertical clip.
+
+        <picture> gates the two posters by media so only one is ever fetched;
+        AmbientVideo gates the 1.5MB clip the same way in JS.
+      */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="relative w-full h-full">
-          <iframe
-            src="https://www.youtube.com/embed/MY6KbNWHE2k?autoplay=1&mute=1&controls=0&loop=1&playlist=MY6KbNWHE2k&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
-            title="ITP Chauffeur Luxury Background Video"
-            className="w-[300vw] h-[300vh] min-w-[100%] min-h-[100%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none filter brightness-[0.7] dark:brightness-[0.4] contrast-[1.1] transition-all duration-1000"
-            allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
-            style={{ pointerEvents: 'none' }}
+        <picture>
+          <source media="(min-width: 1024px)" srcSet="/images/hero-fleet-tower.jpg" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/video/hero-chauffeur-poster.jpg"
+            alt="An ITP Limo chauffeur opening the rear door of a black Chevrolet Suburban"
+            className="absolute inset-0 h-full w-full object-cover filter brightness-[0.7] dark:brightness-[0.4] contrast-[1.1]"
           />
-        </div>
+        </picture>
+
+        <AmbientVideo
+          src="/video/hero-chauffeur.mp4"
+          poster="/video/hero-chauffeur-poster.jpg"
+          alt=""
+          media="(max-width: 1023px)"
+          className="absolute inset-0 h-full w-full lg:hidden"
+          mediaClassName="filter brightness-[0.7] dark:brightness-[0.4] contrast-[1.1]"
+        />
 
         {/* Ambient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/75 dark:from-[#0F0F0F] dark:via-[#0F0F0F]/70 dark:to-black/85 pointer-events-none" />
