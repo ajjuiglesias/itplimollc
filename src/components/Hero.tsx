@@ -6,38 +6,69 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { AmbientVideo } from './ui/AmbientVideo';
 
+/**
+ * Left to right across the desktop hero. Order is deliberate: the two wide
+ * establishing shots flank the chauffeur, whose action reads best in the centre.
+ * Trimmed and encoded by scripts/encode-video.mjs.
+ */
+const HERO_PANELS = [
+  {
+    src: '/video/hero-fleet.mp4',
+    poster: '/video/hero-fleet-poster.jpg',
+    alt: 'ITP Limo SUVs staged outside a glass office tower',
+  },
+  {
+    src: '/video/hero-chauffeur.mp4',
+    poster: '/video/hero-chauffeur-poster.jpg',
+    alt: 'An ITP Limo chauffeur opening the rear door of a black Chevrolet Suburban',
+  },
+  {
+    src: '/video/hero-arrival.mp4',
+    poster: '/video/hero-arrival-poster.jpg',
+    alt: 'An ITP Limo Suburban at a hotel entrance with luggage being loaded',
+  },
+];
+
 export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-[88svh] sm:min-h-screen flex flex-col justify-center pt-28 sm:pt-32 pb-20 sm:pb-16 overflow-hidden bg-[#FAF8F5] dark:bg-[#0F0F0F] transition-colors duration-500">
       {/*
-        Background media. The client's footage is 9:16, so it is used where the
-        viewport is portrait and nothing has to be cropped or upscaled — on
-        narrow screens the chauffeur clip fills the frame natively. Wide screens
-        get a landscape still lifted from the same shoot (see
-        scripts/encode-video.mjs) rather than a 1.8x upscale of a vertical clip.
+        Background video, built out of the client's 9:16 footage without ever
+        cropping or upscaling it.
 
-        <picture> gates the two posters by media so only one is ever fetched;
-        AmbientVideo gates the 1.5MB clip the same way in JS.
+        A single reel stretched to fill a landscape hero needs a ~1.8x upscale
+        and throws away most of the frame. Three of them stood side by side
+        instead tile to 3240x1920 — about 1.69:1, near enough to widescreen that
+        each panel plays at close to native scale.
+
+        Below lg the panels would be ~120px wide and unreadable, so narrow
+        screens fall back to one reel full-bleed, which is a native fit anyway.
+        Each AmbientVideo is media-gated in JS so a phone never fetches the
+        desktop trio and vice versa.
       */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet="/images/hero-fleet-tower.jpg" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/video/hero-chauffeur-poster.jpg"
-            alt="An ITP Limo chauffeur opening the rear door of a black Chevrolet Suburban"
-            className="absolute inset-0 h-full w-full object-cover filter brightness-[0.7] dark:brightness-[0.4] contrast-[1.1]"
-          />
-        </picture>
-
         <AmbientVideo
           src="/video/hero-chauffeur.mp4"
           poster="/video/hero-chauffeur-poster.jpg"
-          alt=""
+          alt="An ITP Limo chauffeur opening the rear door of a black Chevrolet Suburban"
           media="(max-width: 1023px)"
           className="absolute inset-0 h-full w-full lg:hidden"
-          mediaClassName="filter brightness-[0.7] dark:brightness-[0.4] contrast-[1.1]"
+          mediaClassName="filter brightness-[0.6] dark:brightness-[0.4] contrast-[1.1]"
         />
+
+        <div className="absolute inset-0 hidden lg:flex">
+          {HERO_PANELS.map((panel) => (
+            <AmbientVideo
+              key={panel.src}
+              src={panel.src}
+              poster={panel.poster}
+              alt={panel.alt}
+              media="(min-width: 1024px)"
+              className="h-full flex-1 border-l border-white/10 first:border-l-0"
+              mediaClassName="filter brightness-[0.6] dark:brightness-[0.4] contrast-[1.1]"
+            />
+          ))}
+        </div>
 
         {/* Ambient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/75 dark:from-[#0F0F0F] dark:via-[#0F0F0F]/70 dark:to-black/85 pointer-events-none" />

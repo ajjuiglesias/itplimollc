@@ -33,57 +33,62 @@ const OUT_DIR = 'public/video';
  * "YOUR COMFORT IT'S OUR PRIORITY" - a possessive error baked into the pixels
  * that cannot be removed without cropping away the shot. Flagged to the client.
  */
+/**
+ * All three run side by side as the desktop hero background. Three 9:16 panels
+ * tile to 3240x1920, i.e. ~1.69:1, which is near enough to widescreen that each
+ * clip plays at close to native scale - the reason this works where a single
+ * cropped reel does not. On a 1920px viewport each panel renders ~640px wide,
+ * so 640 is the encode width and anything larger is wasted bytes.
+ *
+ * Durations are deliberately unequal so the three loops drift out of phase
+ * instead of restarting together as one visible "wall".
+ *
+ * Deliberately omitted: "Your comfort.mov" carries a burned-in caption reading
+ * "YOUR COMFORT IT'S OUR PRIORITY" - a possessive error baked into the pixels
+ * that cannot be removed without cropping away the shot. Flagged to the client.
+ */
+const HERO_WIDTH = 640;
+// CRF 30 rather than 27: these sit under brightness-[0.6] and a gradient stack,
+// where compression artefacts are invisible but bytes still cost LCP.
+const HERO_CRF = '30';
+
+/*
+ * These sources are social montages that cut every ~2s, so the trim points are
+ * shot boundaries, not round numbers. Every window opens on a bright exterior:
+ * the first frame is also the poster, and a panel that opens on a dark cabin
+ * reads as a broken image before the video starts.
+ *
+ * Boundaries found by sampling at 0.6s (see git history):
+ *   New.mov      cabin | 5.4 fleet lineup | 7.2 decal + sky | 9.0 cabin
+ *   Preview.mov  0.3 chauffeur at door | 2.9 decal on bodywork | 5.4 grille
+ *   New2.mov     dark cabin | 5.5 Suburban three-quarter | 7.5 cabin, luggage
+ */
 const CLIPS = [
+  {
+    name: 'hero-fleet',
+    file: 'New.mov',
+    start: 6.0,
+    duration: 3.0,
+    width: HERO_WIDTH,
+    note: 'Fleet at the glass tower, running into the ITPLIMO.COM decal. All exterior.',
+  },
   {
     name: 'hero-chauffeur',
     file: 'Preview.mov',
-    start: 0.6,
-    duration: 8.5,
-    width: 720,
-    note: 'Chauffeur opens the rear door, then the ITPLIMO.COM decal. The hero.',
+    start: 0.4,
+    duration: 5.0,
+    width: HERO_WIDTH,
+    note:
+      'Chauffeur opens the rear door, then the decal. Centre panel: it darkens as ' +
+      'it runs, which is where the headline sits, so it gains contrast rather than losing it.',
   },
   {
-    name: 'fleet-lineup',
-    file: 'New.mov',
-    start: 5.5,
-    duration: 6.5,
-    width: 540,
-    note: 'Fleet staged outside the glass tower. Trimmed past the phone mockup intro.',
-  },
-  {
-    name: 'arrival-luggage',
+    name: 'hero-arrival',
     file: 'New2.mov',
-    start: 3.5,
-    duration: 6.5,
-    width: 540,
-    note: 'Hotel portico arrival and luggage load.',
-  },
-  {
-    name: 'airport-transfer',
-    file: 'Special order for Vitaliia.mov',
-    start: 1.2,
-    duration: 6.5,
-    width: 540,
-    note: 'RDU airfield into a door-open. The airport-transfer story.',
-  },
-];
-
-/**
- * The desktop hero needs a landscape frame, and nothing in public/images is both
- * wide and genuinely ITP's. This lifts a 16:9 band out of the vertical footage:
- * the fleet staged at the glass tower, which is a naturally wide composition
- * (vehicles side by side) with sky up top for the headline to sit against.
- *
- * It is a 1.78x upscale from the 1080px source, which would show on a foreground
- * image but not behind the hero's brightness-[0.65] plus gradient stack.
- */
-const STILLS = [
-  {
-    name: 'hero-fleet-tower',
-    file: 'New.mov',
-    time: 7.0,
-    cropY: 980, // vertical offset of the 1080x608 band; puts vehicles low-centre
-    outDir: 'public/images',
+    start: 5.7,
+    duration: 3.7,
+    width: HERO_WIDTH,
+    note: 'Suburban three-quarter against sky, into the luggage load.',
   },
 ];
 
@@ -98,13 +103,17 @@ const scaleFilter = (width) => `scale=${width}:-2:flags=lanczos`;
 
 for (const clip of CLIPS) {
   const base = `${OUT_DIR}/${clip.name}`;
-  // -ss before -i seeks fast; -t after bounds the trim. -an drops audio entirely.
-  const trim = ['-ss', String(clip.start), '-i', src(clip), '-t', String(clip.duration), '-an'];
+
+  // -ss goes AFTER -i deliberately. Before -i it is a fast keyframe seek, which
+  // drifts to the preceding keyframe - enough to open a panel on the tail of the
+  // previous shot when cuts are ~2s apart. After -i ffmpeg decodes and discards
+  // to the exact frame; on clips this short the extra cost is irrelevant.
+  const trim = ['-i', src(clip), '-ss', String(clip.start), '-t', String(clip.duration), '-an'];
 
   // H.264 - the universal baseline. faststart moves the index to the front so
   // playback can begin before the whole file arrives.
-  run([...trim.slice(0, 4), '-t', String(clip.duration), '-an',
-    '-c:v', 'libx264', '-profile:v', 'high', '-crf', '27', '-preset', 'slow',
+  run([...trim,
+    '-c:v', 'libx264', '-profile:v', 'high', '-crf', HERO_CRF, '-preset', 'slow',
     '-pix_fmt', 'yuv420p', '-vf', scaleFilter(clip.width),
     '-movflags', '+faststart', '-y', `${base}.mp4`]);
 
@@ -114,8 +123,9 @@ for (const clip of CLIPS) {
   // that is bigger only costs cache and build time, so MP4 ships alone.
 
   // Poster from the first frame, so the LCP element is an image and the video
-  // never shows a blank box while it buffers.
-  run(['-ss', String(clip.start), '-i', src(clip), '-frames:v', '1',
+  // never shows a blank box while it buffers. Same accurate seek as above, so
+  // the poster matches the frame the video actually starts on.
+  run(['-i', src(clip), '-ss', String(clip.start), '-frames:v', '1',
     '-vf', scaleFilter(clip.width), '-q:v', '6', '-y', `${base}-poster.jpg`]);
 
   console.log(
@@ -123,12 +133,4 @@ for (const clip of CLIPS) {
     `mp4 ${mb(`${base}.mp4`)}MB`.padEnd(14),
     `poster ${mb(`${base}-poster.jpg`)}MB`,
   );
-}
-
-for (const still of STILLS) {
-  const out = `${still.outDir}/${still.name}.jpg`;
-  run(['-ss', String(still.time), '-i', SOURCE_DIR + still.file, '-frames:v', '1',
-    '-vf', `crop=1080:608:0:${still.cropY},scale=1920:1080:flags=lanczos`,
-    '-q:v', '4', '-y', out]);
-  console.log(still.name.padEnd(18), `${mb(out)}MB`);
 }
