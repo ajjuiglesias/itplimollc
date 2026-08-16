@@ -26,22 +26,11 @@ const SOURCE_DIR = 'C:/Users/ajmal/Downloads/drive-download-20260814T145221Z-1-0
 const OUT_DIR = 'public/video';
 
 /**
- * `start`/`duration` pick the strongest continuous window of each montage.
- * Notes record why, so these are re-derivable rather than magic numbers.
- *
- * Deliberately omitted: "Your comfort.mov" carries a burned-in caption reading
- * "YOUR COMFORT IT'S OUR PRIORITY" - a possessive error baked into the pixels
- * that cannot be removed without cropping away the shot. Flagged to the client.
- */
-/**
  * All three run side by side as the desktop hero background. Three 9:16 panels
  * tile to 3240x1920, i.e. ~1.69:1, which is near enough to widescreen that each
  * clip plays at close to native scale - the reason this works where a single
  * cropped reel does not. On a 1920px viewport each panel renders ~640px wide,
  * so 640 is the encode width and anything larger is wasted bytes.
- *
- * Durations are deliberately unequal so the three loops drift out of phase
- * instead of restarting together as one visible "wall".
  *
  * Deliberately omitted: "Your comfort.mov" carries a burned-in caption reading
  * "YOUR COMFORT IT'S OUR PRIORITY" - a possessive error baked into the pixels
@@ -53,55 +42,57 @@ const HERO_WIDTH = 640;
 const HERO_CRF = '30';
 
 /*
- * All three windows come out of one source, and that is deliberate.
+ * One panel per source, 5s each.
  *
- * Running ffmpeg scene detection over all five files showed the other four are
- * social montages that cut every 1.5-3s - too short to loop without the repeat
- * becoming obvious, and shot on different days, so their grades do not match
- * when placed side by side. "Special order for Vitaliia" is the one continuous
- * shoot: same camera, same grade, same light. Panels cut from it match by
- * construction rather than by luck.
+ * An earlier pass cut all three from the single continuous shoot ("Special
+ * order for Vitaliia") on the theory that a shared grade would match best. It
+ * did match, but it read worse: that shoot's strongest long takes are a
+ * boulevard with no vehicle in frame and a luggage compartment, so the hero
+ * lost the cars. Leading with the fleet and the chauffeur matters more here
+ * than a perfectly consistent grade.
  *
- * It also happens to run in narrative order, which the panels preserve left to
- * right: approach the airport, load the bags, drive the city.
+ * 5s is long enough to carry the 1.5-3s cuts inside these montages, so each
+ * panel plays as a short sequence rather than a loop you can count.
  *
  * Every window opens on a bright exterior - the first frame is also the poster,
  * and a panel that opens on a dark cabin looks like a broken image until the
- * video starts.
+ * video starts. Starts sit just inside a shot boundary, never on one.
  */
-const SHOOT = 'Special order for Vitaliia.mov';
-
 const CLIPS = [
   {
-    name: 'hero-airport',
-    file: SHOOT,
-    start: 2.0,
-    duration: 3.8,
+    name: 'hero-fleet',
+    file: 'New.mov',
+    start: 7.6,
+    duration: 5.0,
     width: HERO_WIDTH,
     note:
-      'Tree-lined boulevard into the Aviator pulling up at the RDU terminal. Ends at ' +
-      '5.8 - the shoot cuts to a dark grille close-up at ~6.2 which would black out the loop.',
+      'Opens on the ITPLIMO.COM decal against sky, then the cabin and the grille. ' +
+      'Starts at 7.6, not 7.3: the white cut at 7.13 takes ~0.2s to fall off, and 7.3 ' +
+      'still posters at 208. ' +
+      'Sits after the cut at 7.13, which is a white blowout (luma 232) no window may ' +
+      'cross. The fleet lineup at 5.6-7.13 is the better image but only 1.5s long, and ' +
+      'a 5s window containing it would have to open on dark bodywork at luma 65 - which ' +
+      'is also the poster, and all a reduced-motion visitor ever sees.',
   },
   {
-    name: 'hero-luggage',
-    file: SHOOT,
-    start: 15.8,
-    duration: 3.2,
+    name: 'hero-arrival',
+    file: 'New2.mov',
+    start: 11.0,
+    duration: 5.0,
     width: HERO_WIDTH,
     note:
-      'Chauffeur at the open tailgate, opening out to the Aviator at the hotel. Starts ' +
-      'at 15.8, not 13.2: the earlier half of this take dips to near-black around 14.8, ' +
-      'which reads as a flicker mid-loop.',
+      'Luggage load opening into the cabin. Moved off 8.4: that window crossed the ' +
+      'cut at 10.4, which blows to luma 195 and would flash behind the headline.',
   },
   {
-    name: 'hero-city',
-    file: SHOOT,
-    start: 23.4,
-    duration: 2.0,
+    name: 'hero-chauffeur',
+    file: 'Preview.mov',
+    start: 11.2,
+    duration: 5.0,
     width: HERO_WIDTH,
     note:
-      'Aviator tracking past city towers. Bounded tightly: the take before it is the ' +
-      'luggage close-up and the one after is the passenger stepping out at ~25.5.',
+      'Suburban held at the portico. The steadiest window in the whole set - mean 135, ' +
+      'and it never drops below 123, so it carries the right-hand edge without dimming.',
   },
 ];
 

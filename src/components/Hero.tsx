@@ -13,19 +13,19 @@ import { AmbientVideo } from './ui/AmbientVideo';
  */
 const HERO_PANELS = [
   {
-    src: '/video/hero-airport.mp4',
-    poster: '/video/hero-airport-poster.jpg',
-    alt: 'An ITP Limo Lincoln Aviator arriving at the Raleigh-Durham airport terminal',
+    src: '/video/hero-fleet.mp4',
+    poster: '/video/hero-fleet-poster.jpg',
+    alt: 'The ITP Limo fleet staged outside a glass office tower',
   },
   {
-    src: '/video/hero-luggage.mp4',
-    poster: '/video/hero-luggage-poster.jpg',
-    alt: 'An ITP Limo chauffeur loading luggage at a hotel entrance',
+    src: '/video/hero-arrival.mp4',
+    poster: '/video/hero-arrival-poster.jpg',
+    alt: 'Luggage being loaded into an ITP Limo vehicle',
   },
   {
-    src: '/video/hero-city.mp4',
-    poster: '/video/hero-city-poster.jpg',
-    alt: 'An ITP Limo Lincoln Aviator driving past city office towers',
+    src: '/video/hero-chauffeur.mp4',
+    poster: '/video/hero-chauffeur-poster.jpg',
+    alt: 'An ITP Limo Chevrolet Suburban waiting at a hotel entrance',
   },
 ];
 
