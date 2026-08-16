@@ -13,19 +13,19 @@ import { AmbientVideo } from './ui/AmbientVideo';
  */
 const HERO_PANELS = [
   {
-    src: '/video/hero-fleet.mp4',
-    poster: '/video/hero-fleet-poster.jpg',
-    alt: 'ITP Limo SUVs staged outside a glass office tower',
+    src: '/video/hero-airport.mp4',
+    poster: '/video/hero-airport-poster.jpg',
+    alt: 'An ITP Limo Lincoln Aviator arriving at the Raleigh-Durham airport terminal',
   },
   {
-    src: '/video/hero-chauffeur.mp4',
-    poster: '/video/hero-chauffeur-poster.jpg',
-    alt: 'An ITP Limo chauffeur opening the rear door of a black Chevrolet Suburban',
+    src: '/video/hero-luggage.mp4',
+    poster: '/video/hero-luggage-poster.jpg',
+    alt: 'An ITP Limo chauffeur loading luggage at a hotel entrance',
   },
   {
-    src: '/video/hero-arrival.mp4',
-    poster: '/video/hero-arrival-poster.jpg',
-    alt: 'An ITP Limo Suburban at a hotel entrance with luggage being loaded',
+    src: '/video/hero-city.mp4',
+    poster: '/video/hero-city-poster.jpg',
+    alt: 'An ITP Limo Lincoln Aviator driving past city office towers',
   },
 ];
 
@@ -48,23 +48,35 @@ export const Hero: React.FC = () => {
       */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <AmbientVideo
-          src="/video/hero-chauffeur.mp4"
-          poster="/video/hero-chauffeur-poster.jpg"
-          alt="An ITP Limo chauffeur opening the rear door of a black Chevrolet Suburban"
+          src={HERO_PANELS[0].src}
+          poster={HERO_PANELS[0].poster}
+          alt={HERO_PANELS[0].alt}
           media="(max-width: 1023px)"
           className="absolute inset-0 h-full w-full lg:hidden"
           mediaClassName="filter brightness-[0.6] dark:brightness-[0.4] contrast-[1.1]"
         />
 
+        {/*
+          The panels cross-fade rather than butt together. Each one after the
+          first is pulled back over its neighbour by exactly the width of its
+          own fade-in mask, so where one clip dissolves the one beneath is
+          already there — no seam, and no dark gap either, which is what a mask
+          without the overlap would leave. Later siblings paint over earlier
+          ones, so DOM order alone gives the right stacking.
+        */}
         <div className="absolute inset-0 hidden lg:flex">
-          {HERO_PANELS.map((panel) => (
+          {HERO_PANELS.map((panel, index) => (
             <AmbientVideo
               key={panel.src}
               src={panel.src}
               poster={panel.poster}
               alt={panel.alt}
               media="(min-width: 1024px)"
-              className="h-full flex-1 border-l border-white/10 first:border-l-0"
+              className={`h-full flex-1 ${
+                index > 0
+                  ? '-ml-16 [mask-image:linear-gradient(to_right,transparent_0px,#000_64px)] [-webkit-mask-image:linear-gradient(to_right,transparent_0px,#000_64px)]'
+                  : ''
+              }`}
               mediaClassName="filter brightness-[0.6] dark:brightness-[0.4] contrast-[1.1]"
             />
           ))}

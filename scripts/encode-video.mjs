@@ -53,42 +53,55 @@ const HERO_WIDTH = 640;
 const HERO_CRF = '30';
 
 /*
- * These sources are social montages that cut every ~2s, so the trim points are
- * shot boundaries, not round numbers. Every window opens on a bright exterior:
- * the first frame is also the poster, and a panel that opens on a dark cabin
- * reads as a broken image before the video starts.
+ * All three windows come out of one source, and that is deliberate.
  *
- * Boundaries found by sampling at 0.6s (see git history):
- *   New.mov      cabin | 5.4 fleet lineup | 7.2 decal + sky | 9.0 cabin
- *   Preview.mov  0.3 chauffeur at door | 2.9 decal on bodywork | 5.4 grille
- *   New2.mov     dark cabin | 5.5 Suburban three-quarter | 7.5 cabin, luggage
+ * Running ffmpeg scene detection over all five files showed the other four are
+ * social montages that cut every 1.5-3s - too short to loop without the repeat
+ * becoming obvious, and shot on different days, so their grades do not match
+ * when placed side by side. "Special order for Vitaliia" is the one continuous
+ * shoot: same camera, same grade, same light. Panels cut from it match by
+ * construction rather than by luck.
+ *
+ * It also happens to run in narrative order, which the panels preserve left to
+ * right: approach the airport, load the bags, drive the city.
+ *
+ * Every window opens on a bright exterior - the first frame is also the poster,
+ * and a panel that opens on a dark cabin looks like a broken image until the
+ * video starts.
  */
+const SHOOT = 'Special order for Vitaliia.mov';
+
 const CLIPS = [
   {
-    name: 'hero-fleet',
-    file: 'New.mov',
-    start: 6.0,
-    duration: 3.0,
-    width: HERO_WIDTH,
-    note: 'Fleet at the glass tower, running into the ITPLIMO.COM decal. All exterior.',
-  },
-  {
-    name: 'hero-chauffeur',
-    file: 'Preview.mov',
-    start: 0.4,
-    duration: 5.0,
+    name: 'hero-airport',
+    file: SHOOT,
+    start: 2.0,
+    duration: 3.8,
     width: HERO_WIDTH,
     note:
-      'Chauffeur opens the rear door, then the decal. Centre panel: it darkens as ' +
-      'it runs, which is where the headline sits, so it gains contrast rather than losing it.',
+      'Tree-lined boulevard into the Aviator pulling up at the RDU terminal. Ends at ' +
+      '5.8 - the shoot cuts to a dark grille close-up at ~6.2 which would black out the loop.',
   },
   {
-    name: 'hero-arrival',
-    file: 'New2.mov',
-    start: 5.7,
-    duration: 3.7,
+    name: 'hero-luggage',
+    file: SHOOT,
+    start: 15.8,
+    duration: 3.2,
     width: HERO_WIDTH,
-    note: 'Suburban three-quarter against sky, into the luggage load.',
+    note:
+      'Chauffeur at the open tailgate, opening out to the Aviator at the hotel. Starts ' +
+      'at 15.8, not 13.2: the earlier half of this take dips to near-black around 14.8, ' +
+      'which reads as a flicker mid-loop.',
+  },
+  {
+    name: 'hero-city',
+    file: SHOOT,
+    start: 23.4,
+    duration: 2.0,
+    width: HERO_WIDTH,
+    note:
+      'Aviator tracking past city towers. Bounded tightly: the take before it is the ' +
+      'luggage close-up and the one after is the passenger stepping out at ~25.5.',
   },
 ];
 
@@ -114,6 +127,9 @@ for (const clip of CLIPS) {
   // playback can begin before the whole file arrives.
   run([...trim,
     '-c:v', 'libx264', '-profile:v', 'high', '-crf', HERO_CRF, '-preset', 'slow',
+    // The shoot is 50fps. Nothing here needs it - these are slow drifting
+    // background loops under a dark overlay - and 30 costs ~40% fewer bytes.
+    '-r', '30',
     '-pix_fmt', 'yuv420p', '-vf', scaleFilter(clip.width),
     '-movflags', '+faststart', '-y', `${base}.mp4`]);
 
