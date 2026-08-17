@@ -118,7 +118,9 @@ export default async function LocationPage({ params }: PageProps) {
           <SectionHeader
             eyebrow="What We Offer"
             title={`Our ${location.city} limo services.`}
-            subtitle="Six ways we move you — each with the same chauffeur standard."
+            // No hard-coded count: the service mix is deliberately different per
+            // market, from six in Pinehurst to nine across the Triangle.
+            subtitle={`How we move you around ${location.city} — every one of them held to the same chauffeur standard.`}
             className="mb-16"
           />
 

@@ -77,9 +77,13 @@ export default function LocationsPage() {
                   <h3 className="mt-2 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
                     {location.city}, {location.stateAbbr}
                   </h3>
+                  {/*
+                    Codes rather than full names: Pinehurst draws on three
+                    airports and the names would wrap to four lines on a card.
+                  */}
                   <p className="mt-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/75">
-                    <Plane className="h-3.5 w-3.5" />
-                    {location.airport} ({location.airportCode})
+                    <Plane className="h-3.5 w-3.5 shrink-0" />
+                    {[location.airportCode, ...(location.additionalAirports ?? []).map((a) => a.code)].join(' · ')}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-white">
                     View {location.city} service
