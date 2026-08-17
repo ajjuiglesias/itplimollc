@@ -6,6 +6,7 @@ import {
   OrCallNote,
   DISPATCH_PHONE,
 } from './ui/CallDispatchButton';
+import { locations, announcedMarkets } from '@/content/locations';
 
 export const Footer: React.FC = () => {
   return (
@@ -71,8 +72,13 @@ export const Footer: React.FC = () => {
             </span>
             <ul className="text-xs font-normal text-white/70">
               {[
-                { label: 'Limo Raleigh', href: '/locations/raleigh' },
-                { label: 'Limo Boston', href: '/locations/boston' },
+                { label: 'Service Areas', href: '/locations' },
+                // Driven off the content module so promoting a market updates
+                // the footer without anyone remembering to edit this list.
+                ...locations.map((l) => ({
+                  label: `Limo ${l.city}`,
+                  href: `/locations/${l.slug}`,
+                })),
                 { label: 'Services', href: '/services' },
                 { label: 'Our Fleet', href: '/fleet' },
                 { label: 'Private Aviation', href: '/private-aviation' },
@@ -110,6 +116,16 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>Signature Aviation & FBO Terminals</span>
               </li>
+              {/* Markets served without a page of their own yet. */}
+              {announcedMarkets.length > 0 && (
+                <li className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>
+                    {announcedMarkets.map((m) => m.city).join(' & ')},{' '}
+                    {announcedMarkets[0].stateAbbr}
+                  </span>
+                </li>
+              )}
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>BOS → NYC / DC Roadshows</span>

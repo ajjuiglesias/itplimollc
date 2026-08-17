@@ -6,6 +6,22 @@
  * only the facts repeated across the old site's nav and footer are recorded
  * below. Do not invent Raleigh coverage areas, venues or service lists; they
  * must come from the client's Limo Raleigh page.
+ *
+ * Two kinds of market live in this file, deliberately as two different types:
+ *
+ *   locations[]        markets with enough sourced content to justify a page
+ *   announcedMarkets[] markets the client has told us they serve, but for which
+ *                      we have no content yet
+ *
+ * They are separate types rather than one type with a published flag so that an
+ * announced market CANNOT carry invented venues, airports or coverage lists —
+ * there are no fields to put them in. A market is promoted by hand once the
+ * client supplies the detail, which is the point at which it earns a page.
+ *
+ * Why not ship the pages now with the shared fleet/services blocks: near-
+ * duplicate pages differing only by place name are doorway pages under Google's
+ * spam policies, and that risk attaches to the whole cluster, not just the new
+ * pages. An announced market is named honestly on /locations and nowhere else.
  */
 
 export interface LocationService {
@@ -42,6 +58,58 @@ export interface Location {
   /** False until the client's page for this market has been transcribed. */
   transcribed: boolean;
 }
+
+/**
+ * A market the client has stated they serve but for which we hold no sourced
+ * content. Named on /locations; deliberately has no page, no sitemap entry and
+ * no nav link. The `needs` list is what must come back from the client before
+ * this can be promoted into `locations` above.
+ */
+export interface AnnouncedMarket {
+  slug: string;
+  city: string;
+  state: string;
+  stateAbbr: string;
+  /** Why the client says they want this market — their words, for copy later. */
+  focus: string;
+  /** Outstanding questions, surfaced in the client brief. */
+  needs: string[];
+}
+
+/*
+ * Source: client message, 2026-08-17 — "we'd like to add Pinehurst and
+ * Wilmington as additional service locations […] It would still all be ITP Limo
+ * and the same company/fleet". That message is the only thing establishing
+ * these markets, so it is the only thing recorded here.
+ */
+export const announcedMarkets: AnnouncedMarket[] = [
+  {
+    slug: 'pinehurst',
+    city: 'Pinehurst',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    focus: 'Golf and resort transportation',
+    needs: [
+      'Which airport(s) they actually serve this market from — RDU, Moore County (SOP) or Fayetteville (FAY)',
+      'Key destinations: resorts, clubs and venues they genuinely serve',
+      'Surrounding coverage towns',
+      'Whether tournament and event transfers are an offered service',
+    ],
+  },
+  {
+    slug: 'wilmington',
+    city: 'Wilmington',
+    state: 'North Carolina',
+    stateAbbr: 'NC',
+    focus: 'Coastal transportation',
+    needs: [
+      'Confirm Wilmington International (ILM) is served, and any others',
+      'Key destinations: downtown, riverfront, beaches, venues',
+      'Surrounding coverage towns',
+      'Whether weddings or film-industry work are a named service here',
+    ],
+  },
+];
 
 export const locations: Location[] = [
   {

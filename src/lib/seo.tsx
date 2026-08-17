@@ -1,0 +1,130 @@
+/*
+ * Site identity and structured data.
+ *
+ * Everything here must trace to a client source. There is deliberately no
+ * aggregateRating, no review count and no openingHours: the repo was once
+ * scaffolded with invented testimonials and star ratings, and emitting those as
+ * schema would turn marketing filler into a machine-readable claim to Google.
+ * Absent fields cost nothing; false ones risk a manual action.
+ */
+
+/**
+ * Canonicals, sitemap and JSON-LD @ids all resolve against this.
+ *
+ * NEXT_PUBLIC_SITE_URL is still unset in Vercel, so production currently
+ * resolves to the deployment URL. That must be set to the real domain before
+ * launch or every canonical and every @id points at *.vercel.app.
+ */
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'http://localhost:3000');
+
+export const abs = (path: string) => new URL(path, siteUrl).toString();
+
+/** Stable @id for the business node, referenced by every page's schema. */
+export const BUSINESS_ID = `${siteUrl}/#business`;
+
+export const business = {
+  name: 'ITP LIMO LLC',
+  shortName: 'ITP Limo',
+  phone: '+1-781-864-0618',
+  email: 'itplimo.raleigh@gmail.com',
+  /*
+   * Locality only. The client asked for "Wake Forest, NC" rather than the full
+   * address, and there is no street address to publish for any other market.
+   * Omitting streetAddress is correct for a service-area business; inventing
+   * one per city would be a Google Business Profile violation and can get the
+   * whole profile suspended, including the markets that are real.
+   */
+  locality: 'Wake Forest',
+  region: 'NC',
+  country: 'US',
+} as const;
+
+interface AreaCity {
+  city: string;
+  stateAbbr: string;
+}
+
+/**
+ * The business node. A service-area business: one real locality, with every
+ * market it covers expressed as `areaServed` rather than as a separate address.
+ */
+export function businessSchema(areas: AreaCity[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': BUSINESS_ID,
+    name: business.name,
+    alternateName: business.shortName,
+    url: siteUrl,
+    telephone: business.phone,
+    email: business.email,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: business.locality,
+      addressRegion: business.region,
+      addressCountry: business.country,
+    },
+    areaServed: areas.map((a) => ({
+      '@type': 'City',
+      name: `${a.city}, ${a.stateAbbr}`,
+    })),
+  };
+}
+
+/**
+ * A single market's page. Modelled as a Service provided by the business rather
+ * than as its own LocalBusiness, because there is no separate premises, staff or
+ * phone line in that city — only coverage.
+ */
+export function locationServiceSchema(opts: {
+  city: string;
+  stateAbbr: string;
+  path: string;
+  description: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${abs(opts.path)}#service`,
+    name: `Chauffeur and black car service in ${opts.city}, ${opts.stateAbbr}`,
+    serviceType: 'Chauffeur service',
+    description: opts.description,
+    provider: { '@id': BUSINESS_ID },
+    areaServed: {
+      '@type': 'City',
+      name: `${opts.city}, ${opts.stateAbbr}`,
+    },
+    url: abs(opts.path),
+  };
+}
+
+export function breadcrumbSchema(trail: { name: string; path?: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((step, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: step.name,
+      ...(step.path ? { item: abs(step.path) } : {}),
+    })),
+  };
+}
+
+/**
+ * Renders a JSON-LD block. Next dedupes nothing here, so each page is
+ * responsible for emitting the nodes it actually needs.
+ */
+export function JsonLd({ data }: { data: object | object[] }) {
+  return (
+    <script
+      type="application/ld+json"
+      // Schema is built from typed literals above, never from user input.
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

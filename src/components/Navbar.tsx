@@ -4,8 +4,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Phone, Menu, X, Sun, Moon } from 'lucide-react';
+import { ArrowRight, Phone, Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { useTheme } from './providers/ThemeProvider';
+import { locations } from '@/content/locations';
 
 /** Past this offset the bar condenses into the floating island. */
 const CONDENSE_AT = 30;
@@ -18,14 +19,32 @@ const DIRECTION_THRESHOLD = 6;
  * Mirrors the client's own navigation: their markets lead, then services,
  * fleet, about and contact. Home is covered by the logo.
  *
+ * Markets used to sit at the top level as "Raleigh" and "Boston". They now
+ * collapse into one Service Areas item: the client is expanding into Pinehurst
+ * and Wilmington, and four cities plus four section links is more than a top
+ * level can carry. The parent is a real page, not just a menu — /locations is
+ * the hub the whole location cluster links through.
+ *
  * Private aviation and flight tracking are deliberately not here. Neither
  * appears in the client's navigation, and both are facets of the airport
  * service rather than separate lines of business; they stay reachable from the
  * services page and the footer.
  */
-const navLinks = [
-  { name: 'Raleigh', href: '/locations/raleigh' },
-  { name: 'Boston', href: '/locations/boston' },
+interface NavLink {
+  name: string;
+  href: string;
+  children?: { name: string; href: string }[];
+}
+
+const navLinks: NavLink[] = [
+  {
+    name: 'Service Areas',
+    href: '/locations',
+    children: locations.map((l) => ({
+      name: `${l.city}, ${l.stateAbbr}`,
+      href: `/locations/${l.slug}`,
+    })),
+  },
   { name: 'Services', href: '/services' },
   { name: 'Fleet', href: '/fleet' },
   { name: 'About', href: '/about' },
@@ -38,6 +57,8 @@ export const Navbar: React.FC = () => {
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  /** Which top-level item has its submenu open. Null when none. */
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
@@ -136,48 +157,109 @@ export const Navbar: React.FC = () => {
           {/* Nav Items (Center) */}
           <nav
             className={`hidden xl:flex items-center transition-all duration-500 ${condensed ? 'gap-1' : 'gap-1.5'}`}
-            onMouseLeave={() => setHoveredLink(null)}
+            onMouseLeave={() => {
+              setHoveredLink(null);
+              setOpenMenu(null);
+            }}
           >
             {navLinks.map((link) => {
               const isActive = isActiveRoute(link.href);
+              const isOpen = openMenu === link.name;
 
               return (
-                <Link
+                /*
+                 * The submenu is held open by focus as well as hover, so the
+                 * city links stay reachable by keyboard. onFocus/onBlur bubble
+                 * from the children, and relatedTarget tells us whether focus
+                 * left the group entirely or just moved between its links.
+                 */
+                <div
                   key={link.name}
-                  href={link.href}
-                  onMouseEnter={() => setHoveredLink(link.name)}
-                  className={`relative px-3 py-2 rounded-xl text-xs uppercase tracking-[0.14em] font-medium transition-colors flex items-center gap-1 group ${
-                    condensed
-                      ? isActive
-                        ? 'text-[#171717] dark:text-white'
-                        : 'text-[#171717]/70 dark:text-[#F8F6F2]/70 hover:text-[#171717] dark:hover:text-white'
-                      : isActive
-                        ? 'text-white'
-                        : 'text-white/80 hover:text-white'
-                  }`}
+                  className="relative"
+                  onMouseEnter={() => {
+                    setHoveredLink(link.name);
+                    setOpenMenu(link.children ? link.name : null);
+                  }}
+                  onFocus={() => setOpenMenu(link.children ? link.name : null)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+                      setOpenMenu(null);
+                    }
+                  }}
                 >
-                  {/* Hover pill glides between items rather than fading in place */}
-                  {hoveredLink === link.name && (
-                    <motion.span
-                      layoutId="nav-hover-pill"
-                      className={`absolute inset-0 rounded-xl ${
-                        condensed ? 'bg-black/[0.06] dark:bg-white/[0.09]' : 'bg-white/15'
-                      }`}
-                      transition={{ type: 'spring', stiffness: 420, damping: 34, mass: 0.7 }}
-                    />
-                  )}
+                  <Link
+                    href={link.href}
+                    aria-haspopup={link.children ? 'true' : undefined}
+                    aria-expanded={link.children ? isOpen : undefined}
+                    className={`relative px-3 py-2 rounded-xl text-xs uppercase tracking-[0.14em] font-medium transition-colors flex items-center gap-1 group ${
+                      condensed
+                        ? isActive
+                          ? 'text-[#171717] dark:text-white'
+                          : 'text-[#171717]/70 dark:text-[#F8F6F2]/70 hover:text-[#171717] dark:hover:text-white'
+                        : isActive
+                          ? 'text-white'
+                          : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    {/* Hover pill glides between items rather than fading in place */}
+                    {hoveredLink === link.name && (
+                      <motion.span
+                        layoutId="nav-hover-pill"
+                        className={`absolute inset-0 rounded-xl ${
+                          condensed ? 'bg-black/[0.06] dark:bg-white/[0.09]' : 'bg-white/15'
+                        }`}
+                        transition={{ type: 'spring', stiffness: 420, damping: 34, mass: 0.7 }}
+                      />
+                    )}
 
-                  <span className="relative">{link.name}</span>
+                    <span className="relative">{link.name}</span>
 
-                  {/* Current-route marker */}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-active-dot"
-                      className="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-emerald-400"
-                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-                    />
-                  )}
-                </Link>
+                    {link.children && (
+                      <ChevronDown
+                        className={`relative h-3 w-3 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    )}
+
+                    {/* Current-route marker */}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-active-dot"
+                        className="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-emerald-400"
+                        transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                      />
+                    )}
+                  </Link>
+
+                  <AnimatePresence>
+                    {link.children && isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 pt-3"
+                      >
+                        <div className="overflow-hidden rounded-2xl border border-black/10 bg-white/95 p-1.5 shadow-xl backdrop-blur-2xl dark:border-white/10 dark:bg-[#141414]/95">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className={`flex min-h-[40px] items-center rounded-xl px-3.5 text-xs font-medium tracking-wide transition-colors ${
+                                isActiveRoute(child.href)
+                                  ? 'bg-black/[0.06] text-[#171717] dark:bg-white/[0.09] dark:text-white'
+                                  : 'text-[#171717]/75 hover:bg-black/[0.04] hover:text-[#171717] dark:text-[#F8F6F2]/75 dark:hover:bg-white/[0.06] dark:hover:text-white'
+                              }`}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               );
             })}
           </nav>
@@ -259,18 +341,41 @@ export const Navbar: React.FC = () => {
             >
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex min-h-[48px] items-center text-sm uppercase tracking-widest font-semibold border-b border-black/5 dark:border-white/5 ${
-                      isActiveRoute(link.href)
-                        ? 'text-[#171717] dark:text-[#F8F6F2]'
-                        : 'text-[#171717]/70 dark:text-[#F8F6F2]/70'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
+                  /*
+                   * No accordion on mobile: the drawer has room, and burying the
+                   * markets behind another tap would make the client's newest
+                   * pages the hardest to reach. Children are simply indented
+                   * under their parent.
+                   */
+                  <React.Fragment key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex min-h-[48px] items-center text-sm uppercase tracking-widest font-semibold border-b border-black/5 dark:border-white/5 ${
+                        isActiveRoute(link.href)
+                          ? 'text-[#171717] dark:text-[#F8F6F2]'
+                          : 'text-[#171717]/70 dark:text-[#F8F6F2]/70'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+
+                    {link.children?.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex min-h-[44px] items-center gap-2.5 border-b border-black/5 pl-4 text-xs tracking-wide dark:border-white/5 ${
+                          isActiveRoute(child.href)
+                            ? 'text-[#171717] dark:text-[#F8F6F2]'
+                            : 'text-[#171717]/55 dark:text-[#F8F6F2]/55'
+                        }`}
+                      >
+                        <span className="h-1 w-1 rounded-full bg-current opacity-50" />
+                        {child.name}
+                      </Link>
+                    ))}
+                  </React.Fragment>
                 ))}
 
                 {/* Direct dispatch line — the primary contact route while booking is disabled */}

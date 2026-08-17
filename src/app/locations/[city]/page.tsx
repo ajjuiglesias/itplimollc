@@ -8,6 +8,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { EditorialList } from '@/components/ui/EditorialList';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
+import { JsonLd, breadcrumbSchema, locationServiceSchema } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -40,13 +41,29 @@ export default async function LocationPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          locationServiceSchema({
+            city: location.city,
+            stateAbbr: location.stateAbbr,
+            path: `/locations/${location.slug}`,
+            description: location.metaDescription,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Service Areas', path: '/locations' },
+            { name: location.city, path: `/locations/${location.slug}` },
+          ]),
+        ]}
+      />
+
       <PageHero
         eyebrow={`${location.city}, ${location.stateAbbr}`}
         title={location.hero.title}
         subtitle={location.hero.intro}
         crumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Locations' },
+          { label: 'Service Areas', href: '/locations' },
           { label: location.city },
         ]}
         image={location.image}
