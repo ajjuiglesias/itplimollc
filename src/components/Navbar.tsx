@@ -269,20 +269,20 @@ export const Navbar: React.FC = () => {
             {/* Dispatch line — collapses to an icon inside the island to keep it compact */}
             {condensed ? (
               <a
-                href="tel:17818640618"
+                href="tel:19194352157"
                 className={iconButton}
-                title="Call 24/7 Dispatch: +1 (781) 864-0618"
-                aria-label="Call 24/7 Dispatch: +1 (781) 864-0618"
+                title="Call 24/7 Dispatch: +1 (919) 435-2157"
+                aria-label="Call 24/7 Dispatch: +1 (919) 435-2157"
               >
                 <Phone className="w-4 h-4" />
               </a>
             ) : (
               <a
-                href="tel:17818640618"
+                href="tel:19194352157"
                 className="text-xs uppercase tracking-[0.18em] font-medium transition-colors flex items-center gap-1.5 whitespace-nowrap text-white/90 hover:text-white"
               >
                 <Phone className="w-3.5 h-3.5 text-white" />
-                <span>+1 (781) 864-0618</span>
+                <span>+1 (919) 435-2157</span>
               </a>
             )}
 
@@ -380,7 +380,7 @@ export const Navbar: React.FC = () => {
 
                 {/* Direct dispatch line — the primary contact route while booking is disabled */}
                 <a
-                  href="tel:17818640618"
+                  href="tel:19194352157"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-3 mt-1 py-3 text-[#171717] dark:text-[#F8F6F2]"
                 >
@@ -388,7 +388,7 @@ export const Navbar: React.FC = () => {
                     <Phone className="w-4 h-4" />
                   </span>
                   <span>
-                    <span className="block text-sm font-bold tracking-wide">+1 (781) 864-0618</span>
+                    <span className="block text-sm font-bold tracking-wide">+1 (919) 435-2157</span>
                     <span className="block text-[10px] uppercase tracking-[0.2em] text-[#66625C] dark:text-[#A0A0A0]">
                       24/7 Dispatch Desk
                     </span>

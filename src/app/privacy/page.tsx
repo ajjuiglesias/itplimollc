@@ -58,7 +58,7 @@ const sections: LegalSection[] = [
   {
     heading: 'Contacting us',
     body: [
-      'Questions about this policy can be directed to ITP Limo at itplimo.raleigh@gmail.com or +1 (781) 864-0618.',
+      'Questions about this policy can be directed to ITP Limo at itplimo.raleigh@gmail.com or +1 (919) 435-2157.',
     ],
   },
 ];

@@ -6,8 +6,8 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { locations, announcedMarkets } from '@/content/locations';
-import { JsonLd, businessSchema, siteUrl } from '@/lib/seo';
+import { locations, announcedMarkets, extendedCoverage } from '@/content/locations';
+import { JsonLd, businessSchema, siteUrl, type ServedArea } from '@/lib/seo';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,13 +18,19 @@ export const metadata: Metadata = {
 };
 
 /*
- * Every market the business covers, page or not. An announced market has no
- * page but is still genuinely served, so it belongs in areaServed — that is
- * precisely what areaServed is for on a service-area business.
+ * Every market the business covers, page or not, across all three tiers:
+ * markets with their own page, markets announced but not yet written, and
+ * territory served on request. None of them has premises, so all of them are
+ * areaServed on a single business node — which is precisely what areaServed is
+ * for on a service-area business.
  */
-const servedAreas = [
-  ...locations.map((l) => ({ city: l.city, stateAbbr: l.stateAbbr })),
-  ...announcedMarkets.map((m) => ({ city: m.city, stateAbbr: m.stateAbbr })),
+const servedAreas: ServedArea[] = [
+  ...locations.map((l) => ({ name: `${l.city}, ${l.stateAbbr}`, type: 'City' as const })),
+  ...announcedMarkets.map((m) => ({ name: `${m.city}, ${m.stateAbbr}`, type: 'City' as const })),
+  ...extendedCoverage.map((r) => ({
+    name: r.stateAbbr ? `${r.name}, ${r.stateAbbr}` : r.name,
+    type: r.type,
+  })),
 ];
 
 export default function RootLayout({

@@ -140,14 +140,14 @@ export const Footer: React.FC = () => {
             </span>
             <div className="space-y-3.5 text-xs text-white/70 font-normal">
               <a
-                href="tel:17818640618"
+                href="tel:19194352157"
                 className="flex min-h-[44px] items-center gap-2.5 hover:text-white transition-colors group"
               >
                 <div className="p-2 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="block font-medium text-white">+1 (781) 864-0618</span>
+                  <span className="block font-medium text-white">+1 (919) 435-2157</span>
                   <span className="text-[10px] text-white/50">24/7 Dispatch Desk</span>
                 </div>
               </a>

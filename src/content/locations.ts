@@ -91,6 +91,38 @@ export interface AnnouncedMarket {
  */
 export const announcedMarkets: AnnouncedMarket[] = [];
 
+/**
+ * Territory covered on request rather than marketed as a home market.
+ *
+ * This is a third tier, distinct from both of the above, and it exists because
+ * the client's own framing was "and beyond if the work is there" — opportunistic
+ * long-distance work, not somewhere they are trying to rank. Two consequences
+ * follow, and both are deliberate:
+ *
+ *   - No pages. A page for a market nobody is actively working is the exact
+ *     thin-content problem the location cluster was built to avoid, and
+ *     "Virginia" is a state rather than a market a page could even describe.
+ *   - Still listed in areaServed, because they genuinely do serve it. Coverage
+ *     and a landing page are different claims.
+ *
+ * These read as an extension of the long-distance service the Triangle page
+ * already sells, which is what they actually are.
+ */
+export interface ExtendedRegion {
+  name: string;
+  /** Drives the schema.org type; a city and a state are not interchangeable. */
+  type: 'City' | 'State';
+  stateAbbr?: string;
+}
+
+/* Source: client message, 2026-08-18. */
+export const extendedCoverage: ExtendedRegion[] = [
+  { name: 'Charlotte', type: 'City', stateAbbr: 'NC' },
+  { name: 'Greensboro', type: 'City', stateAbbr: 'NC' },
+  { name: 'Virginia', type: 'State' },
+  { name: 'South Carolina', type: 'State' },
+];
+
 export const locations: Location[] = [
   {
     slug: 'raleigh',

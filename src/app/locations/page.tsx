@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight, MapPin, Plane } from 'lucide-react';
-import { locations, announcedMarkets } from '@/content/locations';
+import { locations, announcedMarkets, extendedCoverage } from '@/content/locations';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
@@ -10,7 +10,7 @@ import { JsonLd, breadcrumbSchema } from '@/lib/seo';
 export const metadata: Metadata = {
   title: 'Service Areas | Raleigh, Boston, Pinehurst & Wilmington | ITP Limo LLC',
   description:
-    'ITP Limo provides chauffeur and black car service across Raleigh-Durham and Boston, and serves Pinehurst and Wilmington, North Carolina.',
+    'ITP Limo provides chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston, with long-distance coverage into Charlotte, Greensboro, Virginia and South Carolina.',
   alternates: { canonical: '/locations' },
 };
 
@@ -134,6 +134,53 @@ export default function LocationsPage() {
             <div className="mt-12 flex flex-col items-start gap-3">
               <BookNowButton label="Request a Quote" />
               <OrCallNote />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/*
+        Territory covered on request. Named here rather than given pages of its
+        own — this is the long-distance service the Triangle page already sells,
+        extended, and a page for a market nobody is actively working is the thin
+        content the rest of this cluster was built to avoid.
+      */}
+      {extendedCoverage.length > 0 && (
+        <section className="border-t border-black/5 bg-white py-24 sm:py-32 dark:border-white/5 dark:bg-[#141414]">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-5">
+                <SectionHeader
+                  eyebrow="Further Afield"
+                  title="And wherever the road goes."
+                  align="left"
+                />
+                <p className="mt-5 max-w-md text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+                  Long-distance and out-of-state work is a routine part of what we
+                  do, not an exception to it. If your journey runs past the
+                  Triangle, ask — we will tell you plainly whether we can cover it.
+                </p>
+
+                <div className="mt-10 flex flex-col items-start gap-3">
+                  <BookNowButton label="Request a Quote" />
+                  <OrCallNote />
+                </div>
+              </div>
+
+              <ul className="lg:col-span-6 lg:col-start-7">
+                {extendedCoverage.map((region) => (
+                  <li
+                    key={region.name}
+                    className="flex items-center gap-5 border-b border-black/10 py-5 dark:border-white/10"
+                  >
+                    <MapPin className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    <span className="font-serif text-xl text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
+                      {region.name}
+                      {region.stateAbbr ? `, ${region.stateAbbr}` : ''}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

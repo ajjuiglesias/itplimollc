@@ -29,7 +29,7 @@ export const BUSINESS_ID = `${siteUrl}/#business`;
 export const business = {
   name: 'ITP LIMO LLC',
   shortName: 'ITP Limo',
-  phone: '+1-781-864-0618',
+  phone: '+1-919-435-2157',
   email: 'itplimo.raleigh@gmail.com',
   /*
    * Locality only. The client asked for "Wake Forest, NC" rather than the full
@@ -43,16 +43,23 @@ export const business = {
   country: 'US',
 } as const;
 
-interface AreaCity {
-  city: string;
-  stateAbbr: string;
+/**
+ * One entry in `areaServed`. `type` matters: a state is not a City, and
+ * mislabelling Virginia as one would be a false statement in machine-readable
+ * form even though the page copy would look fine.
+ */
+export interface ServedArea {
+  name: string;
+  type: 'City' | 'State';
 }
 
 /**
  * The business node. A service-area business: one real locality, with every
  * market it covers expressed as `areaServed` rather than as a separate address.
+ * That includes territory served on request — coverage is a weaker claim than a
+ * landing page, and areaServed is exactly the right place to make the weaker one.
  */
-export function businessSchema(areas: AreaCity[]) {
+export function businessSchema(areas: ServedArea[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -68,10 +75,7 @@ export function businessSchema(areas: AreaCity[]) {
       addressRegion: business.region,
       addressCountry: business.country,
     },
-    areaServed: areas.map((a) => ({
-      '@type': 'City',
-      name: `${a.city}, ${a.stateAbbr}`,
-    })),
+    areaServed: areas.map((a) => ({ '@type': a.type, name: a.name })),
   };
 }
 

@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Phone } from 'lucide-react';
 
-export const DISPATCH_PHONE = '+1 (781) 864-0618';
-export const DISPATCH_PHONE_HREF = 'tel:17818640618';
+export const DISPATCH_PHONE = '+1 (919) 435-2157';
+export const DISPATCH_PHONE_HREF = 'tel:19194352157';
 
 type Variant = 'solid' | 'outline' | 'onDark';
 

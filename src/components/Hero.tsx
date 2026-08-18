@@ -131,7 +131,7 @@ export const Hero: React.FC = () => {
             </Link>
 
             <a
-              href="tel:17818640618"
+              href="tel:19194352157"
               className="inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold text-white/70 transition-opacity hover:opacity-100"
             >
               <span className="relative flex h-1.5 w-1.5">
@@ -143,7 +143,7 @@ export const Hero: React.FC = () => {
                 click-to-call is the second conversion path on this page, and
                 the number stays visible from sm up.
               */}
-              Available 24/7<span className="hidden sm:inline"> — +1 (781) 864-0618</span>
+              Available 24/7<span className="hidden sm:inline"> — +1 (919) 435-2157</span>
             </a>
           </div>
         </motion.div>

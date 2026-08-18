@@ -10,7 +10,7 @@ import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatc
 export const metadata: Metadata = {
   title: 'Contact ITP Limo | 24/7 Chauffeur Dispatch Desk',
   description:
-    'Reach the ITP Limo dispatch desk 24 hours a day on +1 (781) 864-0618, or email itplimo.raleigh@gmail.com for corporate accounts and roadshow pricing.',
+    'Reach the ITP Limo dispatch desk 24 hours a day on +1 (919) 435-2157, or email itplimo.raleigh@gmail.com for corporate accounts and roadshow pricing.',
   alternates: { canonical: '/contact' },
 };
 
