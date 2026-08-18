@@ -96,15 +96,25 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center max-w-4xl mb-10 sm:mb-14"
         >
+          {/*
+            Hero copy supplied by the client, 2026-08-18, and used verbatim.
+            The headline keeps the existing two-weight treatment — medium on the
+            first line, light on the second — so their words inherit the type
+            hierarchy the rest of the page already uses.
+          */}
+          <span className="mb-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-extrabold text-white/75 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            Your Journey. Our Standard.
+          </span>
+
           {/* Main Headline — PP Fragment Glare */}
           <h1 className="font-serif font-medium text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white mb-4 drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
-            Leading Private Chauffeur <br className="hidden sm:inline" />
-            <span className="text-white font-light drop-shadow-md">Tracking & Safety</span>
+            Private Chauffeur Service <br className="hidden sm:inline" />
+            <span className="text-white font-light drop-shadow-md">Designed Around You.</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg text-white/90 max-w-2xl font-light leading-relaxed mb-7 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-            Dedicated RDU Airport Concierge, Real-Time FAA Flight Radar Synchronization, & Bespoke Executive Mobility.
+            Professional Chauffeurs, Real-Time Flight Monitoring &amp; Seamless Airport and Executive Transportation Across Raleigh, RDU &amp; Beyond.
           </p>
 
           {/* No booking fields here by design. The Moovs embed on /book collects
@@ -128,7 +138,12 @@ export const Hero: React.FC = () => {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
               </span>
-              Or call 24/7 dispatch<span className="hidden sm:inline"> — +1 (781) 864-0618</span>
+              {/*
+                Client's wording. Kept as a tel: link rather than plain text —
+                click-to-call is the second conversion path on this page, and
+                the number stays visible from sm up.
+              */}
+              Available 24/7<span className="hidden sm:inline"> — +1 (781) 864-0618</span>
             </a>
           </div>
         </motion.div>
