@@ -6,9 +6,9 @@ import { FlightTrackerWidget } from '@/components/FlightTrackerWidget';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
-  title: 'Live Flight Tracking | Delay-Proof Airport Pickups | ITP Limo',
+  title: 'Live Flight Tracking | Delay-Proof Pickups | ITP Limo',
   description:
-    'Every ITP airport pickup is synchronised to live FAA flight radar. We track your flight or tail number and move your chauffeur to match the actual landing time — with no delay fees.',
+    'Every ITP airport pickup is synchronised to live flight radar. We track your flight or tail number and move your chauffeur to the real landing time.',
   alternates: { canonical: '/flight-tracking' },
 };
 

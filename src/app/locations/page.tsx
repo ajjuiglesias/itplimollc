@@ -8,9 +8,9 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 import { JsonLd, breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Raleigh, Boston, Pinehurst & Wilmington | ITP Limo LLC',
+  title: 'Service Areas | NC & Boston Chauffeur Coverage | ITP Limo',
   description:
-    'ITP Limo provides chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston, with long-distance coverage into Charlotte, Greensboro, Virginia and South Carolina.',
+    'Chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston, with long-distance coverage into Charlotte, Greensboro and beyond.',
   alternates: { canonical: '/locations' },
 };
 

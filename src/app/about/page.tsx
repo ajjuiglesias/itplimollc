@@ -9,9 +9,9 @@ import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = {
-  title: 'About ITP Limo | Executive Chauffeur Company, Raleigh & Boston',
+  title: 'About ITP Limo | Executive Chauffeur Company, NC',
   description:
-    'ITP Limo provides private chauffeur and executive transportation across Raleigh-Durham and Boston, built around discretion, flight-aware dispatch and a maintained luxury fleet.',
+    'Private chauffeur and executive transportation across Raleigh-Durham and Boston, built on discretion, flight-aware dispatch and an all-2026 fleet.',
   alternates: { canonical: '/about' },
 };
 
