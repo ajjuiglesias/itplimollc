@@ -153,15 +153,15 @@ export const Footer: React.FC = () => {
               </a>
 
               <a
-                href="mailto:itplimo.raleigh@gmail.com"
+                href="mailto:Reservations@itplimo.com"
                 className="flex min-h-[44px] items-center gap-2.5 hover:text-white transition-colors group"
               >
                 <div className="p-2 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <span className="block font-medium text-white">itplimo.raleigh@gmail.com</span>
-                  <span className="text-[10px] text-white/50">Direct Email Concierge</span>
+                  <span className="block font-medium text-white">Reservations@itplimo.com</span>
+                  <span className="text-[10px] text-white/50">Reservations Desk</span>
                 </div>
               </a>
 

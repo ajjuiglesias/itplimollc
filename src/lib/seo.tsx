@@ -30,7 +30,7 @@ export const business = {
   name: 'ITP LIMO LLC',
   shortName: 'ITP Limo',
   phone: '+1-919-435-2157',
-  email: 'itplimo.raleigh@gmail.com',
+  email: 'Reservations@itplimo.com',
   /*
    * Locality only. The client asked for "Wake Forest, NC" rather than the full
    * address, and there is no street address to publish for any other market.
