@@ -1,335 +1,259 @@
 # ITP Limo — Keyword & Search Intent Strategy
 
-**Researched:** 19 August 2026
-**Markets:** Raleigh/Triangle, Pinehurst, Wilmington, Boston, plus extended NC/VA/SC coverage
+**Data pulled:** 20 August 2026 · Google Ads volume, CPC, competition, keyword
+difficulty (0–100) and intent classification · United States, English
+**Source:** Apify `santhej/keyword-research-tool` (Google Ads keyword data)
+**Coverage:** 153 keywords measured across four markets plus route and national terms
 
 ---
 
-## Method, and what this document does not contain
+## Read this first: the data overturned three of my earlier conclusions
 
-Findings below come from reading live search results for each market: who ranks,
-what language they use, how the results are composed, and what the competitive
-set actually looks like. That is real evidence about intent and difficulty.
+An earlier version of this document was built from reading live search results
+only, because no keyword tool was authorised. That version correctly identified
+*who* competes in each market. It was wrong about *what to target*, in three
+consequential ways. Corrections are recorded here rather than quietly edited out,
+because the wrong version nearly got implemented.
 
-**There are no search-volume numbers in this document, deliberately.** Ahrefs
-and SEMrush are connected to this project but not authenticated, so volume,
-keyword difficulty and CPC could not be pulled. Rather than estimate them —
-inventing numbers that would then get planned against — every recommendation
-here is justified by SERP composition instead. Volume should be layered on once
-a keyword tool is authorised; see [What still needs a tool](#what-still-needs-a-tool).
+**1. "Black car service" was the wrong target.** The SERP for *black car service
+Raleigh* is full of serious executive operators, so I recommended retargeting
+every page from "limo" to "black car". Actual volume:
 
-Competitor claims quoted below (years in business, fleet size, "largest in
-Raleigh") are their own marketing copy as it appears on their sites. They are
-recorded as positioning signals, not as verified fact.
+| Keyword | Volume | KD |
+|---|---:|---:|
+| limo service raleigh nc | **390** | 19 |
+| limo service raleigh | **390** | 18 |
+| car service raleigh nc | **320** | 3 |
+| chauffeur service raleigh | **320** | 0 |
+| black car service raleigh nc | 50 | 0 |
+| black car service raleigh | **20** | – |
+| executive car service raleigh | 10 | – |
+
+"Black car service Raleigh" gets roughly **20 searches a month**. "Limo service
+Raleigh" gets 390. The SERP looked competitive precisely *because* serious
+operators are fighting over a term almost nobody searches. Dropping "limo" would
+have cost the site its highest-volume term.
+
+**2. Boston should probably not be deprioritised.** I recommended maintaining it
+and not investing. Boston has five to ten times the search volume of Raleigh:
+
+| Keyword | Volume | KD | CPC |
+|---|---:|---:|---:|
+| boston airport car service | **2,400** | 24 | $8.51 |
+| boston limo service | **1,900** | 32 | $6.98 |
+| boston car service | **1,600** | 22 | **$12.84** |
+| logan airport transportation | 880 | 32 | $4.88 |
+| logan airport car service | 480 | 21 | $8.30 |
+| logan airport limo | 320 | **0** | $7.04 |
+
+That is a genuine trade-off rather than a clear call: harder (KD 22–32 against
+0–19 in NC), no local presence, and a dispatch number that is now a Raleigh area
+code — but far more demand and the highest commercial value on the board.
+`logan airport limo` at 320/month with **KD 0** is an anomaly worth taking.
+
+**3. FBO and private aviation have almost no search demand.** I called this a
+high-value, low-competition opening. It is low-competition because nobody
+searches it: *fbo ground transportation*, *fbo car service*, *private jet
+transportation raleigh*, *tarmac transfer service* and *signature aviation ground
+transportation* all returned **no measurable volume**. *private jet car service*
+manages 10/month.
+
+This does not make the service worthless — it is high revenue per booking and a
+strong trust signal on the site. But it is won through relationships and FBO
+referrals, **not through search**, and should not be an SEO priority. The
+`/private-aviation` page should exist to close visitors who are already there,
+not to acquire them.
+
+What the SERP-only pass *did* get right: the route-page opportunity, the
+Pinehurst 72-hour booking gap, and the competitor mapping. All confirmed below.
 
 ---
 
-## The headline finding
+## The single best opportunity: Wilmington
 
-**"Limo" and "black car" are two different businesses in this region, and the
-site is currently named for the wrong one.**
+| Keyword | Volume | KD | Competition |
+|---|---:|---:|---|
+| limo service wilmington nc | **590** | **3** | LOW |
+| limo service in wilmington nc | 590 | 2 | LOW |
+| wilmington nc limo service | 590 | 7 | LOW |
+| wilmington nc car service | 110 | 13 | HIGH |
+| black car service wilmington nc | 90 | 0 | MEDIUM |
+| wilmington airport shuttle | 50 | 14 | MEDIUM |
+| wilmington nc airport transportation | 50 | 4 | MEDIUM |
 
-Searching *limo service Raleigh NC* returns:
+**590 searches a month at KD 3 with LOW competition.** Higher volume than any
+Raleigh term and effectively no difficulty. This is the highest-return page on
+the site and it went live three days ago.
 
-| Operator | What they sell |
-|---|---|
-| Bare Minimum Limousine | limo rental, since 1995 |
-| Raleigh Dream Limos | stretch Hummer, Escalade limos, party buses |
-| Lifestyle Limousine | prom, weddings, winery & brewery tours |
-| Primo Limo | stretch limos, Hummer limos |
-
-Searching *black car service Raleigh* returns an entirely different set:
-
-| Operator | What they sell |
-|---|---|
-| Savoya | executive transport, "trusted by Fortune 100" |
-| Triangle Corporate Coach | executive transportation, Raleigh/Durham/Chapel Hill |
-| RDU Black Car | RDU transfers, corporate travel |
-| Premier Black Transport | downtown Raleigh executive, business meetings |
-| Detailed Drivers | RTP corporate campuses, recurring commutes |
-| Kings TS | RDU airport transportation |
-
-Almost no overlap between the two lists. These are separate markets that happen
-to share a vehicle category.
-
-ITP Limo — 2026 Suburbans, an Aviator and a Sprinter, corporate accounts, FBO
-transfers, flight tracking, no party buses — belongs unambiguously in the second
-group. But every page title currently leads with "Limo Service":
-
-- `Raleigh Limo Service | RDU Airport & Executive Car | ITP Limo`
-- `Pinehurst Limo Service | Golf & Resort Transfers | ITP Limo`
-- `Wilmington NC Limo Service | ILM Airport & Beaches | ITP Limo`
-
-That aims the pages at prom and party-bus intent, where the visitor wants a
-stretch Hummer, and where ITP loses on fleet and wins on nothing.
-
-**Recommendation:** lead with *car service* / *black car* / *executive*, and keep
-*limo* as a secondary term rather than dropping it. Two reasons not to abandon
-it: the brand is literally "ITP Limo", and some buyers genuinely use "limo" as a
-generic. It belongs in the copy — just not as the primary target of every title.
+Note the phrasing: the winning term is **"limo service wilmington nc"** — the
+exact title already in place. That page happens to be correctly targeted.
 
 ---
 
 ## Market by market
 
-### Raleigh & the Triangle — the core market
+### Raleigh & the Triangle
 
-**Competitive set (executive tier):** Savoya, Triangle Corporate Coach, RDU
-Black Car, Premier Black Transport, Detailed Drivers, Kings TS, Townie,
-Black Car Everywhere.
+| Keyword | Volume | KD | CPC | Intent |
+|---|---:|---:|---:|---|
+| limo service raleigh / raleigh nc | 390 | 18–19 | $5.62 | commercial |
+| rdu airport shuttle | **390** | **7** | $5.03 | navigational |
+| car service raleigh (all variants) | 320 | 3–10 | $5.79 | commercial |
+| chauffeur service raleigh | 320 | **0** | $7.21 | commercial |
+| rdu airport transportation | 210 | 7 | $5.01 | navigational |
+| car service raleigh-durham airport | 90 | **0** | $5.91 | **transactional** |
+| car service durham nc | 90 | 0 | $4.84 | commercial |
+| raleigh limo | 90 | 8 | $5.45 | navigational |
+| rdu car service | 70 | 10 | $9.69 | navigational |
+| black car service raleigh nc | 50 | 0 | $4.33 | navigational |
+| airport transportation raleigh | 50 | 18 | $5.59 | navigational |
+| limo service durham nc | 50 | 4 | $4.34 | commercial |
+| wedding transportation raleigh | 40 | 0 | $6.79 | commercial |
+| car service chapel hill nc | 30 | 0 | $10.54 | commercial |
+| car service cary nc | 30 | 0 | $5.09 | commercial |
 
-Notable: `rdublackcar.com` is an exact-match domain for the airport term, and
-Savoya is a national operator competing on enterprise credibility rather than
-local knowledge.
+**Targets: "limo service raleigh" + "car service raleigh" + "chauffeur service
+raleigh" together.** They are three separate clusters totalling ~1,030/month, and
+two of the three sit at KD 0–3. The current title already leads with "Raleigh
+Limo Service", which is right — it just needs "car service" and "chauffeur
+service" worked into the H1 and body rather than replaced.
 
-**Aggregators also rank here:** GO Airport Shuttle (economy fares advertised
-from $48, "no surge pricing") and SuperShuttle. These occupy the price-led end
-and are not competing for ITP's buyer.
+`car service raleigh-durham airport` is worth singling out: 90/month, **KD 0**,
+and classified **transactional** — the visitor wants to book now.
 
-**Operational detail worth using:** RDU directs private transport to the *limo
-zones outside bag claim — Terminal 1 Zone 1, Terminal 2 Zone 8*. Naming the
-exact pickup zone is the kind of specific, verifiable detail that separates a
-real operator's page from a templated one, and no competitor page reviewed
-states it plainly.
+Ignore `party bus raleigh` (720/month, KD 0). High volume, wrong business.
 
-**Target clusters**
+### Pinehurst — the city is tiny, the route is not
 
-| Cluster | Example queries | Page |
+| Keyword | Volume | KD |
+|---|---:|---:|
+| **rdu to pinehurst** | **210** | **0** |
+| pinehurst airport shuttle | 50 | 0 |
+| rdu to pinehurst shuttle | 30 | 0 |
+| car service pinehurst nc | 10 | 16 |
+| limo service pinehurst nc | 10 | – |
+| pinehurst golf transportation | no data | – |
+| pinehurst resort transportation | no data | – |
+| moore county airport transportation | no data | – |
+
+Pinehurst as a *destination* barely registers — 10 to 50 searches a month. But
+**`rdu to pinehurst` pulls 210 a month at KD 0 with a $8.41 CPC**, which is the
+highest CPC of any NC term measured and a strong signal of commercial value.
+
+**The Pinehurst page should be built around the journey, not the town.** Its
+current title, "Pinehurst Limo Service | Golf & Resort Transfers", targets terms
+worth 10/month. It should lead on the RDU→Pinehurst transfer.
+
+This also explains the earlier finding that the resort's own shuttle requires
+72 hours notice: people are searching for how to make that journey, and the
+incumbent answer is inflexible.
+
+### Wilmington
+
+Covered above — the strongest position on the site. Also confirmed:
+`rdu to wilmington` at **210/month, KD 0**, and
+`car service from wilmington to raleigh` at 10/month, so the route runs in both
+directions.
+
+### Boston
+
+Covered in the corrections above. Highest volume and highest CPC of any market;
+also the hardest, and the one with no operational presence.
+
+### Charlotte & Greensboro — currently no pages, and that may be wrong
+
+| Keyword | Volume | KD | CPC |
+|---|---:|---:|---:|
+| **charlotte car service** | **720** | **8** | $7.88 |
+| charlotte black car service | 390 | **0** | $5.73 |
+| charlotte airport car service | 210 | **0** | $11.48 |
+| greensboro car service | 140 | **0** | $9.13 |
+
+**Charlotte has nearly double Raleigh's volume at half the difficulty.** I
+previously recommended against a Charlotte page on the grounds that the client
+serves it only "if the work is there" — and that reasoning still holds
+commercially. But the SEO case is now the strongest of any market: 720/month at
+KD 8, plus 390 and 210 sitting at KD 0.
+
+**This is a business decision for the client, not an SEO one.** If they want
+Charlotte work, the search demand is there and it is cheap to win. Worth putting
+to them directly with these numbers.
+
+### National "near me" terms — won by Google Business Profile, not pages
+
+| Keyword | Volume | KD | CPC |
+|---|---:|---:|---:|
+| chauffeur service near me | **49,500** | 23 | $4.54 |
+| limo near me | 8,100 | 33 | $5.57 |
+| black car service near me | 2,900 | 15 | $6.81 |
+| airport car service near me | 1,900 | 16 | $5.71 |
+
+These are enormous, and no amount of on-page copy wins them. They are served
+from the **Google Business Profile** — categories, service areas, reviews, photos
+and NAP consistency. This is the single largest pool of demand touching the
+business and it sits almost entirely outside the website.
+
+**Recommendation: the GBP deserves as much attention as the site.** Confirm it is
+claimed, correctly categorised, has the new 919 number and `itplimo.com`, lists
+all four markets as service areas, and is actively gathering reviews.
+
+---
+
+## Priority order, by data
+
+| # | Action | Why |
 |---|---|---|
-| Executive local | black car service Raleigh, executive car service Raleigh | `/locations/raleigh` |
-| Airport | RDU car service, RDU airport transportation, car service to RDU | `/locations/raleigh`, `/services/airport-transfers` |
-| Corporate | corporate transportation RTP, executive transportation Research Triangle Park | `/services/corporate-accounts` |
-| Sub-market | Durham car service, Chapel Hill car service, Cary car service | `/locations/raleigh` sections |
+| 1 | **Set `NEXT_PUBLIC_SITE_URL`** | Nothing below can rank while canonicals point at `*.vercel.app` |
+| 2 | **Google Business Profile** | 49,500/mo on "chauffeur service near me" alone; not a website problem |
+| 3 | **Wilmington page** | 590/mo at KD 3 — best ratio on the site, already correctly titled |
+| 4 | **Raleigh: add "car service" + "chauffeur service"** | Two clusters at 320/mo, KD 0–3, currently untargeted |
+| 5 | **Route pages: RDU→Pinehurst, RDU→Wilmington** | 210/mo each at KD 0; Pinehurst CPC $8.41 |
+| 6 | **Rebuild Pinehurst around the route** | City terms are 10/mo; the journey is 210/mo |
+| 7 | **Decide on Charlotte** | 720/mo at KD 8 — client business call, not an SEO one |
+| 8 | **Reconsider Boston** | 2,400/mo and $12.84 CPC vs no local presence — a real trade-off |
+| 9 | Private aviation page | Keep, but for closing, not acquisition — no measurable demand |
 
-### Pinehurst — golf, and the word is "shuttle"
+---
 
-**Competitive set:** `pinehurstairportshuttle.com`, `myrduairportshuttle.com`,
-`pinehurstchauffeured.com`.
+## Title recommendations, revised against the data
 
-**The dominant term here is "shuttle", not "limo" or "black car".** That creates
-a positioning tension worth naming: "shuttle" signals shared and budget, which is
-the opposite of what ITP sells. The resolution is to target the phrase people
-search while making the private/exclusive distinction the selling point on the
-page — "private transfer, not a shared shuttle" is a differentiator, and only
-works if you appear in the search at all.
-
-**The strongest competitive opening found in this whole research pass:**
-Pinehurst Resort runs its own airport shuttle from Moore County (SOP) at
-$25 shared for 1–2 passengers, $50 shared for 3–8, or private at $80 per person
-and $160 for up to 8, plus 18% gratuity — and **it requires 72 hours advance
-notice**. A 72-hour booking window is a real constraint on a golf group whose
-flights change. ITP competing on responsiveness and direct booking is a genuine,
-substantive advantage rather than a copywriting angle.
-
-**Geography facts confirmed:** SOP is roughly a 10-minute drive from the resort;
-RDU to Pinehurst runs about 1h15–1h30 depending on traffic.
-
-**Target clusters**
-
-| Cluster | Example queries | Page |
+| Page | Current | Verdict |
 |---|---|---|
-| Airport shuttle | Pinehurst airport shuttle, Pinehurst NC airport transportation | `/locations/pinehurst` |
-| Route | RDU to Pinehurst shuttle, RDU to Pinehurst transportation | **new route page** |
-| Golf | Pinehurst golf transportation, golf group transportation Pinehurst | `/locations/pinehurst` |
-| Resort | Pinehurst Resort transportation, transfer to Carolina Hotel | `/locations/pinehurst` |
-| Regional airports | Moore County airport transfer, SOP transportation, FAY to Pinehurst | `/locations/pinehurst` |
+| Raleigh | `Raleigh Limo Service \| RDU Airport & Executive Car \| ITP Limo` | **Keep "Limo Service"** — 390/mo. Work "car service" and "chauffeur service" into H1 and body. |
+| Wilmington | `Wilmington NC Limo Service \| ILM Airport & Beaches \| ITP Limo` | **Already optimal.** Exact match for a 590/mo, KD 3 term. |
+| Pinehurst | `Pinehurst Limo Service \| Golf & Resort Transfers \| ITP Limo` | **Change.** Targets a 10/mo term. Lead on RDU→Pinehurst. |
+| Boston | `Boston Limo Service \| Logan Airport Transfers \| ITP Limo` | **Keep.** 1,900/mo, and Logan terms add 1,680 more. |
 
-### Wilmington — crowded, and the incumbents are established
-
-**Competitive set:** Black Tie Transportation (claims 35+ years), Icon
-Transportation Wilmington, Carolina Limo & Coach, Port City Airport Transit,
-RSVP Black Car, Prime Time Shuttle, NC Transporter, ILM Taxi Service, and
-Black Car Everywhere (which also appears in Raleigh — a multi-market player
-worth watching).
-
-Terminology is mixed here: "car service", "black car service", "airport shuttle"
-and "limo service" all appear in ranking titles, so this market is less cleanly
-segmented than Raleigh.
-
-**Coverage gap to raise with the client:** competitors serving this area
-routinely list **Hampstead**, and **Pender and Brunswick Counties**. ITP's
-supplied coverage list does not include them. If they do serve those areas, the
-list should be extended; if not, that is worth knowing.
-
-**Target clusters**
-
-| Cluster | Example queries | Page |
-|---|---|---|
-| Airport | ILM airport car service, Wilmington airport transportation | `/locations/wilmington` |
-| Local executive | Wilmington NC car service, black car service Wilmington | `/locations/wilmington` |
-| Beach | Wrightsville Beach transportation, Carolina Beach car service | `/locations/wilmington` |
-| Route | Raleigh to Wilmington car service, RDU to Wilmington transfer | **new route page** |
-
-### Boston — the honest assessment
-
-This is the hardest market on the list and the one where effort will return least.
-
-The first page is held by operators on exact-match domains — `loganblackcar.com`,
-`bostonlogancarservice.com`, `logancarservice.com` — alongside established local
-firms. ITP has no premises, no staff and no local phone number in Massachusetts,
-and the dispatch number has just changed to a 919 (Raleigh) area code, which now
-shows on the Boston page.
-
-**Recommendation: keep the Boston page, maintain it, and do not invest in trying
-to rank it.** It serves existing clients who already know the company operates
-there. Concentrating budget and content effort on the three North Carolina
-markets — where ITP has real operational presence and a defensible story — will
-produce far more per hour spent.
-
-Worth asking the client directly: how much revenue actually comes from Boston,
-and is it inbound search or existing relationships? If it is relationships, the
-page is a credential, not a channel, and should be treated as one.
-
-### Extended coverage — Charlotte, Greensboro, Virginia, South Carolina
-
-No pages, correctly. These stay as named coverage on `/locations` and as
-`areaServed` in the schema.
-
-One point of note: Signature Aviation operates an FBO at Greensboro (GSO). If
-Greensboro work grows, that is a concrete hook — but it is not a reason to build
-a page before the work exists.
+My earlier recommendation to strip "limo" from every title is **withdrawn**.
 
 ---
 
-## The two biggest opportunities
+## Data quality notes
 
-### 1. Route pages
-
-*Raleigh to Wilmington* and *RDU to Pinehurst* are real, actively-searched
-queries — and the results are dominated by **booking aggregators** (Ridebooker,
-ShuttleFinder, Airport Parking Reservations) rather than by strong operator
-pages. Only a handful of operators compete directly: DC Livery, The Transporter,
-Detailed Drivers, RSVP Black Car.
-
-This is the single best structural opportunity found:
-
-- The intent is unambiguously transactional — someone searching *RDU to
-  Pinehurst shuttle* wants to book a car, now.
-- ITP genuinely runs these routes; long-distance transportation is already a
-  named service on the Raleigh page.
-- It requires no claim of a physical presence anywhere, so it carries none of
-  the risk that fake location pages would.
-- Aggregator pages are thin and generic. A real operator page with actual
-  journey times, airport pickup detail and honest pricing guidance can beat them.
-
-**Proposed:** `/routes/rdu-to-pinehurst`, `/routes/raleigh-to-wilmington`,
-and later `/routes/raleigh-to-charlotte`.
-
-Each needs genuinely specific content: journey time, which airports feed it,
-what the vehicle options are, what luggage or clubs capacity means in practice,
-and when to book. Same discipline as the location pages — real detail or no page.
-
-### 2. Private aviation & FBO
-
-Low competition, high value per booking, and ITP is unusually well placed.
-
-Signature Aviation operates FBOs at **RDU, Fayetteville (FAY), Greensboro (GSO),
-Winston-Salem (INT) and Asheville (AVL)**. ITP already serves RDU and FAY — FAY
-being one of the three airports feeding Pinehurst — and the repo holds genuine
-photography of an ITP Sprinter beside a Gulfstream at a Signature facility.
-
-Very few chauffeur operators target FBO terminology. The existing
-`/private-aviation` page should be built out against terms like *FBO ground
-transportation*, *private jet car service RDU*, *tarmac transfer*, and the
-specific FBO names where ITP genuinely operates.
+- 41 of 153 terms returned `no_data` — below Google's reporting threshold. That
+  means "too small to measure", not "zero". Most were B2B phrasings
+  (*corporate transportation rtp*, *research triangle park transportation*) and
+  FBO terms.
+- Volume figures are Google Ads averages and cluster heavily: every phrasing of
+  "car service raleigh" reports the same 320, because Google treats them as one
+  query. Do not add them together.
+- Keyword difficulty is the provider's 0–100 model, not Ahrefs' or SEMrush's.
+  Directionally useful; not comparable across tools.
+- Keyword-idea expansion pulls in adjacent noise — *full service car wash
+  raleigh* (170/mo) surfaced under "car service raleigh". Excluded.
+- Competitor brand terms observed: *white horse car service raleigh nc*,
+  *azalea limo service wilmington nc*. Both are competitors with enough presence
+  to be searched by name.
 
 ---
 
-## Search intent taxonomy
+## Still open
 
-| Intent | What the searcher wants | Page type |
-|---|---|---|
-| **Transactional — local** | "black car service Raleigh" — book a car in a city | Location pages |
-| **Transactional — route** | "RDU to Pinehurst" — book a specific journey | Route pages *(new)* |
-| **Transactional — service** | "corporate car service RTP" — a specific service | Service pages |
-| **Commercial investigation** | "best airport car service Raleigh" — comparing | Location + trust signals |
-| **Informational** | "how do I get from RDU to Pinehurst" | Guides *(new)* |
-| **Brand** | "ITP Limo" | Homepage |
-
-The informational tier is entirely absent from the site today. It is lower
-intent, but it is how you reach a golf group planning a trip three months out —
-before they are searching for a booking at all.
-
----
-
-## Recommended title changes
-
-Current titles all lead with "Limo Service", aiming at the wrong competitive set.
-
-| Page | Current | Proposed |
-|---|---|---|
-| Raleigh | Raleigh Limo Service \| RDU Airport & Executive Car \| ITP Limo | Raleigh Car Service \| RDU Airport & Executive \| ITP Limo |
-| Pinehurst | Pinehurst Limo Service \| Golf & Resort Transfers \| ITP Limo | Pinehurst Airport Shuttle \| Golf & Resort \| ITP Limo |
-| Wilmington | Wilmington NC Limo Service \| ILM Airport & Beaches \| ITP Limo | Wilmington Car Service \| ILM Airport & Beaches \| ITP Limo |
-| Boston | Boston Limo Service \| Logan Airport Transfers \| ITP Limo | Boston Car Service \| Logan Airport Transfers \| ITP Limo |
-
-All land under 60 characters. "Limo" stays present in the brand name at the end
-of each, which keeps the brand term without spending the primary position on it.
-
----
-
-## Priority order
-
-**1 — Retarget existing titles and H1s** (hours, no new content)
-The pages already exist and are well written. They are simply pointed at the
-wrong intent. Highest return for the least work on the list.
-
-**2 — Build out `/private-aviation`** (low competition, high value)
-Real differentiator, real photography, genuine Signature relationships at two
-airports ITP serves.
-
-**3 — Route pages** (best structural opportunity)
-Start with `RDU to Pinehurst`, since it also has the resort's 72-hour booking
-constraint as an angle.
-
-**4 — Pinehurst depth**
-The golf market is the most defensible new position: specific, seasonal,
-high-value, and the incumbents are shuttle operators rather than executive ones.
-
-**5 — Wilmington coverage gap**
-Confirm Hampstead / Pender / Brunswick with the client and extend if genuine.
-
-**6 — Informational guides**
-Reaches trip planners months before the booking query.
-
-**Not prioritised: Boston.** Maintain, do not invest.
-
----
-
-## What still needs a tool
-
-The following cannot be answered from SERP inspection and require Ahrefs or
-SEMrush to be authenticated:
-
-- Monthly search volume for every cluster above
-- Keyword difficulty — how hard each term actually is to rank for
-- Whether "limo service" genuinely outweighs "car service" on volume in this
-  region, which would temper the retargeting recommendation
-- Competitor backlink profiles and domain authority
-- Whether the route queries have enough volume to justify dedicated pages
-
-**Both connectors are installed but unauthenticated, and this session cannot run
-the OAuth flow.** They need authorising from claude.ai connector settings, or via
-`claude mcp` in an interactive session. Once done, this document should be
-revisited — particularly the "limo vs car service" call, which is the most
-consequential recommendation here and currently rests on SERP composition alone.
-
----
-
-## Blocking technical issue
-
-`NEXT_PUBLIC_SITE_URL` is still unset in Vercel. Until it is, every canonical
-URL, sitemap entry and schema `@id` resolves to the Vercel deployment domain
-rather than `itplimo.com`. **No keyword work can produce ranking results while
-this is true** — it should be fixed before anything else in this document.
-
----
-
-## Sources
-
-Live search results, August 2026:
-
-- [RDU Ground Transportation](https://www.rdu.com/ground-transportation/) — official pickup zones
-- [Pinehurst Resort FAQ](https://www.pinehurst.com/faqs/) — shuttle rates, 72-hour notice
-- [Signature Aviation locations](https://www.signatureaviation.com/) — NC FBO network
-- Competitor sets observed across searches for each market, listed per section above
+- **Ahrefs and SEMrush remain unauthenticated.** The data above is Google Ads
+  volume, which is the same underlying source those tools use for volume, but
+  their backlink and difficulty models are their own. If a second opinion on
+  difficulty matters, they need authorising from claude.ai connector settings.
+- No backlink or domain-authority data was available from this source, so
+  "how hard to actually outrank the incumbent" is still partly unanswered.
+- Seasonality: 12-month trend data is available from this tool but was not
+  pulled. Worth doing for Pinehurst, where golf demand is likely seasonal.
