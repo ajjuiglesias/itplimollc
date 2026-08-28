@@ -504,14 +504,14 @@ export const locations: Location[] = [
       'Professional, on-time limo and black car service across Boston. Logan Airport transfers with flight tracking, corporate travel, weddings and special events.',
     image: '/images/gulfstream_sprinter.jpg',
     hero: {
-      title: 'Premium Chauffeur & Black Car Services in Boston',
+      title: 'Boston car service, Logan and everything after it.',
       intro:
-        'Looking for a luxury limo service in Boston? ITP Limo offers professional, on-time, and stylish transportation across Boston and surrounding areas. Whether you need a ride to Logan Airport, a corporate event in downtown, or a limousine for your wedding day, our experienced chauffeurs and pristine fleet ensure every journey is smooth and comfortable.',
+        'Logan is the hard part of Boston. Terminals that back up, a tunnel that decides your morning, and a pickup window that closes whether or not your bag arrived. We track the aircraft rather than the schedule, then handle the rest of the city the same way — Back Bay, the Seaport, Cambridge and the sixteen towns around them.',
     },
     serving: {
-      title: 'Serving Boston with Style and Precision',
+      title: 'Logan, the harbour and the river.',
       intro:
-        "With years of local experience, ITP Limo provides premium transportation tailored to your schedule and destination. We serve Boston's key locations including:",
+        'Boston rewards knowing which approach to take at which hour, and punishes guessing. Our chauffeurs work the city on that basis — which terminal door clears fastest, when the tunnel is worth avoiding, and which Cambridge addresses are genuinely easier from the far side of the river. We serve:',
       keyLocations: [
         'Logan International Airport (BOS)',
         'Downtown Boston & Back Bay',
@@ -525,33 +525,33 @@ export const locations: Location[] = [
     },
     services: [
       {
-        title: 'Airport Transfer',
-        desc: 'Timely pickups and drop-offs at Logan Airport with flight tracking, meet & greet service, and luggage assistance.',
+        title: 'Logan Airport Transfers',
+        desc: 'Your flight is tracked from wheels-up, so an early landing or a two-hour hold changes nothing about who is waiting. Met inside at baggage claim, not circling the terminal.',
         image: '/images/signature_sprinter.jpg',
       },
       {
-        title: 'Wedding Transportation',
-        desc: 'Arrive in style on your special day with our luxury wedding transportation packages in Boston.',
-        image: '/images/gulfstream_sprinter.jpg',
-      },
-      {
-        title: 'Meet & Greet',
-        desc: 'Perfect for guests or clients arriving at the airport — we welcome them with courtesy and care.',
-        image: '/images/gulfstream_sprinter.jpg',
-      },
-      {
-        title: 'Corporate Transfer',
-        desc: 'Professional black car service for meetings, conferences, roadshows, and executive travel.',
+        title: 'Corporate & Financial District Travel',
+        desc: 'Standing accounts for downtown firms and Seaport offices, with consolidated billing and chauffeurs who already know the building.',
         image: '/images/cockpit_tarmac.jpg',
       },
       {
-        title: 'Chauffeur Services',
-        desc: 'Hire a personal chauffeur by the hour for flexible, private travel around the city.',
-        image: '/images/cockpit_tarmac.jpg',
+        title: 'Roadshows to New York & Washington',
+        desc: 'Multi-stop financial roadshows run out of Boston down the corridor, on one schedule with one chauffeur rather than a new car in every city.',
+        image: '/images/gulfstream_sprinter.jpg',
       },
       {
-        title: 'Special Events',
-        desc: 'Book us for proms, parties, concerts, sports events, and more — make every occasion memorable.',
+        title: 'Cruise Terminal Transfers',
+        desc: 'Boarding day and disembarkation, with luggage handled and enough vehicle for a family that has packed for two weeks at sea.',
+        image: '/images/chevrolet-suburban.jpg',
+      },
+      {
+        title: 'Weddings',
+        desc: 'The couple, the wedding party and the guests on one timeline — including shuttle loops between hotel, ceremony and reception.',
+        image: '/images/lincoln-aviator.jpg',
+      },
+      {
+        title: 'Convention & Event Transport',
+        desc: 'The Boston Convention & Exhibition Center, the universities and the venues between them, moved in Sprinter-sized groups rather than a queue of separate cars.',
         image: '/images/signature_sprinter.jpg',
       },
     ],
@@ -576,11 +576,11 @@ export const locations: Location[] = [
       },
     ],
     whyChoose: [
-      'Always On Time — Guaranteed punctual pickups',
-      'Professional, Licensed Chauffeurs',
-      'Spotless, Modern Vehicles',
-      '24/7 Booking & Customer Support',
-      'Local Knowledge of Boston Streets & Venues',
+      'Logan arrivals tracked by flight number, not by your booking time',
+      'Sixteen surrounding towns covered as standard, not as an add-on',
+      'Every vehicle in the fleet is a 2026 model',
+      'Licensed, professional chauffeurs',
+      'One operation with our North Carolina markets — the same standard either end of a roadshow',
     ],
     areasServed: {
       intro:
