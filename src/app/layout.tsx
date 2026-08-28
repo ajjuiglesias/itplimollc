@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'ITP Limo | Executive Transportation, Raleigh-Durham & Boston',
   description:
-    "ITP Limo provides professional, on-time chauffeur and black car service across Raleigh-Durham and Boston — airport transfers with flight tracking, corporate travel, weddings and special events.",
+    "On-time chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston. Airport transfers with live flight tracking.",
   alternates: { canonical: '/' },
 };
 

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!vehicle) return {};
 
   return {
-    title: `${vehicle.name} | Chauffeured ${vehicle.category} | ITP Limo`,
+    title: `${vehicle.name} | ${vehicle.category} | ITP Limo`,
     description: vehicle.description,
     alternates: { canonical: `/fleet/${vehicle.slug}` },
   };

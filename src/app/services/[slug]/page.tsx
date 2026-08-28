@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
-import { services, getService } from '@/content/services';
+import { services, getService, PARTY_BUS_NOTE } from '@/content/services';
+import { JsonLd, serviceSchema, breadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!service) return {};
 
   return {
-    title: `${service.category} | Private Chauffeur | ITP Limo`,
-    description: service.description,
+    title: service.metaTitle ?? `${service.category} | Private Chauffeur | ITP Limo`,
+    description: service.metaDescription ?? service.description,
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -40,6 +41,26 @@ export default async function ServicePage({ params }: PageProps) {
 
   return (
     <>
+      {/*
+        These pages carried only the inherited LocalBusiness node. A Service
+        node names what is actually being offered, which is what these pages
+        are for, and the breadcrumb mirrors the location pages.
+      */}
+      <JsonLd
+        data={[
+          serviceSchema({
+            name: service.category,
+            path: `/services/${service.slug}`,
+            description: service.metaDescription ?? service.description,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: service.category, path: `/services/${service.slug}` },
+          ]),
+        ]}
+      />
+
       <PageHero
         eyebrow={service.category}
         title={service.title}
@@ -63,9 +84,23 @@ export default async function ServicePage({ params }: PageProps) {
               </span>
             </div>
 
-            <p className="text-xl font-light leading-[1.5] text-[#171717] sm:text-2xl lg:col-span-8 dark:text-[#F8F6F2]">
-              {service.detail.intro}
-            </p>
+            <div className="lg:col-span-8">
+              <p className="text-xl font-light leading-[1.5] text-[#171717] sm:text-2xl dark:text-[#F8F6F2]">
+                {service.detail.intro}
+              </p>
+
+              {/*
+                Visitors arrive here from party-bus searches. The client does not
+                operate party buses and will not imply otherwise, so the page
+                answers the question outright rather than letting the omission
+                do the talking.
+              */}
+              {service.slug === 'group-transportation' && (
+                <p className="mt-8 border-l-2 border-emerald-600 pl-5 text-base font-light leading-relaxed text-[#66625C] dark:border-emerald-400 dark:text-[#B8B8B8]">
+                  {PARTY_BUS_NOTE}
+                </p>
+              )}
+            </div>
           </div>
 
           <EditorialBanner

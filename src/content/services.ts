@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Plane, Building2, Clock, ShieldCheck } from 'lucide-react';
+import { Plane, Building2, Clock, ShieldCheck, Heart, Users } from 'lucide-react';
 
 export interface Service {
   slug: string;
@@ -9,6 +9,12 @@ export interface Service {
   title: string;
   tagline: string;
   description: string;
+  /**
+   * Overrides the templated `${category} | Private Chauffeur | ITP Limo` title
+   * where keyword research points somewhere more specific. Keep under 60 chars.
+   */
+  metaTitle?: string;
+  metaDescription?: string;
   image: string;
   amenities: string[];
   /** Longer copy shown only on the service detail page. */
@@ -159,7 +165,115 @@ export const services: Service[] = [
       ],
     },
   },
+  /*
+   * Weddings, added on the client's instruction (2026-08-23): they are
+   * exhibiting at the Raleigh Bridal Expo on 18 October and want to become a
+   * recognised full-service wedding transportation provider.
+   *
+   * Targeted at the generic service terms rather than city-qualified ones,
+   * because that is where the demand actually sits: "wedding transportation
+   * services" is 1,300/mo at difficulty 1, while "wedding transportation
+   * raleigh" is 40 and "wedding limo raleigh" does not register at all.
+   */
+  {
+    slug: 'wedding-transportation',
+    number: '05',
+    icon: Heart,
+    category: 'Wedding Transportation',
+    title: 'One timeline, every car on it.',
+    tagline: 'Couple, party and guest shuttles',
+    description:
+      'Wedding transportation for the couple, the wedding party and the guests — planned as one timeline rather than three separate bookings.',
+    // "wedding transportation services" is 1,300/mo at difficulty 1 - by far the
+    // largest easy term found for this business, and worth the exact match.
+    metaTitle: 'Wedding Transportation Services | Guest Shuttles | ITP Limo',
+    metaDescription:
+      'Wedding transportation services for the couple, wedding party and guests. Guest shuttles, a car held all day, and one timeline across Raleigh and coastal NC.',
+    image: '/images/lincoln-aviator.jpg',
+    amenities: [
+      'Guest shuttles between hotel, ceremony and reception',
+      'Dedicated car for the couple, held all day',
+      'Wedding party transport in the 14-seat Sprinter',
+      'One coordinator holding the run sheet, not the couple',
+    ],
+    detail: {
+      intro:
+        'Wedding transport fails in the gaps: the photographer runs long, the shuttle leaves without the grandparents, and somebody ends up on the phone in their wedding clothes. We plan the whole day as one schedule and hold it, so nobody in the wedding party is also running logistics.',
+      howItWorks: [
+        {
+          step: 'Walk the day with us',
+          body: 'Venues, timings, how many guests need moving and from where. We build a run sheet from it rather than a list of pickups.',
+        },
+        {
+          step: 'We size the fleet to the day',
+          body: 'The Sprinter carries fourteen, the Suburban seven. Larger guest counts run as multiple vehicles on a loop between the hotel and the venue.',
+        },
+        {
+          step: 'One number on the day',
+          body: 'Your coordinator or planner has a direct line to dispatch. Nobody in the wedding party has to chase a driver.',
+        },
+      ],
+    },
+  },
+  /*
+   * Group, prom and party transport. Positioned with care at the client's
+   * explicit instruction: they do NOT operate party buses and will not market
+   * as though they do, but they do want the group and prom leads, which their
+   * Sprinter and SUVs genuinely serve.
+   *
+   * So the page targets prom, group and Sprinter terms, and answers the party
+   * bus query honestly by naming what the fleet actually is. Nothing here may
+   * imply ITP owns a party bus.
+   */
+  {
+    slug: 'group-transportation',
+    number: '06',
+    icon: Users,
+    category: 'Group & Prom Transportation',
+    title: 'Everyone arrives together.',
+    tagline: 'Sprinter and SUV group transport',
+    description:
+      'Prom, group events and party transportation in the 14-seat Mercedes Sprinter and Suburbans — one arrival time instead of a convoy of cars.',
+    // Carries both clusters: "group transportation service" (390/mo, $11.97 CPC)
+    // and the prom terms (480 + 210 + 170), all at difficulty 0-8.
+    metaTitle: 'Group & Prom Transportation | 14-Seat Sprinter | ITP Limo',
+    metaDescription:
+      'Prom, group and party transportation in a 14-seat Mercedes Sprinter and Suburbans. Professional chauffeurs, one arrival time, across Raleigh and North Carolina.',
+    image: '/images/signature_sprinter.jpg',
+    amenities: [
+      '14 passengers and 20 bags in a single Sprinter',
+      'Multiple vehicles coordinated for larger groups',
+      'Licensed, professional chauffeurs — every trip',
+      'Fixed pickup and return times agreed in advance',
+    ],
+    detail: {
+      intro:
+        'The point of group transport is that the group stays together. Fourteen people in one Sprinter arrive at one time, in one mood, with one person responsible for getting them there — which is a different evening from four cars, four parking searches and four sets of directions.',
+      howItWorks: [
+        {
+          step: 'Tell us the headcount and the stops',
+          body: 'Group size, pickup points and what time you need to be there. Parents booking prom transport get the return time confirmed in writing.',
+        },
+        {
+          step: 'We match vehicles to the number',
+          body: 'Up to fourteen travels in the Sprinter. Beyond that we run additional vehicles on the same schedule so the group still moves as one.',
+        },
+        {
+          step: 'A professional chauffeur drives',
+          body: 'Every trip is driven by a licensed chauffeur, which is the part that matters most to the parents booking it.',
+        },
+      ],
+    },
+  },
 ];
+
+/*
+ * Stated plainly because visitors searching "party bus" land on the group page
+ * and deserve a straight answer. The client was explicit: capture the intent,
+ * never imply the vehicle. Surfaced on /services/group-transportation.
+ */
+export const PARTY_BUS_NOTE =
+  'We do not operate party buses. For groups who would otherwise book one, the Mercedes Sprinter seats fourteen with a professional chauffeur, and larger parties run as several vehicles on one schedule.';
 
 export const getService = (slug: string): Service | undefined =>
   services.find((service) => service.slug === slug);

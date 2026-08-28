@@ -106,6 +106,28 @@ export function locationServiceSchema(opts: {
   };
 }
 
+/**
+ * A service the business offers, independent of any one market. Distinct from
+ * `locationServiceSchema`, which is the same business scoped to a city — this
+ * one has no areaServed because the service is offered across all of them.
+ */
+export function serviceSchema(opts: {
+  name: string;
+  path: string;
+  description: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${abs(opts.path)}#service`,
+    name: opts.name,
+    serviceType: opts.name,
+    description: opts.description,
+    provider: { '@id': BUSINESS_ID },
+    url: abs(opts.path),
+  };
+}
+
 export function breadcrumbSchema(trail: { name: string; path?: string }[]) {
   return {
     '@context': 'https://schema.org',

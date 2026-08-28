@@ -131,7 +131,7 @@ export const locations: Location[] = [
     stateAbbr: 'NC',
     airport: 'Raleigh-Durham International Airport',
     airportCode: 'RDU',
-    metaTitle: 'Raleigh Limo Service | RDU Airport & Executive Car | ITP Limo',
+    metaTitle: 'Raleigh Limo Service | RDU Airport Transfers | ITP Limo',
     metaDescription:
       'Chauffeur and black car service across Raleigh, Durham, Chapel Hill and Cary. RDU airport transfers with flight tracking, corporate travel, weddings and events.',
     image: '/images/signature_sprinter.jpg',
@@ -372,7 +372,7 @@ export const locations: Location[] = [
     additionalAirports: [
       { name: 'Raleigh-Durham International Airport', code: 'RDU' },
     ],
-    metaTitle: 'Wilmington NC Limo Service | ILM Airport & Beaches | ITP Limo',
+    metaTitle: 'Wilmington Limo Service | ILM Airport & Beaches | ITP Limo',
     metaDescription:
       'Chauffeur service across Wilmington, Wrightsville Beach and Carolina Beach. ILM airport transfers, weddings, corporate travel and Raleigh-to-coast journeys.',
     image: '/images/gulfstream_sprinter.jpg',
@@ -463,13 +463,29 @@ export const locations: Location[] = [
     ],
     areasServed: {
       intro: 'Coverage across Wilmington and the Cape Fear coast.',
+      /*
+       * Extended 2026-08-23 on the client's instruction: "We want to service
+       * Hampstead, Pender County and Brunswick County […] Please add those
+       * areas where the search data supports them."
+       *
+       * Taking the qualifier seriously, the additions are the ones that
+       * register: Bald Head Island (210/mo), Brunswick County (50/mo) and
+       * Pender County (20/mo). Hampstead is named because they asked for it by
+       * name even though it does not register on its own. The individual beach
+       * towns - Oak Island, Topsail, Southport, Holden Beach, Ocean Isle,
+       * Shallotte - all returned no measurable volume and are deliberately
+       * left out rather than padding the list.
+       */
       areas: [
         'Downtown Wilmington',
         'Wrightsville Beach',
         'Carolina Beach',
         'Kure Beach',
         'Figure Eight Island',
-        'Leland',
+        'Bald Head Island',
+        'Hampstead',
+        'Leland & Brunswick County',
+        'Pender County',
       ],
       closing:
         'Wilmington is a service area rather than a second depot — vehicles and chauffeurs come from our Wake Forest operation. Book a little further ahead here than you would in the Triangle and you get exactly the same cars and the same people.',
