@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight, MapPin } from 'lucide-react';
 import { locations } from '@/content/locations';
@@ -6,12 +7,12 @@ import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'FBO & Private Aviation Transfers | Tarmac Pickup | ITP Limo',
   description:
     'Chauffeur transfers at private aviation terminals including Signature Aviation, serving Raleigh-Durham (RDU) and Boston (BOS), with live tail-number tracking.',
-  alternates: { canonical: '/private-aviation' },
-};
+  path: '/private-aviation',
+});
 
 const features = [
   {

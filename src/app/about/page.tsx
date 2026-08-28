@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { Car, Globe, Plane, ShieldCheck } from 'lucide-react';
 import { locations } from '@/content/locations';
@@ -8,12 +9,12 @@ import { PillarColumns } from '@/components/ui/PillarColumns';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'About ITP Limo | Executive Chauffeur Company, NC',
   description:
     'Private chauffeur and executive transportation across Raleigh-Durham and Boston, built on discretion, flight-aware dispatch and an all-2026 fleet.',
-  alternates: { canonical: '/about' },
-};
+  path: '/about',
+});
 
 const pillars = [
   {

@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialList } from '@/components/ui/EditorialList';
 import { FlightTrackerWidget } from '@/components/FlightTrackerWidget';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Live Flight Tracking | Delay-Proof Pickups | ITP Limo',
   description:
     'Every ITP airport pickup is synchronised to live flight radar. We track your flight or tail number and move your chauffeur to the real landing time.',
-  alternates: { canonical: '/flight-tracking' },
-};
+  path: '/flight-tracking',
+});
 
 const guarantees = [
   {

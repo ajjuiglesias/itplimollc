@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { LegalPage, type LegalSection } from '@/components/ui/LegalPage';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Terms of Chauffeur Service | ITP Limo',
   description:
     'Booking, cancellation, wait time and conduct terms for ITP Limo private chauffeur and executive transportation services.',
-  alternates: { canonical: '/terms' },
-};
+  path: '/terms',
+});
 
 /*
  * DRAFT — requires review by the client's own legal counsel before launch.

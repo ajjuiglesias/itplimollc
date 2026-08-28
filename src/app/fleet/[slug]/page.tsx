@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
@@ -24,11 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!vehicle) return {};
 
-  return {
+  return pageMetadata({
     title: `${vehicle.name} | ${vehicle.category} | ITP Limo`,
     description: vehicle.description,
-    alternates: { canonical: `/fleet/${vehicle.slug}` },
-  };
+    path: `/fleet/${vehicle.slug}`,
+  });
 }
 
 export default async function VehiclePage({ params }: PageProps) {

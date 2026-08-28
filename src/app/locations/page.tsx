@@ -5,14 +5,14 @@ import { locations, announcedMarkets, extendedCoverage } from '@/content/locatio
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
-import { JsonLd, breadcrumbSchema } from '@/lib/seo';
+import { pageMetadata, JsonLd, breadcrumbSchema } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Service Areas | NC & Boston Chauffeur Coverage | ITP Limo',
   description:
     'Chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston, with long-distance coverage into Charlotte, Greensboro and beyond.',
-  alternates: { canonical: '/locations' },
-};
+  path: '/locations',
+});
 
 /**
  * The hub for every market, and the internal-linking anchor for the location

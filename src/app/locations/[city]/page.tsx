@@ -8,7 +8,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { EditorialList } from '@/components/ui/EditorialList';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
-import { JsonLd, breadcrumbSchema, locationServiceSchema } from '@/lib/seo';
+import { pageMetadata, JsonLd, breadcrumbSchema, locationServiceSchema } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!location) return {};
 
-  return {
+  return pageMetadata({
     title: location.metaTitle,
     description: location.metaDescription,
-    alternates: { canonical: `/locations/${location.slug}` },
-  };
+    path: `/locations/${location.slug}`,
+  });
 }
 
 export default async function LocationPage({ params }: PageProps) {

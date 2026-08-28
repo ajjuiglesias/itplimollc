@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { PillarColumns } from '@/components/ui/PillarColumns';
@@ -6,12 +7,12 @@ import { MoovsBooking } from '@/components/MoovsBooking';
 import { BookingSummary } from '@/components/BookingSummary';
 import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Book a Ride | Reserve Your Chauffeur Online | ITP Limo',
   description:
     'Reserve your ITP Limo chauffeur online in a few steps — airport transfers, hourly hire, weddings and corporate travel across Raleigh-Durham and Boston.',
-  alternates: { canonical: '/book' },
-};
+  path: '/book',
+});
 
 export default function BookPage() {
   return (

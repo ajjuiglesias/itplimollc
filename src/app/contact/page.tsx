@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import { locations } from '@/content/locations';
@@ -7,12 +8,12 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { PillarColumns } from '@/components/ui/PillarColumns';
 import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Contact ITP Limo | 24/7 Chauffeur Dispatch Desk',
   description:
     'Reach the ITP Limo dispatch desk 24 hours a day on +1 (919) 435-2157, or email Reservations@itplimo.com for corporate accounts and roadshow pricing.',
-  alternates: { canonical: '/contact' },
-};
+  path: '/contact',
+});
 
 const EMAIL = 'Reservations@itplimo.com';
 

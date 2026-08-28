@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
 import { services, getService, PARTY_BUS_NOTE } from '@/content/services';
-import { JsonLd, serviceSchema, breadcrumbSchema } from '@/lib/seo';
+import { pageMetadata, JsonLd, serviceSchema, breadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!service) return {};
 
-  return {
+  return pageMetadata({
     title: service.metaTitle ?? `${service.category} | Private Chauffeur | ITP Limo`,
     description: service.metaDescription ?? service.description,
-    alternates: { canonical: `/services/${service.slug}` },
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps) {

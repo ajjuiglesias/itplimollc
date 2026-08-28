@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
 import { fleet } from '@/content/fleet';
@@ -8,12 +9,12 @@ import { CapacityStat } from '@/components/ui/CapacityStat';
 import { VehicleImage } from '@/components/ui/VehicleImage';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Our Fleet | 2026 Suburban, Aviator & Sprinter | ITP Limo',
   description:
     'A 2026 Chevrolet Suburban, Lincoln Aviator and Mercedes Sprinter — one of the newest chauffeur fleets in the Triangle, serving Raleigh-Durham and Boston.',
-  alternates: { canonical: '/fleet' },
-};
+  path: '/fleet',
+});
 
 export default function FleetPage() {
   return (

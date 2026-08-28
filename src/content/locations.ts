@@ -136,14 +136,14 @@ export const locations: Location[] = [
       'Chauffeur and black car service across Raleigh, Durham, Chapel Hill and Cary. RDU airport transfers with flight tracking, corporate travel, weddings and events.',
     image: '/images/signature_sprinter.jpg',
     hero: {
-      title: 'Raleigh and the Triangle, on your schedule.',
+      title: 'Raleigh car service, on your schedule.',
       intro:
-        'An early run to RDU, a full day across Durham, Chapel Hill and Research Triangle Park, or a car that simply waits until you are ready. Licensed chauffeurs, 2026 vehicles, and a schedule that holds. This is the market we dispatch from.',
+        'Chauffeur service across Raleigh and the Triangle — an early run to RDU, a full day through Durham, Chapel Hill and Research Triangle Park, or a car that simply waits until you are ready. Licensed chauffeurs, 2026 vehicles, and a schedule that holds. This is the market we dispatch from.',
     },
     serving: {
       title: 'Every corner of the Triangle.',
       intro:
-        'ITP Limo runs out of Wake Forest, which makes the Triangle home ground rather than a coverage area. We know which hotel entrances clear quickly, which RTP campuses need to be called ahead, and how long RDU really takes at seven in the morning. We serve:',
+        'Our Raleigh car service runs out of Wake Forest, which makes the Triangle home ground rather than a coverage area. We know which hotel entrances clear quickly, which RTP campuses need to be called ahead, and how long RDU really takes at seven in the morning. We serve:',
       keyLocations: [
         'Raleigh-Durham International Airport (RDU)',
         'Downtown Raleigh & the Raleigh Convention Center',

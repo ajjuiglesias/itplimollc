@@ -3,37 +3,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { faqs } from '@/content/faqs';
 
 export const FaqSection: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: 'What happens if my commercial or private flight is delayed?',
-      answer:
-        'All chauffeur pickups include automated live flight radar tracking. We monitor your tail number or flight number in real time and automatically adjust your chauffeur’s dispatch time to match your actual landing. No delay fees apply.',
-    },
-    {
-      question: 'How long is the complimentary wait time at the airport?',
-      answer:
-        'Commercial airline arrivals include 60 minutes of complimentary wait time from the moment the aircraft wheels touch down. Private aviation FBO tarmac arrivals include complimentary wait time until you disembark.',
-    },
-    {
-      question: 'Can I request tarmac pickup at a private aviation terminal?',
-      answer:
-        'Tarmac access depends on the individual terminal’s permit and security requirements. Contact our dispatch desk with your arrival details and we will confirm what is possible at your specific FBO.',
-    },
-    {
-      question: 'What is your cancellation and reservation modification policy?',
-      answer:
-        'Reservations can be modified or cancelled free of charge up to 24 hours prior to scheduled pick-up for sedan and SUV journeys, and up to 48 hours for Mercedes Sprinter jet vans and multi-vehicle roadshows.',
-    },
-    {
-      question: 'Are all vehicles non-smoking and sanitized?',
-      answer:
-        'Every vehicle undergoes deep interior detailing, air purification, and sanitation prior to every dispatch. All vehicles are strictly 100% non-smoking.',
-    },
-  ];
 
   return (
     <section id="faq" className="py-28 sm:py-36 bg-white dark:bg-[#141414] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">

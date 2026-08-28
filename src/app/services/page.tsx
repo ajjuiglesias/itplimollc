@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { services } from '@/content/services';
@@ -8,12 +9,12 @@ import { EditorialBanner } from '@/components/ui/EditorialBanner';
 import { PillarColumns } from '@/components/ui/PillarColumns';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Chauffeur Services | Airport, Hourly & Corporate | ITP Limo',
   description:
     'Airport transfers with live flight tracking, hourly and full-day chauffeur hire, city-to-city travel and corporate accounts across NC and Boston.',
-  alternates: { canonical: '/services' },
-};
+  path: '/services',
+});
 
 export default function ServicesPage() {
   return (

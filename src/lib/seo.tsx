@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 /*
  * Site identity and structured data.
  *
@@ -22,6 +24,38 @@ export const siteUrl =
     : 'http://localhost:3000');
 
 export const abs = (path: string) => new URL(path, siteUrl).toString();
+
+/**
+ * Page metadata with the social card filled in.
+ *
+ * Next does NOT derive `og:title` from `title` — a page that sets only `title`
+ * silently inherits the parent's `og:title` and `og:url`, so every inner page
+ * shared as the homepage until this existed. Verified by reading the rendered
+ * meta tags, not assumed.
+ *
+ * The image is inherited from the root layout on purpose: one card for the
+ * whole site is right until there is per-page art worth the bytes.
+ */
+export function pageMetadata(opts: {
+  title: string;
+  description: string;
+  path: string;
+}): Metadata {
+  return {
+    title: opts.title,
+    description: opts.description,
+    alternates: { canonical: opts.path },
+    openGraph: {
+      title: opts.title,
+      description: opts.description,
+      url: opts.path,
+    },
+    twitter: {
+      title: opts.title,
+      description: opts.description,
+    },
+  };
+}
 
 /** Stable @id for the business node, referenced by every page's schema. */
 export const BUSINESS_ID = `${siteUrl}/#business`;
@@ -125,6 +159,23 @@ export function serviceSchema(opts: {
     description: opts.description,
     provider: { '@id': BUSINESS_ID },
     url: abs(opts.path),
+  };
+}
+
+/**
+ * FAQPage for the homepage accordion. Built from the same array the accordion
+ * renders, so the two can never drift — Google treats schema that does not
+ * match the visible page as a violation, not a mistake.
+ */
+export function faqSchema(items: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
   };
 }
 
