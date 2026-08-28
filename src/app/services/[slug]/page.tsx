@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
-import { services, getService, PARTY_BUS_NOTE } from '@/content/services';
+import { services, getService, PARTY_BUS_SECTION } from '@/content/services';
 import { pageMetadata, JsonLd, serviceSchema, breadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -89,19 +89,33 @@ export default async function ServicePage({ params }: PageProps) {
                 {service.detail.intro}
               </p>
 
-              {/*
-                Visitors arrive here from party-bus searches. The client does not
-                operate party buses and will not imply otherwise, so the page
-                answers the question outright rather than letting the omission
-                do the talking.
-              */}
-              {service.slug === 'group-transportation' && (
-                <p className="mt-8 border-l-2 border-emerald-600 pl-5 text-base font-light leading-relaxed text-[#66625C] dark:border-emerald-400 dark:text-[#B8B8B8]">
-                  {PARTY_BUS_NOTE}
-                </p>
-              )}
             </div>
           </div>
+
+          {/*
+            The party bus question, given a real heading so the page can rank
+            for it, and answered honestly underneath. The client was explicit
+            that nothing may imply they own one.
+          */}
+          {service.slug === 'group-transportation' && (
+            <div className="mt-20 grid grid-cols-1 gap-10 border-t border-black/10 pt-14 lg:grid-cols-12 lg:gap-16 dark:border-white/10">
+              <div className="lg:col-span-4">
+                <h2 className="font-serif text-3xl font-medium leading-[1.15] tracking-tight text-[#171717] sm:text-4xl dark:text-[#F8F6F2]">
+                  {PARTY_BUS_SECTION.heading}
+                </h2>
+              </div>
+              <div className="flex flex-col gap-5 lg:col-span-7 lg:col-start-6">
+                {PARTY_BUS_SECTION.body.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 32)}
+                    className="text-base font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
 
           <EditorialBanner
             image={service.image}

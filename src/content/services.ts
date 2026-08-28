@@ -238,7 +238,7 @@ export const services: Service[] = [
     // and the prom terms (480 + 210 + 170), all at difficulty 0-8.
     metaTitle: 'Group & Prom Transportation | 14-Seat Sprinter | ITP Limo',
     metaDescription:
-      'Prom, group and party transportation in a 14-seat Mercedes Sprinter and Suburbans. Professional chauffeurs, one arrival time, across Raleigh and North Carolina.',
+      'Prom, group and party transportation across Raleigh in a 14-seat Mercedes Sprinter and Suburbans — the chauffeured alternative to a party bus rental.',
     image: '/images/signature_sprinter.jpg',
     amenities: [
       '14 passengers and 20 bags in a single Sprinter',
@@ -268,12 +268,23 @@ export const services: Service[] = [
 ];
 
 /*
- * Stated plainly because visitors searching "party bus" land on the group page
- * and deserve a straight answer. The client was explicit: capture the intent,
- * never imply the vehicle. Surfaced on /services/group-transportation.
+ * "Party bus raleigh" is 720/mo at difficulty 0 — more than any executive term
+ * in the market. The client's position on it was precise: capture the search if
+ * it can be done honestly, but never let the site claim they own party buses.
+ *
+ * So the term appears in a real heading and in the meta description, and the
+ * answer underneath it is that they do not have one. That is what makes it
+ * legitimate rather than bait: the page ranks for the question and then answers
+ * it truthfully, which is also what stops the visitor bouncing straight back.
  */
-export const PARTY_BUS_NOTE =
-  'We do not operate party buses. For groups who would otherwise book one, the Mercedes Sprinter seats fourteen with a professional chauffeur, and larger parties run as several vehicles on one schedule.';
+export const PARTY_BUS_SECTION = {
+  heading: 'Looking for a party bus in Raleigh?',
+  body: [
+    'Straight answer: we do not operate party buses, and we are not going to tell you otherwise to win the booking.',
+    'What we run is a 14-passenger Mercedes-Benz Sprinter and a fleet of Suburbans, each with a licensed professional chauffeur. For most of what people actually want a party bus for — a prom group, a birthday, a bachelorette weekend, a brewery run — that is the same fourteen people arriving together, on time, with somebody sober and insured at the wheel.',
+    'What it is not is a lounge on wheels. There is no bar, no dance floor and no sound system to speak of. If that is the point of the evening, book a party bus company. If getting everyone there and back safely is the point, we are the better call.',
+  ],
+} as const;
 
 export const getService = (slug: string): Service | undefined =>
   services.find((service) => service.slug === slug);

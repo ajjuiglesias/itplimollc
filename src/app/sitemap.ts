@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { locations } from '@/content/locations';
 import { fleet } from '@/content/fleet';
 import { services } from '@/content/services';
+import { routes } from '@/content/routes';
 import { abs } from '@/lib/seo';
 
 /*
@@ -23,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/', 1),
     entry('/locations', 0.9),
     ...locations.map((l) => entry(`/locations/${l.slug}`, 0.9)),
+    // Route pages: transactional intent, 210/mo each at difficulty 0.
+    ...routes.map((r) => entry(`/routes/${r.slug}`, 0.8)),
     entry('/services', 0.8),
     ...services.map((s) => entry(`/services/${s.slug}`, 0.7)),
     entry('/fleet', 0.8),
