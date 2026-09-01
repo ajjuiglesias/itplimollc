@@ -43,7 +43,7 @@ export const routes: Route[] = [
     to: 'Pinehurst',
     metaTitle: 'RDU to Pinehurst Car Service | Private Transfer | ITP Limo',
     metaDescription:
-      'Private car service from RDU to Pinehurst — roughly 1 hour 15 minutes door to door, with golf clubs planned into the booking. Also serving Moore County and Fayetteville.',
+      'Private car service from RDU to Pinehurst — about 1 hr 15 min door to door, with golf clubs planned into the booking. Moore County and Fayetteville also served.',
     image: '/images/lincoln-aviator.jpg',
     hero: {
       title: 'RDU to Pinehurst, door to door.',
@@ -92,7 +92,7 @@ export const routes: Route[] = [
     to: 'Wilmington',
     metaTitle: 'Raleigh to Wilmington Car Service | RDU Transfer | ITP Limo',
     metaDescription:
-      'Private car service from Raleigh and RDU to Wilmington and the coast — roughly 2 hours door to door, for beach houses, weddings and corporate travel. Both directions.',
+      'Private car service from Raleigh and RDU to Wilmington and the coast — about 2 hours door to door, for beach houses, weddings and corporate travel.',
     image: '/images/gulfstream_sprinter.jpg',
     hero: {
       title: 'Raleigh to Wilmington, in one car.',

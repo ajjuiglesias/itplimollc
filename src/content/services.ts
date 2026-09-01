@@ -265,6 +265,54 @@ export const services: Service[] = [
       ],
     },
   },
+  /*
+   * The second wedding landing page the client asked for, and the only other
+   * one the search data justifies: "wedding guest shuttle service" (260/mo) and
+   * "wedding shuttle service near me" (210/mo), both at difficulty 0.
+   *
+   * Deliberately not a rewrite of the main wedding page. That one is the
+   * couple's day end to end; this is the guest-movement problem specifically,
+   * which is a different question asked by a different person - usually the
+   * planner, or whoever is being blamed for the shuttle running late.
+   */
+  {
+    slug: 'wedding-guest-shuttles',
+    number: '07',
+    icon: Users,
+    category: 'Wedding Guest Shuttles',
+    title: 'Nobody stranded at the hotel.',
+    tagline: 'Hotel to ceremony to reception, on a loop',
+    description:
+      'Wedding guest shuttle service running between hotel, ceremony and reception, so guests move on a schedule instead of on somebody’s phone.',
+    metaTitle: 'Wedding Guest Shuttle Service | Hotel to Venue | ITP Limo',
+    metaDescription:
+      'Wedding guest shuttle service between hotel, ceremony and reception. Continuous loops, a 14-seat Sprinter, and one schedule the couple never has to think about.',
+    image: '/images/signature_sprinter.jpg',
+    amenities: [
+      'Continuous loops rather than a single pickup',
+      'Fourteen guests per run in the Sprinter',
+      'Late loop after the reception, agreed in advance',
+      'One dispatch number for the planner, not the couple',
+    ],
+    detail: {
+      intro:
+        'Guest transport quietly decides how a wedding feels. Move it well and nobody notices; move it badly and forty people are stood outside a hotel while somebody calls a driver who is already at the venue. The fix is a loop and a headcount, not a single pickup time and hope.',
+      howItWorks: [
+        {
+          step: 'Give us the headcount and the hotels',
+          body: 'How many guests, staying where, and how far to the ceremony. Two hotels and ninety guests is a different plan from one hotel and thirty.',
+        },
+        {
+          step: 'We run it as a loop, not a trip',
+          body: 'The Sprinter takes fourteen at a time and runs continuously across the pickup window, so guests leave when they are ready rather than all at once.',
+        },
+        {
+          step: 'The last loop is agreed before the day',
+          body: 'The end of the night is where guest transport usually fails. We set the final departure in advance and hold it, so nobody is negotiating a lift at midnight.',
+        },
+      ],
+    },
+  },
 ];
 
 /*
