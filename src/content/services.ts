@@ -15,6 +15,11 @@ export interface Service {
    */
   metaTitle?: string;
   metaDescription?: string;
+  /**
+   * Set for services whose hero image is a photograph of people. The default
+   * hero wash hides faces, which defeats the point of those frames.
+   */
+  heroTone?: 'ground' | 'subject';
   image: string;
   amenities: string[];
   /** Longer copy shown only on the service detail page. */
@@ -27,6 +32,7 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: 'airport-transfers',
+    heroTone: 'subject',
     number: '01',
     icon: Plane,
     category: 'Airport Transfers',
@@ -132,6 +138,7 @@ export const services: Service[] = [
   },
   {
     slug: 'corporate-accounts',
+    heroTone: 'subject',
     number: '04',
     icon: ShieldCheck,
     category: 'Enterprise Solutions',
@@ -177,6 +184,7 @@ export const services: Service[] = [
    */
   {
     slug: 'wedding-transportation',
+    heroTone: 'subject',
     number: '05',
     icon: Heart,
     category: 'Wedding Transportation',

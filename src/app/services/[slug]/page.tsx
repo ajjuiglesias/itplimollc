@@ -71,6 +71,7 @@ export default async function ServicePage({ params }: PageProps) {
           { label: service.category },
         ]}
         image={service.image}
+        imageTone={service.heroTone}
         ctaLabel="Arrange This Service"
       />
 

@@ -21,6 +21,11 @@ interface PageHeroProps {
    * booking button would link the page to itself.
    */
   cta?: 'book' | 'call' | 'none';
+  /**
+   * How hard to push the background photograph down. Use 'subject' for
+   * photographs of people, where the default wash hides the faces.
+   */
+  imageTone?: 'ground' | 'subject';
 }
 
 /**
@@ -36,6 +41,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   image,
   ctaLabel = 'Book Your Ride',
   cta = 'book',
+  imageTone = 'ground',
 }) => (
   <section className="relative isolate overflow-hidden bg-[#070707] pt-32 pb-16 sm:pt-40 sm:pb-24 2xl:pt-44 2xl:pb-28">
     {image && (
@@ -45,9 +51,33 @@ export const PageHero: React.FC<PageHeroProps> = ({
           src={image}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-45"
+          className={`absolute inset-0 -z-10 h-full w-full object-cover ${
+            imageTone === 'subject' ? 'opacity-80' : 'opacity-45'
+          }`}
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070707] via-[#070707]/85 to-[#070707]/60" />
+
+        {/*
+          Two ways of grounding the photograph.
+
+          'ground' is the default: an even wash, which suits vehicles and
+          buildings where no single part of the frame has to survive.
+
+          'subject' is for photographs of people. The even wash at 45% opacity
+          rendered the chauffeur portraits almost unreadable — and a face is the
+          entire reason those frames exist. This instead darkens hard on the
+          left, where the copy sits, and releases toward the right where the
+          subject is, so the text keeps its contrast without flattening the
+          picture. The vertical pass underneath only seats it against the
+          section edges.
+        */}
+        {imageTone === 'subject' ? (
+          <>
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070707] via-[#070707]/80 to-[#070707]/25" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070707] via-transparent to-[#070707]/40" />
+          </>
+        ) : (
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070707] via-[#070707]/85 to-[#070707]/60" />
+        )}
       </>
     )}
 
