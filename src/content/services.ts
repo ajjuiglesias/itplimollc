@@ -34,7 +34,7 @@ export const services: Service[] = [
     tagline: 'Live delay radar & 60-min airport wait time',
     description:
       'Delayed flight? Chauffeurs track arrivals automatically in real time and adjust pickup schedules so you are never stranded.',
-    image: '/images/signature_sprinter.jpg',
+    image: '/images/chauffeur-sprinter.jpg',
     amenities: [
       'Live Flight Delay Radar Synchronization',
       'Baggage Claim Meet & Greet with Name Sign',
@@ -69,7 +69,7 @@ export const services: Service[] = [
     tagline: 'Dedicated vehicle on standby',
     description:
       'Reserve a dedicated chauffeur from 2 to 24 hours. Your vehicle remains on standby outside every venue for as long as you need.',
-    image: '/images/cockpit_tarmac.jpg',
+    image: '/images/suburban-cockpit.jpg',
     amenities: [
       'Unlimited Stops & Instant Itinerary Adjustments',
       'Chauffeur On Standby Outside Every Venue',
@@ -104,7 +104,7 @@ export const services: Service[] = [
     tagline: 'Private door-to-door regional travel',
     description:
       'Turn long-distance journeys into calm, productive time. Direct private travel between Raleigh, Charlotte, Richmond, and Washington D.C.',
-    image: '/images/gulfstream_sprinter.jpg',
+    image: '/images/suburban-front.jpg',
     amenities: [
       'Direct Door-to-Door Regional Highway Travel',
       'High-Speed Onboard 5G Wi-Fi & Device Charging',
@@ -139,7 +139,7 @@ export const services: Service[] = [
     tagline: 'Dedicated concierge & roadshows',
     description:
       'One dedicated concierge platform for companies and executive assistants to book, track, and account for every journey.',
-    image: '/images/signature_sprinter.jpg',
+    image: '/images/chauffeur-team.jpg',
     amenities: [
       'Centralized Monthly Billing & Expense Invoicing',
       'Multi-Stop Financial Roadshow Coordination',
@@ -189,7 +189,7 @@ export const services: Service[] = [
     metaTitle: 'Wedding Transportation Services | Guest Shuttles | ITP Limo',
     metaDescription:
       'Wedding transportation services for the couple, wedding party and guests. Guest shuttles, a car held all day, and one timeline across Raleigh and coastal NC.',
-    image: '/images/lincoln-aviator.jpg',
+    image: '/images/chauffeur-door.jpg',
     amenities: [
       'Guest shuttles between hotel, ceremony and reception',
       'Dedicated car for the couple, held all day',
@@ -239,7 +239,7 @@ export const services: Service[] = [
     metaTitle: 'Group & Prom Transportation | 14-Seat Sprinter | ITP Limo',
     metaDescription:
       'Prom, group and party transportation across Raleigh in a 14-seat Mercedes Sprinter and Suburbans — the chauffeured alternative to a party bus rental.',
-    image: '/images/signature_sprinter.jpg',
+    image: '/images/sprinter-seats.jpg',
     amenities: [
       '14 passengers and 20 bags in a single Sprinter',
       'Multiple vehicles coordinated for larger groups',
@@ -287,7 +287,7 @@ export const services: Service[] = [
     metaTitle: 'Wedding Guest Shuttle Service | Hotel to Venue | ITP Limo',
     metaDescription:
       'Wedding guest shuttle service between hotel, ceremony and reception. Continuous loops, a 14-seat Sprinter, and one schedule the couple never has to think about.',
-    image: '/images/signature_sprinter.jpg',
+    image: '/images/sprinter-interior.jpg',
     amenities: [
       'Continuous loops rather than a single pickup',
       'Fourteen guests per run in the Sprinter',

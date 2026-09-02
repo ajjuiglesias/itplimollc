@@ -24,7 +24,7 @@ export default function ServicesPage() {
         title="Every journey, covered."
         subtitle="Airport transfers, hourly hire, city-to-city executive travel and managed corporate accounts — each with the same chauffeur standard."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
-        image="/images/signature_sprinter.jpg"
+        image="/images/fleet-lineup.jpg"
         ctaLabel="Discuss Your Journey"
       />
 
@@ -98,7 +98,7 @@ export default function ServicesPage() {
       <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <EditorialBanner
-            image="/images/cockpit_tarmac.jpg"
+            image="/images/chauffeur-door.jpg"
             alt="Executive cabin interior"
             eyebrow="Across Every Service"
             title="The same standard, whichever you book."

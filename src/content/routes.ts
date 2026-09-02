@@ -93,7 +93,7 @@ export const routes: Route[] = [
     metaTitle: 'Raleigh to Wilmington Car Service | RDU Transfer | ITP Limo',
     metaDescription:
       'Private car service from Raleigh and RDU to Wilmington and the coast — about 2 hours door to door, for beach houses, weddings and corporate travel.',
-    image: '/images/gulfstream_sprinter.jpg',
+    image: '/images/chevrolet-suburban.jpg',
     hero: {
       title: 'Raleigh to Wilmington, in one car.',
       intro:

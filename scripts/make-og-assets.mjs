@@ -19,10 +19,11 @@ const H = 630;
 
 /* ---------- social share card ---------- */
 
-// The Sprinter beside a Gulfstream at a Signature facility - the client's own
-// photograph, and the one image that shows both a vehicle and the market they
-// sell into. The auto-crop picked a building on the alternatives.
-const photo = await sharp('public/images/gulfstream_sprinter.jpg')
+// The full fleet lined up with an aircraft overhead, from the September 2026
+// professional shoot. Replaces the Gulfstream frame: that plane is not theirs,
+// whereas this is five ITP vehicles, and it is landscape so it fills the card
+// without cropping away the subject.
+const photo = await sharp('public/images/fleet-lineup.jpg')
   .resize(W, H, { fit: 'cover', position: 'centre' })
   .modulate({ brightness: 0.55 })
   .blur(1.5)

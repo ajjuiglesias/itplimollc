@@ -134,7 +134,7 @@ export const locations: Location[] = [
     metaTitle: 'Raleigh Limo Service | RDU Airport Transfers | ITP Limo',
     metaDescription:
       'Chauffeur and black car service across Raleigh, Durham, Chapel Hill and Cary. RDU airport transfers with flight tracking, corporate travel, weddings and events.',
-    image: '/images/signature_sprinter.jpg',
+    image: '/images/fleet-lineup.jpg',
     hero: {
       title: 'Raleigh car service, on your schedule.',
       intro:
@@ -163,7 +163,7 @@ export const locations: Location[] = [
       {
         title: 'RDU Airport Transfers',
         desc: 'Your flight is tracked from the moment it leaves. An early landing or a three-hour delay changes nothing about who is waiting when you reach the curb.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
       {
         title: 'Private Aviation & FBO Transfers',
@@ -173,7 +173,7 @@ export const locations: Location[] = [
       {
         title: 'Corporate & Executive Travel',
         desc: 'Standing accounts for Research Triangle Park campuses and downtown firms. One point of contact, consolidated billing, and chauffeurs who have driven the route before.',
-        image: '/images/cockpit_tarmac.jpg',
+        image: '/images/suburban-cockpit.jpg',
       },
       {
         title: 'Weddings',
@@ -188,7 +188,7 @@ export const locations: Location[] = [
       {
         title: 'University Transportation',
         desc: 'Move-in weekends, graduation, parents’ weekend and campus interviews across Duke, UNC-Chapel Hill and NC State.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
       {
         title: 'Hourly Chauffeur Service',
@@ -198,7 +198,7 @@ export const locations: Location[] = [
       {
         title: 'Group & Sprinter Transportation',
         desc: 'Up to fourteen passengers in one vehicle, which means one arrival time instead of four and one conversation instead of a convoy.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
       {
         title: 'Long-Distance Transportation',
@@ -223,7 +223,7 @@ export const locations: Location[] = [
         name: '2026 Mercedes Sprinter',
         passengers: 14,
         luggage: 20,
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     whyChoose: [
@@ -267,7 +267,7 @@ export const locations: Location[] = [
     metaTitle: 'Pinehurst Limo Service | Golf & Resort Transfers | ITP Limo',
     metaDescription:
       'Chauffeur service for Pinehurst, Southern Pines and Aberdeen. Golf group transfers, resort arrivals and airport pickups from RDU, Moore County and Fayetteville.',
-    image: '/images/lincoln-aviator.jpg',
+    image: '/images/aviator-front.jpg',
     hero: {
       title: 'Pinehurst, from the airport to the first tee.',
       intro:
@@ -297,7 +297,7 @@ export const locations: Location[] = [
       {
         title: 'Airport-to-Resort Transfers',
         desc: 'From RDU, Moore County or Fayetteville Regional straight to the resort door. Flights are tracked, so a delay upstream does not cost you the afternoon round.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
       {
         title: 'Corporate Outings & Tournament Transfers',
@@ -312,12 +312,12 @@ export const locations: Location[] = [
       {
         title: 'Private Aviation & Executive Transfers',
         desc: 'Moore County sees a great deal of private traffic. We meet it at the FBO with the vehicle already staged, and cover executive travel across the Sandhills the rest of the week.',
-        image: '/images/cockpit_tarmac.jpg',
+        image: '/images/suburban-cockpit.jpg',
       },
       {
         title: 'Group & Sprinter Transportation',
         desc: 'Fourteen passengers and twenty bags in a single vehicle — a full golf party or wedding group reaching the same place at the same time.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     vehicles: [
@@ -337,7 +337,7 @@ export const locations: Location[] = [
         name: '2026 Mercedes Sprinter',
         passengers: 14,
         luggage: 20,
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     whyChoose: [
@@ -375,7 +375,7 @@ export const locations: Location[] = [
     metaTitle: 'Wilmington Limo Service | ILM Airport & Beaches | ITP Limo',
     metaDescription:
       'Chauffeur service across Wilmington, Wrightsville Beach and Carolina Beach. ILM airport transfers, weddings, corporate travel and Raleigh-to-coast journeys.',
-    image: '/images/gulfstream_sprinter.jpg',
+    image: '/images/sprinter-branded.jpg',
     hero: {
       title: 'Wilmington, from the runway to the shoreline.',
       intro:
@@ -401,7 +401,7 @@ export const locations: Location[] = [
       {
         title: 'ILM Airport Transfers',
         desc: 'Wilmington International clears quickly, so the vehicle is staged before you reach the doors. Flights tracked in both directions.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
       {
         title: 'Raleigh & Long-Distance Transfers',
@@ -416,7 +416,7 @@ export const locations: Location[] = [
       {
         title: 'Corporate & Executive Transportation',
         desc: 'Downtown offices and coastal business travel, with standing accounts, consolidated billing and a chauffeur who knows the route.',
-        image: '/images/cockpit_tarmac.jpg',
+        image: '/images/suburban-cockpit.jpg',
       },
       {
         title: 'Beach & Vacation Transportation',
@@ -426,12 +426,12 @@ export const locations: Location[] = [
       {
         title: 'Private Aviation & FBO Transfers',
         desc: 'Private arrivals met on the FBO side rather than at the terminal, with the vehicle in place before you are off the aircraft.',
-        image: '/images/cockpit_tarmac.jpg',
+        image: '/images/suburban-cockpit.jpg',
       },
       {
         title: 'Group & Sprinter Transportation',
         desc: 'Fourteen passengers and twenty bags — a wedding party or a full family reaching the same house at the same time.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     vehicles: [
@@ -451,7 +451,7 @@ export const locations: Location[] = [
         name: '2026 Mercedes Sprinter',
         passengers: 14,
         luggage: 20,
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     whyChoose: [
@@ -502,7 +502,7 @@ export const locations: Location[] = [
     metaTitle: 'Boston Limo Service | Logan Airport Transfers | ITP Limo',
     metaDescription:
       'Professional, on-time limo and black car service across Boston. Logan Airport transfers with flight tracking, corporate travel, weddings and special events.',
-    image: '/images/gulfstream_sprinter.jpg',
+    image: '/images/suburban-front.jpg',
     hero: {
       title: 'Boston car service, Logan and everything after it.',
       intro:
@@ -527,12 +527,12 @@ export const locations: Location[] = [
       {
         title: 'Logan Airport Transfers',
         desc: 'Your flight is tracked from wheels-up, so an early landing or a two-hour hold changes nothing about who is waiting. Met inside at baggage claim, not circling the terminal.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
       {
         title: 'Corporate & Financial District Travel',
         desc: 'Standing accounts for downtown firms and Seaport offices, with consolidated billing and chauffeurs who already know the building.',
-        image: '/images/cockpit_tarmac.jpg',
+        image: '/images/suburban-cockpit.jpg',
       },
       {
         title: 'Roadshows to New York & Washington',
@@ -552,7 +552,7 @@ export const locations: Location[] = [
       {
         title: 'Convention & Event Transport',
         desc: 'The Boston Convention & Exhibition Center, the universities and the venues between them, moved in Sprinter-sized groups rather than a queue of separate cars.',
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     vehicles: [
@@ -572,7 +572,7 @@ export const locations: Location[] = [
         name: '2026 Mercedes Sprinter',
         passengers: 14,
         luggage: 20,
-        image: '/images/signature_sprinter.jpg',
+        image: '/images/mercedes-sprinter.jpg',
       },
     ],
     whyChoose: [

@@ -44,7 +44,7 @@ export default function FlightTrackingPage() {
         title="Your flight moves. So do we."
         subtitle="Real-time FAA radar tracking on every airport pickup, so a delayed or early landing never becomes your problem."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Flight Tracking' }]}
-        image="/images/cockpit_tarmac.jpg"
+        image="/images/suburban-cockpit.jpg"
         ctaLabel="Arrange an Airport Pickup"
       />
 

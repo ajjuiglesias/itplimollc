@@ -63,7 +63,7 @@ export const ExperienceSection: React.FC = () => {
           className="relative h-[420px] sm:h-[500px] lg:h-[560px] rounded-[36px] overflow-hidden mb-20 shadow-2xl border border-black/10 dark:border-white/10"
         >
           <img
-            src="/images/cockpit_tarmac.jpg"
+            src="/images/sprinter-interior.jpg"
             alt="ITP Cockpit View Private Jet Tarmac"
             className="w-full h-full object-cover filter brightness-[0.8] dark:brightness-[0.7] contrast-[1.05]"
           />

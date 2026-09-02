@@ -35,7 +35,7 @@ export const ServicesSection: React.FC = () => {
       tagline: 'Dedicated vehicle on standby',
       description:
         'Reserve a dedicated chauffeur from 2 to 24 hours. Your vehicle remains on standby outside every venue for as long as you need.',
-      image: '/images/cockpit_tarmac.jpg',
+      image: '/images/suburban-cockpit.jpg',
       amenities: [
         'Unlimited Stops & Instant Itinerary Adjustments',
         'Chauffeur On Standby Outside Every Venue',

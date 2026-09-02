@@ -51,7 +51,7 @@ export default function AboutPage() {
         title="Quietly, precisely, every time."
         subtitle="ITP Limo is a private chauffeur and executive transportation company serving Raleigh-Durham and Boston, built for travellers whose time and privacy are the point."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
-        image="/images/cockpit_tarmac.jpg"
+        image="/images/chauffeur-team.jpg"
         ctaLabel="Speak to Dispatch"
       />
 

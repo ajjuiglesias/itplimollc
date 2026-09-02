@@ -24,7 +24,7 @@ export default function FleetPage() {
         title="Every vehicle is a 2026."
         subtitle="A Chevrolet Suburban, a Lincoln Aviator and a Mercedes Sprinter — seating three, seven or fourteen, each driven by a professional licensed chauffeur."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Fleet' }]}
-        image="/images/signature_sprinter.jpg"
+        image="/images/fleet-lineup.jpg"
         ctaLabel="Reserve a Vehicle"
       />
 

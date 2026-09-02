@@ -111,7 +111,7 @@ export const fleet: Vehicle[] = [
     tagline: 'Fourteen passengers, twenty bags',
     passengers: '14 Passengers',
     luggage: '20 Bags',
-    image: '/images/signature_sprinter.jpg',
+    image: '/images/mercedes-sprinter.jpg',
     description:
       'A 2026 Mercedes-Benz Sprinter in black with full stand-up headroom, seating fourteen — used for group transfers, corporate movements and private aviation pickups.',
     specs: [
