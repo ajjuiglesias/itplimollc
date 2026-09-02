@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight, MapPin, Plane } from 'lucide-react';
 import { locations, announcedMarkets, extendedCoverage } from '@/content/locations';
+import { routes } from '@/content/routes';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
@@ -138,6 +139,41 @@ export default function LocationsPage() {
           </div>
         </section>
       )}
+
+      {/*
+        Long-distance routes. The hub is the cluster's entry point, so the route
+        pages hang off it as well as off the two markets each one connects —
+        otherwise they are reachable only from the sitemap.
+      */}
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader
+            eyebrow="Between Markets"
+            title="The long runs."
+            subtitle="Routes we drive often enough to have planned properly."
+            align="left"
+            className="mb-12"
+          />
+
+          <div className="border-t border-black/10 dark:border-white/10">
+            {routes.map((route) => (
+              <Link
+                key={route.slug}
+                href={`/routes/${route.slug}`}
+                className="group grid grid-cols-1 items-center gap-3 border-b border-black/10 py-7 sm:grid-cols-12 dark:border-white/10"
+              >
+                <span className="font-serif text-2xl text-[#171717] transition-opacity group-hover:opacity-70 sm:col-span-5 sm:text-3xl dark:text-[#F8F6F2]">
+                  {route.from} to {route.to}
+                </span>
+                <span className="text-sm font-light text-[#66625C] sm:col-span-6 dark:text-[#B8B8B8]">
+                  {route.facts[0]?.value} · {route.facts[1]?.value} · {route.facts[2]?.value}
+                </span>
+                <ArrowUpRight className="hidden h-4 w-4 justify-self-end text-[#888888] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:col-span-1 sm:block" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/*
         Territory covered on request. Named here rather than given pages of its

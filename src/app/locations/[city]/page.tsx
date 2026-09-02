@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Briefcase, Check, MapPin, Users } from 'lucide-react';
+import { ArrowUpRight, Briefcase, Check, MapPin, Users } from 'lucide-react';
 import { locations, getLocation } from '@/content/locations';
+import { routes } from '@/content/routes';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { EditorialBanner } from '@/components/ui/EditorialBanner';
@@ -38,6 +39,7 @@ export default async function LocationPage({ params }: PageProps) {
   if (!location) notFound();
 
   const other = locations.find((item) => item.slug !== location.slug);
+  const cityRoutes = routes.filter((route) => route.relatedLocations.includes(location.slug));
 
   return (
     <>
@@ -273,6 +275,43 @@ export default async function LocationPage({ params }: PageProps) {
             <div className="mt-10 flex flex-col items-start gap-3">
               <BookNowButton label="Request a Quote" />
               <OrCallNote />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/*
+        Long-distance routes touching this market. Without this the route pages
+        are orphaned — reachable only from the sitemap, which gives them no
+        internal link equity and poor crawl priority. They are also genuinely
+        useful here: somebody reading the Pinehurst page is often the same
+        person who needs the transfer from RDU.
+      */}
+      {cityRoutes.length > 0 && (
+        <section className="border-t border-black/5 bg-[#FAF8F5] py-20 dark:border-white/5 dark:bg-[#070707]">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#66625C] dark:text-[#A0A0A0]">
+              Long-distance transfers
+            </span>
+
+            <div className="mt-6 border-t border-black/10 dark:border-white/10">
+              {cityRoutes.map((route) => (
+                <Link
+                  key={route.slug}
+                  href={`/routes/${route.slug}`}
+                  className="group flex items-center justify-between border-b border-black/10 py-6 dark:border-white/10"
+                >
+                  <span>
+                    <span className="block font-serif text-2xl text-[#171717] transition-opacity group-hover:opacity-70 sm:text-3xl dark:text-[#F8F6F2]">
+                      {route.from} to {route.to}
+                    </span>
+                    <span className="mt-1 block text-xs font-light text-[#66625C] dark:text-[#B8B8B8]">
+                      {route.facts[0]?.value} · {route.facts[1]?.value}
+                    </span>
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-[#888888] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              ))}
             </div>
           </div>
         </section>
