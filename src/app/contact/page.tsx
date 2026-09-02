@@ -27,6 +27,7 @@ export default function ContactPage() {
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
         ctaLabel="Call 24/7 Dispatch"
         cta="call"
+      image="/images/chauffeur-suburban.jpg"
       />
 
       {/* Contact details as oversized editorial rows rather than bordered tiles */}

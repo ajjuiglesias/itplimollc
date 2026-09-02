@@ -24,6 +24,7 @@ export default function BookPage() {
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Book' }]}
         ctaLabel="Call 24/7 Dispatch"
         cta="call"
+      image="/images/sprinter-front.jpg"
       />
 
       <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
