@@ -12,7 +12,7 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 export const metadata: Metadata = pageMetadata({
   title: 'Our Fleet | 2026 Suburban, Aviator & Sprinter | ITP Limo',
   description:
-    'A 2026 Chevrolet Suburban, Lincoln Aviator and Mercedes Sprinter — one of the newest chauffeur fleets in the Triangle, serving Raleigh-Durham and Boston.',
+    'A 2026 Chevrolet Suburban, Lincoln Aviator and Mercedes Sprinter — one of the newest chauffeur fleets in the Triangle, serving North Carolina and Boston.',
   path: '/fleet',
 });
 

@@ -2,82 +2,18 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plane, Building2, Clock, ShieldCheck, Check, Plus, Minus } from 'lucide-react';
+import { Check, Plus, Minus } from 'lucide-react';
 import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
+/*
+ * Reads the same array the /services pages render. This section previously
+ * kept its own copy, which is why it was still showing retired photography
+ * and only four of the seven services after weddings and group were added.
+ */
+import { services } from '@/content/services';
 
 export const ServicesSection: React.FC = () => {
-  const [openId, setOpenId] = useState<string>('airport');
+  const [openId, setOpenId] = useState<string>(services[0].slug);
 
-  const services = [
-    {
-      id: 'airport',
-      icon: Plane,
-      number: '01',
-      category: 'Airport Transfers',
-      title: 'Smooth landings, every time.',
-      tagline: 'Live delay radar & 60-min airport wait time',
-      description:
-        'Delayed flight? Chauffeurs track arrivals automatically in real time and adjust pickup schedules so you are never stranded.',
-      image: '/images/signature_sprinter.jpg',
-      amenities: [
-        'Live Flight Delay Radar Synchronization',
-        'Baggage Claim Meet & Greet with Name Sign',
-        'Complimentary 60-Minute Airport Wait Time',
-        'Direct FBO tarmac access on request',
-      ],
-    },
-    {
-      id: 'hourly',
-      icon: Clock,
-      number: '02',
-      category: 'Hourly & Full Day Hire',
-      title: 'Seize the day.',
-      tagline: 'Dedicated vehicle on standby',
-      description:
-        'Reserve a dedicated chauffeur from 2 to 24 hours. Your vehicle remains on standby outside every venue for as long as you need.',
-      image: '/images/suburban-cockpit.jpg',
-      amenities: [
-        'Unlimited Stops & Instant Itinerary Adjustments',
-        'Chauffeur On Standby Outside Every Venue',
-        'Confidential & Soundproof Work Environment',
-        'Customized In-Cabin Fiji Water & Refreshments',
-      ],
-    },
-    {
-      id: 'city-to-city',
-      icon: Building2,
-      number: '03',
-      category: 'City-to-City Executive',
-      title: 'Between cities, done better.',
-      tagline: 'Private door-to-door regional travel',
-      description:
-        'Turn long-distance journeys into calm, productive time. Direct private travel between Raleigh, Charlotte, Richmond, and Washington D.C.',
-      image: '/images/gulfstream_sprinter.jpg',
-      amenities: [
-        'Direct Door-to-Door Regional Highway Travel',
-        'High-Speed Onboard 5G Wi-Fi & Device Charging',
-        'Reclining Executive Seats with Heating & Massage',
-        'Zero Airport TSA Hassles or Connecting Delays',
-      ],
-    },
-    {
-      id: 'enterprise',
-      icon: ShieldCheck,
-      number: '04',
-      category: 'Enterprise Solutions',
-      title: 'Corporate travel, simplified.',
-      tagline: 'Dedicated concierge & roadshows',
-      description:
-        'One dedicated concierge platform for companies and executive assistants to book, track, and account for every journey.',
-      image: '/images/signature_sprinter.jpg',
-      amenities: [
-        'Centralized Monthly Billing & Expense Invoicing',
-        'Multi-Stop Financial Roadshow Coordination',
-        'Dedicated Executive Account Manager',
-        '100% Non-Disclosure & Privacy Assurance',
-      ],
-    },
-  ];
 
   return (
     <section id="services" className="py-28 sm:py-36 bg-white dark:bg-[#141414] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
@@ -104,13 +40,13 @@ export const ServicesSection: React.FC = () => {
         {/* Minimal Hairline Accordion Service List (No Cards!) */}
         <div className="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
           {services.map((service) => {
-            const isOpen = openId === service.id;
+            const isOpen = openId === service.slug;
             const Icon = service.icon;
 
             return (
-              <div key={service.id} className="py-6 sm:py-8 transition-colors duration-300">
+              <div key={service.slug} className="py-6 sm:py-8 transition-colors duration-300">
                 <button
-                  onClick={() => setOpenId(isOpen ? '' : service.id)}
+                  onClick={() => setOpenId(isOpen ? '' : service.slug)}
                   className="w-full flex items-center justify-between text-left cursor-pointer group"
                 >
                   <div className="flex items-center gap-6 sm:gap-10">

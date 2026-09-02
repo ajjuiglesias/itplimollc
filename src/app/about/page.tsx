@@ -12,7 +12,7 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 export const metadata: Metadata = pageMetadata({
   title: 'About ITP Limo | Executive Chauffeur Company, NC',
   description:
-    'Private chauffeur and executive transportation across Raleigh-Durham and Boston, built on discretion, flight-aware dispatch and an all-2026 fleet.',
+    'Private chauffeur and executive transportation across North Carolina and Boston, built on discretion, flight-aware dispatch and an all-2026 fleet.',
   path: '/about',
 });
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About ITP"
         title="Quietly, precisely, every time."
-        subtitle="ITP Limo is a private chauffeur and executive transportation company serving Raleigh-Durham and Boston, built for travellers whose time and privacy are the point."
+        subtitle="ITP Limo is a private chauffeur and executive transportation company serving Raleigh-Durham, Pinehurst, Wilmington and Boston, built for travellers whose time and privacy are the point."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         image="/images/chauffeur-team.jpg"
         ctaLabel="Speak to Dispatch"

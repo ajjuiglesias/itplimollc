@@ -10,7 +10,13 @@ export const LocationsSection: React.FC = () => {
   const locations = markets.map((m) => ({
     city: m.city,
     state: m.state,
-    airport: `${m.airport} (${m.airportCode})`,
+    /*
+     * Every airport the market is served from, not just the primary one.
+     * Pinehurst's primary is RDU, so the old single-airport label put
+     * "Raleigh-Durham International Airport (RDU)" across the bottom of the
+     * Pinehurst card — which reads as though the card is about Raleigh.
+     */
+    airport: [m.airportCode, ...(m.additionalAirports ?? []).map((a) => a.code)].join(' · '),
     desc: m.hero.intro,
     image: m.image,
     routes: m.serving.keyLocations.slice(0, 4),

@@ -10,7 +10,7 @@ import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatc
 export const metadata: Metadata = pageMetadata({
   title: 'Book a Ride | Reserve Your Chauffeur Online | ITP Limo',
   description:
-    'Reserve your ITP Limo chauffeur online in a few steps — airport transfers, hourly hire, weddings and corporate travel across Raleigh-Durham and Boston.',
+    'Reserve your ITP Limo chauffeur online — airport transfers, hourly hire, weddings and corporate travel across North Carolina and Boston.',
   path: '/book',
 });
 
