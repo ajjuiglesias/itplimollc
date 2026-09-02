@@ -53,7 +53,6 @@ export default function AboutPage() {
         crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         image="/images/chauffeur-team.jpg"
         ctaLabel="Speak to Dispatch"
-        imageTone="subject"
       />
 
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">

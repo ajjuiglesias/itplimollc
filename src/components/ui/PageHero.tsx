@@ -22,10 +22,10 @@ interface PageHeroProps {
    */
   cta?: 'book' | 'call' | 'none';
   /**
-   * How hard to push the background photograph down. Use 'subject' for
-   * photographs of people, where the default wash hides the faces.
+   * Opt out of the directional treatment for a frame that cannot carry the
+   * copy — an even, heavier wash instead.
    */
-  imageTone?: 'ground' | 'subject';
+  imageTone?: 'muted';
 }
 
 /**
@@ -41,7 +41,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   image,
   ctaLabel = 'Book Your Ride',
   cta = 'book',
-  imageTone = 'ground',
+  imageTone,
 }) => (
   <section className="relative isolate overflow-hidden bg-[#070707] pt-32 pb-16 sm:pt-40 sm:pb-24 2xl:pt-44 2xl:pb-28">
     {image && (
@@ -52,31 +52,36 @@ export const PageHero: React.FC<PageHeroProps> = ({
           alt=""
           aria-hidden="true"
           className={`absolute inset-0 -z-10 h-full w-full object-cover ${
-            imageTone === 'subject' ? 'opacity-80' : 'opacity-45'
+            imageTone === 'muted' ? 'opacity-45' : 'opacity-80'
           }`}
         />
 
         {/*
-          Two ways of grounding the photograph.
+          The photograph is darkened directionally rather than evenly.
 
-          'ground' is the default: an even wash, which suits vehicles and
-          buildings where no single part of the frame has to survive.
+          Every hero on this site sets its copy left-aligned in the same
+          container, so the left edge is the only part that has to guarantee
+          contrast. Washing the whole frame to hold text that only occupies one
+          side was throwing away the client's photography everywhere — the
+          six-chauffeur team shot read as a dark smudge, and the fleet lineup
+          barely registered.
 
-          'subject' is for photographs of people. The even wash at 45% opacity
-          rendered the chauffeur portraits almost unreadable — and a face is the
-          entire reason those frames exist. This instead darkens hard on the
-          left, where the copy sits, and releases toward the right where the
-          subject is, so the text keeps its contrast without flattening the
-          picture. The vertical pass underneath only seats it against the
-          section edges.
+          So: opaque black on the left, releasing across to the right. The
+          headline keeps full contrast because the gradient starts at solid
+          #070707; the picture becomes visible because it does not stay there.
+          The vertical pass underneath only seats the image against the section
+          edges.
+
+          'muted' is the old even wash, kept for any frame that is too busy or
+          too pale behind the copy to carry it.
         */}
-        {imageTone === 'subject' ? (
+        {imageTone === 'muted' ? (
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070707] via-[#070707]/85 to-[#070707]/60" />
+        ) : (
           <>
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070707] via-[#070707]/80 to-[#070707]/25" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070707] via-transparent to-[#070707]/40" />
           </>
-        ) : (
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070707] via-[#070707]/85 to-[#070707]/60" />
         )}
       </>
     )}
