@@ -52,7 +52,7 @@ export default function PrivateAviationPage() {
               <div className="relative h-[380px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[500px] dark:border-white/10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/gulfstream_sprinter.jpg"
+                  src="/images/signature_sprinter.jpg"
                   alt="ITP Sprinter jet van on an FBO tarmac beside a Gulfstream"
                   className="h-full w-full object-cover brightness-[0.85] contrast-[1.05]"
                 />

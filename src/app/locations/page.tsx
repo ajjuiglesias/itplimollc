@@ -41,7 +41,8 @@ export default function LocationsPage() {
         title="Where we drive."
         subtitle="One company, one fleet, one standard of chauffeur — across the Triangle, the Carolinas coast and Greater Boston."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas' }]}
-        image={locations[0]?.image}
+        /* Ultra-wide fleet frame: hero-shaped, and market-neutral for the hub. */
+        image="/images/fleet-lineup-wide.jpg"
       />
 
       {/* Markets with their own page */}
