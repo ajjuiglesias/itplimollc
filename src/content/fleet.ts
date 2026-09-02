@@ -29,6 +29,12 @@ export interface Vehicle {
   luggage?: string;
   image?: string;
   description: string;
+  /**
+   * Meta-only override. `description` doubles as visible body copy, so where
+   * that copy runs past the ~160-char SERP limit this carries a shorter form
+   * rather than truncating what the page actually says.
+   */
+  metaDescription?: string;
   specs: string[];
   detail: {
     intro: string;
@@ -39,6 +45,8 @@ export interface Vehicle {
 export const fleet: Vehicle[] = [
   {
     slug: 'chevrolet-suburban',
+    metaDescription:
+      'Chauffeured 2026 Chevrolet Suburban in black — seven passengers, six bags. The default for airport runs and corporate travel across Raleigh and the Triangle.',
     name: '2026 Chevrolet Suburban',
     shortName: 'Suburban',
     category: 'Full-Size Executive SUV',
@@ -95,6 +103,8 @@ export const fleet: Vehicle[] = [
   },
   {
     slug: 'mercedes-sprinter',
+    metaDescription:
+      'Chauffeured 2026 Mercedes-Benz Sprinter — fourteen passengers, twenty bags, full stand-up headroom. For groups, weddings and airport transfers across NC.',
     name: '2026 Mercedes-Benz Sprinter',
     shortName: 'Sprinter',
     category: 'Executive Group Van',

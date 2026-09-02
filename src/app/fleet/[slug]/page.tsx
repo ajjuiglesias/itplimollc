@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return pageMetadata({
     title: `${vehicle.name} | ${vehicle.category} | ITP Limo`,
-    description: vehicle.description,
+    description: vehicle.metaDescription ?? vehicle.description,
     path: `/fleet/${vehicle.slug}`,
   });
 }
