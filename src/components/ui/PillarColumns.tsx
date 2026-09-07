@@ -38,7 +38,7 @@ export const PillarColumns: React.FC<PillarColumnsProps> = ({
   onDark = false,
   className = '',
 }) => (
-  <div className={`grid grid-cols-1 gap-12 lg:gap-16 ${columnClass[columns]} ${className}`}>
+  <div className={`grid grid-cols-1 gap-8 lg:gap-10 ${columnClass[columns]} ${className}`}>
     {pillars.map((pillar, idx) => {
       return (
         <motion.div
@@ -47,26 +47,33 @@ export const PillarColumns: React.FC<PillarColumnsProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: Math.min(idx * 0.12, 0.5), ease: [0.16, 1, 0.3, 1] }}
+          className={`group p-8 rounded-3xl border transition-all duration-300 hover:shadow-xl ${
+            onDark
+              ? 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
+              : 'bg-white dark:bg-[#161616] border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)]'
+          }`}
         >
-          <div
-            className={`mb-4 flex items-center justify-between gap-3 border-b pb-3 ${
-              onDark ? 'border-white/15' : 'border-black/10 dark:border-white/15'
-            }`}
-          >
-            <span className="font-mono text-xs font-bold text-[#888888]">
+          <div className="mb-6 flex items-center justify-between gap-3">
+            <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge">
               {String(idx + 1).padStart(2, '0')}
             </span>
             {pillar.icon && (
-              <span className={onDark ? 'text-white' : 'text-[#171717] dark:text-white'}>
+              <div
+                className={`p-3 rounded-2xl transition-transform duration-300 group-hover:scale-110 ${
+                  onDark
+                    ? 'bg-white/[0.08] text-emerald-400 border border-white/10'
+                    : 'bg-black/[0.04] dark:bg-white/[0.08] text-emerald-600 dark:text-emerald-400 border border-black/5 dark:border-white/10'
+                }`}
+              >
                 {pillar.icon}
-              </span>
+              </div>
             )}
           </div>
 
           {pillar.eyebrow && (
             <span
               className={`mb-1 block text-[10px] font-extrabold uppercase tracking-widest ${
-                onDark ? 'text-[#A0A0A0]' : 'text-[#66625C] dark:text-[#A0A0A0]'
+                onDark ? 'text-emerald-400' : 'text-[#66625C] dark:text-[#A0A0A0]'
               }`}
             >
               {pillar.eyebrow}
@@ -83,7 +90,7 @@ export const PillarColumns: React.FC<PillarColumnsProps> = ({
 
           <p
             className={`mt-3 text-sm font-light leading-relaxed ${
-              onDark ? 'text-[#B8B8B8]' : 'text-[#66625C] dark:text-[#B8B8B8]'
+              onDark ? 'text-white/75' : 'text-[#66625C] dark:text-[#B8B8B8]'
             }`}
           >
             {pillar.body}

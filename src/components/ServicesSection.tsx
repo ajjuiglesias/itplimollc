@@ -37,27 +37,34 @@ export const ServicesSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Minimal Hairline Accordion Service List (No Cards!) */}
+        {/* Minimal Hairline Accordion Service List */}
         <div className="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
           {services.map((service) => {
             const isOpen = openId === service.slug;
             const Icon = service.icon;
 
             return (
-              <div key={service.slug} className="py-6 sm:py-8 transition-colors duration-300">
+              <div
+                key={service.slug}
+                className={`py-6 sm:py-7 transition-all duration-300 rounded-2xl px-4 -mx-4 ${
+                  isOpen
+                    ? 'bg-black/[0.02] dark:bg-white/[0.03]'
+                    : 'hover:bg-black/[0.015] dark:hover:bg-white/[0.015]'
+                }`}
+              >
                 <button
                   onClick={() => setOpenId(isOpen ? '' : service.slug)}
                   className="w-full flex items-center justify-between text-left cursor-pointer group"
                 >
-                  <div className="flex items-center gap-6 sm:gap-10">
-                    <span className="text-sm font-mono font-bold text-[#888888]">
+                  <div className="flex items-center gap-5 sm:gap-8">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold gold-accent-badge">
                       {service.number}
                     </span>
                     <div>
                       <span className="text-[10px] uppercase tracking-widest font-extrabold text-[#66625C] dark:text-[#A0A0A0] block mb-1">
                         {service.category}
                       </span>
-                      <h3 className="font-serif text-3xl sm:text-4xl text-[#171717] dark:text-[#F8F6F2] font-medium tracking-tight group-hover:opacity-75 transition-opacity">
+                      <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#171717] dark:text-[#F8F6F2] font-medium tracking-tight group-hover:opacity-75 transition-opacity">
                         {service.title}
                       </h3>
                     </div>
@@ -91,7 +98,10 @@ export const ServicesSection: React.FC = () => {
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-black/10 dark:border-white/10">
                             {service.amenities.map((amenity, i) => (
-                              <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#524E48] dark:text-[#CCCCCC]">
+                              <div
+                                key={i}
+                                className="flex items-center gap-2.5 text-xs sm:text-sm text-[#524E48] dark:text-[#CCCCCC] p-2 rounded-xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/5 dark:border-white/5"
+                              >
                                 <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                                 <span>{amenity}</span>
                               </div>
@@ -104,7 +114,7 @@ export const ServicesSection: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="lg:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden">
+                        <div className="lg:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-lg">
                           <img
                             src={service.image}
                             alt={service.title}

@@ -46,6 +46,7 @@ const navLinks: NavLink[] = [
     })),
   },
   { name: 'Services', href: '/services' },
+  { name: 'Weddings', href: '/wedding-venues' },
   { name: 'Fleet', href: '/fleet' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
@@ -299,13 +300,13 @@ export const Navbar: React.FC = () => {
             {/* Primary booking CTA */}
             <Link
               href="/book"
-              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-extrabold transition-all hover:scale-[1.02] active:scale-100 whitespace-nowrap ${
+              className={`luxury-shimmer-btn inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-extrabold transition-all duration-300 hover:scale-[1.03] active:scale-100 whitespace-nowrap shadow-md hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_10px_25px_rgba(255,255,255,0.15)] ${
                 condensed
-                  ? 'bg-[#171717] text-white hover:bg-[#333333] dark:bg-white dark:text-[#0F0F0F] dark:hover:bg-[#E5E5EA]'
+                  ? 'bg-[#171717] text-white hover:bg-[#2A2A2A] dark:bg-white dark:text-[#0F0F0F] dark:hover:bg-[#EAEAEA]'
                   : 'bg-white text-[#0F0F0F] hover:bg-[#F2EFE9] shadow-lg'
               }`}
             >
-              Book Now
+              <span>Book Now</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -341,12 +342,6 @@ export const Navbar: React.FC = () => {
             >
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
-                  /*
-                   * No accordion on mobile: the drawer has room, and burying the
-                   * markets behind another tap would make the client's newest
-                   * pages the hardest to reach. Children are simply indented
-                   * under their parent.
-                   */
                   <React.Fragment key={link.name}>
                     <Link
                       href={link.href}
@@ -378,11 +373,23 @@ export const Navbar: React.FC = () => {
                   </React.Fragment>
                 ))}
 
-                {/* Direct dispatch line — the primary contact route while booking is disabled */}
+                {/* Primary booking button for mobile */}
+                <div className="pt-4 pb-2">
+                  <Link
+                    href="/book"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="luxury-shimmer-btn flex w-full items-center justify-center gap-2 py-3.5 rounded-full bg-[#171717] text-white dark:bg-white dark:text-[#0F0F0F] text-xs uppercase tracking-[0.2em] font-extrabold shadow-lg"
+                  >
+                    <span>Book Your Ride</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+
+                {/* Direct dispatch line */}
                 <a
                   href="tel:19194352157"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 mt-1 py-3 text-[#171717] dark:text-[#F8F6F2]"
+                  className="flex items-center gap-3 py-3 text-[#171717] dark:text-[#F8F6F2]"
                 >
                   <span className="p-2 rounded-full bg-black/5 dark:bg-white/10">
                     <Phone className="w-4 h-4" />
@@ -395,7 +402,7 @@ export const Navbar: React.FC = () => {
                   </span>
                 </a>
 
-                <span className="w-full mt-1 py-3 flex items-center justify-center gap-2.5 text-[10px] uppercase tracking-[0.22em] font-bold text-[#66625C] dark:text-[#A0A0A0]">
+                <span className="w-full py-2 flex items-center justify-center gap-2.5 text-[10px] uppercase tracking-[0.22em] font-bold text-[#66625C] dark:text-[#A0A0A0]">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />

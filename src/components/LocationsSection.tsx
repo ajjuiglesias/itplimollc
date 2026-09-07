@@ -24,7 +24,7 @@ export const LocationsSection: React.FC = () => {
   }));
 
   return (
-    <section className="bg-white dark:bg-[#141414] py-28 sm:py-36 transition-colors duration-500 overflow-hidden">
+    <section className="bg-[#FAF8F5] dark:bg-[#121212] py-28 sm:py-36 transition-colors duration-500 overflow-hidden relative border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Headline */}
         <motion.div
@@ -54,43 +54,43 @@ export const LocationsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col justify-between w-full"
+              className="flex flex-col justify-between w-full p-8 sm:p-10 rounded-[32px] bg-white dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
             >
               <div>
                 {/* Header Badge */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#171717] dark:text-white" />
+                    <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <span className="text-xs uppercase tracking-widest font-extrabold text-[#66625C] dark:text-[#A0A0A0]">
                       {loc.state}
                     </span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-[#888888]">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge tracking-wider">
                     HUB 0{idx + 1}
                   </span>
                 </div>
 
                 {/* City Title */}
-                <h3 className="font-serif text-5xl sm:text-6xl text-[#171717] dark:text-[#F8F6F2] font-medium tracking-tight mb-3">
+                <h3 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#171717] dark:text-[#F8F6F2] font-medium tracking-tight mb-3">
                   {loc.city}
                 </h3>
 
-                <p className="text-sm sm:text-base text-[#66625C] dark:text-[#B8B8B8] font-light leading-relaxed mb-8 lg:line-clamp-4 lg:min-h-[7rem]">
+                <p className="text-sm sm:text-base text-[#66625C] dark:text-[#B8B8B8] font-light leading-relaxed mb-8 lg:line-clamp-4 lg:min-h-[6.5rem]">
                   {loc.desc}
                 </p>
 
                 {/* Editorial Image Banner (Frameless) */}
-                <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden mb-8 group">
+                <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden mb-8 group border border-black/5 dark:border-white/10 shadow-lg">
                   <img
                     src={loc.image}
                     alt={loc.city}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 filter brightness-[0.75] dark:brightness-[0.6] contrast-[1.05]"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 filter brightness-[0.8] dark:brightness-[0.65] contrast-[1.05]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-medium">
-                    <span className="flex items-center gap-1.5">
+                    <span className="glass-pill px-3 py-1.5 rounded-full flex items-center gap-2 text-xs text-white">
                       <Navigation className="w-3.5 h-3.5 text-emerald-400" />
-                      {loc.airport}
+                      <span>{loc.airport}</span>
                     </span>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export const LocationsSection: React.FC = () => {
                     {loc.routes.map((route: string, i: number) => (
                       <span
                         key={i}
-                        className="text-xs px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-[#F8F6F2] font-medium"
+                        className="text-xs px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.04] text-[#171717] dark:text-[#F8F6F2] font-medium transition-colors hover:border-black/25 dark:hover:border-white/25"
                       >
                         {route}
                       </span>

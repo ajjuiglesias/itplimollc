@@ -22,7 +22,7 @@ export const FleetSection: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16 sm:mb-20"
         >
-          <span className="text-[11px] uppercase tracking-[0.35em] font-extrabold text-[#A0A0A0]">
+          <span className="text-[11px] uppercase tracking-[0.35em] font-extrabold gold-accent-badge px-4 py-1.5 rounded-full inline-block mb-3">
             The Newest Fleet in the Triangle
           </span>
           <h2 className="font-serif text-[2.1rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl text-[#F8F6F2] font-normal tracking-tight leading-[1.08] mt-2">
@@ -33,7 +33,7 @@ export const FleetSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Minimal Vehicle Selector Tabs (No Cards!) */}
+        {/* Minimal Vehicle Selector Tabs with Capacity Badges */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-16">
           {fleet.map((item, index) => {
             const isActive = activeVehicle === index;
@@ -41,13 +41,24 @@ export const FleetSection: React.FC = () => {
               <button
                 key={item.slug}
                 onClick={() => setActiveVehicle(index)}
-                className={`min-h-[44px] px-6 py-3 rounded-full text-xs uppercase tracking-widest font-extrabold transition-all duration-300 cursor-pointer border ${
+                className={`group min-h-[46px] px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-extrabold transition-all duration-300 cursor-pointer border flex items-center gap-3 ${
                   isActive
-                    ? 'bg-white text-[#0F0F0F] border-white shadow-xl scale-105'
+                    ? 'bg-white text-[#0F0F0F] border-white shadow-[0_10px_25px_rgba(255,255,255,0.2)] scale-105'
                     : 'bg-white/5 text-[#A0A0A0] border-white/10 hover:bg-white/10 hover:text-white'
                 }`}
               >
-                {item.name}
+                <span>{item.name}</span>
+                {item.passengers && (
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-bold transition-colors ${
+                      isActive
+                        ? 'bg-black/10 text-[#0F0F0F]'
+                        : 'bg-white/10 text-white/70 group-hover:bg-white/20'
+                    }`}
+                  >
+                    {item.passengers.split(' ')[0]} Pax
+                  </span>
+                )}
               </button>
             );
           })}
@@ -56,7 +67,10 @@ export const FleetSection: React.FC = () => {
         {/* Interactive Vehicle Showcase Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Vehicle Media Stage */}
-          <div className="lg:col-span-7 relative h-[380px] sm:h-[480px] lg:h-[520px] rounded-[36px] overflow-hidden border border-white/15 shadow-2xl bg-black">
+          <div className="lg:col-span-7 relative h-[380px] sm:h-[480px] lg:h-[520px] rounded-[36px] overflow-hidden border border-white/15 shadow-2xl bg-black group">
+            {/* Ambient Back Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/10 via-white/5 to-emerald-500/10 rounded-[42px] blur-2xl pointer-events-none opacity-40" />
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVehicle.slug}
@@ -70,7 +84,8 @@ export const FleetSection: React.FC = () => {
                   <img
                     src={currentVehicle.image}
                     alt={currentVehicle.name}
-                    className="w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
+                    className="w-full h-full object-cover brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition-transform duration-1000"
+                    style={{ objectPosition: 'center 66%' }}
                   />
                 ) : (
                   /* No stand-in imagery: only the Sprinter has genuine photography. */
@@ -81,24 +96,29 @@ export const FleetSection: React.FC = () => {
                     </span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20" />
 
                 <div className="absolute bottom-8 left-8 right-8 flex items-center justify-between text-white">
                   <div>
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-white/70 block">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-emerald-400 block mb-1">
                       {currentVehicle.category}
                     </span>
                     <h4 className="font-serif text-2xl sm:text-3xl font-medium">
                       {currentVehicle.name}
                     </h4>
                   </div>
+                  {currentVehicle.passengers && (
+                    <span className="glass-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-white/90 hidden sm:inline-flex">
+                      2026 Spec
+                    </span>
+                  )}
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* Technical Specs & Details Column */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <div className="lg:col-span-5 flex flex-col justify-between p-8 sm:p-10 rounded-[32px] bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVehicle.slug}
@@ -109,7 +129,7 @@ export const FleetSection: React.FC = () => {
                 className="space-y-6"
               >
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest font-extrabold text-[#A0A0A0] block mb-1">
+                  <span className="text-[10px] uppercase tracking-widest font-extrabold text-emerald-400 block mb-1">
                     {currentVehicle.category}
                   </span>
                   <h3 className="font-serif text-3xl sm:text-4xl text-white font-medium tracking-tight mb-2">
@@ -122,27 +142,29 @@ export const FleetSection: React.FC = () => {
 
                 {/* Capacity Badges */}
                 {(currentVehicle.passengers || currentVehicle.luggage) && (
-                  <div className="flex items-center gap-6 py-4 border-y border-white/10 text-xs">
+                  <div className="flex items-center gap-4 py-4 border-y border-white/10 text-xs">
                     {currentVehicle.passengers && (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.05] border border-white/10">
                         <Users className="w-4 h-4 text-emerald-400" />
-                        <span>{currentVehicle.passengers}</span>
+                        <span className="font-medium">{currentVehicle.passengers}</span>
                       </div>
                     )}
                     {currentVehicle.luggage && (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.05] border border-white/10">
                         <Briefcase className="w-4 h-4 text-emerald-400" />
-                        <span>{currentVehicle.luggage}</span>
+                        <span className="font-medium">{currentVehicle.luggage}</span>
                       </div>
                     )}
                   </div>
                 )}
 
                 {/* Spec List */}
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   {currentVehicle.specs.map((spec, i) => (
-                    <div key={i} className="flex items-center gap-3 text-xs sm:text-sm text-white/90 font-light">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <div key={i} className="flex items-center gap-3 text-xs sm:text-sm text-white/90 font-light p-1.5 rounded-lg hover:bg-white/[0.03] transition-colors">
+                      <div className="p-1 rounded-full bg-emerald-400/10 text-emerald-400 shrink-0">
+                        <Check className="w-3.5 h-3.5" />
+                      </div>
                       <span>{spec}</span>
                     </div>
                   ))}

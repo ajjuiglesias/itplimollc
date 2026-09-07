@@ -61,36 +61,34 @@ export default function LocationsPage() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[28px] border border-black/10 p-8 transition-transform duration-500 hover:-translate-y-1 dark:border-white/10 sm:min-h-[400px]"
+                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-[32px] border border-black/10 p-8 sm:p-10 transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-2xl dark:border-white/15 sm:min-h-[420px]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={location.image}
                   alt=""
                   aria-hidden="true"
-                  className="absolute inset-0 h-full w-full object-cover brightness-[0.55] transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover brightness-[0.72] dark:brightness-[0.6] transition-transform duration-1000 group-hover:scale-105 filter contrast-[1.05]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
 
                 <div className="relative z-10 text-white">
-                  <span className="font-mono text-xs font-bold text-white/60">
-                    {String(idx + 1).padStart(2, '0')}
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge mb-3 inline-block">
+                    HUB 0{idx + 1}
                   </span>
-                  <h3 className="mt-2 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+                  <h3 className="mt-1 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
                     {location.city}, {location.stateAbbr}
                   </h3>
-                  {/*
-                    Codes rather than full names: Pinehurst draws on three
-                    airports and the names would wrap to four lines on a card.
-                  */}
-                  <p className="mt-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/75">
-                    <Plane className="h-3.5 w-3.5 shrink-0" />
-                    {[location.airportCode, ...(location.additionalAirports ?? []).map((a) => a.code)].join(' · ')}
+                  <p className="mt-3 glass-pill px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-white/90 inline-flex items-center gap-2">
+                    <Plane className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span>{[location.airportCode, ...(location.additionalAirports ?? []).map((a) => a.code)].join(' · ')}</span>
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-white">
-                    View {location.city} service
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
+                  <div className="mt-6">
+                    <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-pill text-xs font-extrabold uppercase tracking-[0.2em] text-white hover:bg-white/20 transition-all">
+                      <span>View {location.city} service</span>
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -104,7 +102,7 @@ export default function LocationsPage() {
         build a page that would only restate the fleet and services blocks.
       */}
       {announcedMarkets.length > 0 && (
-        <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+        <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <SectionHeader
               eyebrow="Also Serving"
@@ -114,13 +112,15 @@ export default function LocationsPage() {
               className="mb-12"
             />
 
-            <ul className="grid grid-cols-1 gap-x-12 sm:grid-cols-2">
+            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {announcedMarkets.map((market) => (
                 <li
                   key={market.slug}
-                  className="flex items-baseline gap-5 border-b border-black/10 py-6 dark:border-white/10"
+                  className="flex items-center gap-5 p-6 rounded-2xl bg-white dark:bg-[#161616] border border-black/5 dark:border-white/10 shadow-sm"
                 >
-                  <MapPin className="h-4 w-4 shrink-0 translate-y-0.5 text-emerald-600 dark:text-emerald-400" />
+                  <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">
+                    <MapPin className="h-4 w-4" />
+                  </div>
                   <div>
                     <span className="block font-serif text-2xl text-[#171717] sm:text-3xl dark:text-[#F8F6F2]">
                       {market.city}, {market.stateAbbr}
@@ -141,12 +141,8 @@ export default function LocationsPage() {
         </section>
       )}
 
-      {/*
-        Long-distance routes. The hub is the cluster's entry point, so the route
-        pages hang off it as well as off the two markets each one connects —
-        otherwise they are reachable only from the sitemap.
-      */}
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+      {/* Long-distance routes */}
+      <section className="border-t border-black/5 bg-white py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Between Markets"
@@ -156,12 +152,12 @@ export default function LocationsPage() {
             className="mb-12"
           />
 
-          <div className="border-t border-black/10 dark:border-white/10">
+          <div className="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
             {routes.map((route) => (
               <Link
                 key={route.slug}
                 href={`/routes/${route.slug}`}
-                className="group grid grid-cols-1 items-center gap-3 border-b border-black/10 py-7 sm:grid-cols-12 dark:border-white/10"
+                className="group grid grid-cols-1 items-center gap-3 py-6 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] sm:grid-cols-12"
               >
                 <span className="font-serif text-2xl text-[#171717] transition-opacity group-hover:opacity-70 sm:col-span-5 sm:text-3xl dark:text-[#F8F6F2]">
                   {route.from} to {route.to}
@@ -169,7 +165,11 @@ export default function LocationsPage() {
                 <span className="text-sm font-light text-[#66625C] sm:col-span-6 dark:text-[#B8B8B8]">
                   {route.facts[0]?.value} · {route.facts[1]?.value} · {route.facts[2]?.value}
                 </span>
-                <ArrowUpRight className="hidden h-4 w-4 justify-self-end text-[#888888] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:col-span-1 sm:block" />
+                <div className="hidden sm:flex col-span-1 justify-end">
+                  <div className="p-2 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-white group-hover:bg-[#171717] dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

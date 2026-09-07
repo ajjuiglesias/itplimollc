@@ -3,6 +3,7 @@ import { locations } from '@/content/locations';
 import { fleet } from '@/content/fleet';
 import { services } from '@/content/services';
 import { routes } from '@/content/routes';
+import { weddingVenueRegions } from '@/content/weddingVenues';
 import { abs } from '@/lib/seo';
 
 /*
@@ -28,6 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...routes.map((r) => entry(`/routes/${r.slug}`, 0.8)),
     entry('/services', 0.8),
     ...services.map((s) => entry(`/services/${s.slug}`, 0.7)),
+    entry('/wedding-venues', 0.8),
+    ...weddingVenueRegions.map((region) =>
+      entry(`/wedding-venues/${region.slug}`, region.slug === 'raleigh-wake-forest' ? 0.8 : 0.7),
+    ),
     entry('/fleet', 0.8),
     ...fleet.map((v) => entry(`/fleet/${v.slug}`, 0.7)),
     entry('/private-aviation', 0.7),

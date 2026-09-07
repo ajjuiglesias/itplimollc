@@ -86,22 +86,22 @@ export const PageHero: React.FC<PageHeroProps> = ({
       </>
     )}
 
-    <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+    <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10">
       {crumbs.length > 0 && (
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-x-1.5 text-[11px] uppercase tracking-[0.2em] font-semibold text-white/50">
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="inline-flex flex-wrap items-center gap-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-white/60">
             {crumbs.map((crumb, i) => (
               <li key={crumb.label} className="flex items-center gap-1.5">
-                {i > 0 && <ChevronRight className="h-3 w-3 text-white/30" />}
+                {i > 0 && <ChevronRight className="h-3 w-3 text-white/40" />}
                 {crumb.href ? (
                   <Link
                     href={crumb.href}
-                    className="inline-flex min-h-[44px] items-center transition-colors hover:text-white"
+                    className="inline-flex min-h-[32px] items-center transition-colors hover:text-white"
                   >
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className="text-white/80">{crumb.label}</span>
+                  <span className="text-emerald-400 font-bold">{crumb.label}</span>
                 )}
               </li>
             ))}
@@ -109,16 +109,21 @@ export const PageHero: React.FC<PageHeroProps> = ({
         </nav>
       )}
 
-      <span className="text-[11px] uppercase tracking-[0.35em] font-extrabold text-[#A0A0A0]">
-        {eyebrow}
-      </span>
+      <div>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-extrabold text-white/90">
+            {eyebrow}
+          </span>
+        </div>
+      </div>
 
-      <h1 className="font-serif text-[2.1rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-normal tracking-tight leading-[1.08] sm:leading-[1.05] text-[#F8F6F2] mt-3 max-w-4xl">
+      <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-normal tracking-tight leading-[1.08] sm:leading-[1.05] text-[#F8F6F2] mt-2 max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
         {title}
       </h1>
 
       {subtitle && (
-        <p className="mt-5 max-w-2xl text-base sm:text-lg lg:text-xl font-light leading-relaxed text-white/75">
+        <p className="mt-5 max-w-2xl text-base sm:text-lg lg:text-xl font-light leading-relaxed text-white/80 drop-shadow-sm">
           {subtitle}
         </p>
       )}

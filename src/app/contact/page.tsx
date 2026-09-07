@@ -30,78 +30,82 @@ export default function ContactPage() {
       image="/images/chauffeur-suburban.jpg"
       />
 
-      {/* Contact details as oversized editorial rows rather than bordered tiles */}
+      {/* Contact details as oversized editorial cards */}
       <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="border-y border-black/10 dark:border-white/10">
+          <div className="space-y-6 sm:space-y-8">
             <a
               href={DISPATCH_PHONE_HREF}
-              className="group grid grid-cols-1 gap-4 border-b border-black/10 py-10 lg:grid-cols-12 lg:gap-10 dark:border-white/10"
+              className="group grid grid-cols-1 gap-6 p-8 sm:p-10 rounded-[32px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
             >
-              <div className="flex items-start gap-4 sm:gap-10 lg:col-span-5">
-                <span className="pt-2 font-mono text-xs font-bold text-[#888888]">01</span>
+              <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">01</span>
                 <div>
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                    <Phone className="h-3 w-3" />
+                    <Phone className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                     Dispatch Desk
                   </span>
-                  <span className="block font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl md:text-5xl dark:text-[#F8F6F2]">
+                  <span className="block font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-75 sm:text-4xl md:text-5xl dark:text-[#F8F6F2]">
                     {DISPATCH_PHONE}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
-                <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+              <div className="flex items-center justify-between lg:col-span-6">
+                <p className="text-sm sm:text-base font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
                   Answered 24 hours a day, including holidays. The fastest route to a
                   confirmed booking.
                 </p>
-                <ArrowUpRight className="ml-6 hidden h-5 w-5 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:block dark:text-[#F8F6F2]" />
+                <div className="ml-6 hidden p-3 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-white group-hover:bg-[#171717] dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all sm:flex shrink-0">
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
               </div>
             </a>
 
             <a
               href={`mailto:${EMAIL}`}
-              className="group grid grid-cols-1 gap-4 border-b border-black/10 py-10 lg:grid-cols-12 lg:gap-10 dark:border-white/10"
+              className="group grid grid-cols-1 gap-6 p-8 sm:p-10 rounded-[32px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
             >
-              <div className="flex items-start gap-4 sm:gap-10 lg:col-span-5">
-                <span className="pt-2 font-mono text-xs font-bold text-[#888888]">02</span>
+              <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">02</span>
                 <div className="min-w-0">
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                    <Mail className="h-3 w-3" />
+                    <Mail className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                     Email Concierge
                   </span>
-                  <span className="block break-all font-serif text-xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-2xl md:text-3xl dark:text-[#F8F6F2]">
+                  <span className="block break-all font-serif text-2xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-75 sm:text-3xl md:text-4xl dark:text-[#F8F6F2]">
                     {EMAIL}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
-                <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+              <div className="flex items-center justify-between lg:col-span-6">
+                <p className="text-sm sm:text-base font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
                   Best for corporate accounts, roadshow pricing and anything needing a
                   written record.
                 </p>
-                <ArrowUpRight className="ml-6 hidden h-5 w-5 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:block dark:text-[#F8F6F2]" />
+                <div className="ml-6 hidden p-3 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-white group-hover:bg-[#171717] dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all sm:flex shrink-0">
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
               </div>
             </a>
 
-            <div className="grid grid-cols-1 gap-4 py-10 lg:grid-cols-12 lg:gap-10">
-              <div className="flex items-start gap-4 sm:gap-10 lg:col-span-5">
-                <span className="pt-2 font-mono text-xs font-bold text-[#888888]">03</span>
+            <div className="grid grid-cols-1 gap-6 p-8 sm:p-10 rounded-[32px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] lg:grid-cols-12 lg:gap-10 lg:items-center">
+              <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">03</span>
                 <div>
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                    <MapPin className="h-3 w-3" />
+                    <MapPin className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                     Based In
                   </span>
-                  <span className="block font-serif text-xl font-medium tracking-tight text-[#171717] sm:text-2xl md:text-3xl dark:text-[#F8F6F2]">
+                  <span className="block font-serif text-2xl font-medium tracking-tight text-[#171717] sm:text-3xl md:text-4xl dark:text-[#F8F6F2]">
                     Wake Forest, NC
                   </span>
                 </div>
               </div>
 
-              <div className="pl-12 sm:pl-16 lg:col-span-6 lg:col-start-7 lg:pl-0">
-                <p className="text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
+              <div className="lg:col-span-6">
+                <p className="text-sm sm:text-base font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
                   Vehicles are dispatched from within each market. Call or email the
                   dispatch desk to arrange a journey — there is no walk-in office.
                 </p>
@@ -111,7 +115,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Before You Call"
@@ -141,22 +145,24 @@ export default function ContactPage() {
             ]}
           />
 
-          <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
             {locations.map((location) => (
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group flex items-baseline justify-between gap-6 border-b border-black/10 py-6 dark:border-white/10"
+                className="group flex items-center justify-between gap-6 p-6 rounded-2xl bg-white dark:bg-[#161616] border border-black/5 dark:border-white/10 shadow-sm hover:shadow-md hover:border-black/15 dark:hover:border-white/20 transition-all duration-300"
               >
-                <span>
+                <div>
                   <span className="mb-1 block text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
                     {location.state} · {location.airportCode}
                   </span>
-                  <span className="font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl dark:text-[#F8F6F2]">
+                  <span className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 dark:text-[#F8F6F2]">
                     {location.city}
                   </span>
-                </span>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 dark:text-[#F8F6F2]" />
+                </div>
+                <div className="p-2.5 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-white group-hover:bg-[#171717] dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all shrink-0">
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
               </Link>
             ))}
           </div>

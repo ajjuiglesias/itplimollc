@@ -179,6 +179,36 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
+      {service.slug === 'wedding-transportation' && (
+        <section className="border-t border-black/5 bg-white py-20 sm:py-28 dark:border-white/5 dark:bg-[#141414]">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-5">
+                <SectionHeader
+                  eyebrow="Triangle Venue Guides"
+                  title="Plan around the place."
+                  subtitle="Explore transportation guidance for wedding venues across Raleigh, Wake Forest and the greater Triangle."
+                  align="left"
+                />
+              </div>
+              <div className="flex flex-col justify-end lg:col-span-6 lg:col-start-7">
+                <p className="text-base font-light leading-relaxed text-[#66625C] sm:text-lg dark:text-[#B8B8B8]">
+                  Every guide connects the venue with the hotels, airport arrivals,
+                  wedding-party movements and guest return trips around it.
+                </p>
+                <Link
+                  href="/wedding-venues"
+                  className="group mt-7 inline-flex min-h-[44px] w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
+                >
+                  Explore Wedding Venue Guides
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="bg-white py-24 sm:py-32 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader

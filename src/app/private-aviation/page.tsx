@@ -49,50 +49,56 @@ export default function PrivateAviationPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <div className="relative h-[380px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[500px] dark:border-white/10">
+              <div className="relative h-[380px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[500px] dark:border-white/10 group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/signature_sprinter.jpg"
                   alt="ITP Sprinter jet van on an FBO tarmac beside a Gulfstream"
-                  className="h-full w-full object-cover brightness-[0.85] contrast-[1.05]"
+                  className="h-full w-full object-cover brightness-[0.85] contrast-[1.05] group-hover:scale-105 transition-transform duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+
+                <div className="absolute top-6 right-6">
+                  <span className="glass-pill px-3.5 py-1.5 rounded-full text-xs text-white/95 font-medium flex items-center gap-2 shadow-md">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <span>Tarmac Direct Clearance</span>
+                  </span>
+                </div>
+
                 <div className="absolute bottom-8 left-8 right-8 text-white">
-                  <span className="block text-[10px] font-bold uppercase tracking-widest text-white/80">
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-emerald-400 block mb-1">
                     FBO Terminal Integration
                   </span>
                   <h2 className="font-serif text-2xl font-medium sm:text-3xl">
-                    Signature Aviation
+                    Signature Aviation &amp; Regional Jet Terminals
                   </h2>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-5">
-              <ul>
+              <div className="space-y-4">
                 {features.map((feature, idx) => (
-                  <li
+                  <div
                     key={feature.title}
-                    className="border-b border-black/10 py-6 dark:border-white/10"
+                    className="p-5 rounded-2xl border border-black/5 dark:border-white/10 bg-[#FAF8F5] dark:bg-[#181818] shadow-sm hover:shadow-md transition-all duration-300"
                   >
-                    <div className="flex items-baseline gap-5">
-                      <span className="font-mono text-xs font-bold text-[#888888]">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">
                         {String(idx + 1).padStart(2, '0')}
                       </span>
-                      <div>
-                        <h3 className="font-serif text-2xl font-medium tracking-tight text-[#171717] sm:text-3xl dark:text-[#F8F6F2]">
-                          {feature.title}
-                        </h3>
-                        <p className="mt-2 text-sm font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                          {feature.desc}
-                        </p>
-                      </div>
+                      <h3 className="font-serif text-xl sm:text-2xl text-[#171717] dark:text-[#F8F6F2] font-medium">
+                        {feature.title}
+                      </h3>
                     </div>
-                  </li>
+                    <p className="text-sm text-[#66625C] dark:text-[#B8B8B8] font-light leading-relaxed pl-8">
+                      {feature.desc}
+                    </p>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              <div className="mt-10 flex flex-col items-start gap-3">
+              <div className="mt-8 flex flex-col items-start gap-3">
                 <BookNowButton label="Arrange FBO Pickup" />
                 <OrCallNote />
               </div>
@@ -101,7 +107,7 @@ export default function PrivateAviationPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Terminals We Serve"
@@ -110,12 +116,12 @@ export default function PrivateAviationPage() {
             className="mb-12"
           />
 
-          <div className="border-t border-black/10 dark:border-white/10">
+          <div className="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
             {locations.map((location, idx) => (
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group grid grid-cols-1 items-center gap-4 border-b border-black/10 py-8 sm:grid-cols-12 dark:border-white/10"
+                className="group grid grid-cols-1 items-center gap-4 py-6 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] sm:grid-cols-12"
               >
                 <span className="font-mono text-xs font-bold text-[#888888] sm:col-span-1">
                   {String(idx + 1).padStart(2, '0')}
@@ -123,19 +129,23 @@ export default function PrivateAviationPage() {
 
                 <span className="sm:col-span-5">
                   <span className="mb-1 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-widest text-[#66625C] dark:text-[#A0A0A0]">
-                    <MapPin className="h-3 w-3" />
+                    <MapPin className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                     {location.state}
                   </span>
-                  <span className="font-serif text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 sm:text-4xl dark:text-[#F8F6F2]">
+                  <span className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-[#171717] transition-opacity group-hover:opacity-70 dark:text-[#F8F6F2]">
                     {location.city}
                   </span>
                 </span>
 
-                <span className="hidden text-sm font-light text-[#66625C] sm:col-span-5 sm:block dark:text-[#B8B8B8]">
+                <span className="text-sm font-light text-[#66625C] sm:col-span-5 dark:text-[#B8B8B8]">
                   {location.airport} ({location.airportCode})
                 </span>
 
-                <ArrowUpRight className="hidden h-5 w-5 justify-self-end text-[#171717] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:col-span-1 sm:block dark:text-[#F8F6F2]" />
+                <div className="hidden sm:flex col-span-1 justify-end">
+                  <div className="p-2 rounded-full bg-black/5 dark:bg-white/10 text-[#171717] dark:text-white group-hover:bg-[#171717] dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

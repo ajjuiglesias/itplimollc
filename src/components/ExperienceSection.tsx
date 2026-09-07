@@ -33,7 +33,7 @@ export const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#070707] transition-colors duration-500 overflow-hidden">
+    <section id="experience" className="py-28 sm:py-36 bg-white dark:bg-[#0C0C0C] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -54,22 +54,32 @@ export const ExperienceSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Hero Full-Bleed Editorial Media Banner (No Cards!) */}
+        {/* Hero Full-Bleed Editorial Media Banner */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative h-[420px] sm:h-[500px] lg:h-[560px] rounded-[36px] overflow-hidden mb-20 shadow-2xl border border-black/10 dark:border-white/10"
+          className="relative h-[420px] sm:h-[500px] lg:h-[560px] rounded-[36px] overflow-hidden mb-20 shadow-2xl border border-black/10 dark:border-white/10 group"
         >
           <img
             src="/images/sprinter-interior.jpg"
             alt="ITP Cockpit View Private Jet Tarmac"
-            className="w-full h-full object-cover filter brightness-[0.8] dark:brightness-[0.7] contrast-[1.05]"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 filter brightness-[0.82] dark:brightness-[0.72] contrast-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent flex flex-col justify-end p-8 sm:p-14 text-white">
+          {/* Floating Pill Highlights */}
+          <div className="absolute top-6 right-6 hidden sm:flex items-center gap-2.5">
+            <span className="glass-pill px-3.5 py-1.5 rounded-full text-[11px] font-medium text-white/90">
+              Acoustic Soundproofing
+            </span>
+            <span className="glass-pill px-3.5 py-1.5 rounded-full text-[11px] font-medium text-white/90">
+              Chilled Fiji Water
+            </span>
+          </div>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col justify-end p-8 sm:p-14 text-white">
             <div className="max-w-xl">
-              <span className="text-[11px] uppercase tracking-[0.3em] font-semibold text-white/80 block mb-2">
+              <span className="text-[11px] uppercase tracking-[0.3em] font-semibold text-emerald-400 block mb-2">
                 Executive Cabin Environment
               </span>
               <h3 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight mb-3">
@@ -82,8 +92,8 @@ export const ExperienceSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* 3 Clean Horizontal Editorial Columns (No Cards!) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-4">
+        {/* 3 Clean Horizontal Editorial Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-4">
           {sanctuaryPillars.map((pillar, idx) => {
             const Icon = pillar.icon;
 
@@ -94,13 +104,15 @@ export const ExperienceSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="pr-0"
+                className="group p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#151515] border border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20 transition-all duration-300 hover:shadow-lg"
               >
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <span className="text-xs font-mono font-bold text-[#888888]">
+                <div className="flex items-center justify-between gap-3 mb-6">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge">
                     {pillar.number}
                   </span>
-                  <Icon className="w-4 h-4 text-[#171717] dark:text-white" />
+                  <div className="p-3 rounded-2xl bg-black/[0.04] dark:bg-white/[0.08] border border-black/5 dark:border-white/10 text-[#171717] dark:text-white transition-transform group-hover:scale-110 duration-300">
+                    <Icon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  </div>
                 </div>
 
                 <span className="text-[10px] uppercase tracking-widest font-extrabold text-[#66625C] dark:text-[#A0A0A0] block mb-1">

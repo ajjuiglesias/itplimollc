@@ -37,11 +37,11 @@ export default function FleetPage() {
             className="mb-20"
           />
 
-          <div className="space-y-20 sm:space-y-28">
+          <div className="space-y-16 sm:space-y-20">
             {fleet.map((vehicle, idx) => (
               <article
                 key={vehicle.slug}
-                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16"
+                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16 p-8 sm:p-12 rounded-[36px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
               >
                 {/* Alternate image side so the page has rhythm rather than a repeating column */}
                 <div
@@ -51,10 +51,10 @@ export default function FleetPage() {
                     <VehicleImage
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="h-[300px] sm:h-[420px]"
+                      className="h-[320px] sm:h-[440px] rounded-[28px] overflow-hidden border border-black/5 dark:border-white/10 shadow-lg"
                     >
                       <div className="absolute bottom-7 left-7 right-7 text-white">
-                        <span className="block text-[10px] font-bold uppercase tracking-widest text-white/70">
+                        <span className="glass-pill px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-2 inline-block">
                           {vehicle.category}
                         </span>
                         <h3 className="font-serif text-2xl font-medium sm:text-3xl">
@@ -66,11 +66,11 @@ export default function FleetPage() {
                 </div>
 
                 <div className={`lg:col-span-5 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <span className="text-xs font-mono font-bold text-[#888888]">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge">
                     0{idx + 1}
                   </span>
 
-                  <h3 className="mt-2 font-serif text-3xl font-medium tracking-tight text-[#171717] sm:text-4xl dark:text-[#F8F6F2]">
+                  <h3 className="mt-3 font-serif text-3xl font-medium tracking-tight text-[#171717] sm:text-4xl dark:text-[#F8F6F2]">
                     {vehicle.name}
                   </h3>
 
@@ -79,11 +79,11 @@ export default function FleetPage() {
                   </p>
 
                   {/* Capacity as display numerals rather than small icon pairs */}
-                  <div className="my-8 flex items-stretch gap-10 border-y border-black/10 py-6 dark:border-white/10">
+                  <div className="my-7 flex items-stretch gap-8 border-y border-black/10 py-5 dark:border-white/10">
                     <CapacityStat
                       value={vehicle.passengers}
                       label="Passengers"
-                      icon={<Users className="h-3 w-3" />}
+                      icon={<Users className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
                     />
 
                     <div className="w-px bg-black/10 dark:bg-white/10" />
@@ -91,26 +91,27 @@ export default function FleetPage() {
                     <CapacityStat
                       value={vehicle.luggage}
                       label="Luggage"
-                      icon={<Briefcase className="h-3 w-3" />}
+                      icon={<Briefcase className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
                     />
                   </div>
 
-                  <ul>
+                  <ul className="space-y-2">
                     {vehicle.specs.map((spec) => (
                       <li
                         key={spec}
-                        className="border-b border-black/10 py-3 text-sm text-[#524E48] dark:border-white/10 dark:text-[#CCCCCC]"
+                        className="flex items-center gap-2.5 text-xs sm:text-sm text-[#524E48] dark:text-[#CCCCCC]"
                       >
-                        {spec}
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
+                        <span>{spec}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Link
                     href={`/fleet/${vehicle.slug}`}
-                    className="group mt-8 inline-flex min-h-[44px] items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
+                    className="group mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/15 dark:border-white/20 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2] hover:bg-black/5 dark:hover:bg-white/10 transition-all"
                   >
-                    Full specifications
+                    <span>Full specifications</span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                 </div>

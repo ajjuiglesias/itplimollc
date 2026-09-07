@@ -16,20 +16,23 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Pre-Footer Action Banner */}
-        <div className="mb-20 p-8 sm:p-12 rounded-[32px] bg-gradient-to-r from-white/10 via-white/5 to-transparent border border-white/15 flex flex-col md:flex-row md:items-center justify-between gap-8 backdrop-blur-xl">
-          <div>
+        <div className="relative mb-20 p-8 sm:p-12 rounded-[32px] bg-gradient-to-r from-white/[0.09] via-white/[0.04] to-white/[0.01] border border-white/20 flex flex-col md:flex-row md:items-center justify-between gap-8 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.65)] overflow-hidden group">
+          {/* Subtle Ambient Accent */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="relative z-10">
             <span className="text-[10px] uppercase tracking-[0.3em] font-extrabold text-emerald-400 block mb-2">
               24/7 Concierge Dispatch
             </span>
-            <h3 className="font-serif text-3xl sm:text-4xl text-white font-medium tracking-tight">
+            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-medium tracking-tight">
               Ready for your next journey?
             </h3>
-            <p className="text-sm text-white/70 font-normal mt-1 max-w-lg">
+            <p className="text-sm text-white/70 font-normal mt-2 max-w-lg">
               Reserve your private chauffeur or request dedicated corporate roadshow pricing.
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-3 shrink-0">
+          <div className="relative z-10 flex flex-col items-center gap-3 shrink-0">
             <BookNowButton label="Book Your Ride" variant="onDark" />
             <OrCallNote onDark />
           </div>
@@ -80,6 +83,7 @@ export const Footer: React.FC = () => {
                   href: `/locations/${l.slug}`,
                 })),
                 { label: 'Services', href: '/services' },
+                { label: 'Wedding Venues', href: '/wedding-venues' },
                 { label: 'Our Fleet', href: '/fleet' },
                 { label: 'Private Aviation', href: '/private-aviation' },
                 { label: 'Flight Tracking', href: '/flight-tracking' },

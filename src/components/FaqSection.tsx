@@ -31,18 +31,25 @@ export const FaqSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* FAQ Accordion List (No Cards!) */}
+        {/* FAQ Accordion List */}
         <div className="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
 
             return (
-              <div key={idx} className="py-6 sm:py-7">
+              <div
+                key={idx}
+                className={`py-6 sm:py-7 transition-all duration-300 rounded-2xl px-4 -mx-4 ${
+                  isOpen
+                    ? 'bg-black/[0.02] dark:bg-white/[0.03]'
+                    : 'hover:bg-black/[0.015] dark:hover:bg-white/[0.015]'
+                }`}
+              >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between text-left cursor-pointer group gap-6"
                 >
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#171717] dark:text-[#F8F6F2] font-medium tracking-tight group-hover:opacity-75 transition-opacity">
+                  <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#171717] dark:text-[#F8F6F2] font-medium tracking-tight group-hover:opacity-75 transition-opacity">
                     {faq.question}
                   </h3>
 
@@ -60,7 +67,7 @@ export const FaqSection: React.FC = () => {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="text-base text-[#66625C] dark:text-[#B8B8B8] font-light leading-relaxed pt-4 pr-12">
+                      <p className="text-base text-[#66625C] dark:text-[#B8B8B8] font-light leading-relaxed pt-4 pr-6 sm:pr-12">
                         {faq.answer}
                       </p>
                     </motion.div>
@@ -69,6 +76,30 @@ export const FaqSection: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Concierge Assistance Callout */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex items-center gap-4 text-left">
+            <div className="p-3 rounded-2xl bg-black/5 dark:bg-white/10 text-emerald-600 dark:text-emerald-400 shrink-0">
+              <HelpCircle className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="font-serif text-lg font-medium text-[#171717] dark:text-white">
+                Have a unique itinerary or bespoke request?
+              </h4>
+              <p className="text-xs text-[#66625C] dark:text-[#A0A0A0] mt-0.5">
+                Our 24/7 Raleigh dispatch desk is ready to assist with complex itineraries and multi-city roadshows.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="tel:19194352157"
+            className="shrink-0 px-6 py-2.5 rounded-full border border-black/15 dark:border-white/20 text-xs uppercase tracking-widest font-extrabold text-[#171717] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap"
+          >
+            Call Dispatch Desk
+          </a>
         </div>
       </div>
     </section>

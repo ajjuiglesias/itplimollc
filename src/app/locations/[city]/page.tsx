@@ -154,7 +154,8 @@ export default async function LocationPage({ params }: PageProps) {
                   <img
                     src={vehicle.image}
                     alt={vehicle.name}
-                    className="h-full w-full object-cover brightness-[0.88]"
+                    className="h-full w-full object-cover brightness-[0.9] contrast-[1.04]"
+                    style={{ objectPosition: 'center 66%' }}
                   />
                 </div>
 

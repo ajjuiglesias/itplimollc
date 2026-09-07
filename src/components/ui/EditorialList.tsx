@@ -27,13 +27,7 @@ export const EditorialList: React.FC<EditorialListProps> = ({
   onDark = false,
   className = '',
 }) => (
-  <div
-    className={`border-y divide-y ${
-      onDark
-        ? 'border-white/10 divide-white/10'
-        : 'border-black/10 divide-black/10 dark:border-white/10 dark:divide-white/10'
-    } ${className}`}
-  >
+  <div className={`space-y-4 sm:space-y-6 ${className}`}>
     {items.map((item, idx) => (
       <motion.div
         key={item.title}
@@ -41,10 +35,14 @@ export const EditorialList: React.FC<EditorialListProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: Math.min(idx * 0.08, 0.4), ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-1 gap-3 py-7 sm:gap-4 sm:py-10 lg:grid-cols-12 lg:gap-10"
+        className={`group grid grid-cols-1 gap-4 p-6 sm:p-8 rounded-3xl border transition-all duration-300 hover:shadow-lg ${
+          onDark
+            ? 'bg-white/[0.04] border-white/10 hover:bg-white/[0.07] hover:border-white/20'
+            : 'bg-white dark:bg-[#161616] border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20 shadow-sm'
+        } lg:grid-cols-12 lg:gap-10 lg:items-center`}
       >
-        <div className="flex items-start gap-4 sm:gap-10 lg:col-span-6">
-          <span className="pt-1 font-mono text-sm font-bold text-[#888888]">
+        <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
+          <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">
             {String(idx + 1).padStart(2, '0')}
           </span>
 
@@ -52,14 +50,14 @@ export const EditorialList: React.FC<EditorialListProps> = ({
             {item.eyebrow && (
               <span
                 className={`mb-1 block text-[10px] font-extrabold uppercase tracking-widest ${
-                  onDark ? 'text-[#A0A0A0]' : 'text-[#66625C] dark:text-[#A0A0A0]'
+                  onDark ? 'text-emerald-400' : 'text-[#66625C] dark:text-[#A0A0A0]'
                 }`}
               >
                 {item.eyebrow}
               </span>
             )}
             <h3
-              className={`font-serif text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl ${
+              className={`font-serif text-2xl font-medium tracking-tight sm:text-3xl ${
                 onDark ? 'text-[#F8F6F2]' : 'text-[#171717] dark:text-[#F8F6F2]'
               }`}
             >
@@ -68,17 +66,17 @@ export const EditorialList: React.FC<EditorialListProps> = ({
           </div>
         </div>
 
-        <div className="pl-8 sm:pl-16 lg:col-span-5 lg:col-start-7 lg:pl-0">
+        <div className="lg:col-span-6">
           <p
             className={`text-sm font-light leading-relaxed sm:text-base ${
-              onDark ? 'text-[#B8B8B8]' : 'text-[#66625C] dark:text-[#B8B8B8]'
+              onDark ? 'text-white/75' : 'text-[#66625C] dark:text-[#B8B8B8]'
             }`}
           >
             {item.body}
           </p>
           {item.note && (
             <span
-              className={`mt-3 block text-[10px] font-bold uppercase tracking-widest ${
+              className={`mt-2 block text-[10px] font-bold uppercase tracking-widest ${
                 onDark ? 'text-white/50' : 'text-[#888888]'
               }`}
             >

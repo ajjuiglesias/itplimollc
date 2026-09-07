@@ -75,7 +75,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Where We Operate"
@@ -89,20 +89,21 @@ export default function AboutPage() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group relative h-64 overflow-hidden rounded-[28px] border border-black/10 dark:border-white/10"
+                className="group relative h-72 sm:h-80 overflow-hidden rounded-[32px] border border-black/10 dark:border-white/15 shadow-md hover:shadow-2xl transition-all duration-500"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={location.image}
                   alt={location.city}
-                  className="h-full w-full object-cover brightness-[0.65] transition-transform duration-[1200ms] group-hover:scale-105"
+                  className="h-full w-full object-cover brightness-[0.72] dark:brightness-[0.6] transition-transform duration-[1200ms] group-hover:scale-105 filter contrast-[1.05]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="block text-[10px] font-bold uppercase tracking-widest text-white/70">
+                  <span className="glass-pill px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/90 mb-2.5 inline-flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                     {location.airport}
                   </span>
-                  <span className="font-serif text-3xl font-medium">{location.city}</span>
+                  <span className="font-serif text-3xl sm:text-4xl font-medium block">{location.city}</span>
                 </div>
               </Link>
             ))}

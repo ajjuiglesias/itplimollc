@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Shield, Plane, Clock } from 'lucide-react';
 import { AmbientVideo } from './ui/AmbientVideo';
 
 /**
@@ -83,7 +83,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Ambient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/75 dark:from-[#0F0F0F] dark:via-[#0F0F0F]/70 dark:to-black/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/80 dark:from-[#0F0F0F] dark:via-[#0F0F0F]/70 dark:to-black/85 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,transparent_75%)] pointer-events-none" />
       </div>
 
@@ -94,17 +94,15 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center text-center max-w-4xl mb-10 sm:mb-14"
+          className="flex flex-col items-center text-center max-w-4xl mb-6 sm:mb-10"
         >
-          {/*
-            Hero copy supplied by the client, 2026-08-18, and used verbatim.
-            The headline keeps the existing two-weight treatment — medium on the
-            first line, light on the second — so their words inherit the type
-            hierarchy the rest of the page already uses.
-          */}
-          <span className="mb-3 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-extrabold text-white/75 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-            Your Journey. Our Standard.
-          </span>
+          {/* Eyebrow badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill mb-4 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-extrabold text-white/90">
+              Your Journey. Our Standard.
+            </span>
+          </div>
 
           {/* Main Headline — PP Fragment Glare */}
           <h1 className="font-serif font-medium text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white mb-4 drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
@@ -117,34 +115,41 @@ export const Hero: React.FC = () => {
             Professional Chauffeurs, Real-Time Flight Monitoring &amp; Seamless Airport and Executive Transportation Across Raleigh, RDU &amp; Beyond.
           </p>
 
-          {/* No booking fields here by design. The Moovs embed on /book collects
-              the whole trip, so any field repeated in the hero is a field the
-              visitor fills twice. The embed itself stays off this page because
-              its bundle is ~4.5MB and would wreck hero LCP. */}
           <div className="flex w-full flex-col items-center gap-5">
             <Link
               href="/book"
-              className="group inline-flex items-center gap-3 px-9 py-4 rounded-full bg-white text-[#0F0F0F] text-xs uppercase tracking-[0.25em] font-extrabold shadow-[0_20px_50px_rgba(0,0,0,0.45)] hover:bg-[#F2EFE9] hover:scale-[1.02] active:scale-100 transition-all duration-300"
+              className="luxury-shimmer-btn group inline-flex items-center gap-3 px-9 py-4 rounded-full bg-white text-[#0F0F0F] text-xs uppercase tracking-[0.25em] font-extrabold shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:bg-[#F2EFE9] hover:scale-[1.03] active:scale-100 transition-all duration-300"
             >
               <span>Book Your Ride</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
             </Link>
 
             <a
               href="tel:19194352157"
-              className="inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold text-white/70 transition-opacity hover:opacity-100"
+              className="inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold text-white/75 transition-opacity hover:opacity-100"
             >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
               </span>
-              {/*
-                Client's wording. Kept as a tel: link rather than plain text —
-                click-to-call is the second conversion path on this page, and
-                the number stays visible from sm up.
-              */}
               Available 24/7<span className="hidden sm:inline"> — +1 (919) 435-2157</span>
             </a>
+          </div>
+
+          {/* Executive Trust Badges */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] text-white/80 font-medium">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill">
+              <Shield className="w-3.5 h-3.5 text-emerald-400" />
+              <span>2026 Guaranteed Fleet</span>
+            </div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill">
+              <Plane className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Live Radar Flight Tracking</span>
+            </div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill">
+              <Clock className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Complimentary Inbound Buffer</span>
+            </div>
           </div>
         </motion.div>
       </div>
