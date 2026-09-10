@@ -32,7 +32,7 @@ export const EditorialBanner: React.FC<EditorialBannerProps> = ({
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-    className={`relative overflow-hidden rounded-[36px] border border-black/10 shadow-2xl dark:border-white/10 ${
+    className={`relative overflow-hidden rounded-3xl border border-black/10 shadow-lg dark:border-white/10 ${
       size === 'tall'
         ? 'h-[360px] sm:h-[500px] lg:h-[560px]'
         : 'h-[280px] sm:h-[420px]'
@@ -42,10 +42,10 @@ export const EditorialBanner: React.FC<EditorialBannerProps> = ({
     <img
       src={image}
       alt={alt}
-      className="h-full w-full object-cover brightness-[0.8] contrast-[1.05] dark:brightness-[0.7]"
+      className="h-full w-full object-cover brightness-95 dark:brightness-90"
     />
 
-    <div className="absolute inset-0 flex flex-col justify-end overflow-hidden bg-gradient-to-t from-black/90 via-black/35 to-transparent p-6 text-white sm:p-14">
+    <div className="absolute inset-0 flex flex-col justify-end overflow-hidden bg-gradient-to-t from-black/90 via-black/35 to-transparent p-6 text-white sm:p-10">
       <div className="max-w-xl">
         <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.3em] text-white/80">
           {eyebrow}

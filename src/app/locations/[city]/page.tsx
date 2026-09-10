@@ -73,7 +73,7 @@ export default async function LocationPage({ params }: PageProps) {
       />
 
       {/* Serving — editorial banner over a hairline list of key locations */}
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <EditorialBanner
             image={location.image}
@@ -115,7 +115,7 @@ export default async function LocationPage({ params }: PageProps) {
       </section>
 
       {/* Services — hairline editorial rows rather than a card grid */}
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="What We Offer"
@@ -136,7 +136,7 @@ export default async function LocationPage({ params }: PageProps) {
       </section>
 
       {/* Fleet — dark section, large display numerals for capacity */}
-      <section className="bg-[#070707] py-24 text-white sm:py-32">
+      <section className="bg-[#070707] py-16 text-white sm:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="The Fleet"
@@ -149,7 +149,7 @@ export default async function LocationPage({ params }: PageProps) {
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {location.vehicles.map((vehicle, idx) => (
               <div key={vehicle.name}>
-                <div className="relative mb-8 h-56 overflow-hidden rounded-[28px] sm:h-72">
+                <div className="relative mb-8 h-56 overflow-hidden rounded-2xl sm:h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={vehicle.image}
@@ -210,7 +210,7 @@ export default async function LocationPage({ params }: PageProps) {
       </section>
 
       {/* Why choose */}
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -248,7 +248,7 @@ export default async function LocationPage({ params }: PageProps) {
 
       {/* Areas served — the original ran these as one comma-separated paragraph */}
       {location.areasServed.areas.length > 0 && (
-        <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+        <section className="border-t border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#070707]">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <SectionHeader
               eyebrow="Coverage"

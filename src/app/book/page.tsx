@@ -18,9 +18,10 @@ export default function BookPage() {
   return (
     <>
       <PageHero
+        compact
         eyebrow="Online Reservations"
         title="Book your ride."
-        subtitle="Enter your pickup, destination and time below. For anything complex — multi-vehicle, roadshows or same-day changes — our dispatch desk is faster."
+        subtitle="Enter your journey details below. For multi-vehicle plans or same-day changes, call our dispatch desk."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Book' }]}
         ctaLabel="Call 24/7 Dispatch"
         cta="call"
@@ -45,7 +46,7 @@ export default function BookPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="What to expect"

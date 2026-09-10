@@ -33,7 +33,7 @@ export const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-28 sm:py-36 bg-white dark:bg-[#0C0C0C] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section id="experience" className="py-20 sm:py-28 bg-white dark:bg-[#0C0C0C] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -60,7 +60,7 @@ export const ExperienceSection: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative h-[420px] sm:h-[500px] lg:h-[560px] rounded-[36px] overflow-hidden mb-20 shadow-2xl border border-black/10 dark:border-white/10 group"
+          className="relative h-[420px] sm:h-[500px] lg:h-[560px] rounded-3xl overflow-hidden mb-20 shadow-2xl border border-black/10 dark:border-white/10 group"
         >
           <img
             src="/images/sprinter-interior.jpg"

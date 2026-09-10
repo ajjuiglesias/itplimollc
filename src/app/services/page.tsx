@@ -29,17 +29,17 @@ export default function ServicesPage() {
       />
 
       {/* Each service gets a full editorial row with alternating image side */}
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="space-y-16 sm:space-y-20">
             {services.map((service, idx) => (
               <article
                 key={service.slug}
-                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16 p-8 sm:p-12 rounded-[36px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16 p-5 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
               >
                 <div className={`lg:col-span-6 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
                   <Link href={`/services/${service.slug}`} className="group block">
-                    <div className="relative h-[320px] overflow-hidden rounded-[28px] border border-black/10 shadow-xl sm:h-[420px] dark:border-white/10">
+                    <div className="relative h-[320px] overflow-hidden rounded-2xl border border-black/10 shadow-xl sm:h-[420px] dark:border-white/10">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={service.image}
@@ -98,7 +98,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <EditorialBanner
             image="/images/chauffeur-door.jpg"
@@ -133,7 +133,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-24 dark:bg-[#141414]">
+      <section className="bg-white py-16 dark:bg-[#141414]">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <SectionHeader
             eyebrow="Something more specific?"

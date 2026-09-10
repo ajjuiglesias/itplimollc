@@ -22,7 +22,7 @@ export const FboSection: React.FC = () => {
   ];
 
   return (
-    <section id="fbo" className="py-28 sm:py-36 bg-[#FAF8F5] dark:bg-[#121212] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
+    <section id="fbo" className="py-20 sm:py-28 bg-[#FAF8F5] dark:bg-[#121212] transition-colors duration-500 overflow-hidden border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Headline */}
         <motion.div
@@ -51,7 +51,7 @@ export const FboSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative h-[420px] sm:h-[500px] rounded-[32px] overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl group"
+            className="lg:col-span-7 relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl group"
           >
             <img
               src="/images/gulfstream_sprinter.jpg"

@@ -22,7 +22,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({
   children,
 }) => (
   <div
-    className={`relative overflow-hidden rounded-[32px] border border-black/10 bg-[#111111] shadow-2xl dark:border-white/10 ${className}`}
+    className={`relative overflow-hidden rounded-3xl border border-black/10 bg-[#111111] shadow-lg dark:border-white/10 ${className}`}
   >
     {src ? (
       <>
@@ -30,9 +30,9 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({
         <img
           src={src}
           alt={alt}
-          className="h-full w-full object-cover brightness-[0.88] contrast-[1.04] transition-transform duration-[1200ms] group-hover:scale-105"
+          className="h-full w-full object-cover object-[center_66%] transition-transform duration-700 group-hover:scale-[1.02]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        {children && <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />}
       </>
     ) : (
       <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-[#1A1A1A] to-[#0B0B0B]">

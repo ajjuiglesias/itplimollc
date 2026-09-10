@@ -75,7 +75,7 @@ export default async function ServicePage({ params }: PageProps) {
         ctaLabel="Arrange This Service"
       />
 
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           {/* Lead paragraph at display scale, as the homepage does */}
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
@@ -144,7 +144,7 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 sm:py-32 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -196,20 +196,29 @@ export default async function ServicePage({ params }: PageProps) {
                   Every guide connects the venue with the hotels, airport arrivals,
                   wedding-party movements and guest return trips around it.
                 </p>
-                <Link
-                  href="/wedding-venues"
-                  className="group mt-7 inline-flex min-h-[44px] w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
-                >
-                  Explore Wedding Venue Guides
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
+                <div className="mt-7 flex flex-col items-start gap-2 sm:flex-row sm:gap-6">
+                  <Link
+                    href="/wedding-venues"
+                    className="group inline-flex min-h-[44px] w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
+                  >
+                    Explore Wedding Venue Guides
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
+                  <Link
+                    href="/vintage-wedding-car-raleigh-nc"
+                    className="group inline-flex min-h-[44px] w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2]"
+                  >
+                    Discover The Mercedes Gazelle
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      <section className="bg-white py-24 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Other services"

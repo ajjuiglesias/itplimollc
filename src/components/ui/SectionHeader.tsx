@@ -11,6 +11,7 @@ interface SectionHeaderProps {
   /** Use on permanently-dark sections (Fleet, page heroes). */
   onDark?: boolean;
   className?: string;
+  size?: 'display' | 'section' | 'compact';
 }
 
 /**
@@ -25,6 +26,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   align = 'center',
   onDark = false,
   className = '',
+  size = 'section',
 }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -42,7 +44,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     </span>
 
     <h2
-      className={`font-serif text-[2.1rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-normal tracking-tight leading-[1.1] sm:leading-[1.08] mt-2 ${
+      className={`font-serif ${size === 'display' ? 'text-4xl sm:text-6xl xl:text-7xl' : size === 'compact' ? 'text-3xl sm:text-4xl xl:text-[2.75rem]' : 'text-[2rem] sm:text-[2.75rem] xl:text-[3.5rem]'} font-normal tracking-tight leading-[1.12] mt-3 text-balance ${
         onDark ? 'text-[#F8F6F2]' : 'text-[#171717] dark:text-[#F8F6F2]'
       }`}
     >
@@ -51,7 +53,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
     {subtitle && (
       <p
-        className={`text-base sm:text-lg lg:text-xl font-normal mt-4 max-w-2xl ${align === 'center' ? 'mx-auto' : ''} ${
+        className={`text-base sm:text-lg leading-relaxed font-normal mt-5 max-w-2xl ${align === 'center' ? 'mx-auto' : ''} ${
           onDark ? 'text-[#B8B8B8]' : 'text-[#524E48] dark:text-[#CCCCCC]'
         }`}
       >

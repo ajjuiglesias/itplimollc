@@ -46,7 +46,7 @@ export default function LocationsPage() {
       />
 
       {/* Markets with their own page */}
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Primary Markets"
@@ -61,7 +61,7 @@ export default function LocationsPage() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-[32px] border border-black/10 p-8 sm:p-10 transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-2xl dark:border-white/15 sm:min-h-[420px]"
+                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-3xl border border-black/10 p-8 sm:p-10 transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-2xl dark:border-white/15 sm:min-h-[420px]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -102,7 +102,7 @@ export default function LocationsPage() {
         build a page that would only restate the fleet and services blocks.
       */}
       {announcedMarkets.length > 0 && (
-        <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
+        <section className="border-t border-black/5 bg-[#FAF8F5] py-16 transition-colors duration-500 sm:py-24 dark:border-white/5 dark:bg-[#0B0B0B]">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <SectionHeader
               eyebrow="Also Serving"
@@ -142,7 +142,7 @@ export default function LocationsPage() {
       )}
 
       {/* Long-distance routes */}
-      <section className="border-t border-black/5 bg-white py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#141414]">
+      <section className="border-t border-black/5 bg-white py-16 transition-colors duration-500 sm:py-24 dark:border-white/5 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Between Markets"
@@ -183,7 +183,7 @@ export default function LocationsPage() {
         content the rest of this cluster was built to avoid.
       */}
       {extendedCoverage.length > 0 && (
-        <section className="border-t border-black/5 bg-white py-24 sm:py-32 dark:border-white/5 dark:bg-[#141414]">
+        <section className="border-t border-black/5 bg-white py-16 sm:py-24 dark:border-white/5 dark:bg-[#141414]">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5">

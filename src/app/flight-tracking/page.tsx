@@ -48,7 +48,7 @@ export default function FlightTrackingPage() {
         ctaLabel="Arrange an Airport Pickup"
       />
 
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Live Dispatch View"
@@ -61,7 +61,7 @@ export default function FlightTrackingPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="The Guarantee"

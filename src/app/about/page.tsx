@@ -55,7 +55,7 @@ export default function AboutPage() {
         ctaLabel="Speak to Dispatch"
       />
 
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="What We Stand On"
@@ -75,7 +75,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 transition-colors duration-500 sm:py-24 dark:border-white/5 dark:bg-[#0B0B0B]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Where We Operate"
@@ -89,7 +89,7 @@ export default function AboutPage() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group relative h-72 sm:h-80 overflow-hidden rounded-[32px] border border-black/10 dark:border-white/15 shadow-md hover:shadow-2xl transition-all duration-500"
+                className="group relative h-72 sm:h-80 overflow-hidden rounded-3xl border border-black/10 dark:border-white/15 shadow-md hover:shadow-2xl transition-all duration-500"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

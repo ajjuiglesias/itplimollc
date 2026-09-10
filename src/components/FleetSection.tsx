@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Briefcase, Check, Car } from 'lucide-react';
+import { Users, Briefcase, Check, Car, ArrowUpRight } from 'lucide-react';
 import { fleet } from '@/content/fleet';
 import { BookNowButton, OrCallNote } from './ui/CallDispatchButton';
 
@@ -12,7 +13,7 @@ export const FleetSection: React.FC = () => {
   const currentVehicle = fleet[activeVehicle];
 
   return (
-    <section id="fleet" className="py-28 sm:py-36 bg-[#070707] dark:bg-[#070707] text-white transition-colors duration-500 overflow-hidden border-t border-white/10">
+    <section id="fleet" className="py-20 sm:py-28 bg-[#070707] dark:bg-[#070707] text-white transition-colors duration-500 overflow-hidden border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -26,11 +27,18 @@ export const FleetSection: React.FC = () => {
             The Newest Fleet in the Triangle
           </span>
           <h2 className="font-serif text-[2.1rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl text-[#F8F6F2] font-normal tracking-tight leading-[1.08] mt-2">
-            Every vehicle is a 2026.
+            Every executive vehicle is a 2026.
           </h2>
           <p className="text-lg sm:text-xl text-[#B8B8B8] font-light mt-4 max-w-2xl mx-auto">
-            A fleet of five 2026 vehicles — Suburban, Aviator and Sprinter — seating three, seven or fourteen.
+            Five 2026 executive vehicles — Suburban, Aviator and Sprinter — seating three, seven or fourteen.
           </p>
+          <Link
+            href="/vintage-wedding-car-raleigh-nc"
+            className="mt-5 inline-flex min-h-[44px] items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-400 transition-colors hover:text-emerald-300"
+          >
+            New for weddings: Mercedes Gazelle
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </motion.div>
 
         {/* Minimal Vehicle Selector Tabs with Capacity Badges */}
@@ -67,7 +75,7 @@ export const FleetSection: React.FC = () => {
         {/* Interactive Vehicle Showcase Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Vehicle Media Stage */}
-          <div className="lg:col-span-7 relative h-[380px] sm:h-[480px] lg:h-[520px] rounded-[36px] overflow-hidden border border-white/15 shadow-2xl bg-black group">
+          <div className="lg:col-span-7 relative h-[380px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-black group">
             {/* Ambient Back Glow */}
             <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/10 via-white/5 to-emerald-500/10 rounded-[42px] blur-2xl pointer-events-none opacity-40" />
 
@@ -118,7 +126,7 @@ export const FleetSection: React.FC = () => {
           </div>
 
           {/* Technical Specs & Details Column */}
-          <div className="lg:col-span-5 flex flex-col justify-between p-8 sm:p-10 rounded-[32px] bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl">
+          <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVehicle.slug}

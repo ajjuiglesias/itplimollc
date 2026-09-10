@@ -26,6 +26,8 @@ interface PageHeroProps {
    * copy — an even, heavier wash instead.
    */
   imageTone?: 'muted';
+  compact?: boolean;
+  imagePosition?: string;
 }
 
 /**
@@ -42,8 +44,10 @@ export const PageHero: React.FC<PageHeroProps> = ({
   ctaLabel = 'Book Your Ride',
   cta = 'book',
   imageTone,
+  compact = false,
+  imagePosition = 'center 60%',
 }) => (
-  <section className="relative isolate overflow-hidden bg-[#070707] pt-32 pb-16 sm:pt-40 sm:pb-24 2xl:pt-44 2xl:pb-28">
+  <section className={`relative isolate overflow-hidden bg-[#070707] ${compact ? 'pt-28 pb-10 sm:pt-32 sm:pb-12' : 'pt-28 pb-14 sm:pt-36 sm:pb-20'}`}>
     {image && (
       <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -51,6 +55,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
           src={image}
           alt=""
           aria-hidden="true"
+          style={{ objectPosition: imagePosition }}
           className={`absolute inset-0 -z-10 h-full w-full object-cover ${
             imageTone === 'muted' ? 'opacity-45' : 'opacity-80'
           }`}
@@ -89,7 +94,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
     <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10">
       {crumbs.length > 0 && (
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="inline-flex flex-wrap items-center gap-x-2 px-3.5 py-1.5 rounded-full glass-pill text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-white/60">
+          <ol className="inline-flex flex-wrap items-center gap-x-2 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] font-medium text-white/65">
             {crumbs.map((crumb, i) => (
               <li key={crumb.label} className="flex items-center gap-1.5">
                 {i > 0 && <ChevronRight className="h-3 w-3 text-white/40" />}
@@ -111,25 +116,25 @@ export const PageHero: React.FC<PageHeroProps> = ({
 
       <div>
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-extrabold text-white/90">
             {eyebrow}
           </span>
         </div>
       </div>
 
-      <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-normal tracking-tight leading-[1.08] sm:leading-[1.05] text-[#F8F6F2] mt-2 max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+      <h1 className={`font-serif ${compact ? 'text-4xl sm:text-5xl lg:text-6xl' : 'text-[2.2rem] sm:text-5xl md:text-6xl xl:text-7xl'} font-normal tracking-tight leading-[1.08] text-balance text-[#F8F6F2] mt-2 max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]`}>
         {title}
       </h1>
 
       {subtitle && (
-        <p className="mt-5 max-w-2xl text-base sm:text-lg lg:text-xl font-light leading-relaxed text-white/80 drop-shadow-sm">
+        <p className="mt-5 max-w-2xl text-base sm:text-lg font-normal leading-relaxed text-white/80 drop-shadow-sm">
           {subtitle}
         </p>
       )}
 
       {cta !== 'none' && (
-        <div className="mt-10 flex flex-wrap items-center gap-5">
+        <div className="mt-7 sm:mt-9 flex flex-wrap items-center gap-x-5 gap-y-2">
           {cta === 'book' ? (
             <>
               <BookNowButton label={ctaLabel} variant="onDark" />

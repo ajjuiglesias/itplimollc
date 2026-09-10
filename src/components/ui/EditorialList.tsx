@@ -35,10 +35,10 @@ export const EditorialList: React.FC<EditorialListProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: Math.min(idx * 0.08, 0.4), ease: [0.16, 1, 0.3, 1] }}
-        className={`group grid grid-cols-1 gap-4 p-6 sm:p-8 rounded-3xl border transition-all duration-300 hover:shadow-lg ${
+        className={`grid grid-cols-1 gap-4 p-6 sm:p-8 rounded-3xl border ${
           onDark
-            ? 'bg-white/[0.04] border-white/10 hover:bg-white/[0.07] hover:border-white/20'
-            : 'bg-white dark:bg-[#161616] border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20 shadow-sm'
+            ? 'bg-white/[0.04] border-white/10'
+            : 'bg-[#FAF8F5] dark:bg-[#161616] border-black/5 dark:border-white/10'
         } lg:grid-cols-12 lg:gap-10 lg:items-center`}
       >
         <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">

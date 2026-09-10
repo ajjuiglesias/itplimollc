@@ -84,6 +84,7 @@ export const Footer: React.FC = () => {
                 })),
                 { label: 'Services', href: '/services' },
                 { label: 'Wedding Venues', href: '/wedding-venues' },
+                { label: 'Vintage Wedding Car', href: '/vintage-wedding-car-raleigh-nc' },
                 { label: 'Our Fleet', href: '/fleet' },
                 { label: 'Private Aviation', href: '/private-aviation' },
                 { label: 'Flight Tracking', href: '/flight-tracking' },

@@ -45,11 +45,11 @@ export default function PrivateAviationPage() {
         ctaLabel="Arrange FBO Pickup"
       />
 
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <div className="relative h-[380px] overflow-hidden rounded-[32px] border border-black/10 shadow-2xl sm:h-[500px] dark:border-white/10 group">
+              <div className="relative h-[380px] overflow-hidden rounded-3xl border border-black/10 shadow-2xl sm:h-[500px] dark:border-white/10 group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/signature_sprinter.jpg"
@@ -107,7 +107,7 @@ export default function PrivateAviationPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 transition-colors duration-500 sm:py-24 dark:border-white/5 dark:bg-[#0B0B0B]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Terminals We Serve"

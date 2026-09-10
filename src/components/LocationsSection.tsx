@@ -24,7 +24,7 @@ export const LocationsSection: React.FC = () => {
   }));
 
   return (
-    <section className="bg-[#FAF8F5] dark:bg-[#121212] py-28 sm:py-36 transition-colors duration-500 overflow-hidden relative border-t border-black/5 dark:border-white/5">
+    <section className="bg-[#FAF8F5] dark:bg-[#121212] py-20 sm:py-28 transition-colors duration-500 overflow-hidden relative border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Headline */}
         <motion.div
@@ -54,7 +54,7 @@ export const LocationsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col justify-between w-full p-8 sm:p-10 rounded-[32px] bg-white dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
+              className="flex flex-col justify-between w-full p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
             >
               <div>
                 {/* Header Badge */}

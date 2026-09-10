@@ -21,6 +21,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
+        compact
         eyebrow="24/7 Concierge Dispatch"
         title="Talk to a person."
         subtitle="Our dispatch desk is staffed around the clock. Call for immediate arrangements, or email for corporate accounts and roadshow pricing."
@@ -31,12 +32,12 @@ export default function ContactPage() {
       />
 
       {/* Contact details as oversized editorial cards */}
-      <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="space-y-6 sm:space-y-8">
             <a
               href={DISPATCH_PHONE_HREF}
-              className="group grid grid-cols-1 gap-6 p-8 sm:p-10 rounded-[32px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
+              className="group grid grid-cols-1 gap-6 p-6 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
             >
               <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
                 <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">01</span>
@@ -64,7 +65,7 @@ export default function ContactPage() {
 
             <a
               href={`mailto:${EMAIL}`}
-              className="group grid grid-cols-1 gap-6 p-8 sm:p-10 rounded-[32px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
+              className="group grid grid-cols-1 gap-6 p-6 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
             >
               <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
                 <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">02</span>
@@ -90,7 +91,7 @@ export default function ContactPage() {
               </div>
             </a>
 
-            <div className="grid grid-cols-1 gap-6 p-8 sm:p-10 rounded-[32px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] lg:grid-cols-12 lg:gap-10 lg:items-center">
+            <div className="grid grid-cols-1 gap-6 p-6 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] lg:grid-cols-12 lg:gap-10 lg:items-center">
               <div className="flex items-start gap-4 sm:gap-6 lg:col-span-6">
                 <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold gold-accent-badge shrink-0">03</span>
                 <div>
@@ -115,7 +116,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 transition-colors duration-500 sm:py-32 dark:border-white/5 dark:bg-[#0E0E0E]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 transition-colors duration-500 sm:py-24 dark:border-white/5 dark:bg-[#0B0B0B]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Before You Call"

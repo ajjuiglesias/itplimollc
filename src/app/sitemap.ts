@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
     entry('/fleet', 0.8),
     ...fleet.map((v) => entry(`/fleet/${v.slug}`, 0.7)),
+    entry('/vintage-wedding-car-raleigh-nc', 0.8),
     entry('/private-aviation', 0.7),
     entry('/flight-tracking', 0.5),
     entry('/about', 0.5),

@@ -8,8 +8,9 @@
  *
  * Luggage figures are the client's: 6, 3 and 20 respectively.
  *
- * Note the company runs five vehicles across these three models — they have
- * more than one Suburban — so copy should say five vehicles, not three.
+ * Note the company runs five 2026 executive vehicles across these three models
+ * — they have more than one Suburban. The specialty Mercedes Gazelle announced
+ * later is tracked separately below until its intake details are documented.
  *
  * Photography: the Sprinter is the client's own shot at Signature Aviation;
  * the Suburban and Aviator are manufacturer photography they supplied.
@@ -133,6 +134,52 @@ export const fleet: Vehicle[] = [
     },
   },
 ];
+
+/*
+ * Confirmed by the client in September 2026. The vehicle is being added to the
+ * fleet primarily for weddings, portraits and special events. Model year,
+ * passenger capacity, luggage capacity and final photography are intentionally
+ * absent until the vehicle has been received and documented.
+ *
+ * It has a dedicated search landing page rather than a generated /fleet URL so
+ * one vehicle does not create two pages competing for the same wedding query.
+ */
+export const gazelleWeddingCar: Vehicle = {
+  slug: 'mercedes-gazelle',
+  name: 'Mercedes Gazelle Vintage-Style Roadster',
+  shortName: 'Mercedes Gazelle',
+  category: 'Specialty Wedding Car',
+  tagline: 'A timeless arrival and an unforgettable exit',
+  description:
+    'A vintage-style Mercedes Gazelle roadster reserved for weddings, portraits and special occasions across Raleigh and the Triangle.',
+  image: '/images/gazelle-wedding.avif',
+  metaDescription:
+    'Reserve a chauffeured Mercedes Gazelle vintage-style wedding car in Raleigh, NC for grand exits, newlywed portraits, proposals and special events.',
+  specs: [
+    'Vintage-style Mercedes Gazelle roadster',
+    'Open-air styling for arrivals, exits and portraits',
+    'Coordinated with ITP Limo wedding transportation',
+  ],
+  detail: {
+    intro:
+      'The Gazelle is the finishing touch for couples who want the transportation to become part of the photographs, the experience and the memory.',
+    bestFor: [
+      'Bride and groom getaway transportation',
+      'Wedding grand exits',
+      'Newlywed portraits',
+      'Engagements and proposals',
+      'Anniversary celebrations',
+      'Styled wedding shoots',
+    ],
+  },
+};
+
+export const fleetPageVehicles = [...fleet, gazelleWeddingCar];
+
+export const vehicleHref = (vehicle: Vehicle) =>
+  vehicle.slug === gazelleWeddingCar.slug
+    ? '/vintage-wedding-car-raleigh-nc'
+    : `/fleet/${vehicle.slug}`;
 
 export const getVehicle = (slug: string): Vehicle | undefined =>
   fleet.find((vehicle) => vehicle.slug === slug);

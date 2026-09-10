@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight, Briefcase, Users } from 'lucide-react';
-import { fleet } from '@/content/fleet';
+import { fleetPageVehicles, vehicleHref } from '@/content/fleet';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CapacityStat } from '@/components/ui/CapacityStat';
@@ -10,9 +10,9 @@ import { VehicleImage } from '@/components/ui/VehicleImage';
 import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Our Fleet | 2026 Suburban, Aviator & Sprinter | ITP Limo',
+  title: 'Our Fleet | Executive & Wedding Vehicles | ITP Limo',
   description:
-    'A 2026 Chevrolet Suburban, Lincoln Aviator and Mercedes Sprinter — one of the newest chauffeur fleets in the Triangle, serving North Carolina and Boston.',
+    'Explore ITP Limo’s 2026 executive SUVs and Sprinter, plus a Mercedes Gazelle vintage-style wedding car serving Raleigh and the Triangle.',
   path: '/fleet',
 });
 
@@ -20,38 +20,38 @@ export default function FleetPage() {
   return (
     <>
       <PageHero
-        eyebrow="The Newest Fleet in the Triangle"
-        title="Every vehicle is a 2026."
-        subtitle="A Chevrolet Suburban, a Lincoln Aviator and a Mercedes Sprinter — seating three, seven or fourteen, each driven by a professional licensed chauffeur."
+        eyebrow="Executive & Wedding Fleet"
+        title="Modern comfort. Timeless arrival."
+        subtitle="A 2026 executive fleet for airport, corporate and group travel — joined by a vintage-style Mercedes Gazelle for weddings and special occasions."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Fleet' }]}
         image="/images/fleet-lineup.jpg"
         ctaLabel="Reserve a Vehicle"
       />
 
-      <section className="bg-white dark:bg-[#141414] py-24 sm:py-32 transition-colors duration-500">
+      <section className="bg-white dark:bg-[#141414] py-16 sm:py-24 transition-colors duration-500">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Choose Your Vehicle"
             title="The right vehicle for every occasion."
-            subtitle="A fleet of five, across three models — seating three, seven or fourteen."
+            subtitle="Executive SUVs and group transportation, plus a specialty wedding roadster designed to make the arrival part of the occasion."
             className="mb-20"
           />
 
           <div className="space-y-16 sm:space-y-20">
-            {fleet.map((vehicle, idx) => (
+            {fleetPageVehicles.map((vehicle, idx) => (
               <article
                 key={vehicle.slug}
-                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16 p-8 sm:p-12 rounded-[36px] bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16 p-5 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
               >
                 {/* Alternate image side so the page has rhythm rather than a repeating column */}
                 <div
                   className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}
                 >
-                  <Link href={`/fleet/${vehicle.slug}`} className="group block">
+                  <Link href={vehicleHref(vehicle)} className="group block">
                     <VehicleImage
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="h-[320px] sm:h-[440px] rounded-[28px] overflow-hidden border border-black/5 dark:border-white/10 shadow-lg"
+                      className="h-[320px] sm:h-[440px] rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg"
                     >
                       <div className="absolute bottom-7 left-7 right-7 text-white">
                         <span className="glass-pill px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-2 inline-block">
@@ -78,22 +78,28 @@ export default function FleetPage() {
                     {vehicle.description}
                   </p>
 
-                  {/* Capacity as display numerals rather than small icon pairs */}
-                  <div className="my-7 flex items-stretch gap-8 border-y border-black/10 py-5 dark:border-white/10">
-                    <CapacityStat
-                      value={vehicle.passengers}
-                      label="Passengers"
-                      icon={<Users className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
-                    />
+                  {/* Capacity as display numerals rather than small icon pairs. */}
+                  {vehicle.passengers || vehicle.luggage ? (
+                    <div className="my-7 flex items-stretch gap-8 border-y border-black/10 py-5 dark:border-white/10">
+                      <CapacityStat
+                        value={vehicle.passengers}
+                        label="Passengers"
+                        icon={<Users className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
+                      />
 
-                    <div className="w-px bg-black/10 dark:bg-white/10" />
+                      <div className="w-px bg-black/10 dark:bg-white/10" />
 
-                    <CapacityStat
-                      value={vehicle.luggage}
-                      label="Luggage"
-                      icon={<Briefcase className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
-                    />
-                  </div>
+                      <CapacityStat
+                        value={vehicle.luggage}
+                        label="Luggage"
+                        icon={<Briefcase className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
+                      />
+                    </div>
+                  ) : (
+                    <p className="my-7 border-y border-black/10 py-5 text-xs font-bold uppercase tracking-[0.18em] text-[#888888] dark:border-white/10">
+                      Final vehicle specifications coming soon
+                    </p>
+                  )}
 
                   <ul className="space-y-2">
                     {vehicle.specs.map((spec) => (
@@ -108,7 +114,7 @@ export default function FleetPage() {
                   </ul>
 
                   <Link
-                    href={`/fleet/${vehicle.slug}`}
+                    href={vehicleHref(vehicle)}
                     className="group mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/15 dark:border-white/20 text-xs font-extrabold uppercase tracking-[0.2em] text-[#171717] dark:text-[#F8F6F2] hover:bg-black/5 dark:hover:bg-white/10 transition-all"
                   >
                     <span>Full specifications</span>
@@ -121,7 +127,7 @@ export default function FleetPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/5 bg-[#FAF8F5] py-24 dark:border-white/5 dark:bg-[#070707]">
+      <section className="border-t border-black/5 bg-[#FAF8F5] py-16 dark:border-white/5 dark:bg-[#070707]">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <SectionHeader
             eyebrow="Not sure which vehicle?"

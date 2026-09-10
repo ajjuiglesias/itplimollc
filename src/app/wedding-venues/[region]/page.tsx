@@ -1,3 +1,4 @@
+import { WeddingFleetFeature } from '@/components/ui/WeddingFleetFeature';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -74,7 +75,7 @@ export default async function WeddingVenueRegionPage({ params }: PageProps) {
         ctaLabel="Request A Wedding Plan"
       />
 
-      <section className="bg-white py-20 transition-colors duration-500 sm:py-28 dark:bg-[#141414]">
+      <section className="bg-white py-16 transition-colors duration-500 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -103,7 +104,7 @@ export default async function WeddingVenueRegionPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="border-y border-black/5 bg-[#FAF8F5] py-20 sm:py-28 dark:border-white/5 dark:bg-[#0B0B0B]">
+      <section className="border-y border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#0B0B0B]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Featured Venues"
@@ -131,7 +132,7 @@ export default async function WeddingVenueRegionPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28 dark:bg-[#141414]">
+      <section className="bg-white py-16 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="The Transportation Plan"
@@ -143,11 +144,11 @@ export default async function WeddingVenueRegionPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="border-y border-black/5 bg-[#FAF8F5] py-20 sm:py-28 dark:border-white/5 dark:bg-[#0B0B0B]">
+      <section className="border-y border-black/5 bg-[#FAF8F5] py-16 sm:py-24 dark:border-white/5 dark:bg-[#0B0B0B]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <SectionHeader eyebrow="Questions" title="Before you reserve." align="left" />
+              <SectionHeader size="compact" eyebrow="Questions" title="Before you reserve." align="left" />
               <div className="mt-9 flex flex-col items-start gap-3">
                 <BookNowButton label="Request A Wedding Plan" />
                 <OrCallNote />
@@ -171,7 +172,9 @@ export default async function WeddingVenueRegionPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28 dark:bg-[#141414]">
+      <WeddingFleetFeature />
+
+      <section className="bg-white py-16 sm:py-24 dark:bg-[#141414]">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Other Venue Guides"
