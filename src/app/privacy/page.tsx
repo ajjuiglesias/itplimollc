@@ -2,15 +2,14 @@ import type { Metadata } from 'next';
 import { LegalPage, type LegalSection } from '@/components/ui/LegalPage';
 import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  ...pageMetadata({
-    title: 'Privacy Policy | ITP Limo',
-    description:
-      'How ITP Limo collects, uses and protects passenger information for chauffeur bookings, flight tracking and corporate accounts.',
-    path: '/privacy',
-  }),
-  robots: { index: true, follow: true },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Privacy Policy | ITP Limo',
+  description:
+    'How ITP Limo collects, uses and protects passenger information for chauffeur bookings, flight tracking and corporate accounts.',
+  path: '/privacy',
+  // Keep the draft out of search until the client approves the policy.
+  noindex: true,
+});
 
 /*
  * DRAFT — requires review by the client's own legal counsel before launch.

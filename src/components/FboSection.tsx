@@ -13,11 +13,11 @@ export const FboSection: React.FC = () => {
     },
     {
       title: 'Tail Number Tracking',
-      desc: 'Real-time flight tracking via FAA flight radar system so your chauffeur is ready regardless of early or late arrival.',
+      desc: 'Real-time flight tracking via flight-status updates so your chauffeur is ready regardless of early or late arrival.',
     },
     {
       title: 'Discreet Privacy Protocol',
-      desc: 'Strict non-disclosure agreement (NDA) protocol for high-profile individuals, C-suite executives, and private charter clients.',
+      desc: 'Discreet chauffeur service for executive travel and private charter arrivals. Discuss any specific confidentiality requirements with dispatch before booking.',
     },
   ];
 

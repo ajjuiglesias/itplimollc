@@ -7,7 +7,7 @@ import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { locations, announcedMarkets, extendedCoverage } from '@/content/locations';
-import { JsonLd, businessSchema, siteUrl, type ServedArea } from '@/lib/seo';
+import { JsonLd, businessSchema, defaultRobots, siteUrl, type ServedArea } from '@/lib/seo';
 
 const SITE_NAME = 'ITP Limo';
 const HOME_TITLE = 'ITP Limo | Executive Transportation, Raleigh-Durham & Boston';
@@ -52,11 +52,7 @@ export const metadata: Metadata = {
     description: HOME_DESCRIPTION,
     images: ['/og/share.jpg'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
-  },
+  robots: defaultRobots,
 };
 
 /*

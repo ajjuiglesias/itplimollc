@@ -21,11 +21,11 @@ const features = [
   },
   {
     title: 'Tail Number Tracking',
-    desc: 'Real-time flight tracking via FAA flight radar so your chauffeur is ready regardless of early or late arrival.',
+    desc: 'Real-time flight tracking via flight-status updates so your chauffeur is ready regardless of early or late arrival.',
   },
   {
     title: 'Discreet Privacy Protocol',
-    desc: 'Strict non-disclosure agreement protocol for high-profile individuals, C-suite executives and private charter clients.',
+    desc: 'Discreet chauffeur service for executive travel and private charter arrivals. Discuss specific confidentiality requirements before booking.',
   },
   {
     title: 'Group & Crew Movement',

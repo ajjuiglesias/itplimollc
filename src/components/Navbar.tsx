@@ -1,5 +1,8 @@
 'use client';
 
+import { TextDispatchButton, DISPATCH_SMS_HREF } from './ui/CallDispatchButton';
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -266,7 +269,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Action Links & CTA */}
-          <div className="hidden xl:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-2">
             {/* Dispatch line — collapses to an icon inside the island to keep it compact */}
             {condensed ? (
               <a
@@ -287,6 +290,7 @@ export const Navbar: React.FC = () => {
               </a>
             )}
 
+            <a href={DISPATCH_SMS_HREF} className={iconButton} aria-label="Text ITP Limo at 919-435-2157" title="Text 919-435-2157"><span className="text-[10px] font-bold">SMS</span></a>
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -385,6 +389,7 @@ export const Navbar: React.FC = () => {
                   </Link>
                 </div>
 
+                <TextDispatchButton />
                 {/* Direct dispatch line */}
                 <a
                   href="tel:19194352157"

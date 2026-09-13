@@ -17,11 +17,19 @@ import type { Metadata } from 'next';
  * resolves to the deployment URL. That must be set to the real domain before
  * launch or every canonical and every @id points at *.vercel.app.
  */
-export const siteUrl =
+const configuredSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'http://localhost:3000');
+
+export const siteUrl = new URL(configuredSiteUrl).origin;
+const siteHost = new URL(siteUrl).hostname;
+// Explicit launch switch: review deployments must remain noindex.
+export const searchIndexingEnabled = process.env.SEO_INDEXING_ENABLED === 'true' &&
+  Boolean(process.env.NEXT_PUBLIC_SITE_URL) &&
+  process.env.VERCEL_ENV !== 'preview' && process.env.VERCEL_ENV !== 'development' &&
+  new URL(siteUrl).protocol === 'https:' && siteHost !== 'localhost' && !siteHost.endsWith('.vercel.app');
 
 export const abs = (path: string) => new URL(path, siteUrl).toString();
 
@@ -32,6 +40,17 @@ export const OG_IMAGE = {
   height: 630,
   alt: 'ITP Limo — an executive Sprinter beside a Gulfstream on the tarmac',
 } as const;
+
+export const defaultRobots: Metadata['robots'] = {
+  index: searchIndexingEnabled,
+  follow: true,
+  googleBot: {
+    index: searchIndexingEnabled,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
+};
 
 /**
  * Page metadata with the social card filled in.
@@ -53,8 +72,12 @@ export function pageMetadata(opts: {
   title: string;
   description: string;
   path: string;
+  noindex?: boolean;
 }): Metadata {
   return {
+    robots: opts.noindex
+      ? { index: false, follow: true, googleBot: { index: false, follow: true } }
+      : defaultRobots,
     title: opts.title,
     description: opts.description,
     alternates: { canonical: opts.path },
@@ -220,7 +243,7 @@ export function JsonLd({ data }: { data: object | object[] }) {
     <script
       type="application/ld+json"
       // Schema is built from typed literals above, never from user input.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );
 }

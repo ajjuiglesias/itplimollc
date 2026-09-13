@@ -76,7 +76,7 @@ export const services: Service[] = [
       'Unlimited Stops & Instant Itinerary Adjustments',
       'Chauffeur On Standby Outside Every Venue',
       'Confidential & Soundproof Work Environment',
-      'Customized In-Cabin Fiji Water & Refreshments',
+      'Share Your Onboard Preferences When Booking',
     ],
     detail: {
       intro:
@@ -109,7 +109,7 @@ export const services: Service[] = [
     image: '/images/suburban-front.jpg',
     amenities: [
       'Direct Door-to-Door Regional Highway Travel',
-      'High-Speed Onboard 5G Wi-Fi & Device Charging',
+      'Private Transportation Between Cities',
       'Reclining Executive Seats with Heating & Massage',
       'Zero Airport TSA Hassles or Connecting Delays',
     ],
@@ -123,7 +123,7 @@ export const services: Service[] = [
         },
         {
           step: 'Work or rest in transit',
-          body: 'Onboard 5G Wi-Fi, power at every seat and a soundproofed cabin for calls.',
+          body: 'Private travel between meetings, with your route and stops arranged in advance.',
         },
         {
           step: 'Arrive at the door',

@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { BookNowButton, OrCallNote, CallDispatchButton } from './CallDispatchButton';
+import { BookNowButton, OrCallNote, CallDispatchButton, TextDispatchButton } from './CallDispatchButton';
 
 export interface Crumb {
   label: string;
@@ -51,7 +52,10 @@ export const PageHero: React.FC<PageHeroProps> = ({
     {image && (
       <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
+          fill
+          sizes="100vw"
+          priority
           src={image}
           alt=""
           aria-hidden="true"
@@ -141,7 +145,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
               <OrCallNote onDark />
             </>
           ) : (
-            <CallDispatchButton label={ctaLabel} variant="onDark" />
+            <><CallDispatchButton label={ctaLabel} variant="onDark" /><TextDispatchButton onDark /></>
           )}
         </div>
       )}

@@ -6,7 +6,7 @@ import { locations } from '@/content/locations';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { PillarColumns } from '@/components/ui/PillarColumns';
-import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
+import { TextDispatchButton, DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Contact ITP Limo | 24/7 Chauffeur Dispatch Desk',
@@ -24,7 +24,7 @@ export default function ContactPage() {
         compact
         eyebrow="24/7 Concierge Dispatch"
         title="Talk to a person."
-        subtitle="Our dispatch desk is staffed around the clock. Call for immediate arrangements, or email for corporate accounts and roadshow pricing."
+        subtitle="Call or text 919-435-2157 to plan your ride. For immediate arrangements, call our dispatch desk; for corporate accounts and roadshow pricing, email us."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
         ctaLabel="Call 24/7 Dispatch"
         cta="call"
@@ -63,6 +63,7 @@ export default function ContactPage() {
               </div>
             </a>
 
+            <div className="flex flex-wrap items-center gap-4 rounded-3xl border border-black/5 bg-[#FAF8F5] p-6 dark:border-white/10 dark:bg-[#181818]"><TextDispatchButton /><p className="text-sm text-[#66625C] dark:text-[#B8B8B8]">Prefer a message? Text 919-435-2157 with your date, pickup and destination.</p></div>
             <a
               href={`mailto:${EMAIL}`}
               className="group grid grid-cols-1 gap-6 p-6 sm:p-8 rounded-3xl bg-[#FAF8F5] dark:bg-[#181818] border border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:shadow-xl transition-all duration-300 lg:grid-cols-12 lg:gap-10 lg:items-center"
@@ -107,7 +108,7 @@ export default function ContactPage() {
 
               <div className="lg:col-span-6">
                 <p className="text-sm sm:text-base font-light leading-relaxed text-[#66625C] dark:text-[#B8B8B8]">
-                  Vehicles are dispatched from within each market. Call or email the
+                  Vehicles are dispatched from within each market. Call, text or email the
                   dispatch desk to arrange a journey — there is no walk-in office.
                 </p>
               </div>
@@ -140,8 +141,8 @@ export default function ContactPage() {
               },
               {
                 eyebrow: 'Booking',
-                title: 'Online or by phone',
-                body: 'Reserve online in a few steps, or call the desk for multi-vehicle, roadshow and same-day arrangements.',
+                title: 'Online, call or text',
+                body: 'Reserve online in a few steps, or call or text the desk for multi-vehicle, roadshow and same-day arrangements.',
               },
             ]}
           />

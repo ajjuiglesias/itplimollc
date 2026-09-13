@@ -1,9 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, Phone, MessageSquare } from 'lucide-react';
 
 export const DISPATCH_PHONE = '+1 (919) 435-2157';
 export const DISPATCH_PHONE_HREF = 'tel:19194352157';
+export const DISPATCH_SMS_HREF = 'sms:+19194352157';
+
+export function TextDispatchButton({ onDark = false }: { onDark?: boolean }) {
+  return <a href={DISPATCH_SMS_HREF} aria-label="Text ITP Limo at 919-435-2157" className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border px-6 py-3 text-xs font-bold uppercase tracking-[0.15em] transition-colors ${onDark ? 'border-white/30 text-white hover:bg-white/10' : 'border-black/20 text-[#171717] hover:bg-black/5 dark:border-white/25 dark:text-white dark:hover:bg-white/10'}`}><MessageSquare aria-hidden="true" className="h-4 w-4 shrink-0" />Text Us</a>;
+}
 
 type Variant = 'solid' | 'outline' | 'onDark';
 
@@ -77,6 +82,7 @@ export const OrCallNote: React.FC<{ onDark?: boolean; className?: string }> = ({
   onDark = false,
   className = '',
 }) => (
+  <span className={`inline-flex flex-wrap items-center gap-x-4 ${className}`}>
   <a
     href={DISPATCH_PHONE_HREF}
     /* py-3 keeps the tap target at the 44px comfort minimum; the text itself is
@@ -85,7 +91,7 @@ export const OrCallNote: React.FC<{ onDark?: boolean; className?: string }> = ({
       onDark
         ? 'text-white/65 hover:text-white'
         : 'text-[#66625C] dark:text-[#A0A0A0] hover:text-[#171717] dark:hover:text-white'
-    } ${className}`}
+    }`}
   >
     <span className="relative flex h-1.5 w-1.5 shrink-0">
       <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
@@ -93,4 +99,6 @@ export const OrCallNote: React.FC<{ onDark?: boolean; className?: string }> = ({
     </span>
     Or call 24/7 dispatch
   </a>
+  <a href={DISPATCH_SMS_HREF} aria-label="Text ITP Limo at 919-435-2157" className={`inline-flex min-h-[44px] items-center gap-2 py-3 text-[10px] uppercase tracking-[0.18em] font-semibold ${onDark ? 'text-white/80 hover:text-white' : 'text-[#66625C] hover:text-[#171717] dark:text-[#B8B8B8] dark:hover:text-white'}`}><MessageSquare aria-hidden="true" className="h-3.5 w-3.5" />Text us</a>
+  </span>
 );

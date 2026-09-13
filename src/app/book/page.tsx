@@ -5,13 +5,14 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { PillarColumns } from '@/components/ui/PillarColumns';
 import { MoovsBooking } from '@/components/MoovsBooking';
 import { BookingSummary } from '@/components/BookingSummary';
-import { DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
+import { DISPATCH_SMS_HREF, DISPATCH_PHONE, DISPATCH_PHONE_HREF } from '@/components/ui/CallDispatchButton';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Book a Ride | Reserve Your Chauffeur Online | ITP Limo',
   description:
     'Reserve your ITP Limo chauffeur online — airport transfers, hourly hire, weddings and corporate travel across North Carolina and Boston.',
   path: '/book',
+  noindex: true,
 });
 
 export default function BookPage() {
@@ -21,7 +22,7 @@ export default function BookPage() {
         compact
         eyebrow="Online Reservations"
         title="Book your ride."
-        subtitle="Enter your journey details below. For multi-vehicle plans or same-day changes, call our dispatch desk."
+        subtitle="Enter your journey details below. For multi-vehicle plans or same-day changes, call or text our dispatch desk."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Book' }]}
         ctaLabel="Call 24/7 Dispatch"
         cta="call"
@@ -41,7 +42,7 @@ export default function BookPage() {
             >
               {DISPATCH_PHONE}
             </a>{' '}
-            — the desk is staffed 24 hours a day.
+            or <a href={DISPATCH_SMS_HREF} className="inline-flex min-h-[44px] items-center font-semibold underline underline-offset-4">text us</a>. The dispatch desk is staffed 24 hours a day.
           </p>
         </div>
       </section>

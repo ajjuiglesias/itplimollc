@@ -12,34 +12,34 @@ import { OrCallNote, BookNowButton } from '@/components/ui/CallDispatchButton';
 export const metadata: Metadata = pageMetadata({
   title: 'About ITP Limo | Executive Chauffeur Company, NC',
   description:
-    'Private chauffeur and executive transportation across North Carolina and Boston, built on discretion, flight-aware dispatch and an all-2026 fleet.',
+    'Private chauffeur and executive transportation across North Carolina and Boston, built on discretion, flight-aware dispatch and executive SUVs, Sprinters and a vintage-style wedding car.',
   path: '/about',
 });
 
 const pillars = [
   {
     icon: Globe,
-    title: 'Two markets, one standard',
-    subtitle: 'The Triangle and Boston',
-    desc: 'Dedicated chauffeurs serving Raleigh, Durham, Chapel Hill, RTP and RDU, plus Greater Boston and Logan — run to identical protocol in both.',
+    title: 'Four markets, one standard',
+    subtitle: 'North Carolina and Boston',
+    desc: 'Serving the Triangle, Pinehurst, Wilmington and Greater Boston, with airport transfers, business travel and event transportation tailored to each journey.',
   },
   {
     icon: Car,
     title: 'A maintained fleet',
-    subtitle: 'Recent models only',
-    desc: 'A Mercedes-Benz executive Sprinter, SUVs and sedans, cleaned and checked before every dispatch.',
+    subtitle: 'Executive and wedding vehicles',
+    desc: 'Chevrolet Suburban and Lincoln Aviator SUVs, Mercedes-Benz Sprinter transportation and a Gazelle vintage-style roadster for weddings and special occasions.',
   },
   {
     icon: Plane,
     title: 'Flight-aware dispatch',
-    subtitle: '60 minutes free wait time',
-    desc: 'Every airport assignment is tracked against live radar, so early and delayed landings are absorbed by us rather than charged to you.',
+    subtitle: 'Flight-status coordination',
+    desc: 'Share your flight or tail number and dispatch can coordinate the chauffeur’s arrival around the latest available flight status.',
   },
   {
     icon: ShieldCheck,
     title: 'Discretion as policy',
-    subtitle: 'NDA protocol',
-    desc: 'Non-disclosure protocol across the chauffeur team, with quiet cabins built for confidential calls and private conversation.',
+    subtitle: 'Discreet service',
+    desc: 'Professional, discreet service for private journeys, business appointments and special occasions.',
   },
 ];
 

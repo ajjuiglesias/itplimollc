@@ -1,0 +1,315 @@
+{
+  "generatedAt": "2026-09-13T06:35:31.907Z",
+  "pages": 34,
+  "internalLinks": 34,
+  "localImages": 22,
+  "issues": [],
+  "results": [
+    {
+      "route": "/about",
+      "title": "About ITP Limo | Executive Chauffeur Company, NC",
+      "description": "Private chauffeur and executive transportation across North Carolina and Boston, built on discretion, flight-aware dispatch and executive SUVs, Sprinters and a vintage-style wedding car.",
+      "h1": "Quietly, precisely, every time.",
+      "canonical": "http://localhost:3000/about",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/book",
+      "title": "Book a Ride | Reserve Your Chauffeur Online | ITP Limo",
+      "description": "Reserve your ITP Limo chauffeur online — airport transfers, hourly hire, weddings and corporate travel across North Carolina and Boston.",
+      "h1": "Book your ride.",
+      "canonical": "http://localhost:3000/book",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/contact",
+      "title": "Contact ITP Limo | 24/7 Chauffeur Dispatch Desk",
+      "description": "Reach the ITP Limo dispatch desk 24 hours a day on +1 (919) 435-2157, or email Reservations@itplimo.com for corporate accounts and roadshow pricing.",
+      "h1": "Talk to a person.",
+      "canonical": "http://localhost:3000/contact",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/fleet/chevrolet-suburban",
+      "title": "2026 Chevrolet Suburban | Full-Size Executive SUV | ITP Limo",
+      "description": "Chauffeured 2026 Chevrolet Suburban in black — seven passengers, six bags. The default for airport runs and corporate travel across Raleigh and the Triangle.",
+      "h1": "2026 Chevrolet Suburban",
+      "canonical": "http://localhost:3000/fleet/chevrolet-suburban",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/fleet/lincoln-aviator",
+      "title": "2026 Lincoln Aviator | Luxury Executive SUV | ITP Limo",
+      "description": "A 2026 Lincoln Aviator in black, configured for up to three passengers — the quietest way to move between meetings, hotels and the airport.",
+      "h1": "2026 Lincoln Aviator",
+      "canonical": "http://localhost:3000/fleet/lincoln-aviator",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/fleet/mercedes-sprinter",
+      "title": "2026 Mercedes-Benz Sprinter | Executive Group Van | ITP Limo",
+      "description": "Chauffeured 2026 Mercedes-Benz Sprinter — fourteen passengers, twenty bags, full stand-up headroom. For groups, weddings and airport transfers across NC.",
+      "h1": "2026 Mercedes-Benz Sprinter",
+      "canonical": "http://localhost:3000/fleet/mercedes-sprinter",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/fleet",
+      "title": "Our Fleet | Executive & Wedding Vehicles | ITP Limo",
+      "description": "Explore ITP Limo’s 2026 executive SUVs and Sprinter, plus a Mercedes Gazelle vintage-style wedding car serving Raleigh and the Triangle.",
+      "h1": "Modern comfort. Timeless arrival.",
+      "canonical": "http://localhost:3000/fleet",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/flight-tracking",
+      "title": "Live Flight Tracking | Delay-Proof Pickups | ITP Limo",
+      "description": "Every ITP airport pickup is synchronised to live flight radar. We track your flight or tail number and move your chauffeur to the real landing time.",
+      "h1": "Your flight moves. So do we.",
+      "canonical": "http://localhost:3000/flight-tracking",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/",
+      "title": "ITP Limo | Executive Transportation, Raleigh-Durham & Boston",
+      "description": "On-time chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston. Airport transfers with live flight tracking.",
+      "h1": "Private Chauffeur Service Designed Around You.",
+      "canonical": "http://localhost:3000",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/locations/boston",
+      "title": "Boston Limo Service | Logan Airport Transfers | ITP Limo",
+      "description": "Professional, on-time limo and black car service across Boston. Logan Airport transfers with flight tracking, corporate travel, weddings and special events.",
+      "h1": "Boston car service, Logan and everything after it.",
+      "canonical": "http://localhost:3000/locations/boston",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/locations/pinehurst",
+      "title": "Pinehurst Limo Service | Golf & Resort Transfers | ITP Limo",
+      "description": "Chauffeur service for Pinehurst, Southern Pines and Aberdeen. Golf group transfers, resort arrivals and airport pickups from RDU, Moore County and Fayetteville.",
+      "h1": "Pinehurst, from the airport to the first tee.",
+      "canonical": "http://localhost:3000/locations/pinehurst",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/locations/raleigh",
+      "title": "Raleigh Limo Service | RDU Airport Transfers | ITP Limo",
+      "description": "Chauffeur and black car service across Raleigh, Durham, Chapel Hill and Cary. RDU airport transfers with flight tracking, corporate travel, weddings and events.",
+      "h1": "Raleigh car service, on your schedule.",
+      "canonical": "http://localhost:3000/locations/raleigh",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/locations/wilmington",
+      "title": "Wilmington Limo Service | ILM Airport & Beaches | ITP Limo",
+      "description": "Chauffeur service across Wilmington, Wrightsville Beach and Carolina Beach. ILM airport transfers, weddings, corporate travel and Raleigh-to-coast journeys.",
+      "h1": "Wilmington, from the runway to the shoreline.",
+      "canonical": "http://localhost:3000/locations/wilmington",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/locations",
+      "title": "Service Areas | NC & Boston Chauffeur Coverage | ITP Limo",
+      "description": "Chauffeur and black car service across Raleigh-Durham, Pinehurst, Wilmington and Boston, with long-distance coverage into Charlotte, Greensboro and beyond.",
+      "h1": "Where we drive.",
+      "canonical": "http://localhost:3000/locations",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/privacy",
+      "title": "Privacy Policy | ITP Limo",
+      "description": "How ITP Limo collects, uses and protects passenger information for chauffeur bookings, flight tracking and corporate accounts.",
+      "h1": "Your details, handled carefully.",
+      "canonical": "http://localhost:3000/privacy",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/private-aviation",
+      "title": "FBO & Private Aviation Transfers | Tarmac Pickup | ITP Limo",
+      "description": "Chauffeur transfers at private aviation terminals including Signature Aviation, serving Raleigh-Durham (RDU) and Boston (BOS), with live tail-number tracking.",
+      "h1": "Direct to the tarmac.",
+      "canonical": "http://localhost:3000/private-aviation",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/routes/raleigh-to-wilmington",
+      "title": "Raleigh to Wilmington Car Service | RDU Transfer | ITP Limo",
+      "description": "Private car service from Raleigh and RDU to Wilmington and the coast — about 2 hours door to door, for beach houses, weddings and corporate travel.",
+      "h1": "Raleigh to Wilmington, in one car.",
+      "canonical": "http://localhost:3000/routes/raleigh-to-wilmington",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/routes/rdu-to-pinehurst",
+      "title": "RDU to Pinehurst Car Service | Private Transfer | ITP Limo",
+      "description": "Private car service from RDU to Pinehurst — about 1 hr 15 min door to door, with golf clubs planned into the booking. Moore County and Fayetteville also served.",
+      "h1": "RDU to Pinehurst, door to door.",
+      "canonical": "http://localhost:3000/routes/rdu-to-pinehurst",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/airport-transfers",
+      "title": "Airport Transfers | Private Chauffeur | ITP Limo",
+      "description": "Delayed flight? Chauffeurs track arrivals automatically in real time and adjust pickup schedules so you are never stranded.",
+      "h1": "Smooth landings, every time.",
+      "canonical": "http://localhost:3000/services/airport-transfers",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/city-to-city",
+      "title": "City-to-City Executive | Private Chauffeur | ITP Limo",
+      "description": "Turn long-distance journeys into calm, productive time. Direct private travel between Raleigh, Charlotte, Richmond, and Washington D.C.",
+      "h1": "Between cities, done better.",
+      "canonical": "http://localhost:3000/services/city-to-city",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/corporate-accounts",
+      "title": "Enterprise Solutions | Private Chauffeur | ITP Limo",
+      "description": "One dedicated concierge platform for companies and executive assistants to book, track, and account for every journey.",
+      "h1": "Corporate travel, simplified.",
+      "canonical": "http://localhost:3000/services/corporate-accounts",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/group-transportation",
+      "title": "Group & Prom Transportation | 14-Seat Sprinter | ITP Limo",
+      "description": "Prom, group and party transportation across Raleigh in a 14-seat Mercedes Sprinter and Suburbans — the chauffeured alternative to a party bus rental.",
+      "h1": "Everyone arrives together.",
+      "canonical": "http://localhost:3000/services/group-transportation",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/hourly-chauffeur",
+      "title": "Hourly & Full Day Hire | Private Chauffeur | ITP Limo",
+      "description": "Reserve a dedicated chauffeur from 2 to 24 hours. Your vehicle remains on standby outside every venue for as long as you need.",
+      "h1": "Seize the day.",
+      "canonical": "http://localhost:3000/services/hourly-chauffeur",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/wedding-guest-shuttles",
+      "title": "Wedding Guest Shuttle Service | Hotel to Venue | ITP Limo",
+      "description": "Wedding guest shuttle service between hotel, ceremony and reception. Continuous loops, a 14-seat Sprinter, and one schedule the couple never has to think about.",
+      "h1": "Nobody stranded at the hotel.",
+      "canonical": "http://localhost:3000/services/wedding-guest-shuttles",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services/wedding-transportation",
+      "title": "Wedding Transportation Services | Guest Shuttles | ITP Limo",
+      "description": "Wedding transportation services for the couple, wedding party and guests. Guest shuttles, a car held all day, and one timeline across Raleigh and coastal NC.",
+      "h1": "One timeline, every car on it.",
+      "canonical": "http://localhost:3000/services/wedding-transportation",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/services",
+      "title": "Chauffeur Services | Airport, Hourly & Corporate | ITP Limo",
+      "description": "Airport transfers with live flight tracking, hourly and full-day chauffeur hire, city-to-city travel and corporate accounts across NC and Boston.",
+      "h1": "Every journey, covered.",
+      "canonical": "http://localhost:3000/services",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/terms",
+      "title": "Terms of Chauffeur Service | ITP Limo",
+      "description": "Booking, cancellation, wait time and conduct terms for ITP Limo private chauffeur and executive transportation services.",
+      "h1": "The arrangement, plainly.",
+      "canonical": "http://localhost:3000/terms",
+      "robots": "noindex, follow",
+      "schemas": 1
+    },
+    {
+      "route": "/vintage-wedding-car-raleigh-nc",
+      "title": "Vintage Wedding Car Rental Raleigh, NC | ITP Limo",
+      "description": "Reserve a chauffeured Mercedes Gazelle vintage wedding car in Raleigh, NC for grand exits, newlywed portraits, proposals and special occasions.",
+      "h1": "Vintage wedding car rental in Raleigh, NC.",
+      "canonical": "http://localhost:3000/vintage-wedding-car-raleigh-nc",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/wedding-venues/cary-apex-holly-springs",
+      "title": "Cary & Apex Wedding Transportation | ITP Limo",
+      "description": "Wedding transportation for Cary, Apex and Holly Springs venues. Private SUVs, Sprinter shuttles, hotel loops and coordinated service from ITP Limo.",
+      "h1": "A polished arrival, wherever the day begins.",
+      "canonical": "http://localhost:3000/wedding-venues/cary-apex-holly-springs",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/wedding-venues/clayton-johnston-county-fuquay-varina",
+      "title": "Clayton Wedding Transportation | Johnston County | ITP",
+      "description": "Wedding transportation for Clayton, Johnston County and Fuquay-Varina. Guest shuttles, private cars and coordinated Raleigh-area transfers.",
+      "h1": "The distance disappears into the plan.",
+      "canonical": "http://localhost:3000/wedding-venues/clayton-johnston-county-fuquay-varina",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/wedding-venues/durham-chapel-hill-hillsborough",
+      "title": "Durham & Chapel Hill Wedding Transportation | ITP Limo",
+      "description": "Wedding transportation in Durham, Chapel Hill and Hillsborough. Venue transfers, hotel shuttles, RDU pickups and private chauffeur service.",
+      "h1": "Three cities. One carefully held schedule.",
+      "canonical": "http://localhost:3000/wedding-venues/durham-chapel-hill-hillsborough",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/wedding-venues/pittsboro-chatham-county",
+      "title": "Pittsboro Wedding Transportation | Chatham County | ITP",
+      "description": "Wedding transportation in Pittsboro and Chatham County. Private SUVs, Sprinter guest shuttles and coordinated transfers from across the Triangle.",
+      "h1": "From the Triangle to the venue, beautifully timed.",
+      "canonical": "http://localhost:3000/wedding-venues/pittsboro-chatham-county",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/wedding-venues/raleigh-wake-forest",
+      "title": "Raleigh Wedding Venue Transportation | ITP Limo",
+      "description": "Wedding transportation in Raleigh and Wake Forest, NC. Private cars, Sprinter shuttles, RDU transfers and coordinated hotel-to-venue service.",
+      "h1": "The whole wedding moves as one.",
+      "canonical": "http://localhost:3000/wedding-venues/raleigh-wake-forest",
+      "robots": "noindex, follow",
+      "schemas": 2
+    },
+    {
+      "route": "/wedding-venues",
+      "title": "Raleigh Wedding Venues & Transportation | ITP Limo",
+      "description": "Plan wedding transportation for venues across Raleigh, Wake Forest, Cary, Apex, Durham, Chapel Hill, Clayton, Pittsboro and the Triangle.",
+      "h1": "Your venue. Your people. One plan.",
+      "canonical": "http://localhost:3000/wedding-venues",
+      "robots": "noindex, follow",
+      "schemas": 2
+    }
+  ]
+}

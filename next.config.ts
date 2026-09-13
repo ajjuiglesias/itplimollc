@@ -1,10 +1,13 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  images: {
-    // Boston/Raleigh market photos and testimonial avatars are currently hotlinked
-    // from Unsplash. These should be self-hosted before launch.
-    remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
+  async redirects() {
+    return [
+      { source: '/limo-service-raleigh', destination: '/locations/raleigh', permanent: true },
+      { source: '/limo-service-boston', destination: '/locations/boston', permanent: true },
+      { source: '/contact-8', destination: '/contact', permanent: true },
+      { source: '/about-3', destination: '/about', permanent: true },
+    ];
   },
 };
 

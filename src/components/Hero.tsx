@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { TextDispatchButton } from './ui/CallDispatchButton';
 import { ArrowRight, Shield, Plane, Clock } from 'lucide-react';
 import { AmbientVideo } from './ui/AmbientVideo';
 
@@ -124,6 +125,7 @@ export const Hero: React.FC = () => {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
             </Link>
 
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             <a
               href="tel:19194352157"
               className="inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold text-white/75 transition-opacity hover:opacity-100"
@@ -132,8 +134,10 @@ export const Hero: React.FC = () => {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
               </span>
-              Available 24/7<span className="hidden sm:inline"> — +1 (919) 435-2157</span>
+              Call 24/7<span className="hidden sm:inline"> — +1 (919) 435-2157</span>
             </a>
+            <TextDispatchButton onDark />
+            </div>
           </div>
 
           {/* Executive Trust Badges */}

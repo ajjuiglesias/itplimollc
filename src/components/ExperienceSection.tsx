@@ -20,7 +20,7 @@ export const ExperienceSection: React.FC = () => {
       headline: 'You set the tone',
       icon: Sparkles,
       description:
-        'Sit back and relax. Acoustic soundproofing, ambient lighting, temperature controls, and cabin audio are calibrated to your exact preference.',
+        'Settle into your seat and leave the driving to us. Share your preferences when booking so we can help plan a comfortable journey.',
     },
     {
       number: '03',
@@ -28,7 +28,7 @@ export const ExperienceSection: React.FC = () => {
       headline: 'Recharge your journey',
       icon: Wifi,
       description:
-        'Stay productive and refreshed with universal high-speed multi-device charging ports, dedicated onboard 5G Wi-Fi, and chilled Fiji water.',
+        'Make the most of the time between appointments. Tell us about any onboard requirements when booking so we can confirm the right vehicle for your trip.',
     },
   ];
 
@@ -63,17 +63,19 @@ export const ExperienceSection: React.FC = () => {
           className="relative h-[420px] sm:h-[500px] lg:h-[560px] rounded-3xl overflow-hidden mb-20 shadow-2xl border border-black/10 dark:border-white/10 group"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src="/images/sprinter-interior.jpg"
-            alt="ITP Cockpit View Private Jet Tarmac"
+            alt="Passenger seating inside an ITP Limo Mercedes-Benz Sprinter"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 filter brightness-[0.82] dark:brightness-[0.72] contrast-[1.05]"
           />
           {/* Floating Pill Highlights */}
           <div className="absolute top-6 right-6 hidden sm:flex items-center gap-2.5">
             <span className="glass-pill px-3.5 py-1.5 rounded-full text-[11px] font-medium text-white/90">
-              Acoustic Soundproofing
+              Private Chauffeur Service
             </span>
             <span className="glass-pill px-3.5 py-1.5 rounded-full text-[11px] font-medium text-white/90">
-              Chilled Fiji Water
+              Room to Unwind
             </span>
           </div>
 
@@ -86,7 +88,7 @@ export const ExperienceSection: React.FC = () => {
                 Rest, work, or reflect in complete privacy.
               </h3>
               <p className="text-sm sm:text-base text-white/85 font-light leading-relaxed">
-                Our fleet is custom-spec’d with acoustic glass soundproofing, executive reclining rear lounge seats, and private non-disclosure chauffeurs.
+                Choose an executive SUV or Sprinter for your journey, with a professional chauffeur and space for your group to travel together.
               </p>
             </div>
           </div>

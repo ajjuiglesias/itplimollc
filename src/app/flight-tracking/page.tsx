@@ -21,13 +21,13 @@ const guarantees = [
   },
   {
     number: '02',
-    title: 'Delays cost you nothing',
-    body: 'If your flight is late, your pickup simply moves with it. There are no delay surcharges and no re-booking, however long the hold.',
+    title: 'Dispatch follows the latest arrival',
+    body: 'When you provide a flight or tail number, dispatch can follow status changes and coordinate the pickup around the latest available arrival information.',
   },
   {
     number: '03',
-    title: '60 minutes of complimentary wait',
-    body: 'Commercial arrivals include a full hour of wait time from wheels-down. FBO tarmac arrivals include wait time until you disembark.',
+    title: 'Pickup details planned in advance',
+    body: 'Share baggage, customs, terminal and passenger details before the trip so dispatch can plan the appropriate pickup point and timing.',
   },
   {
     number: '04',
@@ -42,7 +42,7 @@ export default function FlightTrackingPage() {
       <PageHero
         eyebrow="Flight Radar Synchronization"
         title="Your flight moves. So do we."
-        subtitle="Real-time FAA radar tracking on every airport pickup, so a delayed or early landing never becomes your problem."
+        subtitle="Real-time flight tracking on every airport pickup, so a delayed or early landing never becomes your problem."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Flight Tracking' }]}
         image="/images/suburban-cockpit.jpg"
         ctaLabel="Arrange an Airport Pickup"

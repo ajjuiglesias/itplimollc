@@ -7,6 +7,8 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Booking, cancellation, wait time and conduct terms for ITP Limo private chauffeur and executive transportation services.',
   path: '/terms',
+  // Keep the draft out of search until the client approves the operating terms.
+  noindex: true,
 });
 
 /*
@@ -19,7 +21,7 @@ const sections: LegalSection[] = [
     heading: 'Reservations',
     body: [
       'All journeys are arranged through the ITP dispatch desk. A reservation is confirmed once we have acknowledged it directly; a request alone does not constitute a confirmed booking.',
-      'Online reservations are not currently available. Until they are, bookings are taken by telephone or email.',
+      'Use our online booking page to request a ride, or contact dispatch by phone, text or email for help with your journey.',
     ],
   },
   {

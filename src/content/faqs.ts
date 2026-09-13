@@ -15,12 +15,12 @@ export const faqs: Faq[] = [
   {
     question: 'What happens if my commercial or private flight is delayed?',
     answer:
-      'All chauffeur pickups include automated live flight radar tracking. We monitor your tail number or flight number in real time and automatically adjust your chauffeur’s dispatch time to match your actual landing. No delay fees apply.',
+      'Share your flight number or private-aircraft tail number when booking. Dispatch can monitor the arrival and coordinate your pickup around the latest available flight status.',
   },
   {
     question: 'How long is the complimentary wait time at the airport?',
     answer:
-      'Commercial airline arrivals include 60 minutes of complimentary wait time from the moment the aircraft wheels touch down. Private aviation FBO tarmac arrivals include complimentary wait time until you disembark.',
+      'Wait-time terms can vary by airport, vehicle and booking. Contact dispatch before reserving if you need extra time for baggage, customs, a private terminal or a group arrival.',
   },
   {
     question: 'Can I request tarmac pickup at a private aviation terminal?',
@@ -30,12 +30,12 @@ export const faqs: Faq[] = [
   {
     question: 'What is your cancellation and reservation modification policy?',
     answer:
-      'Reservations can be modified or cancelled free of charge up to 24 hours prior to scheduled pick-up for sedan and SUV journeys, and up to 48 hours for Mercedes Sprinter jet vans and multi-vehicle roadshows.',
+      'Cancellation and change terms depend on the vehicle and journey. Dispatch will confirm the terms that apply before your reservation is finalized.',
   },
   {
-    question: 'Are all vehicles non-smoking and sanitized?',
+    question: 'Are the vehicles non-smoking?',
     answer:
-      'Every vehicle undergoes deep interior detailing, air purification, and sanitation prior to every dispatch. All vehicles are strictly 100% non-smoking.',
+      'ITP Limo vehicles are non-smoking. Contact dispatch if you have a specific accessibility, allergy or onboard requirement so it can be discussed before booking.',
   },
   /*
    * Added 2026-08-28. People searching "party bus raleigh" reach the site and
