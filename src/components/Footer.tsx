@@ -1,4 +1,3 @@
-import { TextDispatchButton } from './ui/CallDispatchButton';
 import React from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Shield, Lock } from 'lucide-react';
@@ -157,8 +156,6 @@ export const Footer: React.FC = () => {
                   <span className="text-[10px] text-white/50">24/7 Dispatch Desk</span>
                 </div>
               </a>
-
-              <TextDispatchButton onDark />
 
               <a
                 href="mailto:Reservations@itplimo.com"

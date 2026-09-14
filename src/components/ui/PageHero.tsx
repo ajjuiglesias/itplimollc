@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { BookNowButton, OrCallNote, CallDispatchButton, TextDispatchButton } from './CallDispatchButton';
+import { BookNowButton, OrCallNote, TextDispatchButton } from './CallDispatchButton';
 
 export interface Crumb {
   label: string;
@@ -145,7 +145,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
               <OrCallNote onDark />
             </>
           ) : (
-            <><CallDispatchButton label={ctaLabel} variant="onDark" /><TextDispatchButton onDark /></>
+            <TextDispatchButton onDark />
           )}
         </div>
       )}

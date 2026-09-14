@@ -24,9 +24,9 @@ export default function ContactPage() {
         compact
         eyebrow="24/7 Concierge Dispatch"
         title="Talk to a person."
-        subtitle="Call or text 919-435-2157 to plan your ride. For immediate arrangements, call our dispatch desk; for corporate accounts and roadshow pricing, email us."
+        subtitle="Text 919-435-2157 to plan your ride. For corporate accounts and roadshow pricing, you can also email our dispatch desk."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
-        ctaLabel="Call 24/7 Dispatch"
+        ctaLabel="Text 24/7 Dispatch"
         cta="call"
       image="/images/chauffeur-suburban.jpg"
       />

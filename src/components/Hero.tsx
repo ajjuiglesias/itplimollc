@@ -126,16 +126,6 @@ export const Hero: React.FC = () => {
             </Link>
 
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
-            <a
-              href="tel:19194352157"
-              className="inline-flex min-h-[44px] items-center gap-2.5 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold text-white/75 transition-opacity hover:opacity-100"
-            >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              </span>
-              Call 24/7<span className="hidden sm:inline"> — +1 (919) 435-2157</span>
-            </a>
             <TextDispatchButton onDark />
             </div>
           </div>
@@ -144,7 +134,7 @@ export const Hero: React.FC = () => {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] text-white/80 font-medium">
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill">
               <Shield className="w-3.5 h-3.5 text-emerald-400" />
-              <span>2026 Guaranteed Fleet</span>
+              <span>2026 Executive Fleet</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill">
               <Plane className="w-3.5 h-3.5 text-emerald-400" />

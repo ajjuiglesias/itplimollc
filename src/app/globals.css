@@ -313,3 +313,16 @@
   border: 1px solid rgba(212, 175, 55, 0.32);
   color: #E2C974;
 }
+
+@keyframes textDispatchBreathe {
+  0%, 100% { opacity: 0.72; text-shadow: 0 0 0 rgba(226, 201, 116, 0); }
+  50% { opacity: 1; text-shadow: 0 0 13px rgba(226, 201, 116, 0.75); }
+}
+
+.text-dispatch-breathe {
+  animation: textDispatchBreathe 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-dispatch-breathe { animation: none; }
+}

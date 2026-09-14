@@ -97,15 +97,7 @@ export const FaqSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex shrink-0 flex-wrap items-center gap-3">
           <TextDispatchButton />
-          <a
-            href="tel:19194352157"
-            className="shrink-0 px-6 py-2.5 rounded-full border border-black/15 dark:border-white/20 text-xs uppercase tracking-widest font-extrabold text-[#171717] dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap"
-          >
-            Call Dispatch Desk
-          </a>
-          </div>
         </div>
       </div>
     </section>

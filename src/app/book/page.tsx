@@ -24,7 +24,7 @@ export default function BookPage() {
         title="Book your ride."
         subtitle="Enter your journey details below. For multi-vehicle plans or same-day changes, call or text our dispatch desk."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Book' }]}
-        ctaLabel="Call 24/7 Dispatch"
+        ctaLabel="Text 24/7 Dispatch"
         cta="call"
       image="/images/sprinter-front.jpg"
       />

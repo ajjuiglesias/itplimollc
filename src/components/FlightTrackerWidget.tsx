@@ -68,7 +68,7 @@ export const FlightTrackerWidget: React.FC = () => {
 
             <p className="text-sm text-[#66625C] dark:text-[#B8B8B8] font-light leading-relaxed">
               Never worry about flight delays, early landings, or gate changes at RDU Airport. 
-              Our dispatch software connects directly to Federal Aviation radar feeds. Your chauffeur automatically adjusts pickup timing so you step off the plane into waiting luxury.
+              Share your flight number or private-aircraft tail number when booking. Dispatch can follow available status updates and coordinate your pickup around the latest arrival information.
             </p>
 
             <div className="space-y-3 pt-2">

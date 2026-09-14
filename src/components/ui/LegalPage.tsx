@@ -33,7 +33,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
       title={title}
       subtitle={subtitle}
       crumbs={[{ label: 'Home', href: '/' }, { label: crumbLabel }]}
-      ctaLabel="Questions? Call Dispatch"
+      ctaLabel="Questions? Text Dispatch"
     />
 
     <section className="bg-white py-24 transition-colors duration-500 sm:py-32 dark:bg-[#141414]">
